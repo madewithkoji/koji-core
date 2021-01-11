@@ -2,10 +2,10 @@
   "name": "new-koji-package",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist --source-maps --copy-files",
-    "watch": "nodemon --watch ./src/** --ext ts,json --ignore src/**/*.spec.ts --exec babel ./src --out-dir ./dist --source-maps --copy-files",
+    "watch": "nodemon --watch ./src/** --ext ts,json --ignore src/**/*.spec.ts --exec babel ./src --out-dir ./dist --source-maps --copy-files --extensions '.ts'",
     "test": "npm run check-types",
     "check-types": "tsc",
     "generate-declarations": "tsc --emitDeclarationOnly"

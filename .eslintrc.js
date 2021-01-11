@@ -16,5 +16,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'max-len': 0,
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
 };
