@@ -1,3 +1,5 @@
+import { client } from '../@decorators/client';
+
 type EditorType = 'instant' | 'full';
 type EditorMode = 'edit' | 'new';
 
@@ -7,20 +9,11 @@ interface EditorAttributes {
 }
 
 /** Class representing the remix state. */
-export default class Remix {
-  isRemixing: boolean;
-
-  observers: Array<Function>;
-
-  editorAttributes: EditorAttributes;
+export class Remix {
+  private observers: Array<Function>;
 
   constructor() {
-    this.isRemixing = false;
     this.observers = [];
-    this.editorAttributes = {
-      type: undefined,
-      mode: undefined,
-    };
   }
 
   register() {
@@ -31,9 +24,7 @@ export default class Remix {
       if (event === 'KojiPreview.IsRemixing') {
         const { isRemixing, editorAttributes = {} } = data;
         try {
-          this.isRemixing = isRemixing;
           this.notify(isRemixing, editorAttributes);
-          this.editorAttributes = editorAttributes || {};
         } catch (err) {
           console.log(err);
         }
@@ -42,11 +33,12 @@ export default class Remix {
   }
 
   /**
-   * Subscribe to platform updates about remix state.
-   * @param {function} callback: The callback that will run when remix state changes.
-   * @return {function} The unsubscribe function.
+   * Subscribe to something new.
+   * @param The callback that will run when remix state changes.
+   * @return The unsubscribe function.
    */
-  subscribe(callback: (isRemixing: boolean, editorAttributes: EditorAttributes) => () => void) {
+  @client
+  subscribe(callback: Function) {
     this.observers.push(callback);
 
     return () => {
@@ -54,7 +46,7 @@ export default class Remix {
     };
   }
 
-  notify(isRemixing: boolean, editorAttributes: EditorAttributes) {
+  private notify(isRemixing: boolean, editorAttributes: EditorAttributes) {
     this.observers.forEach((observer) => {
       observer(isRemixing, editorAttributes);
     });
@@ -62,3 +54,5 @@ export default class Remix {
 }
 
 export interface IRemix extends Remix {}
+
+export const remix = new Remix();

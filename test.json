@@ -1,0 +1,1753 @@
+{
+	"id": 0,
+	"name": "new-koji-package",
+	"kind": 0,
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 1,
+			"name": "@decorators/client",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 2,
+					"name": "client",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"decorates": [
+						{
+							"type": "reference",
+							"id": 11,
+							"name": "track"
+						},
+						{
+							"type": "reference",
+							"id": 19,
+							"name": "track"
+						},
+						{
+							"type": "reference",
+							"id": 34,
+							"name": "startPurchase"
+						},
+						{
+							"type": "reference",
+							"id": 45,
+							"name": "startPurchase"
+						},
+						{
+							"type": "reference",
+							"id": 67,
+							"name": "subscribe"
+						},
+						{
+							"type": "reference",
+							"id": 88,
+							"name": "subscribe"
+						}
+					],
+					"sources": [
+						{
+							"fileName": "@decorators/client.ts",
+							"line": 2,
+							"character": 22
+						}
+					],
+					"signatures": [
+						{
+							"id": 3,
+							"name": "client",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 4,
+									"name": "target",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Object"
+									}
+								},
+								{
+									"id": 5,
+									"name": "propertyKey",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 6,
+									"name": "descriptor",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "PropertyDescriptor"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						2
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "@decorators/client.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "analytics",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 8,
+					"name": "Analytics",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 9,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 10,
+									"name": "new Analytics",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 8,
+										"name": "Analytics"
+									}
+								}
+							]
+						},
+						{
+							"id": 11,
+							"name": "track",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "client"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "analytics/index.ts",
+									"line": 10,
+									"character": 7
+								}
+							],
+							"signatures": [
+								{
+									"id": 12,
+									"name": "track",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Report a trackable event."
+									},
+									"parameters": [
+										{
+											"id": 13,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "Name of the event, e.g., ButtonClicked"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 14,
+											"name": "payload",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"text": "List of custom key-value pairs to save with the event.\n"
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 15,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"indexSignature": {
+														"id": 16,
+														"name": "__index",
+														"kind": 8192,
+														"kindString": "Index signature",
+														"flags": {},
+														"parameters": [
+															{
+																"id": 17,
+																"name": "index",
+																"kind": 32768,
+																"flags": {},
+																"type": {
+																	"type": "intrinsic",
+																	"name": "string"
+																}
+															}
+														],
+														"type": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								9
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								11
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "analytics/index.ts",
+							"line": 3,
+							"character": 22
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"id": 18,
+							"name": "IAnalytics"
+						}
+					]
+				},
+				{
+					"id": 18,
+					"name": "IAnalytics",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 19,
+							"name": "track",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "client"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "analytics/index.ts",
+									"line": 10,
+									"character": 7
+								}
+							],
+							"signatures": [
+								{
+									"id": 20,
+									"name": "track",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Report a trackable event."
+									},
+									"parameters": [
+										{
+											"id": 21,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "Name of the event, e.g., ButtonClicked"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 22,
+											"name": "payload",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"text": "List of custom key-value pairs to save with the event.\n"
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 23,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"indexSignature": {
+														"id": 24,
+														"name": "__index",
+														"kind": 8192,
+														"kindString": "Index signature",
+														"flags": {},
+														"parameters": [
+															{
+																"id": 25,
+																"name": "index",
+																"kind": 32768,
+																"flags": {},
+																"type": {
+																	"type": "intrinsic",
+																	"name": "string"
+																}
+															}
+														],
+														"type": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 12,
+										"name": "Analytics.track"
+									}
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 11,
+								"name": "Analytics.track"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								19
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "analytics/index.ts",
+							"line": 24,
+							"character": 27
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 8,
+							"name": "Analytics"
+						}
+					]
+				},
+				{
+					"id": 26,
+					"name": "analytics",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "analytics/index.ts",
+							"line": 26,
+							"character": 22
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 8,
+						"name": "Analytics"
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						8
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						18
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						26
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "analytics/index.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 27,
+			"name": "iap",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 31,
+					"name": "IAP",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 32,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 33,
+									"name": "new IAP",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 31,
+										"name": "IAP"
+									}
+								}
+							]
+						},
+						{
+							"id": 34,
+							"name": "startPurchase",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "client"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "iap/index.ts",
+									"line": 10,
+									"character": 15
+								}
+							],
+							"signatures": [
+								{
+									"id": 35,
+									"name": "startPurchase",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 36,
+											"name": "sku",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 37,
+											"name": "callback",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 38,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 39,
+															"name": "__type",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 40,
+																	"name": "success",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "boolean"
+																	}
+																},
+																{
+																	"id": 41,
+																	"name": "userToken",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	}
+																},
+																{
+																	"id": 42,
+																	"name": "receiptId",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isOptional": true
+																	},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													]
+												}
+											}
+										},
+										{
+											"id": 43,
+											"name": "purchaseOptions",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"id": 28,
+												"name": "PurchaseOptions"
+											},
+											"defaultValue": "..."
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								32
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								34
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "iap/index.ts",
+							"line": 8,
+							"character": 16
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"id": 44,
+							"name": "IIAP"
+						}
+					]
+				},
+				{
+					"id": 44,
+					"name": "IIAP",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 45,
+							"name": "startPurchase",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "client"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "iap/index.ts",
+									"line": 10,
+									"character": 15
+								}
+							],
+							"signatures": [
+								{
+									"id": 46,
+									"name": "startPurchase",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 47,
+											"name": "sku",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 48,
+											"name": "callback",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 49,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 50,
+															"name": "__type",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 51,
+																	"name": "success",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "boolean"
+																	}
+																},
+																{
+																	"id": 52,
+																	"name": "userToken",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	}
+																},
+																{
+																	"id": 53,
+																	"name": "receiptId",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isOptional": true
+																	},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	}
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													]
+												}
+											}
+										},
+										{
+											"id": 54,
+											"name": "purchaseOptions",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"id": 28,
+												"name": "PurchaseOptions"
+											},
+											"defaultValue": "..."
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 35,
+										"name": "IAP.startPurchase"
+									}
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 34,
+								"name": "IAP.startPurchase"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								45
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "iap/index.ts",
+							"line": 26,
+							"character": 21
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 31,
+							"name": "IAP"
+						}
+					]
+				},
+				{
+					"id": 28,
+					"name": "PurchaseOptions",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 29,
+							"name": "amount",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "iap/index.ts",
+									"line": 4,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						},
+						{
+							"id": 30,
+							"name": "customMessage",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "iap/index.ts",
+									"line": 5,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								29,
+								30
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "iap/index.ts",
+							"line": 3,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 55,
+					"name": "iap",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "iap/index.ts",
+							"line": 28,
+							"character": 16
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 31,
+						"name": "IAP"
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						31
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						44,
+						28
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						55
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "iap/index.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 56,
+			"name": "index",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 57,
+					"name": "default",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"name": "Koji"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						57
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 58,
+			"name": "remix",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {},
+			"children": [
+				{
+					"id": 59,
+					"name": "Remix",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"comment": {
+						"shortText": "Class representing the remix state."
+					},
+					"children": [
+						{
+							"id": 60,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 61,
+									"name": "new Remix",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 59,
+										"name": "Remix"
+									}
+								}
+							]
+						},
+						{
+							"id": 64,
+							"name": "editorAttributes",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 17,
+									"character": 18
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "EditorAttributes"
+							}
+						},
+						{
+							"id": 62,
+							"name": "isRemixing",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 13,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 63,
+							"name": "observers",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 15,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "Function"
+								}
+							}
+						},
+						{
+							"id": 78,
+							"name": "notify",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 60,
+									"character": 16
+								}
+							],
+							"signatures": [
+								{
+									"id": 79,
+									"name": "notify",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 80,
+											"name": "isRemixing",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "boolean"
+											}
+										},
+										{
+											"id": 81,
+											"name": "editorAttributes",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "EditorAttributes"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 65,
+							"name": "register",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 28,
+									"character": 10
+								}
+							],
+							"signatures": [
+								{
+									"id": 66,
+									"name": "register",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						},
+						{
+							"id": 67,
+							"name": "subscribe",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "client"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 52,
+									"character": 11
+								}
+							],
+							"signatures": [
+								{
+									"id": 68,
+									"name": "subscribe",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Subscribe to platform updates about remix state.",
+										"returns": "The unsubscribe function.\n"
+									},
+									"parameters": [
+										{
+											"id": 69,
+											"name": "callback",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 70,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 71,
+															"name": "__type",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 72,
+																	"name": "isRemixing",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "boolean"
+																	}
+																},
+																{
+																	"id": 73,
+																	"name": "editorAttributes",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "reference",
+																		"name": "EditorAttributes"
+																	}
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 74,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {},
+																	"signatures": [
+																		{
+																			"id": 75,
+																			"name": "__type",
+																			"kind": 4096,
+																			"kindString": "Call signature",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "void"
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 76,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 77,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								60
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								64,
+								62,
+								63
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								78,
+								65,
+								67
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "remix/index.ts",
+							"line": 12,
+							"character": 18
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"id": 82,
+							"name": "IRemix"
+						}
+					]
+				},
+				{
+					"id": 82,
+					"name": "IRemix",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 85,
+							"name": "editorAttributes",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 17,
+									"character": 18
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "EditorAttributes"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 64,
+								"name": "Remix.editorAttributes"
+							}
+						},
+						{
+							"id": 83,
+							"name": "isRemixing",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 13,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 62,
+								"name": "Remix.isRemixing"
+							}
+						},
+						{
+							"id": 84,
+							"name": "observers",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 15,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"name": "Function"
+								}
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 63,
+								"name": "Remix.observers"
+							}
+						},
+						{
+							"id": 86,
+							"name": "register",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 28,
+									"character": 10
+								}
+							],
+							"signatures": [
+								{
+									"id": 87,
+									"name": "register",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 66,
+										"name": "Remix.register"
+									}
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 65,
+								"name": "Remix.register"
+							}
+						},
+						{
+							"id": 88,
+							"name": "subscribe",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 2,
+										"name": "client"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "remix/index.ts",
+									"line": 52,
+									"character": 11
+								}
+							],
+							"signatures": [
+								{
+									"id": 89,
+									"name": "subscribe",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Subscribe to platform updates about remix state.",
+										"returns": "The unsubscribe function.\n"
+									},
+									"parameters": [
+										{
+											"id": 90,
+											"name": "callback",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 91,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 92,
+															"name": "__type",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 93,
+																	"name": "isRemixing",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "boolean"
+																	}
+																},
+																{
+																	"id": 94,
+																	"name": "editorAttributes",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "reference",
+																		"name": "EditorAttributes"
+																	}
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 95,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {},
+																	"signatures": [
+																		{
+																			"id": 96,
+																			"name": "__type",
+																			"kind": 4096,
+																			"kindString": "Call signature",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "void"
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 97,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 98,
+													"name": "__type",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"id": 68,
+										"name": "Remix.subscribe"
+									}
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 67,
+								"name": "Remix.subscribe"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								85,
+								83,
+								84
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								86,
+								88
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "remix/index.ts",
+							"line": 67,
+							"character": 23
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"id": 59,
+							"name": "Remix"
+						}
+					]
+				},
+				{
+					"id": 99,
+					"name": "remix",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "remix/index.ts",
+							"line": 69,
+							"character": 18
+						}
+					],
+					"type": {
+						"type": "reference",
+						"id": 59,
+						"name": "Remix"
+					},
+					"defaultValue": "..."
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						59
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						82
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						99
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "remix/index.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Modules",
+			"kind": 1,
+			"children": [
+				1,
+				7,
+				27,
+				56,
+				58
+			]
+		}
+	]
+}
