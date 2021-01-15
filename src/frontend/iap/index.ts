@@ -6,6 +6,21 @@ export interface PurchaseOptions {
 }
 
 export class IAP {
+  purchaseCallback?: Function;
+
+  register() {
+    window.addEventListener('message', ({ data }) => {
+      const { event } = data;
+
+      if (event === 'KojiIap.PurchaseFinished') {
+        if (!this.purchaseCallback) throw new Error('Received purchase information but no purchase has been started');
+
+        this.purchaseCallback(data.success, data.userToken, data.receiptId);
+        this.purchaseCallback = undefined;
+      }
+    });
+  }
+
   /**
    * Begin a purchase flow by prompting the user for payment.
    * @param sku The string you have defined in your product entitlement.
@@ -18,6 +33,8 @@ export class IAP {
     callback: (success: boolean, userToken: string, receiptId?: string) => void,
     purchaseOptions: PurchaseOptions = {},
   ) {
+    this.purchaseCallback = callback;
+
     window.parent.postMessage(
       {
         _kojiEventName: '@@koji/iap/promptPurchase',
