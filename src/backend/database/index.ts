@@ -20,6 +20,19 @@ export enum ApiRoutes {
   UPDATE = '/v1/store/update',
 }
 
+export enum PredicateOperator {
+  LESS_THAN = '<',
+  LESS_THAN_OR_EQUAL_TO = '<=',
+  EQUAL_TO = '==',
+  GREATER_THAN = '>',
+  GREATER_THAN_OR_EQUAL_TO = '>=',
+  NOT_EQUAL_TO = '!=',
+  ARRAY_CONTAINS = 'array-contains',
+  ARRAY_CONTAINS_ANY = 'array-contains-any',
+  IN = 'in',
+  NOT_IN = 'not-in',
+}
+
 export class Database {
   private projectId: string;
   private projectToken: string;
@@ -46,46 +59,39 @@ export class Database {
    */
   @server
   public async get<T>(collection: string, documentName?: string | null): Promise<T> {
-    try {
-      const { data } = await axios(`${this.rootPath}${ApiRoutes.GET}`, {
-        headers: this.rootHeaders,
-        method: 'POST',
-        data: {
-          collection,
-          documentName,
-        },
-      });
-
-      return data.document;
-    } catch (err) {
-      if (err.statusCode === 404) {
-        throw new Error('Document not found');
-      } else {
-        throw new Error('Service error');
-      }
-    }
+    const { data } = await axios(`${this.rootPath}${ApiRoutes.GET}`, {
+      headers: this.rootHeaders,
+      method: 'POST',
+      data: {
+        collection,
+        documentName,
+      },
+    });
+    return data.document;
   }
 
   /**
    * Retrieve all of the collections that have been created.
    */
-  public async getCollections<T>(): Promise<T> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.GET_COLLECTIONS}`, {
+  public async getCollections(): Promise<string[]> {
+    const {
+      data: { collections = [] },
+    } = await axios(`${this.rootPath}${ApiRoutes.GET_COLLECTIONS}`, {
       headers: this.rootHeaders,
       method: 'POST',
       data: {},
     });
 
-    return data;
+    return collections;
   }
 
   /**
    * Search for a particular document inside a collection using a key value match.
-   * @param collection The name of the collection
-   * @param queryKey The key to search against
-   * @param queryValue The key value to match
+   * @param {string} collection The name of the collection
+   * @param {string} queryKey The key to search against
+   * @param {string} queryValue The key value to match
    */
-  public async search<T>(collection: string, queryKey: string, queryValue: string): Promise<T> {
+  public async search<T>(collection: string, queryKey: string, queryValue: string): Promise<T[]> {
     const { data } = await axios(`${this.rootPath}${ApiRoutes.SEARCH}`, {
       headers: this.rootHeaders,
       method: 'POST',
@@ -102,7 +108,7 @@ export class Database {
   public async getWhere<T>(
     collection: string,
     predicateKey: string,
-    predicateOperation: string,
+    predicateOperation: PredicateOperator,
     predicateValue: string,
   ): Promise<T> {
     const { data } = await axios(`${this.rootPath}${ApiRoutes.GET}`, {
@@ -118,7 +124,7 @@ export class Database {
       },
     });
 
-    return data;
+    return data.document;
   }
 
   public async getAll<T>(collection: string, documentNames: string[]): Promise<T[]> {
@@ -137,7 +143,7 @@ export class Database {
   public async getAllWhere<T>(
     collection: string,
     predicateKey: string,
-    predicateOperation: string,
+    predicateOperation: PredicateOperator,
     predicateValues: string[],
   ): Promise<T[]> {
     const { data } = await axios(`${this.rootPath}${ApiRoutes.GET_ALL_WHERE}`, {
@@ -151,7 +157,7 @@ export class Database {
       },
     });
 
-    return data;
+    return data.results;
   }
 
   /**
