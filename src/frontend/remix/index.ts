@@ -1,4 +1,4 @@
-import { PlatformCommunication } from '../platformCommunication';
+import { KojiBridge } from '../bridge';
 import { client } from '../@decorators/client';
 
 type EditorType = 'instant' | 'full';
@@ -20,7 +20,7 @@ type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttribut
  * @param {string} editorAttributes.mode - The editor mode.
  */
 
-export class Remix extends PlatformCommunication {
+export class Remix extends KojiBridge {
   /**
    * Subscribe to updates to the remix state
    * @param {isRemixingCallback} callback - The callback that handles the response.
@@ -36,7 +36,5 @@ export class Remix extends PlatformCommunication {
     );
   }
 }
-
-export interface IRemix extends Remix {}
 
 export const remix = new Remix();

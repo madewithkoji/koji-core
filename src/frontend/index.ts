@@ -1,6 +1,7 @@
-import { analytics, IAnalytics } from './analytics';
-import { iap, IIAP } from './iap';
-import { remix, IRemix } from './remix';
+import { analytics, Analytics } from './analytics';
+import { iap, IAP } from './iap';
+import { identity, Identity } from './identity';
+import { remix, Remix } from './remix';
 
 class Koji {
   projectId?: string;
@@ -8,9 +9,10 @@ class Koji {
 
   isReady: boolean;
 
-  analytics: IAnalytics;
-  iap: IIAP;
-  remix: IRemix;
+  analytics: Analytics;
+  iap: IAP;
+  identity: Identity;
+  remix: Remix;
 
   constructor() {
     this.isReady = false;
@@ -20,6 +22,7 @@ class Koji {
 
     this.analytics = analytics;
     this.iap = iap;
+    this.identity = identity;
     this.remix = remix;
   }
 

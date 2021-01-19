@@ -21,6 +21,4 @@ export class Analytics {
   }
 }
 
-export interface IAnalytics extends Analytics {}
-
 export const analytics = new Analytics();

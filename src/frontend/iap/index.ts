@@ -1,3 +1,4 @@
+import { KojiBridge } from '../bridge';
 import { client } from '../@decorators/client';
 
 export interface PurchaseOptions {
@@ -5,7 +6,13 @@ export interface PurchaseOptions {
   customMessage?: string;
 }
 
-export class IAP {
+export interface Purchase {
+  success: boolean;
+  userToken: UserToken;
+  receiptId?: string;
+}
+
+export class IAP extends KojiBridge {
   purchaseCallback?: Function;
 
   register() {
@@ -24,28 +31,28 @@ export class IAP {
   /**
    * Begin a purchase flow by prompting the user for payment.
    * @param sku The string you have defined in your product entitlement.
-   * @param callback Called when the purchase flow is completed.
    * @param purchaseOptions If you are using dynamic pricing, you can pass an amount and custom message.
+   * @returns {Object} purchase Returned after the user completes or cancels the purchase
+   * @returns {Boolean} purchase.success Returns true if the purchase was completed
+   * @returns {String} purchase.userToken A token identifying the user
+   * @returns {String} purchase.receiptId The id of the receipt if the purchase was completed
    */
   @client
-  startPurchase(
-    sku: string,
-    callback: (success: boolean, userToken: string, receiptId?: string) => void,
-    purchaseOptions: PurchaseOptions = {},
-  ) {
-    this.purchaseCallback = callback;
-
-    window.parent.postMessage(
-      {
-        _kojiEventName: '@@koji/iap/promptPurchase',
+  async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
+    const { success, userToken, receiptId } = await this.postToPlatform({
+      name: '@@koji/iap/promptPurchase',
+      data: {
         sku,
         purchaseOptions,
       },
-      '*',
-    );
+    }, 'KojiIap.PurchaseFinished');
+
+    return {
+      success,
+      userToken,
+      receiptId,
+    };
   }
 }
-
-export interface IIAP extends IAP {}
 
 export const iap = new IAP();

@@ -1,4 +1,4 @@
-export class PlatformCommunication {
+export class KojiBridge {
   /**
    * A wrapper for pub/sub style communication with the platform
    * @param callback The function to execute when the platform sends a post message
