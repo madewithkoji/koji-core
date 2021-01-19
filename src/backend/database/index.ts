@@ -2,11 +2,7 @@ import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 
-export enum ApiEndpoints {
-  PRODUCTION = 'https://database.api.gokoji.com',
-}
-
-export enum ApiRoutes {
+export enum DatabaseRoutes {
   ARRAY_PUSH = '/v1/store/update/push',
   ARRAY_REMOVE = '/v1/store/update/remove',
   DELETE = '/v1/store/delete',
@@ -45,7 +41,7 @@ export class Database extends Base {
   constructor(config: BackendConfigurationInput) {
     super(config);
 
-    this.rootPath = ApiEndpoints.PRODUCTION;
+    this.rootPath = ApiEndpoints.DATABASE_PRODUCTION;
 
     this.rootHeaders = {
       'X-Koji-Project-Id': this.projectId,
@@ -61,7 +57,7 @@ export class Database extends Base {
    */
   @server
   public async get<T>(collection: string, documentName?: string | null): Promise<T> {
-    const { data } = await axios.post(`${this.rootPath}${ApiRoutes.GET}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET}`, {
       headers: this.rootHeaders,
       data: {
         collection,
@@ -74,12 +70,12 @@ export class Database extends Base {
   /**
    * Retrieve all of the collections that have been created.
    */
+  @server
   public async getCollections(): Promise<string[]> {
     const {
       data: { collections = [] },
-    } = await axios(`${this.rootPath}${ApiRoutes.GET_COLLECTIONS}`, {
+    } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_COLLECTIONS}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {},
     });
 
@@ -92,10 +88,10 @@ export class Database extends Base {
    * @param {string} queryKey The key to search against
    * @param {string} queryValue The key value to match
    */
+  @server
   public async search<T>(collection: string, queryKey: string, queryValue: string): Promise<T[]> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.SEARCH}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.SEARCH}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         queryKey,
@@ -113,15 +109,15 @@ export class Database extends Base {
    * @param predicateOperation The operator for comparison
    * @param predicateValue The comparison value
    */
+  @server
   public async getWhere<T>(
     collection: string,
     predicateKey: string,
     predicateOperation: PredicateOperator,
     predicateValue: string,
   ): Promise<T> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.GET}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         predicate: {
@@ -140,10 +136,10 @@ export class Database extends Base {
    * @param collection The collection to query
    * @param documentNames An array of ids
    */
+  @server
   public async getAll<T>(collection: string, documentNames: string[]): Promise<T[]> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.GET_ALL}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_ALL}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         documentNames,
@@ -160,15 +156,15 @@ export class Database extends Base {
    * @param predicateOperation The operator for comparison
    * @param predicateValue The comparison value
    */
+  @server
   public async getAllWhere<T>(
     collection: string,
     predicateKey: string,
     predicateOperation: PredicateOperator,
     predicateValues: string[],
   ): Promise<T[]> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.GET_ALL_WHERE}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_ALL_WHERE}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         predicateKey,
@@ -188,9 +184,8 @@ export class Database extends Base {
    */
   @server
   public async set(collection: string, documentName: string, documentBody: any): Promise<boolean> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.SET}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.SET}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         documentBody,
@@ -207,10 +202,10 @@ export class Database extends Base {
    * @param documentName The id of the document
    * @param documentBody The updated key/value pairs to merge into the document
    */
+  @server
   public async update(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.UPDATE}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.UPDATE}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         documentBody,
@@ -227,10 +222,10 @@ export class Database extends Base {
    * @param documentName The id of the document to update
    * @param documentBody A set of key/value pairs. The key should match the document key where the array is stored. The value will be pushed into that array.
    */
+  @server
   public async arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.ARRAY_PUSH}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         documentBody,
@@ -247,10 +242,10 @@ export class Database extends Base {
    * @param documentName The id of the document to update
    * @param documentBody A set of key/value pairs. The key should match the document key where the array is stored. All entries that match the value will be removed from the array.
    */
+  @server
   public async arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.ARRAY_REMOVE}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         documentBody,
@@ -266,10 +261,10 @@ export class Database extends Base {
    * @param collection The collection to query
    * @param documentName The id of the document to delete
    */
+  @server
   public async delete(collection: string, documentName: string): Promise<boolean | void> {
-    const { data } = await axios(`${this.rootPath}${ApiRoutes.DELETE}`, {
+    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.DELETE}`, {
       headers: this.rootHeaders,
-      method: 'POST',
       data: {
         collection,
         documentName,
