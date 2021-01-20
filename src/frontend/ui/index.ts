@@ -1,36 +1,8 @@
 import { KojiBridge } from '../bridge';
-import { client } from '../@decorators/client';
-
-interface ColorControlOptions {
-  allowAlpha?: boolean;
-  verbose?: boolean;
-}
-
-interface Color {
-  event: string;
-  result: string;
-  status: string;
-  type: string;
-}
+import { capture, Capture } from './capture';
 
 export class UI extends KojiBridge {
-  @client
-  async presentColorControl(options: ColorControlOptions = {}): Promise<string | Color> {
-    const data: Color = await this.postToPlatform(
-      {
-        kojiEventName: 'Koji.Capture',
-        data: {
-          type: 'color',
-          options,
-        },
-      },
-      'Koji.CaptureSuccess',
-    );
-
-    if (options.verbose) return data;
-
-    return data.result;
-  }
+  capture: Capture = capture;
 }
 
 export const ui = new UI();
