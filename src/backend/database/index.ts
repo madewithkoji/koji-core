@@ -41,7 +41,7 @@ export class Database extends Base {
   constructor(config: BackendConfigurationInput) {
     super(config);
 
-    this.rootPath = ApiEndpoints.DATABASE_PRODUCTION;
+    this.rootPath = 'https://database.api.gokoji.com';
 
     this.rootHeaders = {
       'X-Koji-Project-Id': this.projectId,

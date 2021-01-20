@@ -42,7 +42,7 @@ export class Identity extends Base {
   constructor(config: BackendConfigurationInput) {
     super(config);
 
-    this.rootPath = ApiEndpoints.REST_PRODUCTION;
+    this.rootPath = 'https://rest.api.gokoji.com';
 
     this.rootHeaders = {
       'X-Koji-Project-Id': this.projectId,

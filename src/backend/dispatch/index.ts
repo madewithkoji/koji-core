@@ -13,6 +13,9 @@ import Sockette from 'sockette';
 import axios from 'axios';
 import { Base, BackendConfigurationInput } from '../base';
 
+const unsafeGlobal: any = global;
+unsafeGlobal.WebSocket = require('isomorphic-ws');
+
 interface DispatchConfigurationInput extends BackendConfigurationInput {
   shardName?: string | null;
   maxConnectionsPerShard?: number;
@@ -82,7 +85,7 @@ export class Dispatch extends Base {
     }, []);
 
     this.authToken = config.authorization;
-    this.url = `${ApiEndpoints.DISPATCH_PRODUCTION}?${params.join('&')}`;
+    this.url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
   }
 
   async info(): Promise<ShardInfo[]> {
@@ -146,7 +149,7 @@ export class Dispatch extends Base {
     this.isConnected = false;
   }
 
-  handleError(e) {
+  handleError(e: Event) {
     console.error('[Koji Dispatch] error', e);
   }
 

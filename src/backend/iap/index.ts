@@ -34,7 +34,7 @@ export class IAP {
     this.projectId = res.locals.projectId || process.env.KOJI_PROJECT_ID;
     this.projectToken = res.locals.projectToken || process.env.KOJI_PROJECT_TOKEN;
 
-    this.rootPath = ApiEndpoints.REST_PRODUCTION;
+    this.rootPath = 'https://rest.api.gokoji.com';
 
     this.rootHeaders = {
       'X-Koji-Project-Id': this.projectId,
