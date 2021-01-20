@@ -33,12 +33,6 @@ export class Identity extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
-  /**
-   * @param config Information about the project
-   * @param config.projectId The projectId (This will override data passed through res)
-   * @param config.projectToken The projectToken (This will override data passed through res)
-   * @param config.res An express response object (Used in conjunction with KojiBackend.middleware)
-   */
   constructor(config: BackendConfigurationInput) {
     super(config);
 

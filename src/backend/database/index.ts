@@ -32,12 +32,6 @@ export class Database extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
-  /**
-   * @param config Information about the project
-   * @param config.projectId The projectId (This will override data passed through res)
-   * @param config.projectToken The projectToken (This will override data passed through res)
-   * @param config.res An express response object (Used in conjunction with KojiBackend.middleware)
-   */
   constructor(config: BackendConfigurationInput) {
     super(config);
 
@@ -50,11 +44,6 @@ export class Database extends Base {
     };
   }
 
-  /**
-   * Get a document from a collection
-   * @param collection Name of the collection
-   * @param documentName Key where the document is stored
-   */
   @server
   public async get<T>(collection: string, documentName?: string | null): Promise<T> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET}`, {
@@ -67,9 +56,6 @@ export class Database extends Base {
     return data.document;
   }
 
-  /**
-   * Retrieve all of the collections that have been created.
-   */
   @server
   public async getCollections(): Promise<string[]> {
     const {
@@ -82,12 +68,6 @@ export class Database extends Base {
     return collections;
   }
 
-  /**
-   * Search for a particular document inside a collection using a key value match.
-   * @param {string} collection The name of the collection
-   * @param {string} queryKey The key to search against
-   * @param {string} queryValue The key value to match
-   */
   @server
   public async search<T>(collection: string, queryKey: string, queryValue: string): Promise<T[]> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.SEARCH}`, {
@@ -102,13 +82,6 @@ export class Database extends Base {
     return data;
   }
 
-  /**
-   * Get a single document that matches the key/operator/value predicate
-   * @param collection The collection to query
-   * @param predicateKey The key/field where the value is stored
-   * @param predicateOperation The operator for comparison
-   * @param predicateValue The comparison value
-   */
   @server
   public async getWhere<T>(
     collection: string,
@@ -131,11 +104,6 @@ export class Database extends Base {
     return data.document;
   }
 
-  /**
-   * Get all of the documents in a given collection that match a supplied name
-   * @param collection The collection to query
-   * @param documentNames An array of ids
-   */
   @server
   public async getAll<T>(collection: string, documentNames: string[]): Promise<T[]> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_ALL}`, {
@@ -149,13 +117,6 @@ export class Database extends Base {
     return data.results;
   }
 
-  /**
-   * Get all of the documents that match the key/operator/value predicate
-   * @param collection The collection to query
-   * @param predicateKey The key/field where the value is stored
-   * @param predicateOperation The operator for comparison
-   * @param predicateValue The comparison value
-   */
   @server
   public async getAllWhere<T>(
     collection: string,
@@ -176,12 +137,6 @@ export class Database extends Base {
     return data.results;
   }
 
-  /**
-   * Set a document in a collection
-   * @param collection Name of the collection
-   * @param documentName Key where the document is stored
-   * @param documentBody Body of the document
-   */
   @server
   public async set(collection: string, documentName: string, documentBody: any): Promise<boolean> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.SET}`, {
@@ -196,12 +151,6 @@ export class Database extends Base {
     return data;
   }
 
-  /**
-   * Update the values of an existing document
-   * @param collection The collection to target
-   * @param documentName The id of the document
-   * @param documentBody The updated key/value pairs to merge into the document
-   */
   @server
   public async update(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.UPDATE}`, {
@@ -216,12 +165,6 @@ export class Database extends Base {
     return data;
   }
 
-  /**
-   * Push a new value into an array on an existing doc. If the array does not exist, it will be created.
-   * @param collection The collection to query
-   * @param documentName The id of the document to update
-   * @param documentBody A set of key/value pairs. The key should match the document key where the array is stored. The value will be pushed into that array.
-   */
   @server
   public async arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`, {
@@ -236,12 +179,6 @@ export class Database extends Base {
     return data;
   }
 
-  /**
-   * Remove a value from an array on an existing doc.
-   * @param collection The collection to query
-   * @param documentName The id of the document to update
-   * @param documentBody A set of key/value pairs. The key should match the document key where the array is stored. All entries that match the value will be removed from the array.
-   */
   @server
   public async arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`, {
@@ -256,11 +193,6 @@ export class Database extends Base {
     return data;
   }
 
-  /**
-   * Delete a document. Note: This action is irreversible!
-   * @param collection The collection to query
-   * @param documentName The id of the document to delete
-   */
   @server
   public async delete(collection: string, documentName: string): Promise<boolean | void> {
     const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.DELETE}`, {

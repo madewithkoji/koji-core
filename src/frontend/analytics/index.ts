@@ -1,11 +1,6 @@
 import { client } from '../@decorators/client';
 
 export class Analytics {
-  /**
-   * Report a trackable event.
-   * @param event Name of the event, e.g., ButtonClicked
-   * @param payload List of custom key-value pairs to save with the event.
-   */
   @client
   track(event: string, payload?: { [index: string]: any }): boolean {
     window.parent.postMessage(

@@ -1,11 +1,16 @@
+interface MessageListenerData {
+  event: string;
+  token?: string;
+}
+
+interface PostMessage {
+  kojiEventName: string;
+  data?: any;
+}
+
 export class KojiBridge {
-  /**
-   * A wrapper for pub/sub style communication with the platform
-   * @param callback The function to execute when the platform sends a post message
-   * @param eventName The post message name to listen for
-   */
   protected listen(callback: Function, eventName: string) {
-    const messageListener = ({ data }: { data: { event: string; token?: string } }) => {
+    const messageListener = ({ data }: { data: MessageListenerData }) => {
       const { event } = data;
       if (event === eventName) {
         callback(data);
@@ -19,14 +24,9 @@ export class KojiBridge {
     };
   }
 
-  /**
-   * A wrapper for one-off listeners with a predictable lifecycle
-   * @param postMessage Name of the post message event to send to the platform, method-specific data to send to the platform
-   * @param platformMessageName Name of the post message event we'll be listening for as a platform response
-   */
-  protected postToPlatform(postMessage: { name: string; data?: any }, platformMessageName: string): Promise<any> {
+  protected postToPlatform(postMessage: PostMessage, platformMessageName: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      const messageListener = ({ data }: { data: { event: string; token?: string } }) => {
+      const messageListener = ({ data }: { data: MessageListenerData }) => {
         const { event } = data;
         if (event === platformMessageName) {
           try {
@@ -42,7 +42,8 @@ export class KojiBridge {
 
       window.parent.postMessage(
         {
-          _kojiEventName: postMessage.name,
+          _kojiEventName: postMessage.kojiEventName,
+          _type: postMessage.kojiEventName,
           ...postMessage.data,
         },
         '*',

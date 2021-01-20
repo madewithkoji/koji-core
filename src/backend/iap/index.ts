@@ -43,10 +43,6 @@ export class IAP {
     };
   }
 
-  /**
-   * Resolve all of the receipts for a particular user.
-   * @param userToken The user's token (generated client side with the Koji.auth.getToken method)
-   */
   @server
   public async resolveReceiptsByUserToken(userToken: UserToken): Promise<IapReceipt[]> {
     try {
@@ -63,10 +59,6 @@ export class IAP {
     }
   }
 
-  /**
-   * Look up a receipt by the receipt's id.
-   * @param receiptId The id of the receipt.
-   */
   @server
   public async resolveReceiptById(receiptId: string): Promise<IapReceipt | null> {
     try {
@@ -83,10 +75,6 @@ export class IAP {
     }
   }
 
-  /**
-   * Resolve all receipts for a particular sku.
-   * @param sku The product's sku.
-   */
   @server
   public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
     try {
@@ -103,12 +91,6 @@ export class IAP {
     }
   }
 
-  /**
-   * Update a receipt with additional metadata & provide a message for the automatically-generated notification.
-   * @param receiptId The id of the receipt that will be updated.
-   * @param attributes Key/value pairs of the data you would like to add/update.
-   * @param notificationMessage An optional message that will be included with the automatically-generated notification.
-   */
   public async updateReceipt(
     receiptId: string,
     attributes: { [index: string]: any },

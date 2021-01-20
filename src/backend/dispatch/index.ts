@@ -1,13 +1,3 @@
-/**
- * Some quick notes:
- *
- * Moved latencyMs to a metadata property that can be picked up on a callback. Writing the
- * most recent latency to the class felt less helpful from a debugging standpoint
- *
- * Similarly, connected clients should be listened for instead of doing a lookup.
- *
- * Things like shardName and clientId are returned upon instantiation.
- */
 import { v4 as uuidv4 } from 'uuid';
 import Sockette from 'sockette';
 import axios from 'axios';
