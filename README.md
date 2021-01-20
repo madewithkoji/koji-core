@@ -1,4 +1,10 @@
-# Koji
+# @withkoji/core
+
+## Testing this package from github
+
+Inside your project's root folder, run `npm install madewithkoji/koji-core`. 
+
+You should then be able to `import Koji, { KojiBackend } from '@withkoji/core` inside of your frontend and backend.
 
 ## Develop
 
