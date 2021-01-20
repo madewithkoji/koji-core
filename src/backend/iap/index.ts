@@ -2,12 +2,7 @@ import { Response } from 'express';
 import axios from 'axios';
 import { server } from '../@decorators/server';
 
-export enum ApiEndpoints {
-  TEST = 'http://localhost:3129',
-  PRODUCTION = 'https://database.api.gokoji.com',
-}
-
-export enum ApiRoutes {
+export enum IapRoutes {
   GET_PRODUCT_BY_SKU = '/v1/iap/provider/getProductBySku',
   RESOLVE_RECEIPTS = '/v1/iap/consumer/resolveReceipts',
   RESOLVE_RECEIPT_BY_ID = '/v1/iap/consumer/resolveReceiptById',
@@ -39,7 +34,7 @@ export class IAP {
     this.projectId = res.locals.projectId || process.env.KOJI_PROJECT_ID;
     this.projectToken = res.locals.projectToken || process.env.KOJI_PROJECT_TOKEN;
 
-    this.rootPath = process.env.NODE_TEST ? ApiEndpoints.TEST : ApiEndpoints.PRODUCTION;
+    this.rootPath = ApiEndpoints.REST_PRODUCTION;
 
     this.rootHeaders = {
       'X-Koji-Project-Id': this.projectId,
@@ -55,7 +50,7 @@ export class IAP {
   @server
   public async resolveReceiptsByUserToken(userToken: UserToken): Promise<IapReceipt[]> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${ApiRoutes.RESOLVE_RECEIPTS}`, {
+      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS}`, {
         headers: {
           ...this.rootHeaders,
           'X-Koji-Iap-Callback-Token': userToken,
@@ -75,7 +70,7 @@ export class IAP {
   @server
   public async resolveReceiptById(receiptId: string): Promise<IapReceipt | null> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${ApiRoutes.RESOLVE_RECEIPT_BY_ID}`, {
+      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, {
         headers: this.rootHeaders,
         data: {
           receiptId,
@@ -95,7 +90,7 @@ export class IAP {
   @server
   public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${ApiRoutes.RESOLVE_RECEIPTS_BY_SKU}`, {
+      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, {
         headers: this.rootHeaders,
         data: {
           sku,
@@ -120,7 +115,7 @@ export class IAP {
     notificationMessage?: string,
   ): Promise<any> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${ApiRoutes.UPDATE_RECEIPT}`, {
+      const { data } = await axios.post(`${this.rootPath}${IapRoutes.UPDATE_RECEIPT}`, {
         headers: this.rootHeaders,
         data: {
           receiptId,
@@ -137,7 +132,7 @@ export class IAP {
 
   public async loadProduct(sku: string) {
     try {
-      const { data } = await axios.get(`${this.rootPath}${ApiRoutes.GET_PRODUCT_BY_SKU}?appId=${this.projectId}&sku=${sku}`, {
+      const { data } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?appId=${this.projectId}&sku=${sku}`, {
         headers: this.rootHeaders,
       });
 
