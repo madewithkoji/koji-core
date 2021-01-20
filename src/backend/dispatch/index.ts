@@ -88,12 +88,12 @@ export class Dispatch extends Base {
     this.url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
   }
 
-  async info(): Promise<ShardInfo[]> {
+  public async info(): Promise<ShardInfo[]> {
     const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
-    return data.result;
+    return (data || [])[0];
   }
 
-  async connect(): Promise<ConnectionInfo> {
+  private async connect(): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
@@ -112,7 +112,7 @@ export class Dispatch extends Base {
     });
   }
 
-  handleMessage({ data }: { data: string }, resolve: Function) {
+  private handleMessage({ data }: { data: string }, resolve: Function) {
     const { eventName, latencyMs, payload } = JSON.parse(data || '{}');
 
     if (eventName === PlatformEvents.CONNECTED) {
@@ -133,7 +133,7 @@ export class Dispatch extends Base {
     });
   }
 
-  handleReconnect() {
+  private handleReconnect() {
     this.isConnected = true;
     this.messageQueue = this.messageQueue.reduce((acc, cur) => {
       if (this.ws) {
@@ -143,17 +143,17 @@ export class Dispatch extends Base {
     }, []);
   }
 
-  handleMaximum() {}
+  private handleMaximum() {}
 
-  handleClose() {
+  private handleClose() {
     this.isConnected = false;
   }
 
-  handleError(e: Event) {
+  private handleError(e: Event) {
     console.error('[Koji Dispatch] error', e);
   }
 
-  on(eventName: string, callback: MessageHandlerCallback): Function {
+  public on(eventName: string, callback: MessageHandlerCallback): Function {
     const handlerId = uuidv4();
 
     this.eventHandlers.push({
@@ -167,17 +167,17 @@ export class Dispatch extends Base {
     };
   }
 
-  setUserInfo(userInfo: { [index: string]: any }) {
+  public setUserInfo(userInfo: { [index: string]: any }) {
     this.emitEvent(PlatformEvents.SET_USER_INFO, userInfo);
   }
 
-  identify(authToken: string) {
+  public identify(authToken: string) {
     this.emitEvent(PlatformEvents.IDENTIFY, {
       token: authToken,
     });
   }
 
-  emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
+  public emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
     const message = JSON.stringify({
       eventName,
       payload,
@@ -203,7 +203,7 @@ export class Dispatch extends Base {
     this.ws.send(message);
   }
 
-  disconnect() {
+  public disconnect() {
     if (this.ws) this.ws.close();
     this.ws = null;
   }
