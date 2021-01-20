@@ -1,7 +1,7 @@
 {
-  "name": "new-koji-package",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@withkoji/core",
+  "version": "0.0.1",
+  "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist --source-maps --copy-files",
