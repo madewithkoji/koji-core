@@ -1,11 +1,27 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.capture = exports.Capture = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/helpers/applyDecoratedDescriptor"));
 
 var _bridge = require("../../bridge");
 
@@ -13,51 +29,28 @@ var _client = require("../../@decorators/client");
 
 var _class;
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
-
 var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
-  _inherits(Capture, _KojiBridge);
+  (0, _inherits2["default"])(Capture, _KojiBridge);
 
   var _super = _createSuper(Capture);
 
   function Capture() {
-    _classCallCheck(this, Capture);
-
+    (0, _classCallCheck2["default"])(this, Capture);
     return _super.apply(this, arguments);
   }
 
-  _createClass(Capture, [{
+  (0, _createClass2["default"])(Capture, [{
     key: "color",
     value: function () {
-      var _color = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var _color = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
         var options,
             data,
             _args = arguments;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+        return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -101,11 +94,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "file",
     value: function () {
-      var _file = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+      var _file = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
         var options,
             data,
             _args2 = arguments;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -149,11 +142,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "image",
     value: function () {
-      var _image = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+      var _image = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
         var options,
             data,
             _args3 = arguments;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -197,11 +190,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "koji",
     value: function () {
-      var _koji = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+      var _koji = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4() {
         var options,
             data,
             _args4 = arguments;
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -245,11 +238,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "media",
     value: function () {
-      var _media = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+      var _media = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5() {
         var options,
             data,
             _args5 = arguments;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        return _regenerator["default"].wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -293,11 +286,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "range",
     value: function () {
-      var _range = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
+      var _range = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6() {
         var options,
             data,
             _args6 = arguments;
-        return regeneratorRuntime.wrap(function _callee6$(_context6) {
+        return _regenerator["default"].wrap(function _callee6$(_context6) {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
@@ -341,11 +334,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "select",
     value: function () {
-      var _select = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+      var _select = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7() {
         var options,
             data,
             _args7 = arguments;
-        return regeneratorRuntime.wrap(function _callee7$(_context7) {
+        return _regenerator["default"].wrap(function _callee7$(_context7) {
           while (1) {
             switch (_context7.prev = _context7.next) {
               case 0:
@@ -389,11 +382,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "sound",
     value: function () {
-      var _sound = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
+      var _sound = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8() {
         var options,
             data,
             _args8 = arguments;
-        return regeneratorRuntime.wrap(function _callee8$(_context8) {
+        return _regenerator["default"].wrap(function _callee8$(_context8) {
           while (1) {
             switch (_context8.prev = _context8.next) {
               case 0:
@@ -437,11 +430,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "video",
     value: function () {
-      var _video = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9() {
+      var _video = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9() {
         var options,
             data,
             _args9 = arguments;
-        return regeneratorRuntime.wrap(function _callee9$(_context9) {
+        return _regenerator["default"].wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
               case 0:
@@ -483,9 +476,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
       return video;
     }()
   }]);
-
   return Capture;
-}(_bridge.KojiBridge), (_applyDecoratedDescriptor(_class.prototype, "color", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "color"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "file", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "file"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "image", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "image"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "koji", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "koji"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "media", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "media"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "range", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "range"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "select", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "select"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "sound", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "sound"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "video", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "video"), _class.prototype)), _class);
+}(_bridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "color", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "color"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "file", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "file"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "image", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "image"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "koji", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "koji"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "media", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "media"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "range", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "range"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "select", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "select"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "sound", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "sound"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "video", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "video"), _class.prototype)), _class);
 exports.Capture = Capture;
 var capture = new Capture();
 exports.capture = capture;

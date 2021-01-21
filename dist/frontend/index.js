@@ -1,9 +1,19 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/helpers/applyDecoratedDescriptor"));
 
 var _analytics = require("./analytics");
 
@@ -19,42 +29,23 @@ var _client = require("./@decorators/client");
 
 var _class, _temp;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
-
 var Koji = (_class = (_temp = /*#__PURE__*/function () {
   function Koji() {
-    _classCallCheck(this, Koji);
-
-    _defineProperty(this, "projectId", void 0);
-
-    _defineProperty(this, "projectToken", void 0);
-
-    _defineProperty(this, "isReady", void 0);
-
-    _defineProperty(this, "analytics", _analytics.analytics);
-
-    _defineProperty(this, "iap", _iap.iap);
-
-    _defineProperty(this, "identity", _identity.identity);
-
-    _defineProperty(this, "remix", _remix.remix);
-
-    _defineProperty(this, "ui", _ui.ui);
-
+    (0, _classCallCheck2["default"])(this, Koji);
+    (0, _defineProperty2["default"])(this, "projectId", void 0);
+    (0, _defineProperty2["default"])(this, "projectToken", void 0);
+    (0, _defineProperty2["default"])(this, "isReady", void 0);
+    (0, _defineProperty2["default"])(this, "analytics", _analytics.analytics);
+    (0, _defineProperty2["default"])(this, "iap", _iap.iap);
+    (0, _defineProperty2["default"])(this, "identity", _identity.identity);
+    (0, _defineProperty2["default"])(this, "remix", _remix.remix);
+    (0, _defineProperty2["default"])(this, "ui", _ui.ui);
     this.isReady = false;
     this.projectId = process.env.KOJI_PROJECT_ID;
     this.projectToken = process.env.KOJI_PROJECT_TOKEN;
   }
 
-  _createClass(Koji, [{
+  (0, _createClass2["default"])(Koji, [{
     key: "ready",
     value: function ready() {
       this.isReady = true;
@@ -93,9 +84,8 @@ var Koji = (_class = (_temp = /*#__PURE__*/function () {
       };
     }
   }]);
-
   return Koji;
-}(), _temp), (_applyDecoratedDescriptor(_class.prototype, "ready", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "ready"), _class.prototype)), _class);
+}(), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "ready", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "ready"), _class.prototype)), _class);
 
 var _default = new Koji();
 

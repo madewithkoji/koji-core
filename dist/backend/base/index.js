@@ -1,14 +1,16 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.generateConfig = generateConfig;
 exports.Base = void 0;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 /**
  * Extensibly generate a project configuration
@@ -45,11 +47,9 @@ function generateConfig(config) {
 }
 
 var Base = function Base(config) {
-  _classCallCheck(this, Base);
-
-  _defineProperty(this, "projectId", void 0);
-
-  _defineProperty(this, "projectToken", void 0);
+  (0, _classCallCheck2["default"])(this, Base);
+  (0, _defineProperty2["default"])(this, "projectId", void 0);
+  (0, _defineProperty2["default"])(this, "projectToken", void 0);
 
   var _generateConfig = generateConfig(config),
       projectId = _generateConfig.projectId,

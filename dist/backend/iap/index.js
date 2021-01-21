@@ -1,9 +1,23 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.IAP = exports.IapRoutes = void 0;
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/helpers/applyDecoratedDescriptor"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -11,25 +25,9 @@ var _server = require("../@decorators/server");
 
 var _class, _temp;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var IapRoutes;
 exports.IapRoutes = IapRoutes;
@@ -44,16 +42,11 @@ exports.IapRoutes = IapRoutes;
 
 var IAP = (_class = (_temp = /*#__PURE__*/function () {
   function IAP(res) {
-    _classCallCheck(this, IAP);
-
-    _defineProperty(this, "projectId", void 0);
-
-    _defineProperty(this, "projectToken", void 0);
-
-    _defineProperty(this, "rootPath", void 0);
-
-    _defineProperty(this, "rootHeaders", void 0);
-
+    (0, _classCallCheck2["default"])(this, IAP);
+    (0, _defineProperty2["default"])(this, "projectId", void 0);
+    (0, _defineProperty2["default"])(this, "projectToken", void 0);
+    (0, _defineProperty2["default"])(this, "rootPath", void 0);
+    (0, _defineProperty2["default"])(this, "rootHeaders", void 0);
     this.projectId = res.locals.projectId || process.env.KOJI_PROJECT_ID;
     this.projectToken = res.locals.projectToken || process.env.KOJI_PROJECT_TOKEN;
     this.rootPath = 'https://rest.api.gokoji.com';
@@ -64,13 +57,13 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
     };
   }
 
-  _createClass(IAP, [{
+  (0, _createClass2["default"])(IAP, [{
     key: "resolveReceiptsByUserToken",
     value: function () {
-      var _resolveReceiptsByUserToken = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(userToken) {
+      var _resolveReceiptsByUserToken = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(userToken) {
         var _yield$axios$post, data;
 
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+        return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -109,10 +102,10 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
   }, {
     key: "resolveReceiptById",
     value: function () {
-      var _resolveReceiptById = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(receiptId) {
+      var _resolveReceiptById = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(receiptId) {
         var _yield$axios$post2, data;
 
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -152,10 +145,10 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
   }, {
     key: "resolveReceiptsBySku",
     value: function () {
-      var _resolveReceiptsBySku = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(sku) {
+      var _resolveReceiptsBySku = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3(sku) {
         var _yield$axios$post3, data;
 
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -195,10 +188,10 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
   }, {
     key: "updateReceipt",
     value: function () {
-      var _updateReceipt = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(receiptId, attributes, notificationMessage) {
+      var _updateReceipt = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4(receiptId, attributes, notificationMessage) {
         var _yield$axios$post4, data;
 
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -240,10 +233,10 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
   }, {
     key: "loadProduct",
     value: function () {
-      var _loadProduct = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(sku) {
+      var _loadProduct = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5(sku) {
         var _yield$axios$get, data;
 
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        return _regenerator["default"].wrap(function _callee5$(_context5) {
           while (1) {
             switch (_context5.prev = _context5.next) {
               case 0:
@@ -278,8 +271,7 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
       return loadProduct;
     }()
   }]);
-
   return IAP;
-}(), _temp), (_applyDecoratedDescriptor(_class.prototype, "resolveReceiptsByUserToken", [_server.server], Object.getOwnPropertyDescriptor(_class.prototype, "resolveReceiptsByUserToken"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "resolveReceiptById", [_server.server], Object.getOwnPropertyDescriptor(_class.prototype, "resolveReceiptById"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "resolveReceiptsBySku", [_server.server], Object.getOwnPropertyDescriptor(_class.prototype, "resolveReceiptsBySku"), _class.prototype)), _class);
+}(), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "resolveReceiptsByUserToken", [_server.server], Object.getOwnPropertyDescriptor(_class.prototype, "resolveReceiptsByUserToken"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "resolveReceiptById", [_server.server], Object.getOwnPropertyDescriptor(_class.prototype, "resolveReceiptById"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "resolveReceiptsBySku", [_server.server], Object.getOwnPropertyDescriptor(_class.prototype, "resolveReceiptsBySku"), _class.prototype)), _class);
 exports.IAP = IAP;
 //# sourceMappingURL=index.js.map
