@@ -29,6 +29,7 @@ export class KojiBridge {
       {
         _kojiEventName: postMessage.kojiEventName,
         _type: postMessage.kojiEventName,
+        _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
         ...postMessage.data,
       },
       '*',
@@ -55,6 +56,7 @@ export class KojiBridge {
         {
           _kojiEventName: postMessage.kojiEventName,
           _type: postMessage.kojiEventName,
+          _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
           ...postMessage.data,
         },
         '*',

@@ -3,6 +3,7 @@ import { iap, IAP } from './iap';
 import { identity, Identity } from './identity';
 import { remix, Remix } from './remix';
 import { ui, UI } from './ui';
+import { client } from './@decorators/client';
 
 class Koji {
   projectId?: string;
@@ -23,17 +24,37 @@ class Koji {
     this.projectToken = process.env.KOJI_PROJECT_TOKEN;
   }
 
+  @client
   ready() {
     this.isReady = true;
 
-    if (window.parent) {
-      window.parent.postMessage(
-        {
-          _type: 'KojiPreview.Ready',
-        },
-        '*',
-      );
-    }
+    window.addEventListener(
+      'click',
+      (e) => {
+        try {
+          const { clientX, clientY } = e;
+          window.parent.postMessage(
+            {
+              _type: 'Koji.ClickEvent',
+              _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
+              x: clientX,
+              y: clientY,
+            },
+            '*',
+          );
+        } catch (err) {
+          //
+        }
+      },
+      { capture: true, passive: true },
+    );
+
+    window.parent.postMessage(
+      {
+        _type: 'KojiPreview.Ready',
+      },
+      '*',
+    );
   }
 
   setProjectValues(id: string, token: string) {
