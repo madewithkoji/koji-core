@@ -15,6 +15,10 @@ var _remix = require("./remix");
 
 var _ui = require("./ui");
 
+var _client = require("./@decorators/client");
+
+var _class, _temp;
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -23,7 +27,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Koji = /*#__PURE__*/function () {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+var Koji = (_class = (_temp = /*#__PURE__*/function () {
   function Koji() {
     _classCallCheck(this, Koji);
 
@@ -52,12 +58,25 @@ var Koji = /*#__PURE__*/function () {
     key: "ready",
     value: function ready() {
       this.isReady = true;
-
-      if (window.parent) {
-        window.parent.postMessage({
-          _type: 'KojiPreview.Ready'
-        }, '*');
-      }
+      window.addEventListener('click', function (e) {
+        try {
+          var clientX = e.clientX,
+              clientY = e.clientY;
+          window.parent.postMessage({
+            _type: 'Koji.ClickEvent',
+            _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
+            x: clientX,
+            y: clientY
+          }, '*');
+        } catch (err) {//
+        }
+      }, {
+        capture: true,
+        passive: true
+      });
+      window.parent.postMessage({
+        _type: 'KojiPreview.Ready'
+      }, '*');
     }
   }, {
     key: "setProjectValues",
@@ -76,7 +95,7 @@ var Koji = /*#__PURE__*/function () {
   }]);
 
   return Koji;
-}();
+}(), _temp), (_applyDecoratedDescriptor(_class.prototype, "ready", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "ready"), _class.prototype)), _class);
 
 var _default = new Koji();
 

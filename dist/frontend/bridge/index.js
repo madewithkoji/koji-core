@@ -23,8 +23,8 @@ var KojiBridge = /*#__PURE__*/function () {
   }
 
   _createClass(KojiBridge, [{
-    key: "listen",
-    value: function listen(callback, eventName) {
+    key: "execCallbackOnMessage",
+    value: function execCallbackOnMessage(callback, eventName) {
       var messageListener = function messageListener(_ref) {
         var data = _ref.data;
         var event = data.event;
@@ -40,8 +40,17 @@ var KojiBridge = /*#__PURE__*/function () {
       };
     }
   }, {
-    key: "postToPlatform",
-    value: function postToPlatform(postMessage, platformMessageName) {
+    key: "sendMessage",
+    value: function sendMessage(postMessage) {
+      window.parent.postMessage(_objectSpread({
+        _kojiEventName: postMessage.kojiEventName,
+        _type: postMessage.kojiEventName,
+        _feedKey: window.location.hash.replace('#koji-feed-key=', '')
+      }, postMessage.data), '*');
+    }
+  }, {
+    key: "sendMessageAndAwaitResponse",
+    value: function sendMessageAndAwaitResponse(postMessage, platformMessageName) {
       return new Promise(function (resolve, reject) {
         var messageListener = function messageListener(_ref2) {
           var data = _ref2.data;
@@ -61,7 +70,8 @@ var KojiBridge = /*#__PURE__*/function () {
         window.addEventListener('message', messageListener);
         window.parent.postMessage(_objectSpread({
           _kojiEventName: postMessage.kojiEventName,
-          _type: postMessage.kojiEventName
+          _type: postMessage.kojiEventName,
+          _feedKey: window.location.hash.replace('#koji-feed-key=', '')
         }, postMessage.data), '*');
       });
     }

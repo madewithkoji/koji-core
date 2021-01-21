@@ -85,7 +85,7 @@ var IAP = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _startPurchase = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(sku) {
         var purchaseOptions,
-            _yield$this$postToPla,
+            _yield$this$sendMessa,
             success,
             userToken,
             receiptId,
@@ -97,7 +97,7 @@ var IAP = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
               case 0:
                 purchaseOptions = _args.length > 1 && _args[1] !== undefined ? _args[1] : {};
                 _context.next = 3;
-                return this.postToPlatform({
+                return this.sendMessageAndAwaitResponse({
                   kojiEventName: '@@koji/iap/promptPurchase',
                   data: {
                     sku: sku,
@@ -106,10 +106,10 @@ var IAP = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
                 }, 'KojiIap.PurchaseFinished');
 
               case 3:
-                _yield$this$postToPla = _context.sent;
-                success = _yield$this$postToPla.success;
-                userToken = _yield$this$postToPla.userToken;
-                receiptId = _yield$this$postToPla.receiptId;
+                _yield$this$sendMessa = _context.sent;
+                success = _yield$this$sendMessa.success;
+                userToken = _yield$this$sendMessa.userToken;
+                receiptId = _yield$this$sendMessa.receiptId;
                 return _context.abrupt("return", {
                   success: success,
                   userToken: userToken,

@@ -11,6 +11,8 @@ var _bridge = require("../bridge");
 
 var _capture = require("./capture");
 
+var _present = require("./present");
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -46,6 +48,8 @@ var UI = /*#__PURE__*/function (_KojiBridge) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "capture", _capture.capture);
+
+    _defineProperty(_assertThisInitialized(_this), "present", _present.present);
 
     return _this;
   }

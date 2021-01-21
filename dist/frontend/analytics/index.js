@@ -24,6 +24,12 @@ var Analytics = (_class = /*#__PURE__*/function () {
 
   _createClass(Analytics, [{
     key: "track",
+
+    /**
+     * Just a test
+     * @param event Cool event
+     * @param payload The payload
+     */
     value: function track(event, payload) {
       window.parent.postMessage({
         _kojiEventName: '@@koji/analytics/track',

@@ -62,14 +62,14 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
     key: "getToken",
     value: function () {
       var _getToken = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var _yield$this$postToPla, token;
+        var _yield$this$sendMessa, token;
 
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return this.postToPlatform({
+                return this.sendMessageAndAwaitResponse({
                   kojiEventName: '@@koji/auth/getToken',
                   data: {
                     grants: [],
@@ -78,8 +78,8 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'KojiAuth.TokenCreated');
 
               case 2:
-                _yield$this$postToPla = _context.sent;
-                token = _yield$this$postToPla.token;
+                _yield$this$sendMessa = _context.sent;
+                token = _yield$this$sendMessa.token;
                 return _context.abrupt("return", token);
 
               case 5:
@@ -101,7 +101,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _checkGrants = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
         var grants,
-            _yield$this$postToPla2,
+            _yield$this$sendMessa2,
             hasGrants,
             _args2 = arguments;
 
@@ -111,7 +111,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
               case 0:
                 grants = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : [];
                 _context2.next = 3;
-                return this.postToPlatform({
+                return this.sendMessageAndAwaitResponse({
                   kojiEventName: '@@koji/auth/checkGrant',
                   data: {
                     grants: grants
@@ -119,8 +119,8 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'KojiAuth.GrantsResolved');
 
               case 3:
-                _yield$this$postToPla2 = _context2.sent;
-                hasGrants = _yield$this$postToPla2.hasGrants;
+                _yield$this$sendMessa2 = _context2.sent;
+                hasGrants = _yield$this$sendMessa2.hasGrants;
                 return _context2.abrupt("return", hasGrants);
 
               case 6:
@@ -143,7 +143,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
       var _requestGrants = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
         var grants,
             usageDescription,
-            _yield$this$postToPla3,
+            _yield$this$sendMessa3,
             hasGrants,
             _args3 = arguments;
 
@@ -154,7 +154,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
                 grants = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : [];
                 usageDescription = _args3.length > 1 ? _args3[1] : undefined;
                 _context3.next = 4;
-                return this.postToPlatform({
+                return this.sendMessageAndAwaitResponse({
                   kojiEventName: '@@koji/auth/getToken',
                   data: {
                     grants: grants,
@@ -163,8 +163,8 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'KojiAuth.TokenCreated');
 
               case 4:
-                _yield$this$postToPla3 = _context3.sent;
-                hasGrants = _yield$this$postToPla3.hasGrants;
+                _yield$this$sendMessa3 = _context3.sent;
+                hasGrants = _yield$this$sendMessa3.hasGrants;
                 return _context3.abrupt("return", hasGrants);
 
               case 7:

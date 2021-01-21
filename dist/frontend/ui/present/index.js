@@ -5,17 +5,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.remix = exports.Remix = void 0;
+exports.present = exports.Present = void 0;
 
-var _deepmerge = _interopRequireDefault(require("deepmerge"));
+var _bridge = require("../../bridge");
 
-var _bridge = require("../bridge");
+var _client = require("../../@decorators/client");
 
-var _client = require("../@decorators/client");
-
-var _class, _temp;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _class;
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -41,90 +37,47 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
 
-var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
-  _inherits(Remix, _KojiBridge);
+var Present = (_class = /*#__PURE__*/function (_KojiBridge) {
+  _inherits(Present, _KojiBridge);
 
-  var _super = _createSuper(Remix);
+  var _super = _createSuper(Present);
 
-  function Remix() {
-    var _this;
+  function Present() {
+    _classCallCheck(this, Present);
 
-    _classCallCheck(this, Remix);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "values", void 0);
-
-    return _this;
+    return _super.apply(this, arguments);
   }
 
-  _createClass(Remix, [{
-    key: "subscribe",
-    value: function subscribe(callback) {
-      return this.execCallbackOnMessage(function (_ref) {
-        var isRemixing = _ref.isRemixing,
-            editorAttributes = _ref.editorAttributes;
-        callback(isRemixing, editorAttributes);
-      }, 'KojiPreview.IsRemixing');
-    }
-  }, {
-    key: "init",
-    value: function init(values) {
-      if (this.values) throw new Error('You are trying to initialize your remix data more than one time.');
-
-      if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
-        this.values = (0, _deepmerge["default"])(values, window.KOJI_OVERRIDES.overrides, {
-          arrayMerge: function arrayMerge(dest, source) {
-            return source;
-          }
-        });
-      } else {
-        this.values = values;
-      }
-    }
-  }, {
-    key: "get",
-    value: function get(path) {
-      var pointer = this.values;
-
-      for (var i = 0; i < path.length; i += 1) {
-        pointer = pointer[path[i]];
-      }
-
-      return pointer;
-    }
-  }, {
-    key: "set",
+  _createClass(Present, [{
+    key: "confirmation",
     value: function () {
-      var _set = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(path, newValue) {
-        var data;
+      var _confirmation = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var options,
+            data,
+            _args = arguments;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
+                _context.next = 3;
                 return this.sendMessageAndAwaitResponse({
-                  kojiEventName: 'KojiPreview.SetValue',
+                  kojiEventName: 'Koji.ConfirmPrompt',
                   data: {
-                    path: path,
-                    newValue: newValue,
-                    skipUpdate: true
+                    title: options.title,
+                    message: options.message,
+                    confirmButtonLabel: options.confirmButtonLabel,
+                    cancelButtonLabel: options.cancelButtonLabel
                   }
-                }, 'KojiPreview.DidChangeVcc');
+                }, 'Koji.CaptureSuccess');
 
-              case 2:
+              case 3:
                 data = _context.sent;
-                return _context.abrupt("return", data);
+                return _context.abrupt("return", data.didConfirm);
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -132,17 +85,31 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
         }, _callee, this);
       }));
 
-      function set(_x, _x2) {
-        return _set.apply(this, arguments);
+      function confirmation() {
+        return _confirmation.apply(this, arguments);
       }
 
-      return set;
+      return confirmation;
     }()
+  }, {
+    key: "alert",
+    value: function alert() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      this.sendMessage({
+        kojiEventName: 'Koji.Alert',
+        data: {
+          title: options.title,
+          message: options.message,
+          confirmButtonLabel: options.confirmButtonLabel,
+          cancelButtonLabel: options.cancelButtonLabel
+        }
+      });
+    }
   }]);
 
-  return Remix;
-}(_bridge.KojiBridge), _temp), (_applyDecoratedDescriptor(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype)), _class);
-exports.Remix = Remix;
-var remix = new Remix();
-exports.remix = remix;
+  return Present;
+}(_bridge.KojiBridge), (_applyDecoratedDescriptor(_class.prototype, "confirmation", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "confirmation"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "alert", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "alert"), _class.prototype)), _class);
+exports.Present = Present;
+var present = new Present();
+exports.present = present;
 //# sourceMappingURL=index.js.map
