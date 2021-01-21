@@ -30,7 +30,7 @@ export class IAP extends KojiBridge {
 
   @client
   async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
-    const { success, userToken, receiptId } = await this.postToPlatform({
+    const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/iap/promptPurchase',
       data: {
         sku,

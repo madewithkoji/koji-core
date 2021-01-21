@@ -9,7 +9,7 @@ export enum AuthGrantCapability {
 export class Identity extends KojiBridge {
   @client
   async getToken(): Promise<UserToken> {
-    const { token } = await this.postToPlatform({
+    const { token } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants: [],
@@ -21,7 +21,7 @@ export class Identity extends KojiBridge {
   }
 
   async checkGrants(grants: AuthGrantCapability[] = []): Promise<boolean> {
-    const { hasGrants } = await this.postToPlatform({
+    const { hasGrants } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/checkGrant',
       data: {
         grants,
@@ -32,7 +32,7 @@ export class Identity extends KojiBridge {
   }
 
   async requestGrants(grants: AuthGrantCapability[] = [], usageDescription?: string): Promise<UserToken> {
-    const { hasGrants } = await this.postToPlatform({
+    const { hasGrants } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants,

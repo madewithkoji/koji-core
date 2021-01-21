@@ -14,7 +14,7 @@ type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttribut
 export class Remix extends KojiBridge {
   @client
   subscribe(callback: IsRemixingCallback): Function {
-    return this.listen(
+    return this.execCallbackOnMessage(
       ({ isRemixing, editorAttributes }: { isRemixing: boolean; editorAttributes: EditorAttributes }) => {
         callback(isRemixing, editorAttributes);
       },
