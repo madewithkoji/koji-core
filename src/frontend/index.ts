@@ -1,6 +1,7 @@
 import { analytics, Analytics } from './analytics';
 import { iap, IAP } from './iap';
 import { identity, Identity } from './identity';
+import { playerState, PlayerState } from './playerState';
 import { remix, Remix } from './remix';
 import { ui, UI } from './ui';
 import { client } from './@decorators/client';
@@ -14,6 +15,7 @@ class Koji {
   analytics: Analytics = analytics;
   iap: IAP = iap;
   identity: Identity = identity;
+  playerState: PlayerState = playerState;
   remix: Remix = remix;
   ui: UI = ui;
 

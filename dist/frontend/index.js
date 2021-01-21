@@ -21,6 +21,8 @@ var _iap = require("./iap");
 
 var _identity = require("./identity");
 
+var _playerState = require("./playerState");
+
 var _remix = require("./remix");
 
 var _ui = require("./ui");
@@ -38,6 +40,7 @@ var Koji = (_class = (_temp = /*#__PURE__*/function () {
     (0, _defineProperty2["default"])(this, "analytics", _analytics.analytics);
     (0, _defineProperty2["default"])(this, "iap", _iap.iap);
     (0, _defineProperty2["default"])(this, "identity", _identity.identity);
+    (0, _defineProperty2["default"])(this, "playerState", _playerState.playerState);
     (0, _defineProperty2["default"])(this, "remix", _remix.remix);
     (0, _defineProperty2["default"])(this, "ui", _ui.ui);
     this.isReady = false;

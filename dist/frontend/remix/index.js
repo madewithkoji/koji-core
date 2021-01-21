@@ -25,7 +25,7 @@ var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/
 
 var _deepmerge = _interopRequireDefault(require("deepmerge"));
 
-var _bridge = require("../bridge");
+var _playerState = require("../playerState");
 
 var _client = require("../@decorators/client");
 
@@ -35,8 +35,8 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
-  (0, _inherits2["default"])(Remix, _KojiBridge);
+var Remix = (_class = (_temp = /*#__PURE__*/function (_PlayerState) {
+  (0, _inherits2["default"])(Remix, _PlayerState);
 
   var _super = _createSuper(Remix);
 
@@ -66,20 +66,25 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     }
   }, {
     key: "init",
-    value: function init(values) {
-      if (this.isInitialized) console.warn('You are trying to initialize your remix data more than one time.');
-
-      if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
-        this.values = (0, _deepmerge["default"])(values, window.KOJI_OVERRIDES.overrides.remixData || {}, {
-          arrayMerge: function arrayMerge(dest, source) {
-            return source;
-          }
-        });
-      } else {
-        this.values = values;
+    value: function init(initialValues, remixInitialValues) {
+      if (this.isInitialized) {
+        console.warn('You are trying to initialize your remix data more than one time.');
+        return;
       }
 
       this.isInitialized = true;
+      var defaultValues = this.context === 'remix' ? remixInitialValues : initialValues;
+      var overrides = {};
+
+      if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
+        overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
+      }
+
+      this.values = (0, _deepmerge["default"])(defaultValues, overrides, {
+        arrayMerge: function arrayMerge(dest, source) {
+          return source;
+        }
+      });
     }
   }, {
     key: "get",
@@ -94,6 +99,24 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
           return source;
         }
       });
+      return this.sendValues();
+    }
+  }, {
+    key: "overwrite",
+    value: function overwrite(newValues) {
+      this.values = newValues;
+      return this.sendValues();
+    }
+  }, {
+    key: "finish",
+    value: function finish() {
+      this.sendMessage({
+        kojiEventName: 'KojiPreview.Finish'
+      });
+    }
+  }, {
+    key: "sendValues",
+    value: function sendValues() {
       this.sendMessage({
         kojiEventName: 'KojiPreview.SetValue',
         data: {
@@ -103,16 +126,9 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
         }
       });
     }
-  }, {
-    key: "finish",
-    value: function finish() {
-      this.sendMessage({
-        kojiEventName: 'KojiPreview.Finish'
-      });
-    }
   }]);
   return Remix;
-}(_bridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype)), _class);
+}(_playerState.PlayerState), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "init", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "init"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "get", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "get"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "set", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "set"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "overwrite", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "overwrite"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "finish", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "finish"), _class.prototype)), _class);
 exports.Remix = Remix;
 var remix = new Remix();
 exports.remix = remix;
