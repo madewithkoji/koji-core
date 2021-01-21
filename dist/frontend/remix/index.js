@@ -67,10 +67,10 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "init",
     value: function init(values) {
-      if (this.isInitialized) throw new Error('You are trying to initialize your remix data more than one time.');
+      if (this.isInitialized) console.warn('You are trying to initialize your remix data more than one time.');
 
       if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
-        this.values = (0, _deepmerge["default"])(values, window.KOJI_OVERRIDES.overrides, {
+        this.values = (0, _deepmerge["default"])(values, window.KOJI_OVERRIDES.overrides.remixData || {}, {
           arrayMerge: function arrayMerge(dest, source) {
             return source;
           }

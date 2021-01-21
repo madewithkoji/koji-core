@@ -31,10 +31,10 @@ export class Remix extends KojiBridge {
   }
 
   init(values: any) {
-    if (this.isInitialized) throw new Error('You are trying to initialize your remix data more than one time.');
+    if (this.isInitialized) console.warn('You are trying to initialize your remix data more than one time.');
 
     if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
-      this.values = deepmerge(values, window.KOJI_OVERRIDES.overrides, {
+      this.values = deepmerge(values, window.KOJI_OVERRIDES.overrides.remixData || {}, {
         arrayMerge: (dest, source) => source,
       });
     } else {
