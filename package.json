@@ -4,8 +4,8 @@
   "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {
-    "build": "babel ./src --out-dir ./dist --source-maps --copy-files --extensions '.ts'",
-    "watch": "nodemon --watch ./src --ext ts --exec babel ./src --out-dir ./dist --source-maps --copy-files --extensions '.ts'",
+    "build": "babel ./src --out-dir ./dist --source-maps --extensions '.ts'",
+    "watch": "nodemon --watch ./src --ext ts --exec babel ./src --out-dir ./dist --source-maps --extensions '.ts'",
     "test": "jest ./src",
     "check-types": "tsc",
     "generate-declarations": "tsc --emitDeclarationOnly",
