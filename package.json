@@ -7,7 +7,6 @@
     "build": "babel ./src --out-dir ./dist --source-maps --copy-files --extensions '.ts'",
     "watch": "nodemon --watch ./src --ext ts --exec babel ./src --out-dir ./dist --source-maps --copy-files --extensions '.ts'",
     "test": "jest ./src",
-    "prepare": "npm run build",
     "check-types": "tsc",
     "generate-declarations": "tsc --emitDeclarationOnly",
     "watch-declarations": "nodemon --watch ./src --ext ts --exec npm run generate-declarations",

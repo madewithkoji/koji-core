@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.ts"],"names":["Koji"],"mappings":";;;;;;;;;;;;;AAAA;;AAEA;;;;eAEeA,oB","sourcesContent":["import Koji from './frontend';\n\nexport { KojiBackend } from './backend';\n\nexport default Koji;\n"],"file":"index.js"}
