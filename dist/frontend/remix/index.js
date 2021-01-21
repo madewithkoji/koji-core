@@ -7,10 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.remix = exports.Remix = void 0;
 
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
-
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
@@ -54,7 +50,8 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     }
 
     _this = _super.call.apply(_super, [this].concat(args));
-    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "values", void 0);
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "values", {});
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "isInitialized", false);
     return _this;
   }
 
@@ -70,7 +67,7 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "init",
     value: function init(values) {
-      if (this.values) throw new Error('You are trying to initialize your remix data more than one time.');
+      if (this.isInitialized) throw new Error('You are trying to initialize your remix data more than one time.');
 
       if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
         this.values = (0, _deepmerge["default"])(values, window.KOJI_OVERRIDES.overrides, {
@@ -81,55 +78,38 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
       } else {
         this.values = values;
       }
+
+      this.isInitialized = true;
     }
   }, {
     key: "get",
-    value: function get(path) {
-      var pointer = this.values;
-
-      for (var i = 0; i < path.length; i += 1) {
-        pointer = pointer[path[i]];
-      }
-
-      return pointer;
+    value: function get() {
+      return this.values;
     }
   }, {
     key: "set",
-    value: function () {
-      var _set = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(path, newValue) {
-        var data;
-        return _regenerator["default"].wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return this.sendMessageAndAwaitResponse({
-                  kojiEventName: 'KojiPreview.SetValue',
-                  data: {
-                    path: path,
-                    newValue: newValue,
-                    skipUpdate: true
-                  }
-                }, 'KojiPreview.DidChangeVcc');
-
-              case 2:
-                data = _context.sent;
-                return _context.abrupt("return", data);
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function set(_x, _x2) {
-        return _set.apply(this, arguments);
-      }
-
-      return set;
-    }()
+    value: function set(newValue) {
+      this.values = (0, _deepmerge["default"])(this.values, newValue, {
+        arrayMerge: function arrayMerge(dest, source) {
+          return source;
+        }
+      });
+      this.sendMessage({
+        kojiEventName: 'KojiPreview.SetValue',
+        data: {
+          path: ['remixData'],
+          newValue: this.values,
+          skipUpdate: true
+        }
+      });
+    }
+  }, {
+    key: "finish",
+    value: function finish() {
+      this.sendMessage({
+        kojiEventName: 'KojiPreview.Finish'
+      });
+    }
   }]);
   return Remix;
 }(_bridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype)), _class);

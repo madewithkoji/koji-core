@@ -17,7 +17,8 @@ interface EditorAttributes {
 type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
 
 export class Remix extends KojiBridge {
-  private values: any;
+  private values: any = {};
+  private isInitialized: boolean = false;
 
   @client
   subscribe(callback: IsRemixingCallback): Function {
@@ -30,7 +31,7 @@ export class Remix extends KojiBridge {
   }
 
   init(values: any) {
-    if (this.values) throw new Error('You are trying to initialize your remix data more than one time.');
+    if (this.isInitialized) throw new Error('You are trying to initialize your remix data more than one time.');
 
     if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
       this.values = deepmerge(values, window.KOJI_OVERRIDES.overrides, {
@@ -39,30 +40,35 @@ export class Remix extends KojiBridge {
     } else {
       this.values = values;
     }
+
+    this.isInitialized = true;
   }
 
-  get(path: string[]) {
-    let pointer = this.values;
-    for (let i = 0; i < path.length; i += 1) {
-      pointer = pointer[path[i]];
-    }
-    return pointer;
+  get() {
+    return this.values;
   }
 
-  async set(path: string, newValue: any): Promise<any> {
-    const data: any = await this.sendMessageAndAwaitResponse(
+  set(newValue: any): void {
+    this.values = deepmerge(this.values, newValue, {
+      arrayMerge: (dest, source) => source,
+    });
+
+    this.sendMessage(
       {
         kojiEventName: 'KojiPreview.SetValue',
         data: {
-          path,
-          newValue,
+          path: ['remixData'],
+          newValue: this.values,
           skipUpdate: true,
         },
       },
-      'KojiPreview.DidChangeVcc',
     );
+  }
 
-    return data;
+  finish() {
+    this.sendMessage({
+      kojiEventName: 'KojiPreview.Finish',
+    });
   }
 }
 
