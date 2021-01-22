@@ -56,15 +56,6 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_PlayerState) {
   }
 
   (0, _createClass2["default"])(Remix, [{
-    key: "subscribe",
-    value: function subscribe(callback) {
-      return this.execCallbackOnMessage(function (_ref) {
-        var isRemixing = _ref.isRemixing,
-            editorAttributes = _ref.editorAttributes;
-        callback(isRemixing, editorAttributes);
-      }, 'KojiPreview.IsRemixing');
-    }
-  }, {
     key: "init",
     value: function init(initialValues, remixInitialValues) {
       if (this.isInitialized) {
@@ -80,6 +71,15 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_PlayerState) {
         overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
       }
 
+      console.log('initialValues', initialValues);
+      console.log('remixInitial', remixInitialValues);
+      console.log('defaultValues', defaultValues);
+      console.log('overrides', overrides);
+      console.log('out', (0, _deepmerge["default"])(defaultValues, overrides, {
+        arrayMerge: function arrayMerge(dest, source) {
+          return source;
+        }
+      }));
       this.values = (0, _deepmerge["default"])(defaultValues, overrides, {
         arrayMerge: function arrayMerge(dest, source) {
           return source;
@@ -128,7 +128,7 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_PlayerState) {
     }
   }]);
   return Remix;
-}(_playerState.PlayerState), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "init", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "init"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "get", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "get"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "set", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "set"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "overwrite", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "overwrite"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "finish", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "finish"), _class.prototype)), _class);
+}(_playerState.PlayerState), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "init", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "init"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "get", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "get"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "set", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "set"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "overwrite", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "overwrite"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "finish", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "finish"), _class.prototype)), _class);
 exports.Remix = Remix;
 var remix = new Remix();
 exports.remix = remix;

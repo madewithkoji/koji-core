@@ -8,29 +8,9 @@ declare global {
   }
 }
 
-export type EditorType = 'instant' | 'full';
-export type EditorMode = 'edit' | 'new';
-
-export interface EditorAttributes {
-  type?: EditorType;
-  mode?: EditorMode;
-}
-
-export type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
-
 export class Remix extends PlayerState {
   private values: any = {};
   private isInitialized: boolean = false;
-
-  @client
-  subscribe(callback: IsRemixingCallback): Function {
-    return this.execCallbackOnMessage(
-      ({ isRemixing, editorAttributes }: { isRemixing: boolean; editorAttributes: EditorAttributes }) => {
-        callback(isRemixing, editorAttributes);
-      },
-      'KojiPreview.IsRemixing',
-    );
-  }
 
   @client
   init(initialValues: Object, remixInitialValues: Object) {
@@ -48,6 +28,14 @@ export class Remix extends PlayerState {
       overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
     }
 
+    console.log('initialValues', initialValues);
+    console.log('remixInitial', remixInitialValues);
+    console.log('defaultValues', defaultValues);
+    console.log('overrides', overrides);
+
+    console.log('out', deepmerge(defaultValues, overrides, {
+      arrayMerge: (dest, source) => source,
+    }));
     this.values = deepmerge(defaultValues, overrides, {
       arrayMerge: (dest, source) => source,
     });
