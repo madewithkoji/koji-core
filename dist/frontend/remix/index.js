@@ -71,15 +71,6 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_PlayerState) {
         overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
       }
 
-      console.log('initialValues', initialValues);
-      console.log('remixInitial', remixInitialValues);
-      console.log('defaultValues', defaultValues);
-      console.log('overrides', overrides);
-      console.log('out', (0, _deepmerge["default"])(defaultValues, overrides, {
-        arrayMerge: function arrayMerge(dest, source) {
-          return source;
-        }
-      }));
       this.values = (0, _deepmerge["default"])(defaultValues, overrides, {
         arrayMerge: function arrayMerge(dest, source) {
           return source;

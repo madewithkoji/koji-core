@@ -28,14 +28,6 @@ export class Remix extends PlayerState {
       overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
     }
 
-    console.log('initialValues', initialValues);
-    console.log('remixInitial', remixInitialValues);
-    console.log('defaultValues', defaultValues);
-    console.log('overrides', overrides);
-
-    console.log('out', deepmerge(defaultValues, overrides, {
-      arrayMerge: (dest, source) => source,
-    }));
     this.values = deepmerge(defaultValues, overrides, {
       arrayMerge: (dest, source) => source,
     });
