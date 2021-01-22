@@ -6,8 +6,6 @@ import { PlayerState } from './playerState';
 import { Remix } from './remix';
 import { UI } from './ui';
 declare class Koji {
-    projectId?: string;
-    projectToken?: string;
     isReady: boolean;
     analytics: Analytics;
     config: Config;
@@ -18,11 +16,6 @@ declare class Koji {
     ui: UI;
     constructor();
     ready(): void;
-    setProjectValues(id: string, token: string): void;
-    getProjectValues(): {
-        projectId: string | undefined;
-        projectToken: string | undefined;
-    };
 }
 declare const _default: Koji;
 export default _default;

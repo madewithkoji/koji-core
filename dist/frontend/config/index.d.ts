@@ -4,7 +4,6 @@ export interface ServiceMap {
 }
 export declare class Config extends KojiBridge {
     serviceMap: ServiceMap;
-    constructor();
     load(): void;
 }
 export declare const config: Config;

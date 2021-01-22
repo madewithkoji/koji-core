@@ -7,7 +7,7 @@ declare global {
 export declare class Remix extends KojiBridge {
     private values;
     private isInitialized;
-    init(initialValues: Object): void;
+    init(kojiConfig: any): void;
     get(): any;
     set(newValue: Object): void;
     overwrite(newValues: Object): void;

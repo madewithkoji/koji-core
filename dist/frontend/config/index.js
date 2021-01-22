@@ -59,7 +59,6 @@ var Config = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
   (0, _createClass2["default"])(Config, [{
     key: "load",
     value: function load() {
-      console.log('p', process.env);
       this.serviceMap = Object.keys(process.env).reduce(function (services, envVariable) {
         if (envVariable.startsWith('KOJI_SERVICE_URL')) {
           return _objectSpread(_objectSpread({}, services), {}, (0, _defineProperty2["default"])({}, services[envVariable.replace('KOJI_SERVICE_URL_', '').toLowerCase()], process.env[envVariable]));

@@ -57,7 +57,10 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
 
   (0, _createClass2["default"])(Remix, [{
     key: "init",
-    value: function init(initialValues) {
+    value: function init(kojiConfig) {
+      var remixData = kojiConfig.remixData;
+      if (!remixData) throw new Error('Unable to find remixData');
+
       if (this.isInitialized) {
         console.warn('You are trying to initialize your remix data more than one time.');
         return;
@@ -70,7 +73,7 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
         overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
       }
 
-      this.values = (0, _deepmerge["default"])(initialValues, overrides, {
+      this.values = (0, _deepmerge["default"])(remixData, overrides, {
         arrayMerge: function arrayMerge(dest, source) {
           return source;
         }

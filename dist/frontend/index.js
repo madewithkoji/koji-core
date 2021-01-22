@@ -36,8 +36,6 @@ var _class, _temp;
 var Koji = (_class = (_temp = /*#__PURE__*/function () {
   function Koji() {
     (0, _classCallCheck2["default"])(this, Koji);
-    (0, _defineProperty2["default"])(this, "projectId", void 0);
-    (0, _defineProperty2["default"])(this, "projectToken", void 0);
     (0, _defineProperty2["default"])(this, "isReady", void 0);
     (0, _defineProperty2["default"])(this, "analytics", _analytics.analytics);
     (0, _defineProperty2["default"])(this, "config", _config.config);
@@ -47,8 +45,6 @@ var Koji = (_class = (_temp = /*#__PURE__*/function () {
     (0, _defineProperty2["default"])(this, "remix", _remix.remix);
     (0, _defineProperty2["default"])(this, "ui", _ui.ui);
     this.isReady = false;
-    this.projectId = process.env.KOJI_PROJECT_ID;
-    this.projectToken = process.env.KOJI_PROJECT_TOKEN;
   }
 
   (0, _createClass2["default"])(Koji, [{
@@ -74,20 +70,6 @@ var Koji = (_class = (_temp = /*#__PURE__*/function () {
       window.parent.postMessage({
         _type: 'KojiPreview.Ready'
       }, '*');
-    }
-  }, {
-    key: "setProjectValues",
-    value: function setProjectValues(id, token) {
-      this.projectId = id;
-      this.projectToken = token;
-    }
-  }, {
-    key: "getProjectValues",
-    value: function getProjectValues() {
-      return {
-        projectId: this.projectId,
-        projectToken: this.projectToken
-      };
     }
   }]);
   return Koji;

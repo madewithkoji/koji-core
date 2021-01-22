@@ -13,7 +13,11 @@ export class Remix extends KojiBridge {
   private isInitialized: boolean = false;
 
   @client
-  init(initialValues: Object) {
+  init(kojiConfig: any) {
+    const { remixData } = kojiConfig;
+
+    if (!remixData) throw new Error('Unable to find remixData');
+
     if (this.isInitialized) {
       console.warn('You are trying to initialize your remix data more than one time.');
       return;
@@ -26,7 +30,7 @@ export class Remix extends KojiBridge {
       overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
     }
 
-    this.values = deepmerge(initialValues, overrides, {
+    this.values = deepmerge(remixData, overrides, {
       arrayMerge: (dest, source) => source,
     });
   }
