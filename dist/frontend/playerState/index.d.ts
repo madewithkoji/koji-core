@@ -1,5 +1,5 @@
-import { KojiBridge } from '../bridge';
-export declare type PlayerStateContext = 'about' | 'admin' | 'remix' | 'sticker' | 'receipt' | 'screenshot' | 'view';
+import { KojiBridge } from '../kojiBridge';
+export declare type PlayerStateContext = 'about' | 'admin' | 'remix' | 'sticker' | 'receipt' | 'screenshot' | 'default';
 export declare type PlayerStateReceiptType = 'buyer' | 'seller';
 export interface ExpectedQueryParameters {
     context?: PlayerStateContext;

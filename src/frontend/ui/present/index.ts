@@ -1,4 +1,4 @@
-import { KojiBridge } from '../../bridge';
+import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
 
 export interface PresentConfirmationOptions {

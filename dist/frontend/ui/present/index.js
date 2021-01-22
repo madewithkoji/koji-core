@@ -23,7 +23,7 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/helpers/applyDecoratedDescriptor"));
 
-var _bridge = require("../../bridge");
+var _kojiBridge = require("../../kojiBridge");
 
 var _client = require("../../@decorators/client");
 
@@ -100,7 +100,7 @@ var Present = (_class = /*#__PURE__*/function (_KojiBridge) {
     }
   }]);
   return Present;
-}(_bridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "confirmation", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "confirmation"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "alert", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "alert"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "confirmation", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "confirmation"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "alert", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "alert"), _class.prototype)), _class);
 exports.Present = Present;
 var present = new Present();
 exports.present = present;

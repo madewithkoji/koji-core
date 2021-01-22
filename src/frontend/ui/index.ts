@@ -1,4 +1,4 @@
-import { KojiBridge } from '../bridge';
+import { KojiBridge } from '../kojiBridge';
 import { capture, Capture } from './capture';
 import { present, Present } from './present';
 

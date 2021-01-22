@@ -1,6 +1,6 @@
 import deepmerge from 'deepmerge';
-import { PlayerState } from '../playerState';
 import { client } from '../@decorators/client';
+import { KojiBridge } from '../kojiBridge';
 
 declare global {
   interface Window {
@@ -8,12 +8,12 @@ declare global {
   }
 }
 
-export class Remix extends PlayerState {
+export class Remix extends KojiBridge {
   private values: any = {};
   private isInitialized: boolean = false;
 
   @client
-  init(initialValues: Object, remixInitialValues: Object) {
+  init(initialValues: Object) {
     if (this.isInitialized) {
       console.warn('You are trying to initialize your remix data more than one time.');
       return;
@@ -21,14 +21,12 @@ export class Remix extends PlayerState {
 
     this.isInitialized = true;
 
-    const defaultValues = this.context === 'remix' ? remixInitialValues : initialValues;
-
     let overrides = {};
     if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
       overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
     }
 
-    this.values = deepmerge(defaultValues, overrides, {
+    this.values = deepmerge(initialValues, overrides, {
       arrayMerge: (dest, source) => source,
     });
   }

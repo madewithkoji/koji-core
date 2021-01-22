@@ -1,4 +1,4 @@
-import { KojiBridge } from '../../bridge';
+import { KojiBridge } from '../../kojiBridge';
 export interface CaptureOptions {
     verbose?: boolean;
 }

@@ -23,7 +23,7 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/helpers/applyDecoratedDescriptor"));
 
-var _bridge = require("../bridge");
+var _kojiBridge = require("../kojiBridge");
 
 var _client = require("../@decorators/client");
 
@@ -176,7 +176,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
     }()
   }]);
   return Identity;
-}(_bridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "getToken", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "getToken"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "getToken", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "getToken"), _class.prototype)), _class);
 exports.Identity = Identity;
 var identity = new Identity();
 exports.identity = identity;

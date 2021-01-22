@@ -1,5 +1,6 @@
 import { analytics, Analytics } from './analytics';
 import { iap, IAP } from './iap';
+import { config, Config } from './config';
 import { identity, Identity } from './identity';
 import { playerState, PlayerState } from './playerState';
 import { remix, Remix } from './remix';
@@ -13,6 +14,7 @@ class Koji {
   isReady: boolean;
 
   analytics: Analytics = analytics;
+  config: Config = config;
   iap: IAP = iap;
   identity: Identity = identity;
   playerState: PlayerState = playerState;

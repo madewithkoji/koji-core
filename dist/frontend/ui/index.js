@@ -19,7 +19,7 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
-var _bridge = require("../bridge");
+var _kojiBridge = require("../kojiBridge");
 
 var _capture = require("./capture");
 
@@ -50,7 +50,7 @@ var UI = /*#__PURE__*/function (_KojiBridge) {
   }
 
   return UI;
-}(_bridge.KojiBridge);
+}(_kojiBridge.KojiBridge);
 
 exports.UI = UI;
 var ui = new UI();

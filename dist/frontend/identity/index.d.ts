@@ -1,4 +1,4 @@
-import { KojiBridge } from '../bridge';
+import { KojiBridge } from '../kojiBridge';
 export declare enum AuthGrantCapability {
     PUSH_NOTIFICATIONS = "push_notifications",
     USERNAME = "username"

@@ -1,13 +1,13 @@
-import { PlayerState } from '../playerState';
+import { KojiBridge } from '../kojiBridge';
 declare global {
     interface Window {
         KOJI_OVERRIDES: any;
     }
 }
-export declare class Remix extends PlayerState {
+export declare class Remix extends KojiBridge {
     private values;
     private isInitialized;
-    init(initialValues: Object, remixInitialValues: Object): void;
+    init(initialValues: Object): void;
     get(): any;
     set(newValue: Object): void;
     overwrite(newValues: Object): void;

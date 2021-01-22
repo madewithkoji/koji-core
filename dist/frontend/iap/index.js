@@ -27,7 +27,7 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/helpers/applyDecoratedDescriptor"));
 
-var _bridge = require("../bridge");
+var _kojiBridge = require("../kojiBridge");
 
 var _client = require("../@decorators/client");
 
@@ -126,7 +126,7 @@ var IAP = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     }()
   }]);
   return IAP;
-}(_bridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "startPurchase", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "startPurchase"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "startPurchase", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "startPurchase"), _class.prototype)), _class);
 exports.IAP = IAP;
 var iap = new IAP();
 exports.iap = iap;

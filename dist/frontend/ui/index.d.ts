@@ -1,4 +1,4 @@
-import { KojiBridge } from '../bridge';
+import { KojiBridge } from '../kojiBridge';
 import { Capture } from './capture';
 import { Present } from './present';
 export declare class UI extends KojiBridge {

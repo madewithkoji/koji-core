@@ -25,7 +25,7 @@ var _applyDecoratedDescriptor2 = _interopRequireDefault(require("@babel/runtime/
 
 var _qs = _interopRequireDefault(require("qs"));
 
-var _bridge = require("../bridge");
+var _kojiBridge = require("../kojiBridge");
 
 var _client = require("../@decorators/client");
 
@@ -44,9 +44,12 @@ var PlayerState = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     var _this;
 
     (0, _classCallCheck2["default"])(this, PlayerState);
-    _this = _super.call(this);
-    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "context", void 0);
+    _this = _super.call(this); // ToDo: Make this better, as it's just a way to get around the isomorphism
+    // of this package
+
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "context", 'default');
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "receiptType", void 0);
+    if (typeof window === 'undefined') return (0, _possibleConstructorReturn2["default"])(_this);
 
     var params = _qs["default"].parse(window.location.search, {
       ignoreQueryPrefix: true
@@ -56,7 +59,7 @@ var PlayerState = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
       _this.context = 'screenshot';
     } else {
       var _params$context = params.context,
-          context = _params$context === void 0 ? 'view' : _params$context,
+          context = _params$context === void 0 ? 'default' : _params$context,
           receiptType = params['dynamic-receipt'];
       _this.context = context;
       _this.receiptType = receiptType;
@@ -76,7 +79,7 @@ var PlayerState = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     }
   }]);
   return PlayerState;
-}(_bridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype)), _class);
 exports.PlayerState = PlayerState;
 var playerState = new PlayerState();
 exports.playerState = playerState;
