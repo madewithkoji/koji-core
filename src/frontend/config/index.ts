@@ -11,6 +11,7 @@ export class Config extends KojiBridge {
   constructor() {
     super();
 
+    console.log('p', process.env);
     this.serviceMap = Object.keys(process.env).reduce((services: { [index: string]: any }, envVariable) => {
       if (envVariable.startsWith('KOJI_SERVICE_URL')) {
         return {
@@ -23,9 +24,7 @@ export class Config extends KojiBridge {
   }
 
   @client
-  load() {
-
-  }
+  load() {}
 }
 
 export const config = new Config();

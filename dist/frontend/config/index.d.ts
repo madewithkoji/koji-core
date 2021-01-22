@@ -4,6 +4,8 @@ export interface ServiceMap {
 }
 export declare class Config extends KojiBridge {
     serviceMap: ServiceMap;
+    console: any;
+    log(: any, process: any, env: any): any;
     constructor();
     load(): void;
 }
