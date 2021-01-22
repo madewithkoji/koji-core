@@ -8,9 +8,6 @@ import { ui, UI } from './ui';
 import { client } from './@decorators/client';
 
 class Koji {
-  projectId?: string;
-  projectToken?: string;
-
   isReady: boolean;
 
   analytics: Analytics = analytics;
@@ -23,9 +20,6 @@ class Koji {
 
   constructor() {
     this.isReady = false;
-
-    this.projectId = process.env.KOJI_PROJECT_ID;
-    this.projectToken = process.env.KOJI_PROJECT_TOKEN;
   }
 
   @client
@@ -59,18 +53,6 @@ class Koji {
       },
       '*',
     );
-  }
-
-  setProjectValues(id: string, token: string) {
-    this.projectId = id;
-    this.projectToken = token;
-  }
-
-  getProjectValues() {
-    return {
-      projectId: this.projectId,
-      projectToken: this.projectToken,
-    };
   }
 }
 

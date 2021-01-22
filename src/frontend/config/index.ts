@@ -8,9 +8,8 @@ export interface ServiceMap {
 export class Config extends KojiBridge {
   serviceMap: ServiceMap = {};
 
-  constructor() {
-    super();
-
+  @client
+  load() {
     console.log('p', process.env);
     this.serviceMap = Object.keys(process.env).reduce((services: { [index: string]: any }, envVariable) => {
       if (envVariable.startsWith('KOJI_SERVICE_URL')) {
@@ -22,9 +21,6 @@ export class Config extends KojiBridge {
       return services;
     }, {});
   }
-
-  @client
-  load() {}
 }
 
 export const config = new Config();

@@ -46,21 +46,28 @@ var Config = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     var _this;
 
     (0, _classCallCheck2["default"])(this, Config);
-    _this = _super.call(this);
-    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "serviceMap", {});
-    _this.serviceMap = Object.keys(process.env).reduce(function (services, envVariable) {
-      if (envVariable.startsWith('KOJI_SERVICE_URL')) {
-        return _objectSpread(_objectSpread({}, services), {}, (0, _defineProperty2["default"])({}, services[envVariable.replace('KOJI_SERVICE_URL_', '').toLowerCase()], process.env[envVariable]));
-      }
 
-      return services;
-    }, {});
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "serviceMap", {});
     return _this;
   }
 
   (0, _createClass2["default"])(Config, [{
     key: "load",
-    value: function load() {}
+    value: function load() {
+      console.log('p', process.env);
+      this.serviceMap = Object.keys(process.env).reduce(function (services, envVariable) {
+        if (envVariable.startsWith('KOJI_SERVICE_URL')) {
+          return _objectSpread(_objectSpread({}, services), {}, (0, _defineProperty2["default"])({}, services[envVariable.replace('KOJI_SERVICE_URL_', '').toLowerCase()], process.env[envVariable]));
+        }
+
+        return services;
+      }, {});
+    }
   }]);
   return Config;
 }(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "load", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "load"), _class.prototype)), _class);
