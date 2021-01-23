@@ -7,7 +7,11 @@ interface PostMessage {
   kojiEventName: string;
   data?: any;
 }
-
+/**
+ *
+ * Enables communication between the platform and the Koji.
+ *
+ */
 export class KojiBridge {
   protected listen(callback: Function, eventName: string) {
     const messageListener = ({ data }: { data: MessageListenerData }) => {
