@@ -18,7 +18,7 @@ export declare class Remix extends KojiBridge {
     overwrite(newValues: Object): Promise<boolean>;
     finish(): void;
     encryptValue(plaintextValue: string): Promise<string>;
-    decryptValue(): Promise<void>;
+    decryptValue(encryptedValue: string): Promise<string>;
     private sendValues;
 }
 export declare const remix: Remix;

@@ -149,19 +149,33 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "decryptValue",
     value: function () {
-      var _decryptValue = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+      var _decryptValue = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(encryptedValue) {
+        var data;
         return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                _context2.next = 2;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'KojiPreview.EncryptValue',
+                  data: {
+                    encryptedValue: encryptedValue
+                  }
+                }, 'KojiPreview.ValueDecrypted');
+
+              case 2:
+                data = _context2.sent;
+                return _context2.abrupt("return", data);
+
+              case 4:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2);
+        }, _callee2, this);
       }));
 
-      function decryptValue() {
+      function decryptValue(_x2) {
         return _decryptValue.apply(this, arguments);
       }
 

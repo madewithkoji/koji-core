@@ -83,8 +83,18 @@ export class Remix extends KojiBridge {
   }
 
   @client
-  public async decryptValue() {
-    
+  public async decryptValue(encryptedValue: string) {
+    const data: string = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: 'KojiPreview.EncryptValue',
+        data: {
+          encryptedValue,
+        },
+      },
+      'KojiPreview.ValueDecrypted',
+    );
+
+    return data;
   }
 
   private async sendValues() {
