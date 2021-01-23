@@ -7,6 +7,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.remix = exports.Remix = void 0;
 
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
@@ -108,20 +112,101 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
       });
     }
   }, {
+    key: "encryptValue",
+    value: function () {
+      var _encryptValue = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(plaintextValue) {
+        var data;
+        return _regenerator["default"].wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'KojiPreview.EncryptValue',
+                  data: {
+                    plaintextValue: plaintextValue
+                  }
+                }, 'KojiPreview.ValueEncrypted');
+
+              case 2:
+                data = _context.sent;
+                return _context.abrupt("return", data);
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function encryptValue(_x) {
+        return _encryptValue.apply(this, arguments);
+      }
+
+      return encryptValue;
+    }()
+  }, {
+    key: "decryptValue",
+    value: function () {
+      var _decryptValue = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function decryptValue() {
+        return _decryptValue.apply(this, arguments);
+      }
+
+      return decryptValue;
+    }()
+  }, {
     key: "sendValues",
-    value: function sendValues() {
-      this.sendMessage({
-        kojiEventName: 'KojiPreview.SetValue',
-        data: {
-          path: ['remixData'],
-          newValue: this.values,
-          skipUpdate: true
-        }
-      });
-    }
+    value: function () {
+      var _sendValues = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
+        var data;
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'KojiPreview.SetValue',
+                  data: {
+                    path: ['remixData'],
+                    newValue: this.values,
+                    skipUpdate: false
+                  }
+                }, 'KojiPreview.DidChangeVcc');
+
+              case 2:
+                data = _context3.sent;
+                return _context3.abrupt("return", !!data);
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function sendValues() {
+        return _sendValues.apply(this, arguments);
+      }
+
+      return sendValues;
+    }()
   }]);
   return Remix;
-}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "init", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "init"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "get", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "get"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "set", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "set"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "overwrite", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "overwrite"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "finish", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "finish"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "init", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "init"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "get", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "get"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "set", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "set"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "overwrite", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "overwrite"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "finish", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "finish"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "encryptValue", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "encryptValue"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "decryptValue", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "decryptValue"), _class.prototype)), _class);
 exports.Remix = Remix;
 var remix = new Remix();
 exports.remix = remix;

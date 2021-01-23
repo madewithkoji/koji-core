@@ -25,14 +25,19 @@ export class Secret extends Base {
 
   @server
   public async resolveValue<T>(keyPath: string): Promise<T> {
-    const { data } = await axios.post(`${this.rootPath}${SecretRoutes.KEYSTORE_GET}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${SecretRoutes.KEYSTORE_GET}`,
+      {
         scope: this.projectId,
         token: this.projectToken,
         keyPath,
       },
-    });
+      {
+        headers: this.rootHeaders,
+      },
+    );
+
+    console.log('d', data);
 
     return data.decryptedValue;
   }

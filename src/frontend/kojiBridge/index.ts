@@ -1,6 +1,8 @@
+import { v4 as uuidv4 } from 'uuid';
+
 interface MessageListenerData {
   event: string;
-  token?: string;
+  _idempotencyKey?: string;
 }
 
 interface PostMessage {
@@ -38,9 +40,13 @@ export class KojiBridge {
 
   protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string): Promise<any> {
     return new Promise((resolve, reject) => {
+      const idempotencyKey = uuidv4();
+
+      console.log('called', idempotencyKey);
+
       const messageListener = ({ data }: { data: MessageListenerData }) => {
-        const { event } = data;
-        if (event === platformMessageName) {
+        const { event, _idempotencyKey } = data;
+        if (event === platformMessageName && idempotencyKey === _idempotencyKey) {
           try {
             resolve(data);
           } catch (err) {
@@ -57,6 +63,7 @@ export class KojiBridge {
           _kojiEventName: postMessage.kojiEventName,
           _type: postMessage.kojiEventName,
           _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
+          _idempotencyKey: idempotencyKey,
           ...postMessage.data,
         },
         '*',

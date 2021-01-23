@@ -8,12 +8,18 @@ declare global {
   }
 }
 
+export interface ValueChanged {
+  path: string[];
+  newValue: any;
+  savedValue: any;
+}
+
 export class Remix extends KojiBridge {
   private values: any = {};
   private isInitialized: boolean = false;
 
   @client
-  init(kojiConfig: any) {
+  public init(kojiConfig: any) {
     const { remixData } = kojiConfig;
 
     if (!remixData) throw new Error('Unable to find remixData');
@@ -36,12 +42,12 @@ export class Remix extends KojiBridge {
   }
 
   @client
-  get() {
+  public get() {
     return this.values;
   }
 
   @client
-  set(newValue: Object): void {
+  public set(newValue: Object): Promise<boolean> {
     this.values = deepmerge(this.values, newValue, {
       arrayMerge: (dest, source) => source,
     });
@@ -49,27 +55,52 @@ export class Remix extends KojiBridge {
   }
 
   @client
-  overwrite(newValues: Object): void {
+  public overwrite(newValues: Object): Promise<boolean> {
     this.values = newValues;
     return this.sendValues();
   }
 
   @client
-  finish() {
+  public finish() {
     this.sendMessage({
       kojiEventName: 'KojiPreview.Finish',
     });
   }
 
-  private sendValues() {
-    this.sendMessage({
-      kojiEventName: 'KojiPreview.SetValue',
-      data: {
-        path: ['remixData'],
-        newValue: this.values,
-        skipUpdate: true,
+  @client
+  public async encryptValue(plaintextValue: string): Promise<string> {
+    const data: string = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: 'KojiPreview.EncryptValue',
+        data: {
+          plaintextValue,
+        },
       },
-    });
+      'KojiPreview.ValueEncrypted',
+    );
+
+    return data;
+  }
+
+  @client
+  public async decryptValue() {
+    
+  }
+
+  private async sendValues() {
+    const data: ValueChanged = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: 'KojiPreview.SetValue',
+        data: {
+          path: ['remixData'],
+          newValue: this.values,
+          skipUpdate: false,
+        },
+      },
+      'KojiPreview.DidChangeVcc',
+    );
+
+    return !!data;
   }
 }
 

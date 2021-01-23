@@ -4,14 +4,21 @@ declare global {
         KOJI_OVERRIDES: any;
     }
 }
+export interface ValueChanged {
+    path: string[];
+    newValue: any;
+    savedValue: any;
+}
 export declare class Remix extends KojiBridge {
     private values;
     private isInitialized;
     init(kojiConfig: any): void;
     get(): any;
-    set(newValue: Object): void;
-    overwrite(newValues: Object): void;
+    set(newValue: Object): Promise<boolean>;
+    overwrite(newValues: Object): Promise<boolean>;
     finish(): void;
+    encryptValue(plaintextValue: string): Promise<string>;
+    decryptValue(): Promise<void>;
     private sendValues;
 }
 export declare const remix: Remix;

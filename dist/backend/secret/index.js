@@ -79,20 +79,20 @@ var Secret = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(SecretRoutes.KEYSTORE_GET), {
-                  headers: this.rootHeaders,
-                  data: {
-                    scope: this.projectId,
-                    token: this.projectToken,
-                    keyPath: keyPath
-                  }
+                  scope: this.projectId,
+                  token: this.projectToken,
+                  keyPath: keyPath
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
                 _yield$axios$post = _context.sent;
                 data = _yield$axios$post.data;
+                console.log('d', data);
                 return _context.abrupt("return", data.decryptedValue);
 
-              case 5:
+              case 6:
               case "end":
                 return _context.stop();
             }
