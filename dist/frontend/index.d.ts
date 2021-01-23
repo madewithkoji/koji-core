@@ -4,6 +4,7 @@ import { Identity } from './identity';
 import { PlayerState } from './playerState';
 import { Remix } from './remix';
 import { UI } from './ui';
+import { ServiceMap } from './serviceMap';
 declare class Koji {
     isReady: boolean;
     analytics: Analytics;
@@ -11,6 +12,7 @@ declare class Koji {
     identity: Identity;
     playerState: PlayerState;
     remix: Remix;
+    serviceMap: ServiceMap;
     ui: UI;
     constructor();
     ready(): void;

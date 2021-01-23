@@ -4,6 +4,7 @@ import { identity, Identity } from './identity';
 import { playerState, PlayerState } from './playerState';
 import { remix, Remix } from './remix';
 import { ui, UI } from './ui';
+import { serviceMap, ServiceMap } from './serviceMap';
 import { client } from './@decorators/client';
 
 class Koji {
@@ -14,6 +15,7 @@ class Koji {
   identity: Identity = identity;
   playerState: PlayerState = playerState;
   remix: Remix = remix;
+  serviceMap: ServiceMap = serviceMap;
   ui: UI = ui;
 
   constructor() {

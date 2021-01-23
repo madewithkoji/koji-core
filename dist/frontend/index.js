@@ -27,6 +27,8 @@ var _remix = require("./remix");
 
 var _ui = require("./ui");
 
+var _serviceMap = require("./serviceMap");
+
 var _client = require("./@decorators/client");
 
 var _class, _temp;
@@ -40,6 +42,7 @@ var Koji = (_class = (_temp = /*#__PURE__*/function () {
     (0, _defineProperty2["default"])(this, "identity", _identity.identity);
     (0, _defineProperty2["default"])(this, "playerState", _playerState.playerState);
     (0, _defineProperty2["default"])(this, "remix", _remix.remix);
+    (0, _defineProperty2["default"])(this, "serviceMap", _serviceMap.serviceMap);
     (0, _defineProperty2["default"])(this, "ui", _ui.ui);
     this.isReady = false;
   }
