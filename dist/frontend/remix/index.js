@@ -157,7 +157,7 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
               case 0:
                 _context2.next = 2;
                 return this.sendMessageAndAwaitResponse({
-                  kojiEventName: 'KojiPreview.EncryptValue',
+                  kojiEventName: 'KojiPreview.DecryptValue',
                   data: {
                     encryptedValue: encryptedValue
                   }
