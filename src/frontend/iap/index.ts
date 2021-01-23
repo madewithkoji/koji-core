@@ -1,4 +1,4 @@
-import { KojiBridge } from '../bridge';
+import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
 
 /** Custom information to add to a {@link IapReceipt | transaction receipt} for a given in-app purchase. */
@@ -47,7 +47,7 @@ export class IAP extends KojiBridge {
    */
   @client
   async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
-    const { success, userToken, receiptId } = await this.postToPlatform({
+    const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/iap/promptPurchase',
       data: {
         sku,

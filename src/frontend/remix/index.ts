@@ -1,50 +1,78 @@
-import { KojiBridge } from '../bridge';
+import deepmerge from 'deepmerge';
 import { client } from '../@decorators/client';
+import { KojiBridge } from '../kojiBridge';
 
-type EditorType = 'instant' | 'full';
-type EditorMode = 'edit' | 'new';
-
-/**
- * Describes the remixer's editor.
- */
-interface EditorAttributes {
-  /** Describes the type of editor, either `instant` for an instant remix or `full` for the code editor. */
-  type?: EditorType;
-  /** Distinguishes between a `new` remix and an `edit` to the user’s existing Koji. */
-  mode?: EditorMode;
+declare global {
+  interface Window {
+    KOJI_OVERRIDES: any;
+  }
 }
-
-/**
- * Handles changes in remix state. Receives the following properties as inputs:
- * @callback
- * @param {boolean} isRemixing Indicates whether the Koji is in remixing mode.
- * @param {EditorAttributes} editorAttributes
- */
-type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
 
 /**
  * Manages the remixing experience for your Koji.
  */
 export class Remix extends KojiBridge {
-  /**
-   * Listens to changes in remix state and invokes a callback function to enable different experiences during remix, preview, or use.
-   *
-   * @param   {IsRemixingCallback} callback  Handles changes in remix state. Receives the following properties as inputs:
-   * @example
-   * ```javascript
-   * Koji.Remix((isRemixing,editorAttributes) => {
-   *  // Change Koji experience
-   * });
-   * ```
-   */
+  private values: any = {};
+  private isInitialized: boolean = false;
+
   @client
-  subscribe(callback: IsRemixingCallback): Function {
-    return this.listen(
-      ({ isRemixing, editorAttributes }: { isRemixing: boolean; editorAttributes: EditorAttributes }) => {
-        callback(isRemixing, editorAttributes);
+  init(kojiConfig: any) {
+    const { remixData } = kojiConfig;
+
+    if (!remixData) throw new Error('Unable to find remixData');
+
+    if (this.isInitialized) {
+      console.warn('You are trying to initialize your remix data more than one time.');
+      return;
+    }
+
+    this.isInitialized = true;
+
+    let overrides = {};
+    if (window.KOJI_OVERRIDES && window.KOJI_OVERRIDES.overrides) {
+      overrides = window.KOJI_OVERRIDES.overrides.remixData || {};
+    }
+
+    this.values = deepmerge(remixData, overrides, {
+      arrayMerge: (dest, source) => source,
+    });
+  }
+
+  @client
+  get() {
+    return this.values;
+  }
+
+  @client
+  set(newValue: Object): void {
+    this.values = deepmerge(this.values, newValue, {
+      arrayMerge: (dest, source) => source,
+    });
+    return this.sendValues();
+  }
+
+  @client
+  overwrite(newValues: Object): void {
+    this.values = newValues;
+    return this.sendValues();
+  }
+
+  @client
+  finish() {
+    this.sendMessage({
+      kojiEventName: 'KojiPreview.Finish',
+    });
+  }
+
+  private sendValues() {
+    this.sendMessage({
+      kojiEventName: 'KojiPreview.SetValue',
+      data: {
+        path: ['remixData'],
+        newValue: this.values,
+        skipUpdate: true,
       },
-      'KojiPreview.IsRemixing',
-    );
+    });
   }
 }
 

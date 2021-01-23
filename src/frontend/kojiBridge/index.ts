@@ -13,7 +13,7 @@ interface PostMessage {
  *
  */
 export class KojiBridge {
-  protected listen(callback: Function, eventName: string) {
+  protected execCallbackOnMessage(callback: Function, eventName: string) {
     const messageListener = ({ data }: { data: MessageListenerData }) => {
       const { event } = data;
       if (event === eventName) {
@@ -28,7 +28,19 @@ export class KojiBridge {
     };
   }
 
-  protected postToPlatform(postMessage: PostMessage, platformMessageName: string): Promise<any> {
+  protected sendMessage(postMessage: PostMessage): void {
+    window.parent.postMessage(
+      {
+        _kojiEventName: postMessage.kojiEventName,
+        _type: postMessage.kojiEventName,
+        _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
+        ...postMessage.data,
+      },
+      '*',
+    );
+  }
+
+  protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const messageListener = ({ data }: { data: MessageListenerData }) => {
         const { event } = data;
@@ -48,6 +60,7 @@ export class KojiBridge {
         {
           _kojiEventName: postMessage.kojiEventName,
           _type: postMessage.kojiEventName,
+          _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
           ...postMessage.data,
         },
         '*',
