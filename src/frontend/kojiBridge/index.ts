@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { v4 as uuidv4 } from 'uuid';
 
 interface MessageListenerData {
@@ -41,8 +42,6 @@ export class KojiBridge {
   protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const idempotencyKey = uuidv4();
-
-      console.log('called', idempotencyKey);
 
       const messageListener = ({ data }: { data: MessageListenerData }) => {
         const { event, _idempotencyKey } = data;

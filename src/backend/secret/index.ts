@@ -37,8 +37,6 @@ export class Secret extends Base {
       },
     );
 
-    console.log('d', data);
-
     return data.decryptedValue;
   }
 

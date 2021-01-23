@@ -55,7 +55,6 @@ var KojiBridge = /*#__PURE__*/function () {
     value: function sendMessageAndAwaitResponse(postMessage, platformMessageName) {
       return new Promise(function (resolve, reject) {
         var idempotencyKey = (0, _uuid.v4)();
-        console.log('called', idempotencyKey);
 
         var messageListener = function messageListener(_ref2) {
           var data = _ref2.data;
