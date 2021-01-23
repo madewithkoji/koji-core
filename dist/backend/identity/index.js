@@ -94,11 +94,10 @@ var Identity = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(AuthRoutes.PUSH_NOTIFICATION), {
-                  headers: this.rootHeaders,
-                  data: {
-                    destination: userId,
-                    notification: notification
-                  }
+                  destination: userId,
+                  notification: notification
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -132,11 +131,10 @@ var Identity = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context2.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(AuthRoutes.PUSH_NOTIFICATION), {
-                  headers: this.rootHeaders,
-                  data: {
-                    destination: 'owner',
-                    notification: notification
-                  }
+                  destination: 'owner',
+                  notification: notification
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -169,7 +167,7 @@ var Identity = (_class = (_temp = /*#__PURE__*/function (_Base) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _context3.next = 2;
-                return _axios["default"].post("".concat(this.rootPath).concat(AuthRoutes.GET_ROLE), {
+                return _axios["default"].post("".concat(this.rootPath).concat(AuthRoutes.GET_ROLE), {}, {
                   headers: _objectSpread(_objectSpread({}, this.rootHeaders), {}, {
                     'X-Koji-Auth-Callback-Token': token
                   })
@@ -179,7 +177,7 @@ var Identity = (_class = (_temp = /*#__PURE__*/function (_Base) {
                 _yield$axios$post3 = _context3.sent;
                 role = _yield$axios$post3.data.role;
                 _context3.next = 6;
-                return _axios["default"].post("".concat(this.rootPath).concat(AuthRoutes.GET_ROLE), {
+                return _axios["default"].post("".concat(this.rootPath).concat(AuthRoutes.GET_ROLE), {}, {
                   headers: _objectSpread(_objectSpread({}, this.rootHeaders), {}, {
                     'X-Koji-Auth-Callback-Token': token
                   })

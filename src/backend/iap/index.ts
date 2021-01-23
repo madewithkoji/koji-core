@@ -46,12 +46,16 @@ export class IAP {
   @server
   public async resolveReceiptsByUserToken(userToken: UserToken): Promise<IapReceipt[]> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS}`, {
-        headers: {
-          ...this.rootHeaders,
-          'X-Koji-Iap-Callback-Token': userToken,
+      const { data } = await axios.post(
+        `${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS}`,
+        {},
+        {
+          headers: {
+            ...this.rootHeaders,
+            'X-Koji-Iap-Callback-Token': userToken,
+          },
         },
-      });
+      );
 
       return data;
     } catch (err) {
@@ -62,12 +66,11 @@ export class IAP {
   @server
   public async resolveReceiptById(receiptId: string): Promise<IapReceipt | null> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, {
-        headers: this.rootHeaders,
-        data: {
-          receiptId,
-        },
-      });
+      const { data } = await axios.post(
+        `${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`,
+        { receiptId },
+        { headers: this.rootHeaders },
+      );
 
       return data;
     } catch (err) {
@@ -78,12 +81,11 @@ export class IAP {
   @server
   public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, {
-        headers: this.rootHeaders,
-        data: {
-          sku,
-        },
-      });
+      const { data } = await axios.post(
+        `${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`,
+        { sku },
+        { headers: this.rootHeaders },
+      );
 
       return data;
     } catch (err) {
@@ -97,14 +99,15 @@ export class IAP {
     notificationMessage?: string,
   ): Promise<any> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.UPDATE_RECEIPT}`, {
-        headers: this.rootHeaders,
-        data: {
+      const { data } = await axios.post(
+        `${this.rootPath}${IapRoutes.UPDATE_RECEIPT}`,
+        {
           receiptId,
           attributes,
           notificationMessage,
         },
-      });
+        { headers: this.rootHeaders },
+      );
 
       return data;
     } catch (err) {
@@ -114,9 +117,10 @@ export class IAP {
 
   public async loadProduct(sku: string) {
     try {
-      const { data } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?appId=${this.projectId}&sku=${sku}`, {
-        headers: this.rootHeaders,
-      });
+      const { data } = await axios.get(
+        `${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?appId=${this.projectId}&sku=${sku}`,
+        { headers: this.rootHeaders },
+      );
 
       return data;
     } catch (err) {

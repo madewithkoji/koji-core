@@ -69,7 +69,7 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return _axios["default"].post("".concat(this.rootPath).concat(IapRoutes.RESOLVE_RECEIPTS), {
+                return _axios["default"].post("".concat(this.rootPath).concat(IapRoutes.RESOLVE_RECEIPTS), {}, {
                   headers: _objectSpread(_objectSpread({}, this.rootHeaders), {}, {
                     'X-Koji-Iap-Callback-Token': userToken
                   })
@@ -112,10 +112,9 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
                 _context2.prev = 0;
                 _context2.next = 3;
                 return _axios["default"].post("".concat(this.rootPath).concat(IapRoutes.RESOLVE_RECEIPT_BY_ID), {
-                  headers: this.rootHeaders,
-                  data: {
-                    receiptId: receiptId
-                  }
+                  receiptId: receiptId
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 3:
@@ -155,10 +154,9 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
                 _context3.prev = 0;
                 _context3.next = 3;
                 return _axios["default"].post("".concat(this.rootPath).concat(IapRoutes.RESOLVE_RECEIPTS_BY_SKU), {
-                  headers: this.rootHeaders,
-                  data: {
-                    sku: sku
-                  }
+                  sku: sku
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 3:
@@ -198,12 +196,11 @@ var IAP = (_class = (_temp = /*#__PURE__*/function () {
                 _context4.prev = 0;
                 _context4.next = 3;
                 return _axios["default"].post("".concat(this.rootPath).concat(IapRoutes.UPDATE_RECEIPT), {
-                  headers: this.rootHeaders,
-                  data: {
-                    receiptId: receiptId,
-                    attributes: attributes,
-                    notificationMessage: notificationMessage
-                  }
+                  receiptId: receiptId,
+                  attributes: attributes,
+                  notificationMessage: notificationMessage
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 3:
