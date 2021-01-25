@@ -19,8 +19,6 @@ var _analytics = require("./analytics");
 
 var _iap = require("./iap");
 
-var _config = require("./config");
-
 var _identity = require("./identity");
 
 var _playerState = require("./playerState");
@@ -28,6 +26,8 @@ var _playerState = require("./playerState");
 var _remix = require("./remix");
 
 var _ui = require("./ui");
+
+var _serviceMap = require("./serviceMap");
 
 var _client = require("./@decorators/client");
 
@@ -38,11 +38,11 @@ var Koji = (_class = (_temp = /*#__PURE__*/function () {
     (0, _classCallCheck2["default"])(this, Koji);
     (0, _defineProperty2["default"])(this, "isReady", void 0);
     (0, _defineProperty2["default"])(this, "analytics", _analytics.analytics);
-    (0, _defineProperty2["default"])(this, "config", _config.config);
     (0, _defineProperty2["default"])(this, "iap", _iap.iap);
     (0, _defineProperty2["default"])(this, "identity", _identity.identity);
     (0, _defineProperty2["default"])(this, "playerState", _playerState.playerState);
     (0, _defineProperty2["default"])(this, "remix", _remix.remix);
+    (0, _defineProperty2["default"])(this, "serviceMap", _serviceMap.serviceMap);
     (0, _defineProperty2["default"])(this, "ui", _ui.ui);
     this.isReady = false;
   }

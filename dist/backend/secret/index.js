@@ -79,12 +79,11 @@ var Secret = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(SecretRoutes.KEYSTORE_GET), {
-                  headers: this.rootHeaders,
-                  data: {
-                    scope: this.projectId,
-                    token: this.projectToken,
-                    keyPath: keyPath
-                  }
+                  scope: this.projectId,
+                  token: this.projectToken,
+                  keyPath: keyPath
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -118,11 +117,10 @@ var Secret = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context2.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(SecretRoutes.CREATE_SIGNED_REQUEST), {
-                  headers: this.rootHeaders,
-                  data: {
-                    resource: resource,
-                    expireSeconds: expireSeconds
-                  }
+                  resource: resource,
+                  expireSeconds: expireSeconds
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:

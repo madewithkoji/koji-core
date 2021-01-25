@@ -46,13 +46,14 @@ export class Database extends Base {
 
   @server
   public async get<T>(collection: string, documentName?: string | null): Promise<T> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.GET}`,
+      {
         collection,
         documentName,
       },
-    });
+      { headers: this.rootHeaders },
+    );
     return data.document;
   }
 
@@ -60,24 +61,22 @@ export class Database extends Base {
   public async getCollections(): Promise<string[]> {
     const {
       data: { collections = [] },
-    } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_COLLECTIONS}`, {
-      headers: this.rootHeaders,
-      data: {},
-    });
+    } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_COLLECTIONS}`, {}, { headers: this.rootHeaders });
 
     return collections;
   }
 
   @server
   public async search<T>(collection: string, queryKey: string, queryValue: string): Promise<T[]> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.SEARCH}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.SEARCH}`,
+      {
         collection,
         queryKey,
         queryValue,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data;
   }
@@ -89,9 +88,9 @@ export class Database extends Base {
     predicateOperation: PredicateOperator,
     predicateValue: string,
   ): Promise<T> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.GET}`,
+      {
         collection,
         predicate: {
           key: predicateKey,
@@ -99,20 +98,22 @@ export class Database extends Base {
           value: predicateValue,
         },
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data.document;
   }
 
   @server
   public async getAll<T>(collection: string, documentNames: string[]): Promise<T[]> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_ALL}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.GET_ALL}`,
+      {
         collection,
         documentNames,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data.results;
   }
@@ -124,84 +125,90 @@ export class Database extends Base {
     predicateOperation: PredicateOperator,
     predicateValues: string[],
   ): Promise<T[]> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_ALL_WHERE}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.GET_ALL_WHERE}`,
+      {
         collection,
         predicateKey,
         predicateOperation,
         predicateValues,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data.results;
   }
 
   @server
   public async set(collection: string, documentName: string, documentBody: any): Promise<boolean> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.SET}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.SET}`,
+      {
         collection,
         documentBody,
         documentName,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data;
   }
 
   @server
   public async update(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.UPDATE}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.UPDATE}`,
+      {
         collection,
         documentBody,
         documentName,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data;
   }
 
   @server
   public async arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`,
+      {
         collection,
         documentBody,
         documentName,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data;
   }
 
   @server
   public async arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`,
+      {
         collection,
         documentBody,
         documentName,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data;
   }
 
   @server
   public async delete(collection: string, documentName: string): Promise<boolean | void> {
-    const { data } = await axios.post(`${this.rootPath}${DatabaseRoutes.DELETE}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.DELETE}`,
+      {
         collection,
         documentName,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data;
   }

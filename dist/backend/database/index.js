@@ -104,11 +104,10 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.GET), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    documentName: documentName
-                  }
+                  collection: collection,
+                  documentName: documentName
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -141,9 +140,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.GET_COLLECTIONS), {
-                  headers: this.rootHeaders,
-                  data: {}
+                return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.GET_COLLECTIONS), {}, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -178,12 +176,11 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context3.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.SEARCH), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    queryKey: queryKey,
-                    queryValue: queryValue
-                  }
+                  collection: collection,
+                  queryKey: queryKey,
+                  queryValue: queryValue
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -217,15 +214,14 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context4.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.GET), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    predicate: {
-                      key: predicateKey,
-                      operation: predicateOperation,
-                      value: predicateValue
-                    }
+                  collection: collection,
+                  predicate: {
+                    key: predicateKey,
+                    operation: predicateOperation,
+                    value: predicateValue
                   }
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -259,11 +255,10 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context5.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.GET_ALL), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    documentNames: documentNames
-                  }
+                  collection: collection,
+                  documentNames: documentNames
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -297,13 +292,12 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context6.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.GET_ALL_WHERE), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    predicateKey: predicateKey,
-                    predicateOperation: predicateOperation,
-                    predicateValues: predicateValues
-                  }
+                  collection: collection,
+                  predicateKey: predicateKey,
+                  predicateOperation: predicateOperation,
+                  predicateValues: predicateValues
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -337,12 +331,11 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context7.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.SET), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    documentBody: documentBody,
-                    documentName: documentName
-                  }
+                  collection: collection,
+                  documentBody: documentBody,
+                  documentName: documentName
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -376,12 +369,11 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context8.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.UPDATE), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    documentBody: documentBody,
-                    documentName: documentName
-                  }
+                  collection: collection,
+                  documentBody: documentBody,
+                  documentName: documentName
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -415,12 +407,11 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context9.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.ARRAY_PUSH), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    documentBody: documentBody,
-                    documentName: documentName
-                  }
+                  collection: collection,
+                  documentBody: documentBody,
+                  documentName: documentName
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -454,12 +445,11 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context10.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.ARRAY_REMOVE), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    documentBody: documentBody,
-                    documentName: documentName
-                  }
+                  collection: collection,
+                  documentBody: documentBody,
+                  documentName: documentName
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:
@@ -493,11 +483,10 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
               case 0:
                 _context11.next = 2;
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.DELETE), {
-                  headers: this.rootHeaders,
-                  data: {
-                    collection: collection,
-                    documentName: documentName
-                  }
+                  collection: collection,
+                  documentName: documentName
+                }, {
+                  headers: this.rootHeaders
                 });
 
               case 2:

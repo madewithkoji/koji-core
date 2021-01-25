@@ -1,18 +1,18 @@
 import { Analytics } from './analytics';
 import { IAP } from './iap';
-import { Config } from './config';
 import { Identity } from './identity';
 import { PlayerState } from './playerState';
 import { Remix } from './remix';
 import { UI } from './ui';
+import { ServiceMap } from './serviceMap';
 declare class Koji {
     isReady: boolean;
     analytics: Analytics;
-    config: Config;
     iap: IAP;
     identity: Identity;
     playerState: PlayerState;
     remix: Remix;
+    serviceMap: ServiceMap;
     ui: UI;
     constructor();
     ready(): void;

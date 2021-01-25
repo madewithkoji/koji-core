@@ -1,21 +1,21 @@
 import { analytics, Analytics } from './analytics';
 import { iap, IAP } from './iap';
-import { config, Config } from './config';
 import { identity, Identity } from './identity';
 import { playerState, PlayerState } from './playerState';
 import { remix, Remix } from './remix';
 import { ui, UI } from './ui';
+import { serviceMap, ServiceMap } from './serviceMap';
 import { client } from './@decorators/client';
 
 class Koji {
   isReady: boolean;
 
   analytics: Analytics = analytics;
-  config: Config = config;
   iap: IAP = iap;
   identity: Identity = identity;
   playerState: PlayerState = playerState;
   remix: Remix = remix;
+  serviceMap: ServiceMap = serviceMap;
   ui: UI = ui;
 
   constructor() {

@@ -25,27 +25,31 @@ export class Secret extends Base {
 
   @server
   public async resolveValue<T>(keyPath: string): Promise<T> {
-    const { data } = await axios.post(`${this.rootPath}${SecretRoutes.KEYSTORE_GET}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${SecretRoutes.KEYSTORE_GET}`,
+      {
         scope: this.projectId,
         token: this.projectToken,
         keyPath,
       },
-    });
+      {
+        headers: this.rootHeaders,
+      },
+    );
 
     return data.decryptedValue;
   }
 
   @server
   public async generateSignedUrl(resource: string, expireSeconds?: number): Promise<string> {
-    const { data } = await axios.post(`${this.rootPath}${SecretRoutes.CREATE_SIGNED_REQUEST}`, {
-      headers: this.rootHeaders,
-      data: {
+    const { data } = await axios.post(
+      `${this.rootPath}${SecretRoutes.CREATE_SIGNED_REQUEST}`,
+      {
         resource,
         expireSeconds,
       },
-    });
+      { headers: this.rootHeaders },
+    );
 
     return data.url;
   }
