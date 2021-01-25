@@ -61,12 +61,11 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
 
   (0, _createClass2["default"])(Remix, [{
     key: "init",
-    value: function init(kojiConfig) {
-      var remixData = kojiConfig.remixData;
+    value: function init(remixData) {
       if (!remixData) throw new Error('Unable to find remixData');
 
       if (this.isInitialized) {
-        console.warn('You are trying to initialize your remix data more than one time.');
+        console.warn('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
         return;
       }
 
