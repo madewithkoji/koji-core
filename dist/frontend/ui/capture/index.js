@@ -48,6 +48,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _color = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
         var options,
+            verbose,
             data,
             _args = arguments;
         return _regenerator["default"].wrap(function _callee$(_context) {
@@ -55,7 +56,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context.prev = _context.next) {
               case 0:
                 options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
-                _context.next = 3;
+                verbose = _args.length > 1 && _args[1] !== undefined ? _args[1] : false;
+                _context.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -64,20 +66,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context.sent;
 
-                if (!options.verbose) {
-                  _context.next = 6;
+                if (!verbose) {
+                  _context.next = 7;
                   break;
                 }
 
                 return _context.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -96,6 +98,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _file = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
         var options,
+            verbose,
             data,
             _args2 = arguments;
         return _regenerator["default"].wrap(function _callee2$(_context2) {
@@ -103,7 +106,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 options = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : {};
-                _context2.next = 3;
+                verbose = _args2.length > 1 ? _args2[1] : undefined;
+                _context2.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -112,20 +116,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context2.sent;
 
-                if (!options.verbose) {
-                  _context2.next = 6;
+                if (!verbose) {
+                  _context2.next = 7;
                   break;
                 }
 
                 return _context2.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context2.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context2.stop();
             }
@@ -144,6 +148,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _image = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
         var options,
+            verbose,
             data,
             _args3 = arguments;
         return _regenerator["default"].wrap(function _callee3$(_context3) {
@@ -151,7 +156,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 options = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : {};
-                _context3.next = 3;
+                verbose = _args3.length > 1 ? _args3[1] : undefined;
+                _context3.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -160,20 +166,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context3.sent;
 
-                if (!options.verbose) {
-                  _context3.next = 6;
+                if (!verbose) {
+                  _context3.next = 7;
                   break;
                 }
 
                 return _context3.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context3.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context3.stop();
             }
@@ -192,6 +198,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _koji = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4() {
         var options,
+            verbose,
             data,
             _args4 = arguments;
         return _regenerator["default"].wrap(function _callee4$(_context4) {
@@ -199,7 +206,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 options = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : {};
-                _context4.next = 3;
+                verbose = _args4.length > 1 ? _args4[1] : undefined;
+                _context4.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -208,20 +216,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context4.sent;
 
-                if (!options.verbose) {
-                  _context4.next = 6;
+                if (!verbose) {
+                  _context4.next = 7;
                   break;
                 }
 
                 return _context4.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context4.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context4.stop();
             }
@@ -240,6 +248,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _media = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5() {
         var options,
+            verbose,
             data,
             _args5 = arguments;
         return _regenerator["default"].wrap(function _callee5$(_context5) {
@@ -247,7 +256,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context5.prev = _context5.next) {
               case 0:
                 options = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : {};
-                _context5.next = 3;
+                verbose = _args5.length > 1 ? _args5[1] : undefined;
+                _context5.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -256,20 +266,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context5.sent;
 
-                if (!options.verbose) {
-                  _context5.next = 6;
+                if (!verbose) {
+                  _context5.next = 7;
                   break;
                 }
 
                 return _context5.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context5.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context5.stop();
             }
@@ -288,6 +298,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _range = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6() {
         var options,
+            verbose,
             data,
             _args6 = arguments;
         return _regenerator["default"].wrap(function _callee6$(_context6) {
@@ -295,7 +306,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context6.prev = _context6.next) {
               case 0:
                 options = _args6.length > 0 && _args6[0] !== undefined ? _args6[0] : {};
-                _context6.next = 3;
+                verbose = _args6.length > 1 ? _args6[1] : undefined;
+                _context6.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -304,20 +316,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context6.sent;
 
-                if (!options.verbose) {
-                  _context6.next = 6;
+                if (!verbose) {
+                  _context6.next = 7;
                   break;
                 }
 
                 return _context6.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context6.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context6.stop();
             }
@@ -336,6 +348,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _select = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7() {
         var options,
+            verbose,
             data,
             _args7 = arguments;
         return _regenerator["default"].wrap(function _callee7$(_context7) {
@@ -343,7 +356,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context7.prev = _context7.next) {
               case 0:
                 options = _args7.length > 0 && _args7[0] !== undefined ? _args7[0] : {};
-                _context7.next = 3;
+                verbose = _args7.length > 1 ? _args7[1] : undefined;
+                _context7.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -352,20 +366,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context7.sent;
 
-                if (!options.verbose) {
-                  _context7.next = 6;
+                if (!verbose) {
+                  _context7.next = 7;
                   break;
                 }
 
                 return _context7.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context7.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context7.stop();
             }
@@ -384,6 +398,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _sound = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8() {
         var options,
+            verbose,
             data,
             _args8 = arguments;
         return _regenerator["default"].wrap(function _callee8$(_context8) {
@@ -391,7 +406,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context8.prev = _context8.next) {
               case 0:
                 options = _args8.length > 0 && _args8[0] !== undefined ? _args8[0] : {};
-                _context8.next = 3;
+                verbose = _args8.length > 1 ? _args8[1] : undefined;
+                _context8.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -400,20 +416,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context8.sent;
 
-                if (!options.verbose) {
-                  _context8.next = 6;
+                if (!verbose) {
+                  _context8.next = 7;
                   break;
                 }
 
                 return _context8.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context8.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context8.stop();
             }
@@ -432,6 +448,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     value: function () {
       var _video = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9() {
         var options,
+            verbose,
             data,
             _args9 = arguments;
         return _regenerator["default"].wrap(function _callee9$(_context9) {
@@ -439,7 +456,8 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
             switch (_context9.prev = _context9.next) {
               case 0:
                 options = _args9.length > 0 && _args9[0] !== undefined ? _args9[0] : {};
-                _context9.next = 3;
+                verbose = _args9.length > 1 ? _args9[1] : undefined;
+                _context9.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -448,20 +466,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                   }
                 }, 'Koji.CaptureSuccess');
 
-              case 3:
+              case 4:
                 data = _context9.sent;
 
-                if (!options.verbose) {
-                  _context9.next = 6;
+                if (!verbose) {
+                  _context9.next = 7;
                   break;
                 }
 
                 return _context9.abrupt("return", data);
 
-              case 6:
+              case 7:
                 return _context9.abrupt("return", data.result);
 
-              case 7:
+              case 8:
               case "end":
                 return _context9.stop();
             }
