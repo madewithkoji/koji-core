@@ -401,7 +401,7 @@
 					"sources": [
 						{
 							"fileName": "backend/@decorators/server.ts",
-							"line": 2,
+							"line": 9,
 							"character": 22
 						}
 					],
@@ -412,6 +412,10 @@
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
+							"comment": {
+								"shortText": "Verifies that server-side methods are used only in backend services of the Koji.",
+								"returns": "Method's behavior or an error, if the method is being invoked in a frontend environment.\n"
+							},
 							"parameters": [
 								{
 									"id": 4,
@@ -419,6 +423,9 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "Class to which the method belongs."
+									},
 									"type": {
 										"type": "reference",
 										"name": "Object"
@@ -430,6 +437,9 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "Method name."
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -441,6 +451,9 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "Method's behavior (which can be mutated inside this function)."
+									},
 									"type": {
 										"type": "reference",
 										"name": "PropertyDescriptor"
@@ -7903,7 +7916,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/@decorators/client.ts",
-							"line": 2,
+							"line": 9,
 							"character": 22
 						}
 					],
@@ -7914,6 +7927,10 @@
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
+							"comment": {
+								"shortText": "Verifies that client-side methods are used only in frontend services of the Koji.",
+								"returns": "Method's behavior or an error, if the method is being invoked in a node/backend environment.\n"
+							},
 							"parameters": [
 								{
 									"id": 407,
@@ -7921,6 +7938,9 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "Class to which the method belongs."
+									},
 									"type": {
 										"type": "reference",
 										"name": "Object"
@@ -7932,6 +7952,9 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "Method name."
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -7943,6 +7966,9 @@
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "Method's behavior (which can be mutated inside this function)."
+									},
 									"type": {
 										"type": "reference",
 										"name": "PropertyDescriptor"
@@ -8049,7 +8075,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n\n```javascript\nconst event = Koji.Analytics.track('My Custom Event');\n\n// with optional payload\nconst event = Koji.Analytics.track('Won game', { score: 120 });\n```\n"
+												"text": "\n\n```javascript\nconst event = Koji.analytics.track('My Custom Event');\n\n// with optional payload\nconst event = Koji.analytics.track('Won game', { score: 120 });\n```\n"
 											}
 										]
 									},
@@ -8281,7 +8307,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -8292,6 +8318,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 442,
@@ -8299,6 +8329,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -8310,6 +8343,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -8390,7 +8426,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -8401,6 +8437,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 448,
@@ -8408,6 +8445,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -8442,7 +8482,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -8453,6 +8493,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 451,
@@ -8460,6 +8503,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -8471,6 +8517,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -8535,7 +8582,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n``` javascript\nKoji.IAP.startPurchase(sku,purchaseOptions);\n```\n"
+												"text": "\n``` javascript\nKoji.iap.startPurchase(sku,purchaseOptions);\n```\n"
 											}
 										]
 									},
@@ -8695,7 +8742,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Temporary token for the current user’s session. See {@link getToken}."
+								"shortText": "Temporary token for the current user’s session. See [[getToken]]."
 							},
 							"sources": [
 								{
@@ -8745,7 +8792,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Custom information to add to a {@link IapReceipt | transaction receipt} for a given in-app purchase."
+						"shortText": "Custom information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase."
 					},
 					"children": [
 						{
@@ -8789,7 +8836,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Custom message associated with the purchase. This value is stored as a custom attribute on the {@link IapReceipt | transaction receipt}."
+								"shortText": "Custom message associated with the purchase. This value is stored as a custom attribute on the [[IapReceipt | transaction receipt]]."
 							},
 							"sources": [
 								{
@@ -8915,7 +8962,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 10,
+									"line": 9,
 									"character": 20
 								}
 							],
@@ -8933,7 +8980,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 12,
+									"line": 11,
 									"character": 10
 								}
 							],
@@ -8953,7 +9000,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 8,
+							"line": 7,
 							"character": 31
 						}
 					]
@@ -9021,11 +9068,11 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Checks whether the user has granted authorizations to the Koji. Use this method to determine whether to request authorization for certain capabilities.",
-										"returns": "Indicates whether the user has already granted authorization for the capabilities.",
+										"returns": "Indicates whether the user has already granted authorization for the capabilities.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst hasGrant = await Koji.Identity.checkGrants(['username', 'push_notifications']);\n```\n"
+												"text": "\n```javascript\nconst hasGrant = await Koji.identity.checkGrants(['username', 'push_notifications']);\n```\n"
 											}
 										]
 									},
@@ -9037,7 +9084,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "List of {@link AuthGrantCapability| authorization grants} to check for the user."
+												"text": "List of authorization grants to check for the user."
 											},
 											"type": {
 												"type": "array",
@@ -9074,7 +9121,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -9085,6 +9132,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 473,
@@ -9092,6 +9143,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -9103,6 +9157,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -9164,7 +9221,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 30,
+									"line": 29,
 									"character": 16
 								}
 							],
@@ -9181,7 +9238,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst token = await Koji.Identity.getToken();\n```\n"
+												"text": "\n```javascript\nconst token = await Koji.identity.getToken();\n```\n"
 											}
 										]
 									},
@@ -9216,7 +9273,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 74,
+									"line": 75,
 									"character": 21
 								}
 							],
@@ -9229,11 +9286,11 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Requests the specified authorization grants from the user for the Koji.",
-										"returns": "{@link UserToken}",
+										"returns": "[[UserToken]]\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst hasGrant = await Koji.Identity.requestGrants(['username', 'push_notifications']);\n```\n"
+												"text": "\n```javascript\nconst hasGrant = await Koji.identity.requestGrants(['username', 'push_notifications']);\n```\n"
 											}
 										]
 									},
@@ -9307,7 +9364,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -9318,6 +9375,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 479,
@@ -9325,6 +9383,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -9359,7 +9420,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -9370,6 +9431,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 482,
@@ -9377,6 +9441,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -9388,6 +9455,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -9442,7 +9510,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 18,
+							"line": 17,
 							"character": 21
 						}
 					],
@@ -9465,7 +9533,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 87,
+							"line": 88,
 							"character": 21
 						}
 					],
@@ -9571,7 +9639,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -9582,6 +9650,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 493,
@@ -9589,6 +9661,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -9600,6 +9675,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -9643,7 +9721,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -9654,6 +9732,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 499,
@@ -9661,6 +9740,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -9685,7 +9767,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -9696,6 +9778,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 502,
@@ -9703,6 +9788,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -9714,6 +9802,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -9755,7 +9844,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/kojiBridge/index.ts",
-							"line": 18,
+							"line": 20,
 							"character": 23
 						}
 					],
@@ -9828,6 +9917,9 @@
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
+					"comment": {
+						"shortText": "Manages the context of the Koji to enable distinct experiences for different users and views."
+					},
 					"children": [
 						{
 							"id": 522,
@@ -9869,7 +9961,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 27,
+									"line": 57,
 									"character": 9
 								}
 							],
@@ -9891,7 +9983,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 28,
+									"line": 58,
 									"character": 13
 								}
 							],
@@ -9924,7 +10016,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -9935,6 +10027,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 531,
@@ -9942,6 +10038,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -9953,6 +10052,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -10006,7 +10108,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -10017,6 +10119,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 537,
@@ -10024,6 +10127,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -10058,7 +10164,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -10069,6 +10175,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 540,
@@ -10076,6 +10185,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -10087,6 +10199,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -10135,7 +10248,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 50,
+									"line": 92,
 									"character": 11
 								}
 							],
@@ -10146,6 +10259,16 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Listens to changes in remix state and invokes a callback function to enable different experiences during remix, preview, or use.",
+										"returns": "Function to unsubscribe from remix state listener.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nconst unsubscribe = Koji.playerState.subscribe((remixing, { type, mode }) => {\n // Change Koji experience\n});\n```\n"
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 528,
@@ -10153,6 +10276,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "reference",
 												"id": 516,
@@ -10198,7 +10322,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 26,
+							"line": 56,
 							"character": 24
 						}
 					],
@@ -10216,6 +10340,9 @@
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
+					"comment": {
+						"shortText": "Describes the remixer's editor."
+					},
 					"children": [
 						{
 							"id": 514,
@@ -10228,7 +10355,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 19,
+									"line": 37,
 									"character": 6
 								}
 							],
@@ -10261,7 +10388,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 18,
+									"line": 36,
 									"character": 6
 								}
 							],
@@ -10297,7 +10424,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 17,
+							"line": 35,
 							"character": 33
 						}
 					]
@@ -10308,6 +10435,7 @@
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
+					"comment": {},
 					"children": [
 						{
 							"id": 508,
@@ -10320,7 +10448,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 10,
+									"line": 19,
 									"character": 9
 								}
 							],
@@ -10373,7 +10501,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 10,
+									"line": 19,
 									"character": 31
 								}
 							],
@@ -10409,7 +10537,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 9,
+							"line": 18,
 							"character": 40
 						}
 					]
@@ -10420,10 +10548,13 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Distinguishes between a `new` remix and an `edit` to the user’s existing Koji."
+					},
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 15,
+							"line": 30,
 							"character": 22
 						}
 					],
@@ -10447,10 +10578,13 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Type of editor, either `instant` for an instant remix or `full` for the code editor."
+					},
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 14,
+							"line": 26,
 							"character": 22
 						}
 					],
@@ -10474,10 +10608,25 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Function to handle changes in remix state. Receives the following properties as inputs:",
+						"tags": [
+							{
+								"tag": "param",
+								"text": "Indicates whether the Koji is in remixing mode.",
+								"param": "isRemixing"
+							},
+							{
+								"tag": "param",
+								"text": "\n",
+								"param": "editorAttributes"
+							}
+						]
+					},
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 24,
+							"line": 51,
 							"character": 30
 						}
 					],
@@ -10492,7 +10641,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 24,
+									"line": 51,
 									"character": 32
 								}
 							],
@@ -10543,10 +10692,13 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Context in which the Koji is being viewed. A Koji can provide a distinct experience for each context."
+					},
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 5,
+							"line": 8,
 							"character": 30
 						}
 					],
@@ -10590,10 +10742,13 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Who is viewing the receipt for a transaction, either `buyer` or `seller`."
+					},
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 7,
+							"line": 13,
 							"character": 34
 						}
 					],
@@ -10617,10 +10772,13 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Who is viewing the receipt for a transaction, either `buyer` or `seller`."
+					},
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 22,
+							"line": 43,
 							"character": 23
 						}
 					],
@@ -10649,7 +10807,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 60,
+							"line": 102,
 							"character": 24
 						}
 					],
@@ -10764,7 +10922,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 25,
+									"line": 26,
 									"character": 23
 								}
 							],
@@ -10785,7 +10943,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 24,
+									"line": 25,
 									"character": 16
 								}
 							],
@@ -10816,7 +10974,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 155,
+									"line": 168,
 									"character": 27
 								}
 							],
@@ -10828,8 +10986,9 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Retrieves sensitive data that was {@link encryptValue | stored as an encrypted value}.\n<p class=\"note\">Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@link resolveValue} on the backend.</p>",
-										"returns": "Decrypted value.",
+										"shortText": "Retrieves sensitive data that was {@link encryptValue | stored as an encrypted value}.",
+										"text": "<p class=\"note\">Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@link resolveValue} on the backend.</p>\n",
+										"returns": "Decrypted value.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -10887,7 +11046,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 130,
+									"line": 140,
 									"character": 27
 								}
 							],
@@ -10900,7 +11059,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.",
-										"returns": "Path where the encrypted value is stored. Use this value to {@link decryptValue | decrypt the value} on the frontend, for the creator, or to {@link resolveValue | resolve the value} on the backend, for other users.",
+										"returns": "Path where the encrypted value is stored. Use this value to {@link decryptValue | decrypt the value} on the frontend, for the creator, or to {@link resolveValue | resolve the value} on the backend, for other users.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -10948,7 +11107,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -10959,6 +11118,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 576,
@@ -10966,6 +11129,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -10977,6 +11143,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -11040,7 +11209,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 114,
+									"line": 122,
 									"character": 15
 								}
 							],
@@ -11088,7 +11257,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 67,
+									"line": 72,
 									"character": 12
 								}
 							],
@@ -11101,7 +11270,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Gets the remix data for the Koji.",
-										"returns": "Object containing the current remix data.",
+										"returns": "Object containing the current remix data.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -11137,7 +11306,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 36,
+									"line": 39,
 									"character": 13
 								}
 							],
@@ -11165,7 +11334,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Object containing the default values for your Koji."
+												"text": "Object containing the default values for your Koji.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -11201,7 +11370,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 101,
+									"line": 108,
 									"character": 18
 								}
 							],
@@ -11213,8 +11382,9 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces all remix data with the specified object.\n<p class=\"note\">This method overwrites all existing values in the remix data. To update specific values only, use {@link set}.</p>",
-										"returns": "Indicates whether the remix data was successfully replaced.",
+										"shortText": "Replaces all remix data with the specified object.",
+										"text": "<p class=\"note\">This method overwrites all existing values in the remix data. To update specific values only, use [[set]].</p>\n",
+										"returns": "Indicates whether the remix data was successfully replaced.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -11262,7 +11432,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -11273,6 +11443,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 582,
@@ -11280,6 +11451,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -11314,7 +11488,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -11325,6 +11499,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 585,
@@ -11332,6 +11509,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -11343,6 +11523,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -11383,7 +11564,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 169,
+									"line": 187,
 									"character": 26
 								}
 							],
@@ -11394,6 +11575,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sends an event to update the preview with the current remix data.",
+										"returns": "\n"
+									},
 									"type": {
 										"type": "reference",
 										"typeArguments": [
@@ -11428,7 +11613,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 82,
+									"line": 87,
 									"character": 12
 								}
 							],
@@ -11440,7 +11625,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Updates the specified values in the remix data.\n<p class=\"note\">This method updates only the values that are specified in `newValue`. If other values exist, they not changed. To replace all remix data, use {@link overwrite}.</p>",
+										"shortText": "Updates the specified values in the remix data.\n<p class=\"note\">This method updates only the values that are specified in `newValue`. If other values exist, they not changed. To replace all remix data, use [[overwrite]].</p>",
+										"returns": "Indicates whether the values were successfully updated.",
 										"tags": [
 											{
 												"tag": "example",
@@ -11515,7 +11701,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 23,
+							"line": 24,
 							"character": 18
 						}
 					],
@@ -11549,7 +11735,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 15,
+									"line": 16,
 									"character": 10
 								}
 							],
@@ -11570,7 +11756,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 13,
+									"line": 14,
 									"character": 6
 								}
 							],
@@ -11594,7 +11780,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 17,
+									"line": 18,
 									"character": 12
 								}
 							],
@@ -11618,7 +11804,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 11,
+							"line": 12,
 							"character": 29
 						}
 					]
@@ -11634,7 +11820,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 186,
+							"line": 204,
 							"character": 18
 						}
 					],
@@ -11690,6 +11876,9 @@
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
+					"comment": {
+						"shortText": "Manages endpoints for the services running in your Koji."
+					},
 					"children": [
 						{
 							"id": 594,
@@ -11720,10 +11909,13 @@
 							"flags": {
 								"isPublic": true
 							},
+							"comment": {
+								"shortText": "Key-value pairs of services and endpoints."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/serviceMap/index.ts",
-									"line": 4,
+									"line": 8,
 									"character": 17
 								}
 							],
@@ -11745,7 +11937,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/serviceMap/index.ts",
-									"line": 6,
+									"line": 22,
 									"character": 15
 								}
 							],
@@ -11756,6 +11948,15 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets the environment variables for the available services in the Koji. This method automatically scopes the variables for instant remixes of the original Koji.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nKoji.serviceMap.config({\n frontend: process.env.KOJI_SERVICE_URL_frontend\n});\n```\n"
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 599,
@@ -11763,6 +11964,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Key-value pairs of services and endpoints in the original Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"id": 589,
@@ -11805,7 +12009,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/serviceMap/index.ts",
-							"line": 3,
+							"line": 6,
 							"character": 23
 						}
 					]
@@ -11875,7 +12079,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/serviceMap/index.ts",
-							"line": 26,
+							"line": 42,
 							"character": 23
 						}
 					],
@@ -12014,7 +12218,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -12025,6 +12229,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 714,
@@ -12032,6 +12240,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -12043,6 +12254,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -12096,7 +12310,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -12107,6 +12321,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 720,
@@ -12114,6 +12329,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -12148,7 +12366,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -12159,6 +12377,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 723,
@@ -12166,6 +12387,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -12177,6 +12401,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -12375,7 +12600,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst color = await Koji.UI.Capture.color();\n```\n"
+												"text": "\n```javascript\nconst color = await Koji.ui.capture.color();\n```\n"
 											}
 										]
 									},
@@ -12431,7 +12656,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -12442,6 +12667,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 694,
@@ -12449,6 +12678,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -12460,6 +12692,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -12926,7 +13161,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -12937,6 +13172,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 700,
@@ -12944,6 +13180,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -12978,7 +13217,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -12989,6 +13228,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 703,
@@ -12996,6 +13238,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -13007,6 +13252,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -15153,7 +15399,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 19,
+									"line": 28,
 									"character": 33
 								}
 							],
@@ -15164,6 +15410,10 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Sets a listener for a specific event, and invokes a function to handle the event.",
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 746,
@@ -15171,6 +15421,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Function to run when the event is fired."
+											},
 											"type": {
 												"type": "reference",
 												"name": "Function"
@@ -15182,6 +15435,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Name of the event."
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -15235,7 +15491,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 34,
+									"line": 48,
 									"character": 23
 								}
 							],
@@ -15246,6 +15502,7 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {},
 									"parameters": [
 										{
 											"id": 752,
@@ -15253,6 +15510,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji.\n"
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -15287,7 +15547,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/kojiBridge/index.ts",
-									"line": 46,
+									"line": 67,
 									"character": 39
 								}
 							],
@@ -15298,6 +15558,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"returns": "\n"
+									},
 									"parameters": [
 										{
 											"id": 755,
@@ -15305,6 +15568,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data to be sent to the Koji."
+											},
 											"type": {
 												"type": "reference",
 												"name": "PostMessage"
@@ -15316,6 +15582,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"

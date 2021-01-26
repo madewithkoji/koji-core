@@ -99,7 +99,7 @@ export class Capture extends KojiBridge {
    * @return               [description]
    * @example
    * ```javascript
-   * const color = await Koji.UI.Capture.color();
+   * const color = await Koji.ui.capture.color();
    * ```
    */
   @client

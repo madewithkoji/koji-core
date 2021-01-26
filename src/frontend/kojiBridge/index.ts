@@ -2,20 +2,29 @@
 import { v4 as uuidv4 } from 'uuid';
 
 interface MessageListenerData {
+  /** Name of the event. */
   event: string;
+  /** Unique key to prevent duplicate processing. */
   _idempotencyKey?: string;
 }
 
 interface PostMessage {
+  /** Name of the event. */
   kojiEventName: string;
+  /** Data to send with event. */
   data?: any;
 }
 /**
- *
  * Enables communication between the platform and the Koji.
- *
  */
 export class KojiBridge {
+  /**
+   * Sets a listener for a specific event, and invokes a function to handle the event.
+   *
+   * @param   callback  Function to run when the event is fired.
+   * @param   eventName Name of the event.
+   * @return            [description]
+   */
   protected execCallbackOnMessage(callback: Function, eventName: string) {
     const messageListener = ({ data }: { data: MessageListenerData }) => {
       const { event } = data;
@@ -31,6 +40,11 @@ export class KojiBridge {
     };
   }
 
+  /**
+   * 
+   *
+   * @param   postMessage Data to be sent to the Koji.
+   */
   protected sendMessage(postMessage: PostMessage): void {
     window.parent.postMessage(
       {
@@ -43,6 +57,13 @@ export class KojiBridge {
     );
   }
 
+  /**
+   *
+   *
+   * @param   postMessage         Data to be sent to the Koji.
+   * @param   platformMessageName [description]
+   * @return                      [description]
+   */
   protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const idempotencyKey = uuidv4();

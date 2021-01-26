@@ -21,10 +21,10 @@ export class Analytics {
    * @example
    *
    * ```javascript
-   * const event = Koji.Analytics.track('My Custom Event');
+   * const event = Koji.analytics.track('My Custom Event');
    *
    * // with optional payload
-   * const event = Koji.Analytics.track('Won game', { score: 120 });
+   * const event = Koji.analytics.track('Won game', { score: 120 });
    * ```
    */
   @client

@@ -1,11 +1,11 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
 
-/** Custom information to add to a {@link IapReceipt | transaction receipt} for a given in-app purchase. */
+/** Custom information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase. */
 export interface PurchaseOptions {
   /** Amount of the purchase. */
   amount?: number;
-  /** Custom message associated with the purchase. This value is stored as a custom attribute on the {@link IapReceipt | transaction receipt}. */
+  /** Custom message associated with the purchase. This value is stored as a custom attribute on the [[IapReceipt | transaction receipt]]. */
   customMessage?: string;
 }
 
@@ -13,7 +13,7 @@ export interface PurchaseOptions {
 export interface Purchase {
   /** Indicates whether the purchase was successful. */
   success: boolean;
-  /** Temporary token for the current user’s session. See {@link getToken}. */
+  /** Temporary token for the current user’s session. See [[getToken]]. */
   userToken: UserToken;
   /** Unique identifier for the receipt, if the purchase was successful, or `undefined`, if not. */
   receiptId?: string;
@@ -42,7 +42,7 @@ export class IAP extends KojiBridge {
    * @param  sku             Identifier for the product to purchase.
    * @example
    * ``` javascript
-   * Koji.IAP.startPurchase(sku,purchaseOptions);
+   * Koji.iap.startPurchase(sku,purchaseOptions);
    * ```
    */
   @client
