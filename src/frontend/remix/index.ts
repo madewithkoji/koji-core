@@ -4,6 +4,7 @@ import { KojiBridge } from '../kojiBridge';
 
 declare global {
   interface Window {
+    /** Enables Koji's proxy server to write remix-specific values to the KOJI_OVERRIDES property. */
     KOJI_OVERRIDES: any;
   }
 }
@@ -165,7 +166,7 @@ export class Remix extends KojiBridge {
 
     return data;
   }
-  
+
   private async sendValues() {
     const data: ValueChanged = await this.sendMessageAndAwaitResponse(
       {
