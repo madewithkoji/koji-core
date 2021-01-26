@@ -22,23 +22,9 @@ export interface Purchase {
  * Manages in-app purchase transactions on the frontend of your Koji.
  */
 export class IAP extends KojiBridge {
-  purchaseCallback?: Function;
-
-  register() {
-    window.addEventListener('message', ({ data }) => {
-      const { event } = data;
-
-      if (event === 'KojiIap.PurchaseFinished') {
-        if (!this.purchaseCallback) throw new Error('Received purchase information but no purchase has been started');
-
-        this.purchaseCallback(data.success, data.userToken, data.receiptId);
-        this.purchaseCallback = undefined;
-      }
-    });
-  }
-
   /**
    * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.
+   *
    * @param  sku             Identifier for the product to purchase.
    * @example
    * ``` javascript

@@ -12,7 +12,7 @@ export interface ValueChanged {
 export declare class Remix extends KojiBridge {
     private values;
     private isInitialized;
-    init(kojiConfig: any): void;
+    init(remixData: any): void;
     get(): any;
     set(newValue: Object): Promise<boolean>;
     overwrite(newValues: Object): Promise<boolean>;
