@@ -73,9 +73,12 @@ export class Remix extends KojiBridge {
 
   /**
    * Updates the specified values in the remix data.
+   *
    * <p class="note">This method updates only the values that are specified in `newValue`. If other values exist, they not changed. To replace all remix data, use [[overwrite]].</p>
+   *
    * @param   newValue      Key-value pairs to update in the remix data.
    * @return                Indicates whether the values were successfully updated.
+   *
    * @example
    * ```javascript
    * await Koji.remix.set({'myColor': color});

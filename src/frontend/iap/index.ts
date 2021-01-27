@@ -26,9 +26,10 @@ export class IAP extends KojiBridge {
    * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.
    *
    * @param  sku             Identifier for the product to purchase.
+   *
    * @example
    * ``` javascript
-   * Koji.iap.startPurchase(sku,purchaseOptions);
+   * Koji.iap.startPurchase(sku, purchaseOptions);
    * ```
    */
   @client

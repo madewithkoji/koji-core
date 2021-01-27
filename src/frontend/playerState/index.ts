@@ -33,6 +33,7 @@ export type EditorMode = 'edit' | 'new';
  * Describes the remixer's editor.
  */
 export interface EditorAttributes {
+  /** [[EditorType]] */
   type?: EditorType;
   mode?: EditorMode;
 }
@@ -42,13 +43,13 @@ export interface EditorAttributes {
  */
 export type ReceiptType = 'seller' | 'buyer';
 
+export type IsRemixingCallback =
 /**
- * Function to handle changes in remix state. Receives the following properties as inputs:
-* @callback
-* @param {boolean} isRemixing Indicates whether the Koji is in remixing mode.
-* @param {EditorAttributes} editorAttributes
+  * Function to handle changes in remix state. Receives the `isRemixing` and `editorAttributes` properties as inputs.
+  *
+  * @param {boolean} isRemixing Indicates whether the Koji is in remixing mode.
  */
-export type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
+(isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
 
 /**
  * Manages the context of the Koji to enable distinct experiences for different users and views.
