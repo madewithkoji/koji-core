@@ -23,12 +23,12 @@ export interface CaptureImageOptions extends CaptureOptions {
 }
 
 /**
- * Available types of media files. The configuration options vary by media file type.
+ * Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media file type.
  */
 export type CaptureMediaAcceptOnly = 'image' | 'video' | 'audio' | 'file';
 
 /**
- * Type of value to return when for a [[media]] capture. Either the URL to the media as a string or an object with the URL and additional metadata.
+ * Type of value to return for a [[media]] capture. Either the URL to the media as a string or an object with the URL and additional metadata.
  */
 export type CaptureMediaReturnType = 'url' | 'extended';
 
@@ -56,7 +56,7 @@ export interface CaptureMediaImageOptions {
 export interface CaptureMediaOptions extends CaptureOptions {
   /** Specifies the types of media files to allow. If empty or not specified, any type of file is allowed. */
   acceptOnly?: CaptureMediaAcceptOnly[];
-  /** Specifies the type of the returned value for the capture. If empty or not specified, `extended` data is returned. */
+  /** Specifies the type of the return value for the capture. If empty or not specified, `extended` data is returned. */
   returnType?: CaptureMediaReturnType;
   /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, when uploading premium content). */
   hideExtensions?: boolean;
@@ -70,27 +70,23 @@ export interface CaptureMediaOptions extends CaptureOptions {
  * Result of a user input capture.
  */
 export interface CaptureValue {
-  /** Name of the event. */
-  event: string;
-  /** Input value captured from the user. */
+  /** Value captured from the user. */
   result: string;
-  /** . */
+  /** Whether the user completed the selection (`succeeded`) or exited the control without selecting a value (`cancelled`). */
   status: string;
-  /** . */
+  /** Capture method type (for example, `color` or `file`). */
   type: string;
 }
 
 /**
- * Result of a media file capture.
+ * Result of a [[media]] file capture.
  */
 export interface MediaCaptureValue {
-  /** Name of the event. */
-  event: string;
-  /** . */
+  /** Value captured from the user. */
   result: ExtendedCaptureMediaValue;
-  /** . */
+  /** Whether the user completed the selection (`succeeded`) or exited the control without selecting a value (`cancelled`). */
   status: string;
-  /** . */
+  /** Capture method type (for example, `color` or `file`). */
   type: string;
 }
 
@@ -142,11 +138,11 @@ export interface ExtendedCaptureMediaValue {
  * Configuration options for a [[range]] capture.
  */
 export interface CaptureRangeOptions extends CaptureOptions {
-  /** Minimum value. */
+  /** Minimum value. Default is `0`. */
   min?: number;
-  /** Maximum value. */
+  /** Maximum value. Default is `100`. */
   max?: number;
-  /** Default increment/step size. */
+  /** Default increment/step size. Default is `1`. */
   step?: number;
 }
 
@@ -269,12 +265,12 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select an image by selecing from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting an image file.
+   * Prompts the user to select an image by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting an image.
    *
-   * To allow multiple types of media files, see [[media]]. To allow upload of raw files of any type, see [[file]].
+   * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
    *
    * @param   options
-   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the image file as a string.
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the image asset as a string.
    * @return          [description]
    *
    * @example
@@ -310,7 +306,7 @@ export class Capture extends KojiBridge {
   /**
    * Prompts the user to create a new Koji or select an existing Koji, either from the user’s profile or from a URL.
    *
-   * @param   options [description]
+   * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the Koji as a string.
    *
    * @return          [description]
@@ -345,16 +341,18 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select an image, file, sound, or video by selecing from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video.
+   * Prompts the user to select an image, file, sound, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
    *
-   *
-   * @param   options [description]
+   * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata.
    * @return          [description]
    *
    * @example
    * ```javascript
-   * [example]
+   * const media = await Koji.ui.capture.media();
+   *
+   * // Limit to image or video, hide asset packs, return an object with extended metadata, transcode videos for HLS
+   * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true }, verbose: true });
    * ```
    */
   media(options: { returnType: 'url' }, verbose: true): Promise<CaptureValue>;
@@ -383,6 +381,21 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   * Prompts the user to select a numeric value within a certain range. You can configure the minimum value, maximum value, and default increment.
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the numeric value as a string.
+   * @return          Numeric value as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   *
+   * @example
+   * ```javascript
+   * const size = await Koji.ui.capture.range();
+   *
+   * // Return an object
+   * const size = await Koji.ui.capture.range({ min: 0, max: 60, step: 3, verbose: true });
+   * ```
+   */
   range(options: CaptureRangeOptions, verbose: true): Promise<CaptureValue>;
   range(options: CaptureRangeOptions, verbose: false): Promise<string>;
   range(options?: CaptureRangeOptions): Promise<string>;
@@ -405,6 +418,26 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   * Prompts the user to select from a predefined list of options.
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the option as a string.
+   * @return         Value of the predefined option as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   *
+   * @example
+   * ```javascript
+   * const option = await Koji.ui.capture.select();
+   *
+   * // Select from three options
+   * const option = await Koji.ui.capture.select(
+   *  { options: [
+   *    { value: "one", label: "Option one" },
+   *    { value: "two", label: "Option two" },
+   *    { value: "three", label: "Option three" }],
+   *    placeholder: "Choose an option"});
+   * ```
+   */
   select(options: CaptureSelectOptions, verbose: true): Promise<CaptureValue>;
   select(options: CaptureSelectOptions, verbose: false): Promise<string>;
   select(options?: CaptureSelectOptions): Promise<string>;
@@ -427,6 +460,23 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   * Prompts the user to select a sound by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting a sound.
+   *
+   * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
+   * @return         URL to the audio asset as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   *
+   * @example
+   * ```javascript
+   * const sound = await Koji.ui.capture.sound();
+   *
+   * // Hide asset packs and return an object
+   * const sound = await Koji.ui.capture.sound({ hideExtensions: true, verbose: true });
+   * ```
+   */
   sound(options: CaptureSoundOptions, verbose: true): Promise<CaptureValue>;
   sound(options: CaptureSoundOptions, verbose: false): Promise<string>;
   sound(options?: CaptureSoundOptions): Promise<string>;
@@ -449,6 +499,21 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   *
+   *
+   * @param   options [description]
+   * @param   verbose [description]
+   * @return          [description]
+   *
+   * @example
+   * ```javascript
+   * const video = await Koji.ui.capture.video();
+   *
+   * // Transcode for HLS and return an object
+   * const video = await Koji.ui.capture.video({ hls: true, verbose: true });
+   * ```
+   */
   video(options: CaptureVideoOptions, verbose: true): Promise<CaptureValue>;
   video(options: CaptureVideoOptions, verbose: false): Promise<string>;
   video(options?: CaptureVideoOptions): Promise<string>;
