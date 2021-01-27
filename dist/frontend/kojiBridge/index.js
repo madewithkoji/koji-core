@@ -52,23 +52,23 @@ var KojiBridge = /*#__PURE__*/function () {
     }
   }, {
     key: "sendMessageAndAwaitResponse",
-    value: function sendMessageAndAwaitResponse(postMessage, platformMessageName) {
+    value: function sendMessageAndAwaitResponse(postMessage, platformMessageName, additionalPlatformMessageName) {
       return new Promise(function (resolve, reject) {
         var idempotencyKey = (0, _uuid.v4)();
 
         var messageListener = function messageListener(_ref2) {
           var data = _ref2.data;
-          var event = data.event,
-              _idempotencyKey = data._idempotencyKey;
 
-          if (event === platformMessageName && idempotencyKey === _idempotencyKey) {
-            try {
+          try {
+            var event = data.event,
+                _idempotencyKey = data._idempotencyKey;
+
+            if ((event === platformMessageName || event === additionalPlatformMessageName) && idempotencyKey === _idempotencyKey) {
+              window.removeEventListener('message', messageListener);
               resolve(data);
-            } catch (err) {
-              reject(err);
             }
-
-            window.removeEventListener('message', messageListener);
+          } catch (err) {
+            reject(err);
           }
         };
 

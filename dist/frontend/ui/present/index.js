@@ -64,7 +64,7 @@ var Present = (_class = /*#__PURE__*/function (_KojiBridge) {
                     confirmButtonLabel: options.confirmButtonLabel,
                     cancelButtonLabel: options.cancelButtonLabel
                   }
-                }, 'Koji.CaptureSuccess');
+                }, 'Koji.ConfirmResolved');
 
               case 3:
                 data = _context.sent;
@@ -86,8 +86,7 @@ var Present = (_class = /*#__PURE__*/function (_KojiBridge) {
     }()
   }, {
     key: "alert",
-    value: function alert() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    value: function alert(options) {
       this.sendMessage({
         kojiEventName: 'Koji.Alert',
         data: {
