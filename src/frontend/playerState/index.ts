@@ -47,9 +47,10 @@ export type IsRemixingCallback =
 /**
   * Function to handle changes in remix state. Receives the `isRemixing` and `editorAttributes` properties as inputs.
   *
-  * @param {boolean} isRemixing Indicates whether the Koji is in remixing mode.
- */
-(isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
+  * @param isRemixing Indicates whether the Koji is in remixing mode.
+  * @param editorAttributes
+  */
+(isRemixing: boolean, editorAttributes: EditorAttributes) => void;
 
 /**
  * Manages the context of the Koji to enable distinct experiences for different users and views.

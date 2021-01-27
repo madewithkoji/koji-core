@@ -5,6 +5,6 @@ interface PostMessage {
 export declare class KojiBridge {
     protected execCallbackOnMessage(callback: Function, eventName: string): () => void;
     protected sendMessage(postMessage: PostMessage): void;
-    protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string): Promise<any>;
+    protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string, additionalPlatformMessageName?: string): Promise<any>;
 }
 export {};

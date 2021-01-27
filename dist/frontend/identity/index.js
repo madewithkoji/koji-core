@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.identity = exports.Identity = exports.AuthGrantCapability = void 0;
+exports.identity = exports.Identity = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -33,14 +33,6 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-var AuthGrantCapability;
-exports.AuthGrantCapability = AuthGrantCapability;
-
-(function (AuthGrantCapability) {
-  AuthGrantCapability["PUSH_NOTIFICATIONS"] = "push_notifications";
-  AuthGrantCapability["USERNAME"] = "username";
-})(AuthGrantCapability || (exports.AuthGrantCapability = AuthGrantCapability = {}));
-
 var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
   (0, _inherits2["default"])(Identity, _KojiBridge);
 
@@ -55,7 +47,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
     key: "getToken",
     value: function () {
       var _getToken = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
-        var _yield$this$sendMessa, token;
+        var _yield$this$sendMessa, userToken;
 
         return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
@@ -72,8 +64,8 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
 
               case 2:
                 _yield$this$sendMessa = _context.sent;
-                token = _yield$this$sendMessa.token;
-                return _context.abrupt("return", token);
+                userToken = _yield$this$sendMessa.userToken;
+                return _context.abrupt("return", userToken);
 
               case 5:
               case "end":
@@ -137,7 +129,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
         var grants,
             usageDescription,
             _yield$this$sendMessa3,
-            hasGrants,
+            userToken,
             _args3 = arguments;
 
         return _regenerator["default"].wrap(function _callee3$(_context3) {
@@ -153,12 +145,12 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
                     grants: grants,
                     usageDescription: usageDescription
                   }
-                }, 'KojiAuth.TokenCreated');
+                }, 'KojiAuth.TokenCreated', 'KojiAuth.GrantsDenied');
 
               case 4:
                 _yield$this$sendMessa3 = _context3.sent;
-                hasGrants = _yield$this$sendMessa3.hasGrants;
-                return _context3.abrupt("return", hasGrants);
+                userToken = _yield$this$sendMessa3.userToken;
+                return _context3.abrupt("return", userToken);
 
               case 7:
               case "end":

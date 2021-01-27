@@ -9,8 +9,8 @@ export interface PresentConfirmationOptions {
 }
 
 export interface PresentAlertOptions {
-  title?: string;
-  message?: string;
+  title: string;
+  message: string;
 }
 
 export class Present extends KojiBridge {
@@ -26,14 +26,14 @@ export class Present extends KojiBridge {
           cancelButtonLabel: options.cancelButtonLabel,
         },
       },
-      'Koji.CaptureSuccess',
+      'Koji.ConfirmResolved',
     );
 
     return data.didConfirm;
   }
 
   @client
-  alert(options: PresentConfirmationOptions = {}): void {
+  alert(options: PresentConfirmationOptions): void {
     this.sendMessage(
       {
         kojiEventName: 'Koji.Alert',

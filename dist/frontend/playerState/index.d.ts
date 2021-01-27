@@ -12,7 +12,7 @@ export interface EditorAttributes {
     mode?: EditorMode;
 }
 export declare type ReceiptType = 'seller' | 'buyer';
-export declare type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
+export declare type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
 export declare class PlayerState extends KojiBridge {
     context: PlayerStateContext;
     receiptType?: ReceiptType;

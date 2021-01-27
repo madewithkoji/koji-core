@@ -3,13 +3,11 @@ import { client } from '../@decorators/client';
 
 /**
  * Capabilities that a user can grant the current Koji authorization to use.
- */
-export enum AuthGrantCapability {
-  /** Allows the current Koji to send push notifications to the user. */
-  PUSH_NOTIFICATIONS = 'push_notifications',
-  /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
-  USERNAME = 'username',
-}
+ *
+ *  `push_notifications` – Allows the current Koji to send push notifications to the user.
+ *  `username` – Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database.
+  */
+export type AuthGrantCapability = 'push_notifications' | 'username';
 
 /**
  * Manages authentication and authorization on the frontend of your Koji.
@@ -27,7 +25,7 @@ export class Identity extends KojiBridge {
    */
   @client
   async getToken(): Promise<UserToken> {
-    const { token } = await this.sendMessageAndAwaitResponse({
+    const { userToken } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants: [],
@@ -35,7 +33,7 @@ export class Identity extends KojiBridge {
       },
     }, 'KojiAuth.TokenCreated');
 
-    return token;
+    return userToken;
   }
 
   /**
@@ -73,15 +71,15 @@ export class Identity extends KojiBridge {
    * ```
    */
   async requestGrants(grants: AuthGrantCapability[] = [], usageDescription?: string): Promise<UserToken> {
-    const { hasGrants } = await this.sendMessageAndAwaitResponse({
+    const { userToken } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants,
         usageDescription,
       },
-    }, 'KojiAuth.TokenCreated'); // Would be great to have a method-specific message here
+    }, 'KojiAuth.TokenCreated', 'KojiAuth.GrantsDenied');
 
-    return hasGrants;
+    return userToken;
   }
 }
 

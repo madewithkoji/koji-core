@@ -41,7 +41,7 @@ export class KojiBridge {
   }
 
   /**
-   * 
+   *
    *
    * @param   postMessage Data to be sent to the Koji.
    */
@@ -57,26 +57,19 @@ export class KojiBridge {
     );
   }
 
-  /**
-   *
-   *
-   * @param   postMessage         Data to be sent to the Koji.
-   * @param   platformMessageName [description]
-   * @return                      [description]
-   */
-  protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string): Promise<any> {
+  protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string, additionalPlatformMessageName?: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const idempotencyKey = uuidv4();
 
       const messageListener = ({ data }: { data: MessageListenerData }) => {
-        const { event, _idempotencyKey } = data;
-        if (event === platformMessageName && idempotencyKey === _idempotencyKey) {
-          try {
+        try {
+          const { event, _idempotencyKey } = data;
+          if ((event === platformMessageName || event === additionalPlatformMessageName) && idempotencyKey === _idempotencyKey) {
+            window.removeEventListener('message', messageListener);
             resolve(data);
-          } catch (err) {
-            reject(err);
           }
-          window.removeEventListener('message', messageListener);
+        } catch (err) {
+          reject(err);
         }
       };
 

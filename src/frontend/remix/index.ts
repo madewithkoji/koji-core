@@ -139,7 +139,7 @@ export class Remix extends KojiBridge {
    */
   @client
   public async encryptValue(plaintextValue: string): Promise<string> {
-    const data: string = await this.sendMessageAndAwaitResponse(
+    const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.EncryptValue',
         data: {
@@ -149,7 +149,7 @@ export class Remix extends KojiBridge {
       'KojiPreview.ValueEncrypted',
     );
 
-    return data;
+    return data.encryptedValue;
   }
 
   /**
@@ -166,8 +166,8 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  public async decryptValue(encryptedValue: string) {
-    const data: string = await this.sendMessageAndAwaitResponse(
+  public async decryptValue(encryptedValue: string): Promise<string> {
+    const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.DecryptValue',
         data: {
@@ -177,7 +177,9 @@ export class Remix extends KojiBridge {
       'KojiPreview.ValueDecrypted',
     );
 
-    return data;
+    // TODO: Figure out why we aren't passing back the decrypted value.
+    // Actually can't figure out where in the koji-frontend this is being passed.
+    return data.encryptedValue;
   }
 
   /**
