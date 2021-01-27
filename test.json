@@ -13050,7 +13050,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 207,
+									"line": 210,
 									"character": 7
 								}
 							],
@@ -13067,7 +13067,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst color = await Koji.ui.capture.color();\n```\n"
+												"text": "\n```javascript\nconst color = await Koji.ui.capture.color();\n\n// Enable transparency and return an object\nconst color = await Koji.ui.capture.color({ allowAlpha: true, verbose: true });\n```\n"
 											}
 										]
 									},
@@ -13092,7 +13092,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Indicates whether to return additional metadata about the color. If `false` or not specified, returns the color code as a string."
+												"text": "Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the color code as a string."
 											},
 											"type": {
 												"type": "literal",
@@ -13342,7 +13342,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 229,
+									"line": 249,
 									"character": 6
 								}
 							],
@@ -13353,6 +13353,17 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Prompts the user to upload a file of any type. Use this method to allow the user to upload raw files in their original format. For example, to capture high-resolution images for download rather than for display in a browser.",
+										"text": "To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[sound]], or [[media]].\n",
+										"returns": "\n",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nconst file = await Koji.ui.capture.file();\n\n// Return an object\nconst file = await Koji.ui.capture.file({ verbose: true });\n```\n"
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 702,
@@ -13360,6 +13371,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "reference",
 												"id": 628,
@@ -13372,6 +13384,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string."
+											},
 											"type": {
 												"type": "literal",
 												"value": true
@@ -13528,7 +13543,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 251,
+									"line": 288,
 									"character": 7
 								}
 							],
@@ -13539,6 +13554,17 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Prompts the user to select an image by selecing from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting an image file.",
+										"text": "To allow multiple types of media files, see [[media]]. To allow upload of raw files of any type, see [[file]].\n",
+										"returns": "\n",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nconst image = await Koji.ui.capture.image();\n\n// Hide asset packs and return an object\nconst image = await Koji.ui.capture.image({ hideExtensions: true, verbose: true });\n```\n"
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 714,
@@ -13546,6 +13572,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "reference",
 												"id": 631,
@@ -13558,6 +13585,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the image file as a string."
+											},
 											"type": {
 												"type": "literal",
 												"value": true
@@ -13714,7 +13744,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 273,
+									"line": 325,
 									"character": 6
 								}
 							],
@@ -13725,6 +13755,15 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Prompts the user to create a new Koji or select an existing Koji, either from the user’s profile or from a URL.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nconst koji = await Koji.ui.capture.koji();\n\n// Return an object\nconst koji = await Koji.ui.capture.koji({ verbose: true });\n```\n"
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 726,
@@ -13732,6 +13771,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "reference",
 												"id": 628,
@@ -13744,6 +13784,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the Koji as a string.\n"
+											},
 											"type": {
 												"type": "literal",
 												"value": true
@@ -13900,7 +13943,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 295,
+									"line": 360,
 									"character": 7
 								}
 							],
@@ -13911,6 +13954,16 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Prompts the user to select an image, file, sound, or video by selecing from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video.",
+										"returns": "\n",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\n[example]\n```\n"
+											}
+										]
+									},
 									"parameters": [
 										{
 											"id": 738,
@@ -13918,6 +13971,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {},
 											"type": {
 												"type": "reflection",
 												"declaration": {
@@ -13936,7 +13990,7 @@
 															"sources": [
 																{
 																	"fileName": "frontend/ui/capture/index.ts",
-																	"line": 295,
+																	"line": 360,
 																	"character": 29
 																}
 															],
@@ -13964,6 +14018,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata."
+											},
 											"type": {
 												"type": "literal",
 												"value": true
@@ -14013,7 +14070,7 @@
 															"sources": [
 																{
 																	"fileName": "frontend/ui/capture/index.ts",
-																	"line": 296,
+																	"line": 361,
 																	"character": 29
 																}
 															],
@@ -14089,7 +14146,7 @@
 															"sources": [
 																{
 																	"fileName": "frontend/ui/capture/index.ts",
-																	"line": 297,
+																	"line": 362,
 																	"character": 29
 																}
 															],
@@ -14166,7 +14223,7 @@
 															"sources": [
 																{
 																	"fileName": "frontend/ui/capture/index.ts",
-																	"line": 298,
+																	"line": 363,
 																	"character": 29
 																}
 															],
@@ -14405,7 +14462,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 321,
+									"line": 386,
 									"character": 7
 								}
 							],
@@ -14591,7 +14648,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 343,
+									"line": 408,
 									"character": 8
 								}
 							],
@@ -14909,7 +14966,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 365,
+									"line": 430,
 									"character": 7
 								}
 							],
@@ -15095,7 +15152,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 387,
+									"line": 452,
 									"character": 7
 								}
 							],
@@ -16947,7 +17004,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Type of value to return when for a [[media]] capture. Either the URL to the file or an object with the URL and additional metadata."
+						"shortText": "Type of value to return when for a [[media]] capture. Either the URL to the media as a string or an object with the URL and additional metadata."
 					},
 					"sources": [
 						{
@@ -16981,7 +17038,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 410,
+							"line": 475,
 							"character": 20
 						}
 					],

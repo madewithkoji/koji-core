@@ -28,7 +28,7 @@ export interface CaptureImageOptions extends CaptureOptions {
 export type CaptureMediaAcceptOnly = 'image' | 'video' | 'audio' | 'file';
 
 /**
- * Type of value to return when for a [[media]] capture. Either the URL to the file or an object with the URL and additional metadata.
+ * Type of value to return when for a [[media]] capture. Either the URL to the media as a string or an object with the URL and additional metadata.
  */
 export type CaptureMediaReturnType = 'url' | 'extended';
 
@@ -196,12 +196,15 @@ export class Capture extends KojiBridge {
    * Prompts the user to select a color, either from a swatch or by entering a color code. Supports HEX, RGB, or HSL by default. Supports RBGA or HSLA, if transparency is enabled in the capture options.
   *
   * @param   options
-  * @param   verbose Indicates whether to return additional metadata about the color. If `false` or not specified, returns the color code as a string.
+  * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the color code as a string.
   * @return          [description]
   *
   * @example
   * ```javascript
   * const color = await Koji.ui.capture.color();
+  *
+  * // Enable transparency and return an object
+  * const color = await Koji.ui.capture.color({ allowAlpha: true, verbose: true });
   * ```
   */
   color(options: CaptureColorOptions, verbose: true): Promise<CaptureValue>;
@@ -226,6 +229,23 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   * Prompts the user to upload a file of any type. Use this method to allow the user to upload raw files in their original format. For example, to capture high-resolution images for download rather than for display in a browser.
+   *
+   * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[sound]], or [[media]].
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
+   * @return          [description]
+   *
+   * @example
+   * ```javascript
+   * const file = await Koji.ui.capture.file();
+   *
+   * // Return an object
+   * const file = await Koji.ui.capture.file({ verbose: true });
+   * ```
+   */
   file(options: CaptureOptions, verbose: true): Promise<CaptureValue>;
   file(options: CaptureOptions, verbose: false): Promise<string>;
   file(options?: CaptureOptions): Promise<string>;
@@ -248,6 +268,23 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   * Prompts the user to select an image by selecing from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting an image file.
+   *
+   * To allow multiple types of media files, see [[media]]. To allow upload of raw files of any type, see [[file]].
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the image file as a string.
+   * @return          [description]
+   *
+   * @example
+   * ```javascript
+   * const image = await Koji.ui.capture.image();
+   *
+   * // Hide asset packs and return an object
+   * const image = await Koji.ui.capture.image({ hideExtensions: true, verbose: true });
+   * ```
+   */
   image(options: CaptureImageOptions, verbose: true): Promise<CaptureValue>;
   image(options: CaptureImageOptions, verbose: false): Promise<string>;
   image(options?: CaptureImageOptions): Promise<string>;
@@ -270,6 +307,21 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   * Prompts the user to create a new Koji or select an existing Koji, either from the user’s profile or from a URL.
+   *
+   * @param   options [description]
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the Koji as a string.
+   *
+   * @return          [description]
+   * @example
+   * ```javascript
+   * const koji = await Koji.ui.capture.koji();
+   *
+   * // Return an object
+   * const koji = await Koji.ui.capture.koji({ verbose: true });
+   * ```
+   */
   koji(options: CaptureOptions, verbose: true): Promise<CaptureValue>;
   koji(options: CaptureOptions, verbose: false): Promise<string>;
   koji(options?: CaptureOptions): Promise<string>;
@@ -292,6 +344,19 @@ export class Capture extends KojiBridge {
     return data.result;
   }
 
+  /**
+   * Prompts the user to select an image, file, sound, or video by selecing from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video.
+   *
+   *
+   * @param   options [description]
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata.
+   * @return          [description]
+   *
+   * @example
+   * ```javascript
+   * [example]
+   * ```
+   */
   media(options: { returnType: 'url' }, verbose: true): Promise<CaptureValue>;
   media(options: { returnType: 'url' }, verbose: false): Promise<string>;
   media(options: { returnType: 'extended' }, verbose: true): Promise<MediaCaptureValue>;
