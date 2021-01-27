@@ -1,14 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
 import Sockette from 'sockette';
 import axios from 'axios';
-import { Base, BackendConfigurationInput } from '../base';
+import { Base } from '../base';
 
 const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
 
-interface DispatchConfigurationInput extends BackendConfigurationInput {
+interface DispatchConfigurationInput {
   shardName?: string | null;
-  maxConnectionsPerShard?: number;
+  maxConnectionsPerShard: number;
   authorization?: string;
 }
 
@@ -48,7 +48,6 @@ export interface ConnectionInfo {
 
 export class Dispatch extends Base {
   private authToken?: string;
-  private url: string;
 
   private initialConnection: boolean = false;
   private isConnected: boolean = false;
@@ -56,41 +55,38 @@ export class Dispatch extends Base {
   private messageQueue: string[] = [];
   private ws: Sockette | null = null;
 
-  constructor(config: DispatchConfigurationInput) {
-    super(config);
-
-    const options: DispatchOptions = {
-      projectId: this.projectId,
-      projectToken: this.projectToken,
-      shardName: config.shardName,
-      maxConnectionsPerShard: config.maxConnectionsPerShard || 100,
-      authorization: config.authorization,
-    };
-
-    const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
-      if (options[cur]) {
-        acc.push(`${cur}=${encodeURIComponent(options[cur])}`);
-      }
-      return acc;
-    }, []);
-
-    this.authToken = config.authorization;
-    this.url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
-  }
-
   public async info(): Promise<ShardInfo[]> {
     const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
     return (data || [])[0];
   }
 
-  private async connect(): Promise<ConnectionInfo> {
+  private async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
       }
 
+      const options: DispatchOptions = {
+        projectId: this.projectId,
+        projectToken: this.projectToken,
+        shardName,
+        maxConnectionsPerShard,
+        authorization,
+      };
+
+      const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
+        if (options[cur]) {
+          acc.push(`${cur}=${encodeURIComponent(options[cur])}`);
+        }
+        return acc;
+      }, []);
+
+      const url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
+
+      this.authToken = authorization;
+
       // Create a socket connection to the dispatch server
-      this.ws = new Sockette(this.url, {
+      this.ws = new Sockette(url, {
         timeout: 5e3,
         maxAttempts: 10,
         onmessage: (e) => this.handleMessage(e, resolve),
