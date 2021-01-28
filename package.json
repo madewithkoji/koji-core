@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {
@@ -14,6 +14,9 @@
     "doc": "typedoc src",
     "json-doc": "typedoc src --json test.json"
   },
+  "files": [
+    "/dist"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
