@@ -5,12 +5,11 @@ import { UserToken } from '../../types';
 /**
  * Capabilities that a user can grant the current Koji authorization to use.
  */
-export enum AuthGrantCapability {
+export type AuthGrantCapability =
   /** Allows the current Koji to send push notifications to the user. */
-  PUSH_NOTIFICATIONS = 'push_notifications',
+  'push_notifications' |
   /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
-  USERNAME = 'username',
-}
+  'username';
 
 /**
  * Manages authentication and authorization on the frontend of your Koji.
