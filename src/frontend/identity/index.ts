@@ -1,5 +1,6 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
+import { UserToken } from '../../types';
 
 export type AuthGrantCapability = 'push_notifications' | 'username';
 

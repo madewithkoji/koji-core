@@ -1,5 +1,6 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
+import { UserToken } from '../../types';
 
 export interface PurchaseOptions {
   amount?: number;
