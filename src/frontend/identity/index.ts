@@ -1,15 +1,13 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
+import { UserToken } from '../../types';
 
-export enum AuthGrantCapability {
-  PUSH_NOTIFICATIONS = 'push_notifications',
-  USERNAME = 'username',
-}
+export type AuthGrantCapability = 'push_notifications' | 'username';
 
 export class Identity extends KojiBridge {
   @client
   async getToken(): Promise<UserToken> {
-    const { token } = await this.sendMessageAndAwaitResponse({
+    const { userToken } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants: [],
@@ -17,7 +15,7 @@ export class Identity extends KojiBridge {
       },
     }, 'KojiAuth.TokenCreated');
 
-    return token;
+    return userToken;
   }
 
   async checkGrants(grants: AuthGrantCapability[] = []): Promise<boolean> {
@@ -32,15 +30,15 @@ export class Identity extends KojiBridge {
   }
 
   async requestGrants(grants: AuthGrantCapability[] = [], usageDescription?: string): Promise<UserToken> {
-    const { hasGrants } = await this.sendMessageAndAwaitResponse({
+    const { userToken } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants,
         usageDescription,
       },
-    }, 'KojiAuth.TokenCreated'); // Would be great to have a method-specific message here
+    }, 'KojiAuth.TokenCreated', 'KojiAuth.GrantsDenied');
 
-    return hasGrants;
+    return userToken;
   }
 }
 

@@ -1,0 +1,6 @@
+src
+docs
+.babelrc                                
+.eslintignore                           
+.prettierrc                             
+.eslintrc.js 

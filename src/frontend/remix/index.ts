@@ -19,13 +19,11 @@ export class Remix extends KojiBridge {
   private isInitialized: boolean = false;
 
   @client
-  public init(kojiConfig: any) {
-    const { remixData } = kojiConfig;
-
+  init(remixData: any) {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {
-      console.warn('You are trying to initialize your remix data more than one time.');
+      console.warn('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
       return;
     }
 
@@ -69,7 +67,7 @@ export class Remix extends KojiBridge {
 
   @client
   public async encryptValue(plaintextValue: string): Promise<string> {
-    const data: string = await this.sendMessageAndAwaitResponse(
+    const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.EncryptValue',
         data: {
@@ -79,12 +77,12 @@ export class Remix extends KojiBridge {
       'KojiPreview.ValueEncrypted',
     );
 
-    return data;
+    return data.encryptedValue;
   }
 
   @client
-  public async decryptValue(encryptedValue: string) {
-    const data: string = await this.sendMessageAndAwaitResponse(
+  public async decryptValue(encryptedValue: string): Promise<string> {
+    const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.DecryptValue',
         data: {
@@ -94,7 +92,7 @@ export class Remix extends KojiBridge {
       'KojiPreview.ValueDecrypted',
     );
 
-    return data;
+    return data.decryptedValue;
   }
 
   private async sendValues() {

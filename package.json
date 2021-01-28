@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "watch": "nodemon --watch ./src --ext ts --exec babel ./src --out-dir ./dist --source-maps --extensions '.ts'",
     "test": "jest ./src",
     "check-types": "tsc",
+    "prepare": "npm run build & npm run generate-declarations",
     "generate-declarations": "tsc --emitDeclarationOnly",
     "watch-declarations": "nodemon --watch ./src --ext ts --exec npm run generate-declarations",
     "doc": "typedoc src",

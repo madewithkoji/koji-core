@@ -21,7 +21,7 @@ export interface EditorAttributes {
 
 export type ReceiptType = 'seller' | 'buyer';
 
-export type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => Function;
+export type IsRemixingCallback = (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
 
 export class PlayerState extends KojiBridge {
   context: PlayerStateContext = 'default';

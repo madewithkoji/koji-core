@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import Sockette from 'sockette';
 import axios from 'axios';
-import { Base } from '../base';
 
 const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
@@ -13,8 +12,7 @@ interface DispatchConfigurationInput {
 }
 
 interface DispatchOptions {
-  projectId: string;
-  projectToken?: string;
+  projectId?: string;
   shardName?: string | null;
   maxConnectionsPerShard?: number;
   authorization?: string;
@@ -46,8 +44,9 @@ export interface ConnectionInfo {
   shardName: string;
 }
 
-export class Dispatch extends Base {
+export class Dispatch {
   private authToken?: string;
+  private projectId?: string;
 
   private initialConnection: boolean = false;
   private isConnected: boolean = false;
@@ -60,7 +59,11 @@ export class Dispatch extends Base {
     return (data || [])[0];
   }
 
-  private async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
+  public setProjectId(projectId: string) {
+    this.projectId = projectId;
+  }
+
+  public async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
@@ -68,10 +71,8 @@ export class Dispatch extends Base {
 
       const options: DispatchOptions = {
         projectId: this.projectId,
-        projectToken: this.projectToken,
         shardName,
         maxConnectionsPerShard,
-        authorization,
       };
 
       const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
@@ -194,3 +195,5 @@ export class Dispatch extends Base {
     this.ws = null;
   }
 }
+
+export const dispatch = new Dispatch();

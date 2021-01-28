@@ -1,5 +1,6 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
+import { UserToken } from '../../types';
 
 export interface PurchaseOptions {
   amount?: number;
@@ -13,21 +14,6 @@ export interface Purchase {
 }
 
 export class IAP extends KojiBridge {
-  purchaseCallback?: Function;
-
-  register() {
-    window.addEventListener('message', ({ data }) => {
-      const { event } = data;
-
-      if (event === 'KojiIap.PurchaseFinished') {
-        if (!this.purchaseCallback) throw new Error('Received purchase information but no purchase has been started');
-
-        this.purchaseCallback(data.success, data.userToken, data.receiptId);
-        this.purchaseCallback = undefined;
-      }
-    });
-  }
-
   @client
   async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
     const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse({
