@@ -8,20 +8,39 @@ import { ui, UI } from './ui';
 import { client } from './@decorators/client';
 import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
 
+/**
+ * Defines the configuration data for the Koji.
+ */
 export interface KojiConfig {
+  /** Instructions for setting up the services in a development/editor environment. */
   develop?: any;
+  /** Instructions for deploying the services to production. */
   deploy?: any;
+  /** Default values for the customizable remix data. */
   remixData?: any;
+  /** Placeholder values for new remixes. */
   '@@initialTransform'?: any;
 }
 
+/**
+ * Key-value pairs of services and endpoints.
+ */
 export type Services = { [key: string]: string | undefined };
 
+/**
+ * Configuration options for the Koji.
+ */
 export interface KojiConfigOptions {
+<<<<<<< HEAD
   projectId?: string;
+=======
+  /** Defines services for the Koji. */
+>>>>>>> fa3a1ebc80b489cea587e2b381a7bfa99406891b
   services: Services;
 }
-
+/**
+ * Provides frontend methods for your Koji.
+ */
 export class Koji {
   isReady: boolean;
   configInitialized: boolean = false;
@@ -40,6 +59,19 @@ export class Koji {
     this.isReady = false;
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * Initializes this package for use with configuration data from the `koji.json` file. This method sets up the services, remix values, development environment, and deployment instructions for your Koji. It also performs some basic structural checks.
+   *
+   * @param kojiConfig Configuration data for the Koji.
+   *
+   * @example
+   * ```
+   * Koji.config(require('koji.json'));
+   * ```
+   */
+>>>>>>> fa3a1ebc80b489cea587e2b381a7bfa99406891b
   public config(kojiConfig: KojiConfig = {}, kojiConfigOptions: KojiConfigOptions = { services: {} }): void {
     if (this.configInitialized) {
       console.warn('You are trying to run config more than one time. The previous configuration options will not be overwritten but this could indicate unexpected behavior in your project.');
@@ -122,6 +154,14 @@ export class Koji {
     }
   }
 
+  /**
+   * Indicates that the Koji is ready to start receiving events.
+   *
+   * @example
+   * ```javascript
+   * Koji.ready
+   * ```
+   */
   @client
   ready() {
     this.isReady = true;

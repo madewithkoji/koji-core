@@ -23,10 +23,17 @@ export interface User {
   role: UserRole;
 }
 
+/**
+ * Defines a notification to send to a user’s Koji account. Send notifications with [[pushNotificationToOwner]], for the user who created the Koji, or [[pushNotificationToUser]], for a user who interacts with the Koji and has granted the appropriate authorization.
+ */
 export interface PushNotification {
+  /** Headline for the message. For example, the name of the Koji that generated the notification. */
   appName: string;
+  /**  Icon to display next to the message, either the URL of an image or an emoji character. */
   icon: string;
+  /** Content of the message. */
   message: string;
+  /** Query parameters to append to the Koji URL when the notification is tapped. For example, load the admin experience or a dynamic receipt from the notification. */
   ref?: string;
 }
 
