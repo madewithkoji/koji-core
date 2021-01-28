@@ -26,7 +26,7 @@ export class Koji {
   isReady: boolean;
   configInitialized: boolean = false;
   services: Services = {};
-  projectId?: string = process.env.KOJI_PROJECT_ID;
+  projectId?: string;
 
   analytics: Analytics = analytics;
   dispatch?: Dispatch = dispatch;
@@ -50,7 +50,7 @@ export class Koji {
     const { develop = {}, deploy = {}, remixData = {} } = kojiConfig;
 
     // Check for the project id
-    this.checkForProjectId(kojiConfigOptions.projectId);
+    this.setProjectId(kojiConfigOptions.projectId);
 
     // Set up and sanity check services
     this.setUpServices(develop, deploy, kojiConfigOptions.services);
@@ -59,14 +59,21 @@ export class Koji {
     this.remix.init(remixData);
   }
 
-  private checkForProjectId(projectId?: string) {
-    if (!this.projectId) {
-      if (!projectId) throw new Error('Unable to find project id.');
+  private setProjectId(explicitProjectId?: string) {
+    const projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
 
+    // Even if the value is overwritten by an override, it should still
+    // be defined at this point.
+    if (!projectId) throw new Error('Unable to find project id.');
+
+    // Handle overrides
+    if (window.KOJI_OVERRIDES) {
+      const { overrides = {} } = window.KOJI_OVERRIDES;
+      if (overrides && overrides.metadata && overrides.metadata.projectId) {
+        this.projectId = overrides.metadata.projectId;
+      }
+    } else {
       this.projectId = projectId;
-
-      // Also set the projectId in any instances where it is required
-      this.dispatch?.setProjectId(this.projectId);
     }
   }
 
