@@ -92,9 +92,7 @@ export class Remix extends KojiBridge {
       'KojiPreview.ValueDecrypted',
     );
 
-    // TODO: Figure out why we aren't passing back the decrypted value.
-    // Actually can't figure out where in the koji-frontend this is being passed.
-    return data.encryptedValue;
+    return data.decryptedValue;
   }
 
   private async sendValues() {
