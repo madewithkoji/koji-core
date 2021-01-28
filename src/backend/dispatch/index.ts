@@ -21,6 +21,9 @@ interface DispatchOptions {
   [index: string]: any;
 }
 
+/**
+ * Defines constants for Koji platform events.
+ */
 export enum PlatformEvents {
   CONNECTED = '@@KOJI_DISPATCH/CONNECTED',
   CONNECTED_CLIENTS_CHANGED = '@@KOJI_DISPATCH/CONNECTED_CLIENTS_CHANGED',
@@ -28,24 +31,39 @@ export enum PlatformEvents {
   SET_USER_INFO = '@@KOJI_DISPATCH/SET_USER_INFO',
 }
 
+/**
+ * Defines a MessageHandler interface.
+ */
 export interface MessageHandler {
   id: string;
   eventName: string;
   callback: MessageHandlerCallback;
 }
 
+/**
+ * Implements the callback function for the MessageHandler interface.
+ */
 export type MessageHandlerCallback = (payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
 
+/**
+ * Defines a ShardInfo interface.
+ */
 export interface ShardInfo {
   shardName: string;
   numConnectedClients: number;
 }
 
+/**
+ * Defines a ConnectionInfo interface.
+ */
 export interface ConnectionInfo {
   clientId?: string;
   shardName: string;
 }
 
+/**
+ * Implements a dispatch system for the backend of your Koji. For more information, see [[https://developer.withkoji.com/reference/packages/withkoji-dispatch-package | the Koji dispatch package reference]].
+ */
 export class Dispatch extends Base {
   private authToken?: string;
 
@@ -55,11 +73,35 @@ export class Dispatch extends Base {
   private messageQueue: string[] = [];
   private ws: Sockette | null = null;
 
+  /**
+   * Gets shard info for current project.
+   * 
+   * @return                   Shard info in the form of an array.
+   * 
+   * @example
+   * ```javascript
+   * const myInfo = await dispatch.info('myCollection');
+   * ```
+   */
   public async info(): Promise<ShardInfo[]> {
     const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
     return (data || [])[0];
   }
 
+  /**
+   * Creates a shard connection.
+   *
+   * @param     shardName     Name of the shard.
+   * @param     maxConnectionsPerShard   Maximum connections per Shard (defaults to 100).
+   * @param     authorization Authorization credentials.
+   *
+   * @return                   ConnectionInfo object.
+   * 
+   * @example
+   * ```javascript
+   * const myInfo = await dispatch.connect('myShard', 100, authorization);
+   * ```
+   */
   private async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
@@ -98,6 +140,19 @@ export class Dispatch extends Base {
     });
   }
 
+  /**
+   * Handles a message event.
+   *
+   * @param     data        JSON object containing eventName, latencyMS, and payload.
+   * @param     eventName   PlatformEvents enum value
+   * @param     latencyMS   Latency in milliseconds
+   * @param     payload     Client object
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleMessage(PlatformEvents.CONNECTED, 1000, client);
+   * ```
+   */
   private handleMessage({ data }: { data: string }, resolve: Function) {
     const { eventName, latencyMs, payload } = JSON.parse(data || '{}');
 
@@ -119,6 +174,14 @@ export class Dispatch extends Base {
     });
   }
 
+  /**
+   * Reconnects a shard.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleReconnect();
+   * ```
+   */
   private handleReconnect() {
     this.isConnected = true;
     this.messageQueue = this.messageQueue.reduce((acc, cur) => {
@@ -129,16 +192,53 @@ export class Dispatch extends Base {
     }, []);
   }
 
+  /**
+   * Handles maximum.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleMaximum();
+   * ```
+   */
   private handleMaximum() {}
 
+  /**
+   * Cleans up when connection is closed.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleClose();
+   * ```
+   */
   private handleClose() {
     this.isConnected = false;
   }
 
+  /**
+   * Prints error message to console.
+   * 
+   * @param     e    Event that generated the error.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleError(e);
+   * ```
+   */
   private handleError(e: Event) {
     console.error('[Koji Dispatch] error', e);
   }
 
+  /**
+   * Assigns a callback function to an event.
+   * 
+   * @param     eventName     Name of event.
+   * @param     callback      Callback function.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.on('eventName', callbackFunction);
+   * ```
+   */
   public on(eventName: string, callback: MessageHandlerCallback): Function {
     const handlerId = uuidv4();
 
@@ -153,16 +253,48 @@ export class Dispatch extends Base {
     };
   }
 
+  /**
+   * Emit SET_USER_INFO event.
+   * 
+   * @param     userInfo     Object containing an array of user info.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.setUserInfo({['user info']});
+   * ```
+   */
   public setUserInfo(userInfo: { [index: string]: any }) {
     this.emitEvent(PlatformEvents.SET_USER_INFO, userInfo);
   }
 
+  /**
+   * Emit IDENTIFY event.
+   * 
+   * @param     authToken     Authorization token.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.identify(token);
+   * ```
+   */
   public identify(authToken: string) {
     this.emitEvent(PlatformEvents.IDENTIFY, {
       token: authToken,
     });
   }
 
+  /**
+   * Emit event.
+   * 
+   * @param     eventName     Name of event.
+   * @param     payload       Array of values to be included in event message.
+   * @param     recipients    One or more event recipients.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.emitEvent('click', [id:1]);
+   * ```
+   */
   public emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
     const message = JSON.stringify({
       eventName,
@@ -189,6 +321,14 @@ export class Dispatch extends Base {
     this.ws.send(message);
   }
 
+  /**
+   * Close connection.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.disconnect();
+   * ```
+   */
   public disconnect() {
     if (this.ws) this.ws.close();
     this.ws = null;
