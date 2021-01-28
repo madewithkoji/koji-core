@@ -1,4 +1,5 @@
 import { analytics, Analytics } from './analytics';
+import { dispatch, Dispatch } from './dispatch';
 import { iap, IAP } from './iap';
 import { identity, Identity } from './identity';
 import { playerState, PlayerState } from './playerState';
@@ -17,6 +18,7 @@ export interface KojiConfig {
 export type Services = { [key: string]: string | undefined };
 
 export interface KojiConfigOptions {
+  projectId?: string;
   services: Services;
 }
 
@@ -24,8 +26,10 @@ export class Koji {
   isReady: boolean;
   configInitialized: boolean = false;
   services: Services = {};
+  projectId?: string = process.env.KOJI_PROJECT_ID;
 
   analytics: Analytics = analytics;
+  dispatch?: Dispatch = dispatch;
   iap: IAP = iap;
   identity: Identity = identity;
   playerState: PlayerState = playerState;
@@ -36,29 +40,42 @@ export class Koji {
     this.isReady = false;
   }
 
-  /**
-   * Prepare this package for use by passing in the data from your koji.json
-   * file. In addition to setting up things like your serviceMap and remix values,
-   * this function will also do some basic structural checks.
-   * @param {Object} kojiConfig Your Koji configuration object (e.g., require('./koji.json'))
-   * @param {Object} kojiConfig.develop Instructions to set up the development/editor environment for your services
-   * @param {Object} kojiConfig.deploy Instructions to deploy your services to production
-   * @param {Object} kojiConfig.remixData The base values for your customizable remix data
-   * @param {Object} kojiConfig.['@@initialTransform'] The values that will be loaded for new remixes
-   */
   public config(kojiConfig: KojiConfig = {}, kojiConfigOptions: KojiConfigOptions = { services: {} }): void {
     if (this.configInitialized) {
       console.warn('You are trying to run config more than one time. The previous configuration options will not be overwritten but this could indicate unexpected behavior in your project.');
       return;
     }
 
+    // Deconstruct the user's config
     const { develop = {}, deploy = {}, remixData = {} } = kojiConfig;
 
+    // Check for the project id
+    this.checkForProjectId(kojiConfigOptions.projectId);
+
+    // Set up and sanity check services
+    this.setUpServices(develop, deploy, kojiConfigOptions.services);
+
+    // Initialize remix data
+    this.remix.init(remixData);
+  }
+
+  private checkForProjectId(projectId?: string) {
+    if (!this.projectId) {
+      if (!projectId) throw new Error('Unable to find project id.');
+
+      this.projectId = projectId;
+
+      // Also set the projectId in any instances where it is required
+      this.dispatch?.setProjectId(this.projectId);
+    }
+  }
+
+  private setUpServices(develop: Object, deploy: Object, services: Services) {
     const developServices = Object.keys(develop);
     const deployServices = Object.keys(deploy);
 
     // Require at least one deploy service to be defined
-    if (deployServices.length === 0) throw new Error('Your configuration does not include any services for');
+    if (deployServices.length === 0) throw new Error('Your configuration does not include any services for deployment');
 
     // Require at least one develop service to be defined
     if (developServices.length === 0) throw new Error('Your configuration does not include any services for development');
@@ -73,9 +90,9 @@ export class Koji {
     });
 
     // If the user has explicitly passed in values, use those instead
-    Object.keys(kojiConfigOptions.services).forEach((serviceName) => {
-      if (kojiConfigOptions.services[serviceName]) {
-        baseServiceMap[serviceName] = kojiConfigOptions.services[serviceName];
+    Object.keys(services).forEach((serviceName) => {
+      if (services[serviceName]) {
+        baseServiceMap[serviceName] = services[serviceName];
       }
     });
 
@@ -96,9 +113,6 @@ export class Koji {
     } else {
       this.services = { ...baseServiceMap };
     }
-
-    // Initialize remix data
-    this.remix.init(remixData);
   }
 
   @client
