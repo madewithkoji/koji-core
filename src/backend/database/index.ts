@@ -84,6 +84,16 @@ export class Database extends Base {
     return data.document;
   }
 
+  /**
+   * Gets a list of all collections available in the database.
+   *
+   * @return  List containing the names of the collections.
+   *
+   * @example
+   * ```javascript
+   * const collections = await database.getCollections();
+   * ```
+   */
   @server
   public async getCollections(): Promise<string[]> {
     const {
