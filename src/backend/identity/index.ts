@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
+import { UserToken } from '../../types';
 
 export enum AuthRoutes {
   GET_GRANT = '/v1/apps/auth/consumer/getGrantForToken',

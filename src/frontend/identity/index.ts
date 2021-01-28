@@ -1,13 +1,15 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
+import { UserToken } from '../../types';
 
 /**
  * Capabilities that a user can grant the current Koji authorization to use.
- *
- *  `push_notifications` – Allows the current Koji to send push notifications to the user.
- *  `username` – Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database.
-  */
-export type AuthGrantCapability = 'push_notifications' | 'username';
+ */
+export type AuthGrantCapability =
+  /** Allows the current Koji to send push notifications to the user. */
+  'push_notifications' |
+  /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
+  'username';
 
 /**
  * Manages authentication and authorization on the frontend of your Koji.

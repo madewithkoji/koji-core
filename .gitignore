@@ -2,10 +2,12 @@
 node_modules
 
 ## build
-## dist
+dist
 
 ## env/ide
 .vscode
+.DS_Store
 
 ## Auto-gen docs locally
 docs
+

@@ -1,5 +1,6 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
+import { UserToken } from '../../types';
 
 /** Custom information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase. */
 export interface PurchaseOptions {

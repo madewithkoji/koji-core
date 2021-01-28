@@ -1,4 +1,5 @@
 import { analytics, Analytics } from './analytics';
+import { dispatch, Dispatch } from './dispatch';
 import { iap, IAP } from './iap';
 import { identity, Identity } from './identity';
 import { playerState, PlayerState } from './playerState';
@@ -30,6 +31,8 @@ export type Services = { [key: string]: string | undefined };
  * Configuration options for the Koji.
  */
 export interface KojiConfigOptions {
+  /** Unique identifier for the Koji. */
+  projectId?: string;
   /** Defines services for the Koji. */
   services: Services;
 }
@@ -40,8 +43,10 @@ export class Koji {
   isReady: boolean;
   configInitialized: boolean = false;
   services: Services = {};
+  projectId?: string;
 
   analytics: Analytics = analytics;
+  dispatch?: Dispatch = dispatch;
   iap: IAP = iap;
   identity: Identity = identity;
   playerState: PlayerState = playerState;
@@ -68,13 +73,43 @@ export class Koji {
       return;
     }
 
+    // Deconstruct the user's config
     const { develop = {}, deploy = {}, remixData = {} } = kojiConfig;
 
+    // Check for the project id
+    this.setProjectId(kojiConfigOptions.projectId);
+
+    // Set up and sanity check services
+    this.setUpServices(develop, deploy, kojiConfigOptions.services);
+
+    // Initialize remix data
+    this.remix.init(remixData);
+  }
+
+  private setProjectId(explicitProjectId?: string) {
+    const projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
+
+    // Even if the value is overwritten by an override, it should still
+    // be defined at this point.
+    if (!projectId) throw new Error('Unable to find project id.');
+
+    // Handle overrides
+    if (window.KOJI_OVERRIDES) {
+      const { overrides = {} } = window.KOJI_OVERRIDES;
+      if (overrides && overrides.metadata && overrides.metadata.projectId) {
+        this.projectId = overrides.metadata.projectId;
+      }
+    } else {
+      this.projectId = projectId;
+    }
+  }
+
+  private setUpServices(develop: Object, deploy: Object, services: Services) {
     const developServices = Object.keys(develop);
     const deployServices = Object.keys(deploy);
 
     // Require at least one deploy service to be defined
-    if (deployServices.length === 0) throw new Error('Your configuration does not include any services for');
+    if (deployServices.length === 0) throw new Error('Your configuration does not include any services for deployment');
 
     // Require at least one develop service to be defined
     if (developServices.length === 0) throw new Error('Your configuration does not include any services for development');
@@ -89,9 +124,9 @@ export class Koji {
     });
 
     // If the user has explicitly passed in values, use those instead
-    Object.keys(kojiConfigOptions.services).forEach((serviceName) => {
-      if (kojiConfigOptions.services[serviceName]) {
-        baseServiceMap[serviceName] = kojiConfigOptions.services[serviceName];
+    Object.keys(services).forEach((serviceName) => {
+      if (services[serviceName]) {
+        baseServiceMap[serviceName] = services[serviceName];
       }
     });
 
@@ -112,9 +147,6 @@ export class Koji {
     } else {
       this.services = { ...baseServiceMap };
     }
-
-    // Initialize remix data
-    this.remix.init(remixData);
   }
 
   /**
