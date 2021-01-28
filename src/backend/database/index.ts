@@ -106,8 +106,7 @@ export class Database extends Base {
   /**
    * Searches a collection for records that match the specified search criteria.
    * The search criteria are the search field and the search value.
-   * Returns the matching records.
-   * 
+    * 
    *
    * @typeParam T              Data from a Koji database collection.
    * @param     collection     Name of the collection.
@@ -138,7 +137,6 @@ export class Database extends Base {
   /**
    * Searches a collection for records that satify the specified predicate.
    * The predicate is specified using predicateKey, predicateOperator, and predicateValue.
-   * Returns the matching records.
    *
    * @typeParam T                       Data from a Koji database collection.
    * @param     collection              Name of the collection.
@@ -205,7 +203,6 @@ export class Database extends Base {
   /**
    * Searches a collection for records that satify the specified predicate.
    * The predicate is specified using predicateKey, predicateOperator, and predicateValues.
-   * Returns the matching records.
    *
    * @typeParam T                       Data from a Koji database collection.
    * @param     collection              Name of the collection.
@@ -244,9 +241,9 @@ export class Database extends Base {
    * Inserts a new document into a collection.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        The document name.
-   * @param     documentBody        The document contents.
-   * @return                        The new document.
+   * @param     documentName        Document name.
+   * @param     documentBody        Document contents.
+   * @return                        New document.
    *
    * @example
    * ```javascript
@@ -272,9 +269,9 @@ export class Database extends Base {
    * Replaces the contents of an existing document in a collection.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        The document name.
-   * @param     documentBody        The new contents.
-   * @return                        The updated document.
+   * @param     documentName        Document name.
+   * @param     documentBody        New contents.
+   * @return                        Updated document.
    *
    * @example
    * ```javascript
@@ -296,6 +293,19 @@ export class Database extends Base {
     return data;
   }
 
+  /**
+   * Appends contents to an existing document in a collection.
+   *
+   * @param     collection          Name of the collection.
+   * @param     documentName        Document name.
+   * @param     documentBody        Appended contents.
+   * @return                        Updated document.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents appended to end of document');
+   * ```
+   */
   @server
   public async arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(
@@ -311,6 +321,19 @@ export class Database extends Base {
     return data;
   }
 
+  /**
+   * Removes part of the contents from an existing document in a collection.
+   *
+   * @param     collection          Name of the collection.
+   * @param     documentName        Document name.
+   * @param     documentBody        Removed contents.
+   * @return                        Updated document.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents to be removed from document');
+   * ```
+   */
   @server
   public async arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(
@@ -330,8 +353,8 @@ export class Database extends Base {
    * Deletes a document from a collection.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        The document name.
-   * @return                        The deleted document.
+   * @param     documentName        Document name.
+   * @return                        Deleted document.
    *
    * @example
    * ```javascript
