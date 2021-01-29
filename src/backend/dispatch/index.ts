@@ -6,12 +6,18 @@ import { Base } from '../base';
 const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
 
+/**
+ * Defines a DispatchConfigurationInput interface.
+ */
 interface DispatchConfigurationInput {
   shardName?: string | null;
   maxConnectionsPerShard: number;
   authorization?: string;
 }
 
+/**
+ * Defines a DispatchOptions interface.
+ */
 interface DispatchOptions {
   projectId: string;
   projectToken?: string;
