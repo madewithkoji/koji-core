@@ -41,7 +41,7 @@ export class KojiBridge {
   }
 
   /**
-   * 
+   *
    *
    * @param   postMessage Data to be sent to the Koji.
    */
@@ -57,13 +57,6 @@ export class KojiBridge {
     );
   }
 
-  /**
-   *
-   *
-   * @param   postMessage         Data to be sent to the Koji.
-   * @param   platformMessageName [description]
-   * @return                      [description]
-   */
   protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string, additionalPlatformMessageName?: string): Promise<any> {
     return new Promise((resolve, reject) => {
       const idempotencyKey = uuidv4();

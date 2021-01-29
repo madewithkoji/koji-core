@@ -28,10 +28,23 @@ export enum PredicateOperator {
   NOT_IN = 'not-in',
 }
 
+/**
+ * Implements a Koji database for the backend of your Koji. For more information, see [[https://developer.withkoji.com/docs/develop/koji-database | the Koji database developer guide]].
+ */
 export class Database extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
+  /**
+   * Instantiates [[Database]].
+   *
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const database = new KojiBackend.Database({ res });
+   * ```
+   */
   constructor(config: BackendConfigurationInput) {
     super(config);
 
@@ -44,6 +57,20 @@ export class Database extends Base {
     };
   }
 
+  /**
+   * Gets the specified database entry or collection of entries.
+   *
+   * @typeParam T              Data from a Koji database collection.
+   * @param     collection     Name of the collection.
+   * @param     documentName   Name of the entry.
+   * @return                   Data requested from the collection.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.get('myCollection');
+   * const myEntry = await database.get('myCollection','myDoc');
+   * ```
+   */
   @server
   public async get<T>(collection: string, documentName?: string | null): Promise<T> {
     const { data } = await axios.post(
@@ -57,6 +84,16 @@ export class Database extends Base {
     return data.document;
   }
 
+  /**
+   * Gets a list of all collections available in the database.
+   *
+   * @return  List containing the names of the collections.
+   *
+   * @example
+   * ```javascript
+   * const collections = await database.getCollections();
+   * ```
+   */
   @server
   public async getCollections(): Promise<string[]> {
     const {
