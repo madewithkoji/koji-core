@@ -29,7 +29,7 @@ export class Koji {
   projectId?: string;
 
   analytics: Analytics = analytics;
-  dispatch?: Dispatch = dispatch;
+  dispatch: Dispatch = dispatch;
   iap: IAP = iap;
   identity: Identity = identity;
   playerState: PlayerState = playerState;
@@ -75,6 +75,9 @@ export class Koji {
     } else {
       this.projectId = projectId;
     }
+
+    // Init dispatch
+    this.dispatch?.setProjectId(projectId);
   }
 
   private setUpServices(develop: Object, deploy: Object, services: Services) {
