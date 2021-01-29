@@ -103,6 +103,22 @@ export class Database extends Base {
     return collections;
   }
 
+  /**
+   * Searches a collection for records that match the specified search criteria.
+   * The search criteria are the search field and the search value.
+    * 
+   *
+   * @typeParam T              Data from a Koji database collection.
+   * @param     collection     Name of the collection.
+   * @param     queryKey       Name of the search field.
+   * @param     queryValue     Search value.
+   * @return                   Data requested from the collection.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.search<'myClass'>('myCollection', 'myField', 'mySearchValue');
+   * ```
+   */
   @server
   public async search<T>(collection: string, queryKey: string, queryValue: string): Promise<T[]> {
     const { data } = await axios.post(
@@ -118,6 +134,22 @@ export class Database extends Base {
     return data;
   }
 
+  /**
+   * Searches a collection for records that satify the specified predicate.
+   * The predicate is specified using predicateKey, predicateOperator, and predicateValue.
+   *
+   * @typeParam T                       Data from a Koji database collection.
+   * @param     collection              Name of the collection.
+   * @param     predicateKey            Name of a field in the collection.
+   * @param     predicateOperation      An operator such as '=', '<>', '>', etc.
+   * @param     predicateValue          Search value.
+   * @return                            Data requested from the collection.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.getWhere<'myClass'>('myCollection', 'myField', 'myOperator, 'mySearchValue');
+   * ```
+   */
   @server
   public async getWhere<T>(
     collection: string,
@@ -141,6 +173,19 @@ export class Database extends Base {
     return data.document;
   }
 
+  /**
+   * Searches a collection for the documents whose names are included in an array of document names.
+   *
+   * @typeParam T                   Data from a Koji database collection.
+   * @param     collection          Name of the collection.
+   * @param     documentNames       Array of one or more document names
+   * @return                        Data requested from the collection.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.getAll<'myClass'>('myCollection', ['doc1', 'doc2']);
+   * ```
+   */
   @server
   public async getAll<T>(collection: string, documentNames: string[]): Promise<T[]> {
     const { data } = await axios.post(
@@ -155,6 +200,22 @@ export class Database extends Base {
     return data.results;
   }
 
+  /**
+   * Searches a collection for records that satify the specified predicate.
+   * The predicate is specified using predicateKey, predicateOperator, and predicateValues.
+   *
+   * @typeParam T                       Data from a Koji database collection.
+   * @param     collection              Name of the collection.
+   * @param     predicateKey            Name of a field in the collection.
+   * @param     predicateOperation      An operator such as '=', '<>', '>', etc.
+   * @param     predicateValues         An array of one or more search values.
+   * @return                            Data requested from the collection.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.getAllWhere<'myClass'>('myCollection', 'myField', 'myOperator, ['mySearchValue1', mySearchValue2]);
+   * ```
+   */
   @server
   public async getAllWhere<T>(
     collection: string,
@@ -176,6 +237,19 @@ export class Database extends Base {
     return data.results;
   }
 
+  /**
+   * Inserts a new document into a collection.
+   *
+   * @param     collection          Name of the collection.
+   * @param     documentName        Document name.
+   * @param     documentBody        Document contents.
+   * @return                        New document.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');
+   * ```
+   */
   @server
   public async set(collection: string, documentName: string, documentBody: any): Promise<boolean> {
     const { data } = await axios.post(
@@ -191,6 +265,19 @@ export class Database extends Base {
     return data;
   }
 
+  /**
+   * Replaces the contents of an existing document in a collection.
+   *
+   * @param     collection          Name of the collection.
+   * @param     documentName        Document name.
+   * @param     documentBody        New contents.
+   * @return                        Updated document.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');
+   * ```
+   */
   @server
   public async update(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(
@@ -206,6 +293,19 @@ export class Database extends Base {
     return data;
   }
 
+  /**
+   * Appends contents to an existing document in a collection.
+   *
+   * @param     collection          Name of the collection.
+   * @param     documentName        Document name.
+   * @param     documentBody        Appended contents.
+   * @return                        Updated document.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents appended to end of document');
+   * ```
+   */
   @server
   public async arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(
@@ -221,6 +321,19 @@ export class Database extends Base {
     return data;
   }
 
+  /**
+   * Removes part of the contents from an existing document in a collection.
+   *
+   * @param     collection          Name of the collection.
+   * @param     documentName        Document name.
+   * @param     documentBody        Removed contents.
+   * @return                        Updated document.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents to be removed from document');
+   * ```
+   */
   @server
   public async arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
     const { data } = await axios.post(
@@ -236,6 +349,18 @@ export class Database extends Base {
     return data;
   }
 
+  /**
+   * Deletes a document from a collection.
+   *
+   * @param     collection          Name of the collection.
+   * @param     documentName        Document name.
+   * @return                        Deleted document.
+   *
+   * @example
+   * ```javascript
+   * const myData = await database.delete('myCollection', 'myDocument');
+   * ```
+   */
   @server
   public async delete(collection: string, documentName: string): Promise<boolean | void> {
     const { data } = await axios.post(
