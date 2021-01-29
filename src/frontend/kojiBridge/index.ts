@@ -41,7 +41,6 @@ export class KojiBridge {
   }
 
   /**
-   * 
    *
    * @param   postMessage Data to be sent to the Koji.
    */
