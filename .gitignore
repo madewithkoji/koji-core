@@ -8,6 +8,3 @@ dist
 .vscode
 .DS_Store
 
-## Auto-gen docs locally
-docs
-
