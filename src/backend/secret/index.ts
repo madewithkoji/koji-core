@@ -7,6 +7,9 @@ enum SecretRoutes {
   CREATE_SIGNED_REQUEST = '/v1/cdn/signedRequest/create',
 }
 
+/**
+ * Implements a class for handling secret keys in your Koji.
+ */
 export class Secret extends Base {
   private rootPath: string;
   private rootHeaders: Object;
@@ -23,6 +26,17 @@ export class Secret extends Base {
     };
   }
 
+  /**
+   * Gets the value for a secret key.
+   * 
+   * @param   keyPath  Path for secret key
+   * @return           Key value.
+   *
+   * @example
+   * ```javascript
+   * const keyValue = await secret.resolveValue<string>(SecretRoutes.KEYSTORE_GET + "/mySecretKey");
+   * ```
+   */
   @server
   public async resolveValue<T>(keyPath: string): Promise<T> {
     const { data } = await axios.post(
@@ -40,6 +54,18 @@ export class Secret extends Base {
     return data.decryptedValue;
   }
 
+  /**
+   * Creates a signed URL.
+   * 
+   * @param   resource        Path to resource
+   * @param   expireSeconds   Expiration in seconds
+   * @return                  URL for resource.
+   *
+   * @example
+   * ```javascript
+   * const secretPath = await secret.generateSignedUrl();
+   * ```
+   */
   @server
   public async generateSignedUrl(resource: string, expireSeconds?: number): Promise<string> {
     const { data } = await axios.post(
