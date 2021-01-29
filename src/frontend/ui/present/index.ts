@@ -5,13 +5,13 @@ import { client } from '../../@decorators/client';
  * Defines a confirmation dialog box to show a user.
  */
 export interface PresentConfirmationOptions {
-  /** Title for the dialog box. */
+  /** Title for the dialog box (`Confirm` by default). */
   title?: string;
-  /** Question to ask the user. */
+  /** Question to ask the user (empty by default). */
   message?: string;
-  /** Label for the confirm action. */
+  /** Label for the confirm action (`Confirm` by default). */
   confirmButtonLabel?: string;
-  /** Label for the cancel action. */
+  /** Label for the cancel action (`Cancel` by default). */
   cancelButtonLabel?: string;
 }
 
@@ -30,7 +30,7 @@ export interface PresentAlertOptions {
  */
 export class Present extends KojiBridge {
   /**
-   * Presents a confirmation dialog box to a user. Use this method for messages that require a response from the user, such as to ask whether to proceed with an action. For messages that do not require a response, use [[alert]].
+   * Presents a confirmation dialog box to a user. Use this method for messages that require a decision from the user, such as to ask whether to proceed with an action. For messages that do not require a decision, use [[alert]].
    *
    * @param   options
    * @return          Whether the user confirmed (`true`) or cancelled (`false`) the action.
@@ -64,7 +64,7 @@ export class Present extends KojiBridge {
   }
 
   /**
-   * Presents an alert dialog box to the user. Use this method for messages that do not require any response from the user, other than an acknowledgement. For messages that require a response, use [[confirmation]].
+   * Presents an alert dialog box to the user. Use this method for messages that do not require any response from the user, other than an acknowledgement. For messages that require a decision, use [[confirmation]].
    *
    * @param   options
    *
