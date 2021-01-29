@@ -15,6 +15,9 @@ export enum UserRole {
   USER = 'user',
 }
 
+/**
+ * Defines an interface for a user.
+ */
 export interface User {
   id: string;
   attributes: { [index: string]: any };
@@ -37,10 +40,23 @@ export interface PushNotification {
   ref?: string;
 }
 
+/**
+ * Implements an Identity class for backend authentication of your Koji.
+ */
 export class Identity extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
+  /**
+   * Instantiates [[Identity]].
+   *
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const identity = new KojiBackend.Identity({ config });
+   * ```
+   */  
   constructor(config: BackendConfigurationInput) {
     super(config);
 
@@ -53,6 +69,18 @@ export class Identity extends Base {
     };
   }
 
+  /**
+   * Sends a notification to a user
+   * 
+   * @param     userId            User id.
+   * @param     notification      Notification to send to user.
+   * @return                      Data object.
+   * 
+   * @example
+   * ```javascript
+   * identity.pushNotificationToUser(id, notification);
+   * ```
+   */
   @server
   public async pushNotificationToUser(userId: string, notification: PushNotification): Promise<void> {
     const { data } = await axios.post(
@@ -67,6 +95,17 @@ export class Identity extends Base {
     return data;
   }
 
+  /**
+   * Sends a notification to the owner
+   * 
+   * @param     notification      Notification to send to owner.
+   * @return                      Data object.
+   * 
+   * @example
+   * ```javascript
+   * identity.pushNotificationToUser(id, notification);
+   * ```
+   */
   @server
   public async pushNotificationToOwner(notification: PushNotification): Promise<void> {
     const { data } = await axios.post(
@@ -81,6 +120,17 @@ export class Identity extends Base {
     return data;
   }
 
+  /**
+   * Gets user by token
+   * 
+   * @param     token      User token.
+   * @return               User.
+   * 
+   * @example
+   * ```javascript
+   * const user = identity.resolveUserFromToken(token);
+   * ```
+   */  
   @server
   public async resolveUserFromToken(token: UserToken): Promise<User> {
     const {
