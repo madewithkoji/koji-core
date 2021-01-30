@@ -2,6 +2,7 @@ import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
 import { FastlyOptions } from '../../../types';
 
+export type CaptureResult = string | number | null | VerboseCapture;
 /**
  * Extended result of a user input capture.
  */
@@ -11,9 +12,9 @@ export interface VerboseCapture {
   /** Capture method type (for example, `color` or `file`). */
   captureType: CaptureType;
   /** Value captured from the user. */
-  result?: string | number;
+  result?: CaptureResult;
   /** Metadata associated with the captured result */
-  resultMetadata?: ExtendedMediaResult;
+  resultMetadata?: ExtendedMediaResult | null;
 }
 
 export interface CaptureMessage<T> {
@@ -163,6 +164,15 @@ export interface CaptureMediaOptions {
  */
 export class Capture extends KojiBridge {
   pickVerboseResultFromMessage(data: CaptureMessage<any>): VerboseCapture {
+    if (data.status !== CaptureStatus.SUCCEEDED) {
+      return {
+        captureStatus: data.status,
+        captureType: data.type,
+        result: null,
+        resultMetadata: null,
+      };
+    }
+
     if (data.result && typeof data.result === 'object') {
       const { url, ...resultMetadata } = data.result;
 
@@ -178,7 +188,16 @@ export class Capture extends KojiBridge {
       captureStatus: data.status,
       captureType: data.type,
       result: data.result,
+      resultMetadata: {},
     };
+  }
+
+  pickResultFromMessage(data: CaptureMessage<any>): CaptureResult {
+    if (data.status !== CaptureStatus.SUCCEEDED) {
+      return null;
+    }
+
+    return data.result;
   }
 
   /**
@@ -197,10 +216,10 @@ export class Capture extends KojiBridge {
    * ```
    */
   color(options: CaptureColorOptions, verbose: true): Promise<VerboseCapture>;
-  color(options?: CaptureColorOptions, verbose?: false): Promise<string>;
-  color(options: CaptureColorOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  color(options?: CaptureColorOptions, verbose?: false): Promise<string | null>;
+  color(options: CaptureColorOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async color(options: CaptureColorOptions = {}, verbose: boolean = false): Promise<string | VerboseCapture> {
+  async color(options: CaptureColorOptions = {}, verbose: boolean = false): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -214,7 +233,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -236,9 +255,9 @@ export class Capture extends KojiBridge {
    */
   file(options: CaptureFileOptions, verbose: true): Promise<VerboseCapture>;
   file(options?: CaptureFileOptions, verbose?: false): Promise<string>;
-  file(options: CaptureFileOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  file(options: CaptureFileOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async file(options: CaptureFileOptions = {}, verbose?: boolean): Promise<string | VerboseCapture> {
+  async file(options: CaptureFileOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -252,7 +271,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -274,9 +293,9 @@ export class Capture extends KojiBridge {
    */
   image(options: CaptureImageOptions, verbose: true): Promise<VerboseCapture>;
   image(options?: CaptureImageOptions, verbose?: false): Promise<string>;
-  image(options: CaptureImageOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  image(options: CaptureImageOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async image(options: CaptureImageOptions = {}, verbose?: boolean): Promise<string | VerboseCapture> {
+  async image(options: CaptureImageOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -290,7 +309,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -310,9 +329,9 @@ export class Capture extends KojiBridge {
    */
   koji(options: CaptureKojiOptions, verbose: true): Promise<VerboseCapture>;
   koji(options?: CaptureKojiOptions, verbose?: false): Promise<string>;
-  koji(options: CaptureKojiOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  koji(options: CaptureKojiOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async koji(options: CaptureKojiOptions = {}, verbose?: boolean): Promise<string | VerboseCapture> {
+  async koji(options: CaptureKojiOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -326,7 +345,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -346,9 +365,9 @@ export class Capture extends KojiBridge {
    */
   media(options: CaptureMediaOptions, verbose: true): Promise<VerboseCapture>;
   media(options?: CaptureMediaOptions, verbose?: false): Promise<string>;
-  media(options: CaptureMediaOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  media(options: CaptureMediaOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async media(options: CaptureMediaOptions = {}, verbose?: boolean): Promise<string | VerboseCapture> {
+  async media(options: CaptureMediaOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     if (verbose) {
       const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
         {
@@ -381,7 +400,7 @@ export class Capture extends KojiBridge {
       'Koji.CaptureSuccess',
     );
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -401,9 +420,9 @@ export class Capture extends KojiBridge {
    */
   range(options: CaptureRangeOptions, verbose: true): Promise<VerboseCapture>;
   range(options?: CaptureRangeOptions, verbose?: false): Promise<number>;
-  range(options: CaptureRangeOptions, verbose?: boolean): Promise<number | VerboseCapture>;
+  range(options: CaptureRangeOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async range(options: CaptureRangeOptions = {}, verbose?: boolean): Promise<number | VerboseCapture> {
+  async range(options: CaptureRangeOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<number> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -417,7 +436,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -442,9 +461,9 @@ export class Capture extends KojiBridge {
    */
   select(options: CaptureSelectOptions, verbose: true): Promise<VerboseCapture>;
   select(options?: CaptureSelectOptions, verbose?: false): Promise<string>;
-  select(options: CaptureSelectOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  select(options: CaptureSelectOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async select(options: CaptureSelectOptions = {}, verbose?: boolean): Promise<string | VerboseCapture> {
+  async select(options: CaptureSelectOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -458,7 +477,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -480,9 +499,9 @@ export class Capture extends KojiBridge {
    */
   sound(options: CaptureSoundOptions, verbose: true): Promise<VerboseCapture>;
   sound(options?: CaptureSoundOptions, verbose?: false): Promise<string>;
-  sound(options: CaptureSoundOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  sound(options: CaptureSoundOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async sound(options: CaptureSoundOptions = {}, verbose?: boolean): Promise<string | VerboseCapture> {
+  async sound(options: CaptureSoundOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -496,7 +515,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -516,9 +535,9 @@ export class Capture extends KojiBridge {
    */
   video(options: CaptureSoundOptions, verbose: true): Promise<VerboseCapture>;
   video(options?: CaptureSoundOptions, verbose?: false): Promise<string>;
-  video(options: CaptureSoundOptions, verbose?: boolean): Promise<string | VerboseCapture>;
+  video(options: CaptureSoundOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<string | VerboseCapture> {
+  async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -532,7 +551,7 @@ export class Capture extends KojiBridge {
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
 
-    return data.result;
+    return this.pickResultFromMessage(data);
   }
 }
 
