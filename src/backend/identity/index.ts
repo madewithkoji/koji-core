@@ -22,7 +22,9 @@ export interface User {
   id: string;
   attributes: { [index: string]: any };
   dateCreated: string;
-  pushNotificationsEnabled: boolean;
+  grants: {
+    pushNotificationsEnabled: boolean;
+  };
   role: UserRole;
 }
 
@@ -147,9 +149,9 @@ export class Identity extends Base {
     );
 
     const {
-      data: { grant },
+      data: { grant = {} },
     } = await axios.post(
-      `${this.rootPath}${AuthRoutes.GET_ROLE}`,
+      `${this.rootPath}${AuthRoutes.GET_GRANT}`,
       {},
       {
         headers: {
@@ -163,7 +165,9 @@ export class Identity extends Base {
       id: grant.userId,
       attributes: grant.attributes,
       dateCreated: grant.dateCreated,
-      pushNotificationsEnabled: grant.pushNotificationsEnabled,
+      grants: {
+        pushNotificationsEnabled: grant.pushNotificationsEnabled,
+      },
       role,
     };
   }
