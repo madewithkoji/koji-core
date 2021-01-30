@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {
@@ -17,7 +17,10 @@
   "files": [
     "/dist"
   ],
-  "author": "",
+  "homepage": "https://github.com/madewithkoji/koji-core",
+  "bugs": "https://github.com/madewithkoji/koji-core/issues",
+  "author": "diddy <seanelliot@withkoji.com>",
+  "repository": "github:madewithkoji/koji-core",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.12.10",
