@@ -5,11 +5,11 @@
 
 ## Overview
 
-The @withkoji/core package enables you to implement core platform features in your Koji template, including remixing, in-app purchases, access to our media capture inputs, real-time messaging, database, and more.
+The @withkoji/core package enables you to implement core platform features in your Koji template, including remixing, in-app purchases, UI controls, messaging, and identity services.
 
 ## Installation
 
-Install the package in your Koji project.
+Install the package in the frontend and backend services of your Koji project.
 
 ```
 npm install --save @withkoji/core
@@ -19,20 +19,24 @@ npm install --save @withkoji/core
 
 ### Frontend
 
+Enable the user to upload an image from the frontend of the Koji.
+
 ```
-import Koji from '@withkoji/core;
+import Koji from '@withkoji/core';
 
 const captureImage = async () => {
   const imageURL = await Koji.ui.capture.image();
 
-  console.log(imageURL); // The publicly accessible, cdn-backed path of the user's uploaded image
+  console.log(imageURL); // The publicly accessible, CDN-backed path of the user's uploaded image
 }
 ```
 
 ### Backend
 
+Use the Koji database on the backend of the Koji, and use middleware to scope operations per remix.
+
 ```
-import { KojiBackend } from '@withkoji/core;
+import { KojiBackend } from '@withkoji/core';
 import cors from 'cors';
 import express from 'express';
 import bodyParser from 'body-parser';

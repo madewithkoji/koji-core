@@ -111,16 +111,31 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#loadproduct">loadProduct</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/2e97bd8/src/backend/iap/index.ts#L118">backend/iap/index.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L192">backend/iap/index.ts:192</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Load product by sku.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">loadProduct</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>sku: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Product sku.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Data object.</p>
 						</li>
 					</ul>
 				</section>
@@ -135,16 +150,31 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptbyid">resolveReceiptById</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/2e97bd8/src/backend/iap/index.ts#L67">backend/iap/index.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L106">backend/iap/index.ts:106</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get receipts by receipt id</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipt</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptById</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Receipt id.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of receipts.</p>
 						</li>
 					</ul>
 				</section>
@@ -159,16 +189,31 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbysku">resolveReceiptsBySku</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/2e97bd8/src/backend/iap/index.ts#L82">backend/iap/index.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L132">backend/iap/index.ts:132</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get receipts for a product by sku</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptById</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>sku: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Product sku.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of receipts that include the product.</p>
 						</li>
 					</ul>
 				</section>
@@ -183,9 +228,20 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbyusertoken">resolveReceiptsByUserToken</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/2e97bd8/src/backend/iap/index.ts#L47">backend/iap/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L75">backend/iap/index.ts:75</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get receipts by user token</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptsByUserToken</span><span style="color: #000000">(</span><span style="color: #001080">token</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -193,6 +249,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of receipts.</p>
 						</li>
 					</ul>
 				</section>
@@ -207,16 +264,33 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#updatereceipt">updateReceipt</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/2e97bd8/src/backend/iap/index.ts#L96">backend/iap/index.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L159">backend/iap/index.ts:159</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update receipt</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">updateReceipt</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, [</span><span style="color: #A31515">&#039;paid&#039;</span><span style="color: #000000">]);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Receipt id.</p>
+									</div>
 								</li>
 								<li>
 									<h5>attributes: <span class="tsd-signature-symbol">{}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of receipt attributes.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-index-signature">
 											<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
@@ -225,9 +299,13 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> notificationMessage: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional notification message.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Data object.</p>
 						</li>
 					</ul>
 				</section>
