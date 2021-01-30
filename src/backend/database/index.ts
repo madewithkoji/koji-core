@@ -42,7 +42,7 @@ export class Database extends Base {
    *
    * @example
    * ```javascript
-   * const database = new KojiBackend.Database({ res });
+   * const database = new KojiBackend.Database({ config });
    * ```
    */
   constructor(config: BackendConfigurationInput) {
