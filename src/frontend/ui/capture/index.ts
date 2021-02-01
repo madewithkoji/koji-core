@@ -24,11 +24,13 @@ export interface CaptureMessage<T> {
   type: CaptureType;
 }
 
+/** Whether the user completed the selection (`succeeded`) or exited the control without selecting a value (`cancelled`). */
 export enum CaptureStatus {
   SUCCEEDED = 'succeeded',
   CANCELLED = 'cancelled',
 }
 
+/** Capture method types. */
 export enum CaptureType {
   COLOR = 'color',
   FILE = 'file',
@@ -186,7 +188,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the color code as a string.
-   * @return          [description]
+   * @return          Color code as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -224,7 +226,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
-   * @return          [description]
+   * @return          URL to the file as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -262,7 +264,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the image asset as a string.
-   * @return          [description]
+   * @return          URL to the image asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -299,7 +301,7 @@ export class Capture extends KojiBridge {
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the Koji as a string.
    *
-   * @return          [description]
+   * @return          URL to the Koji as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    * @example
    * ```javascript
    * const koji = await Koji.ui.capture.koji();
@@ -389,7 +391,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the numeric value as a string.
-   * @return          Numeric value as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   * @return          Numeric value as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -425,7 +427,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the option as a string.
-   * @return         Value of the predefined option as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   * @return         Value of the predefined option as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -468,7 +470,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
-   * @return         URL to the audio asset as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -500,11 +502,13 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   *
-   *
-   * @param   options [description]
-   * @param   verbose [description]
-   * @return          [description]
+    * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
+    *
+    * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+    *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the video asset as a string.
+   * @return          URL to the video asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript

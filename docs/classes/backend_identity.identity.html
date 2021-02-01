@@ -68,6 +68,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Implements an Identity class for backend authentication of your Koji.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -124,13 +131,26 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/identity/index.ts#L35">backend/identity/index.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/identity/index.ts#L50">backend/identity/index.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Instantiates <a href="backend_identity.identity.html">Identity</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">identity</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">Identity</span><span style="color: #000000">({ </span><span style="color: #001080">config</span><span style="color: #000000"> });</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfigurationInput</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="backend_identity.identity.html" class="tsd-signature-type" data-tsd-kind="Class">Identity</a></h4>
@@ -147,7 +167,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/base/index.ts#L50">backend/base/index.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -158,7 +178,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/base/index.ts#L51">backend/base/index.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -168,7 +188,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/identity/index.ts#L35">backend/identity/index.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/identity/index.ts#L50">backend/identity/index.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/identity/index.ts#L34">backend/identity/index.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/identity/index.ts#L49">backend/identity/index.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -195,16 +215,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/identity/index.ts#L64">backend/identity/index.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/identity/index.ts#L112">backend/identity/index.ts:112</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a notification to the owner</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">identity</span><span style="color: #000000">.</span><span style="color: #795E26">pushNotificationToUser</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #001080">notification</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>notification: <a href="../interfaces/backend_identity.pushnotification.html" class="tsd-signature-type" data-tsd-kind="Interface">PushNotification</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Notification to send to owner.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Data object.</p>
 						</li>
 					</ul>
 				</section>
@@ -218,19 +253,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/identity/index.ts#L50">backend/identity/index.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/identity/index.ts#L87">backend/identity/index.ts:87</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends a notification to a user</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">identity</span><span style="color: #000000">.</span><span style="color: #795E26">pushNotificationToUser</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #001080">notification</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>userId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>User id.</p>
+									</div>
 								</li>
 								<li>
 									<h5>notification: <a href="../interfaces/backend_identity.pushnotification.html" class="tsd-signature-type" data-tsd-kind="Interface">PushNotification</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Notification to send to user.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Data object.</p>
 						</li>
 					</ul>
 				</section>
@@ -238,22 +291,37 @@
 					<a name="resolveuserfromtoken" class="tsd-anchor"></a>
 					<h3>resolve<wbr>User<wbr>From<wbr>Token</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">resolve<wbr>User<wbr>From<wbr>Token<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#usertoken" class="tsd-signature-type" data-tsd-kind="Type alias">UserToken</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/backend_identity.user.html" class="tsd-signature-type" data-tsd-kind="Interface">User</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">resolve<wbr>User<wbr>From<wbr>Token<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/backend_identity.user.html" class="tsd-signature-type" data-tsd-kind="Interface">User</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/identity/index.ts#L78">backend/identity/index.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/identity/index.ts#L137">backend/identity/index.ts:137</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets user by token</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">user</span><span style="color: #000000"> = </span><span style="color: #001080">identity</span><span style="color: #000000">.</span><span style="color: #795E26">resolveUserFromToken</span><span style="color: #000000">(</span><span style="color: #001080">token</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <a href="../modules/types.html#usertoken" class="tsd-signature-type" data-tsd-kind="Type alias">UserToken</a></h5>
+									<h5>token: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>User token.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/backend_identity.user.html" class="tsd-signature-type" data-tsd-kind="Interface">User</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>User.</p>
 						</li>
 					</ul>
 				</section>

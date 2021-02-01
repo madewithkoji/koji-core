@@ -18,8 +18,6 @@ export class Identity extends KojiBridge {
   /**
    * Gets a token identifying the current user.
    *
-   * @return {@link UserToken}
-   *
    * @example
    * ```javascript
    * const token = await Koji.identity.getToken();
@@ -63,9 +61,9 @@ export class Identity extends KojiBridge {
   /**
    * Requests the specified authorization grants from the user for the Koji.
    *
-   * @param   grants           List of {@link AuthGrantCapability| authorization grants} to request from the user.
+   * @param   grants           List of authorization grants to request from the user.
    * @param   usageDescription Custom message to display when requesting the grant.
-   * @return                   [[UserToken]]
+   * @return                   
    *
    * @example
    * ```javascript

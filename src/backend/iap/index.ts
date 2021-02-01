@@ -12,6 +12,9 @@ export enum IapRoutes {
 
 export type UserToken = string;
 
+/**
+ * Defines an interface for a receipt.
+ */
 export interface IapReceipt {
   receiptId: string;
   productId: string;
@@ -24,12 +27,26 @@ export interface IapReceipt {
   datePurchased: Date;
 }
 
+/**
+ * Implements in-app purchases for the backend of your Koji. For more information, see
+ * [[https://developer.withkoji.com/reference/packages/withkoji-koji-iap-package | the in-app purchases package reference]].
+ */
 export class IAP {
   private projectId: string;
   private projectToken: string;
   private rootPath: string;
   private rootHeaders: Object;
 
+  /**
+   * Instantiates [[IAP]].
+   *
+   * @param   res
+   *
+   * @example
+   * ```javascript
+   * const iap = new KojiBackend.IAP({ res });
+   * ```
+   */
   constructor(res: Response) {
     this.projectId = res.locals.projectId || process.env.KOJI_PROJECT_ID;
     this.projectToken = res.locals.projectToken || process.env.KOJI_PROJECT_TOKEN;
@@ -43,6 +60,17 @@ export class IAP {
     };
   }
 
+  /**
+   * Get receipts by user token
+   * 
+   * @param     authToken     User token.
+   * @return                  Array of receipts.
+   * 
+   * @example
+   * ```javascript
+   * const receipts = iap.resolveReceiptsByUserToken(token);
+   * ```
+   */
   @server
   public async resolveReceiptsByUserToken(userToken: UserToken): Promise<IapReceipt[]> {
     try {
@@ -63,6 +91,17 @@ export class IAP {
     }
   }
 
+  /**
+   * Get receipts by receipt id
+   * 
+   * @param     receiptId     Receipt id.
+   * @return                  Array of receipts.
+   * 
+   * @example
+   * ```javascript
+   * const receipt = iap.resolveReceiptById(id);
+   * ```
+   */
   @server
   public async resolveReceiptById(receiptId: string): Promise<IapReceipt | null> {
     try {
@@ -78,6 +117,17 @@ export class IAP {
     }
   }
 
+  /**
+   * Get receipts for a product by sku
+   * 
+   * @param     sku     Product sku.
+   * @return            Array of receipts that include the product.
+   * 
+   * @example
+   * ```javascript
+   * const receipts = iap.resolveReceiptById(sku);
+   * ```
+   */ 
   @server
   public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
     try {
@@ -93,6 +143,19 @@ export class IAP {
     }
   }
 
+  /**
+   * Update receipt
+   * 
+   * @param     receiptId     Receipt id.
+   * @param     attributes    Array of receipt attributes.
+   * @param     notificationMessage    Optional notification message.
+   * @return                  Data object.
+   * 
+   * @example
+   * ```javascript
+   * iap.updateReceipt(id, ['paid']);
+   * ```
+   */   
   public async updateReceipt(
     receiptId: string,
     attributes: { [index: string]: any },
@@ -115,6 +178,17 @@ export class IAP {
     }
   }
 
+  /**
+   * Load product by sku.
+   * 
+   * @param     sku     Product sku.
+   * @return            Data object.
+   * 
+   * @example
+   * ```javascript
+   * iap.loadProduct(sku);
+   * ```
+   */    
   public async loadProduct(sku: string) {
     try {
       const { data } = await axios.get(
