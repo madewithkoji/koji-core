@@ -87,7 +87,7 @@ export class Koji {
   }
 
   private setProjectId(explicitProjectId?: string) {
-    const projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
+    let projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
 
     // Even if the value is overwritten by an override, it should still
     // be defined at this point.
@@ -97,14 +97,15 @@ export class Koji {
     if (window.KOJI_OVERRIDES) {
       const { overrides = {} } = window.KOJI_OVERRIDES;
       if (overrides && overrides.metadata && overrides.metadata.projectId) {
-        this.projectId = overrides.metadata.projectId;
+        projectId = overrides.metadata.projectId;
       }
-    } else {
-      this.projectId = projectId;
     }
 
+    // Set local projectId
+    this.projectId = projectId;
+
     // Init dispatch
-    this.dispatch?.setProjectId(projectId);
+    this.dispatch?.setProjectId(projectId as string);
   }
 
   private setUpServices(develop: Object, deploy: Object, services: Services) {
