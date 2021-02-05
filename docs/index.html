@@ -66,11 +66,11 @@
 				<a href="#overview" id="overview" style="color: inherit; text-decoration: none;">
 					<h2>Overview</h2>
 				</a>
-				<p>The @withkoji/core package enables you to implement core platform features in your Koji template, including remixing, in-app purchases, access to our media capture inputs, real-time messaging, database, and more.</p>
+				<p>The @withkoji/core package enables you to implement core platform features in your Koji template, including remixing, in-app purchases, UI controls, messaging, and identity services.</p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
-				<p>Install the package in your Koji project.</p>
+				<p>Install the package in the frontend and backend services of your Koji project.</p>
 				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> --</span><span style="color: #001080">save</span><span style="color: #000000"> @</span><span style="color: #001080">withkoji</span><span style="color: #000000">/</span><span style="color: #001080">core</span>
 </code></pre>
 				<a href="#basic-use" id="basic-use" style="color: inherit; text-decoration: none;">
@@ -79,18 +79,20 @@
 				<a href="#frontend" id="frontend" style="color: inherit; text-decoration: none;">
 					<h3>Frontend</h3>
 				</a>
-				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core</span><span style="color: #CD3131">;</span>
+				<p>Enable the user to upload an image from the frontend of the Koji.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">captureImage</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">imageURL</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #001080">ui</span><span style="color: #000000">.</span><span style="color: #001080">capture</span><span style="color: #000000">.</span><span style="color: #795E26">image</span><span style="color: #000000">();</span>
 
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">imageURL</span><span style="color: #000000">); </span><span style="color: #008000">// The publicly accessible, cdn-backed path of the user&#039;s uploaded image</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">imageURL</span><span style="color: #000000">); </span><span style="color: #008000">// The publicly accessible, CDN-backed path of the user&#039;s uploaded image</span>
 <span style="color: #000000">}</span>
 </code></pre>
 				<a href="#backend" id="backend" style="color: inherit; text-decoration: none;">
 					<h3>Backend</h3>
 				</a>
-				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core</span><span style="color: #CD3131">;</span>
+				<p>Use the Koji database on the backend of the Koji, and use middleware to scope operations per remix.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">cors</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;cors&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">express</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;express&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bodyParser</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;body-parser&#039;</span><span style="color: #000000">;</span>
