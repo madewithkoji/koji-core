@@ -73,6 +73,18 @@ export interface ExtendedMediaResult {
 }
 
 /**
+ * Configuration options for a [[custom-vcc]] capture.
+ */
+export interface CaptureCustomOptions {
+  /** The short name for the custom vcc */
+  name?: string;
+  /** A url where the custom vcc is being hosted */
+  url?: string;
+  /** Type options specific to the custom vcc */
+  typeOptions?: any;
+}
+
+/**
  * Configuration options for a [[color]] capture.
  */
 export interface CaptureColorOptions {
@@ -209,6 +221,43 @@ export class Capture extends KojiBridge {
         data: {
           type: 'color',
           options,
+        },
+      },
+      'Koji.CaptureSuccess',
+    );
+
+    if (verbose) return this.pickVerboseResultFromMessage(data);
+
+    return data.result;
+  }
+
+  /**
+   * Prompts the user to select a value from a Custom VCC.
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the value captured by the Custom VCC.
+   * @return          Color code as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
+   *
+   * @example
+   * ```javascript
+   * const music = await Koji.ui.capture.custom({ name: 'scloud' });
+   * ```
+   */
+  custom(options: CaptureCustomOptions, verbose: true): Promise<VerboseCapture>;
+  custom(options?: CaptureCustomOptions, verbose?: false): Promise<any>;
+  custom(options: CaptureCustomOptions, verbose?: boolean): Promise<any | VerboseCapture>;
+  @client
+  async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
+    const { name, url, ...typeOptions } = options;
+
+    if (!name && !url) throw new Error('Please supply the custom name or url for the Custom VCC you would like to load.');
+
+    const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: 'Koji.Capture',
+        data: {
+          type: `custom<${name || url}>`,
+          options: typeOptions,
         },
       },
       'Koji.CaptureSuccess',
