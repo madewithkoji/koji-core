@@ -1,4 +1,5 @@
 import deepmerge from 'deepmerge';
+import { get } from '../../utils/get';
 import { client } from '../@decorators/client';
 import { KojiBridge } from '../kojiBridge';
 
@@ -40,8 +41,7 @@ export class Remix extends KojiBridge {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {
-      console.warn('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
-      return;
+      throw new Error('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
     }
 
     this.isInitialized = true;
@@ -59,16 +59,28 @@ export class Remix extends KojiBridge {
   /**
    * Gets the remix data for the Koji.
    *
+   * @param   path [path]   An array of keys to target a specific value in the object.
+   * @param   defaultValue [defaultValue]   A value to return if no value exists at the targeted path.
    * @return  Object containing the current remix data.
    *
    * @example
    * ```javascript
-   * const defaultValues = Koji.remix.get();
+   *
+   * // Return the entire `remixData` object
+   * const values = Koji.remix.get();
+   *
+   * // Return a particular value
+   * const backgroundColor = Koji.remix.get(['colors', 'background']);
+   *
+   * // Return a particular value with a default if the value is not defined
+   * const textColor = Koji.remix.get(['colors', 'text'], '#000000');
    * ```
    */
   @client
-  public get() {
-    return this.values;
+  public get<T>(path?: string[], defaultValue?: T): any | T {
+    if (!path) return this.values;
+
+    return get(this.values, path, defaultValue);
   }
 
   /**

@@ -1,18 +1,20 @@
 {
   "name": "@withkoji/core",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist --source-maps --extensions '.ts'",
-    "watch": "nodemon --watch ./src --ext ts --exec babel ./src --out-dir ./dist --source-maps --extensions '.ts'",
-    "test": "jest ./src",
     "check-types": "tsc",
-    "prepare": "npm run build & npm run generate-declarations",
-    "generate-declarations": "tsc --emitDeclarationOnly",
-    "watch-declarations": "nodemon --watch ./src --ext ts --exec npm run generate-declarations",
     "doc": "typedoc src",
-    "json-doc": "typedoc src --json test.json"
+    "generate-declarations": "tsc --emitDeclarationOnly",
+    "json-doc": "typedoc src --json test.json",
+    "lint": "eslint --ext .ts src/",
+    "lint:fix": "eslint --ext .ts src/ --fix",
+    "prepare": "npm run build & npm run generate-declarations",
+    "test": "jest ./src",
+    "watch": "nodemon --watch ./src --ext ts --exec babel ./src --out-dir ./dist --source-maps --extensions '.ts'",
+    "watch-declarations": "nodemon --watch ./src --ext ts --exec npm run generate-declarations"
   },
   "files": [
     "/dist"

@@ -69,8 +69,7 @@ export class Koji {
    */
   public config(kojiConfig: KojiConfig = {}, kojiConfigOptions: KojiConfigOptions = { services: {} }): void {
     if (this.configInitialized) {
-      console.warn('You are trying to run config more than one time. The previous configuration options will not be overwritten but this could indicate unexpected behavior in your project.');
-      return;
+      throw new Error('You are trying to run `Koji.config()` more than one time. This could cause unexpected behavior in your project.');
     }
 
     // Deconstruct the user's config
@@ -163,6 +162,10 @@ export class Koji {
    */
   @client
   ready() {
+    if (this.isReady) {
+      throw new Error('You are calling `Koji.ready()` more than one time. This could cause unexpected behavior in your project.');
+    }
+
     this.isReady = true;
 
     // Add a listener to pass click events up to the parent window,
