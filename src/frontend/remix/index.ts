@@ -41,8 +41,7 @@ export class Remix extends KojiBridge {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {
-      console.warn('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
-      return;
+      throw new Error('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
     }
 
     this.isInitialized = true;
