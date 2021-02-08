@@ -102,6 +102,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_capture.capture.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_capture.capture.html#custom" class="tsd-kind-icon">custom</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_ui_capture.capture.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_capture.capture.html#file" class="tsd-kind-icon">file</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_capture.capture.html#image" class="tsd-kind-icon">image</a></li>
@@ -151,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L199">frontend/ui/capture/index.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L213">frontend/ui/capture/index.ts:213</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -181,11 +182,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Color code as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L200">frontend/ui/capture/index.ts:200</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L214">frontend/ui/capture/index.ts:214</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -202,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L201">frontend/ui/capture/index.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L215">frontend/ui/capture/index.ts:215</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -218,6 +220,83 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="custom" class="tsd-anchor"></a>
+					<h3>custom</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">custom<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/frontend_ui_capture.capturecustomoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">CaptureCustomOptions</a>, verbose<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">custom<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/frontend_ui_capture.capturecustomoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">CaptureCustomOptions</a>, verbose<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">custom<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/frontend_ui_capture.capturecustomoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">CaptureCustomOptions</a>, verbose<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L246">frontend/ui/capture/index.ts:246</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Prompts the user to select a value from a Custom VCC.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">music</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #001080">ui</span><span style="color: #000000">.</span><span style="color: #001080">capture</span><span style="color: #000000">.</span><span style="color: #795E26">custom</span><span style="color: #000000">({ </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;scloud&#039;</span><span style="color: #000000"> });</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <a href="../interfaces/frontend_ui_capture.capturecustomoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">CaptureCustomOptions</a></h5>
+								</li>
+								<li>
+									<h5>verbose: <span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Indicates whether to return additional metadata about the capture event. If <code>false</code> or not specified, returns the value captured by the Custom VCC.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Color code as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L247">frontend/ui/capture/index.ts:247</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/frontend_ui_capture.capturecustomoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">CaptureCustomOptions</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> verbose: <span class="tsd-signature-type">false</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L248">frontend/ui/capture/index.ts:248</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <a href="../interfaces/frontend_ui_capture.capturecustomoptions.html" class="tsd-signature-type" data-tsd-kind="Interface">CaptureCustomOptions</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> verbose: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="execcallbackonmessage" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> exec<wbr>Callback<wbr>OnMessage</h3>
@@ -229,7 +308,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#execcallbackonmessage">execCallbackOnMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L237">frontend/ui/capture/index.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L288">frontend/ui/capture/index.ts:288</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -311,11 +390,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>URL to the file as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L238">frontend/ui/capture/index.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L289">frontend/ui/capture/index.ts:289</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -332,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L239">frontend/ui/capture/index.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L290">frontend/ui/capture/index.ts:290</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -360,7 +440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L275">frontend/ui/capture/index.ts:275</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L326">frontend/ui/capture/index.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -391,11 +471,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>URL to the image asset as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L276">frontend/ui/capture/index.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L327">frontend/ui/capture/index.ts:327</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -412,7 +493,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L277">frontend/ui/capture/index.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L328">frontend/ui/capture/index.ts:328</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -440,7 +521,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L311">frontend/ui/capture/index.ts:311</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L362">frontend/ui/capture/index.ts:362</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -470,11 +551,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>URL to the Koji as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L312">frontend/ui/capture/index.ts:312</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L363">frontend/ui/capture/index.ts:363</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -491,7 +573,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L313">frontend/ui/capture/index.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L364">frontend/ui/capture/index.ts:364</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -519,7 +601,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L347">frontend/ui/capture/index.ts:347</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L398">frontend/ui/capture/index.ts:398</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -553,7 +635,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L348">frontend/ui/capture/index.ts:348</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L399">frontend/ui/capture/index.ts:399</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -570,7 +652,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L349">frontend/ui/capture/index.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L400">frontend/ui/capture/index.ts:400</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -596,7 +678,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L165">frontend/ui/capture/index.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L179">frontend/ui/capture/index.ts:179</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -621,7 +703,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L402">frontend/ui/capture/index.ts:402</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L453">frontend/ui/capture/index.ts:453</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -651,12 +733,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Numeric value as a string or the [[CaptureValue]] object, if <code>verbose</code> is <code>true</code>.</p>
+							<p>Numeric value as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L403">frontend/ui/capture/index.ts:403</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L454">frontend/ui/capture/index.ts:454</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -673,7 +755,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L404">frontend/ui/capture/index.ts:404</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L455">frontend/ui/capture/index.ts:455</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -701,7 +783,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L443">frontend/ui/capture/index.ts:443</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L494">frontend/ui/capture/index.ts:494</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -736,12 +818,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Value of the predefined option as a string or the [[CaptureValue]] object, if <code>verbose</code> is <code>true</code>.</p>
+							<p>Value of the predefined option as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L444">frontend/ui/capture/index.ts:444</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L495">frontend/ui/capture/index.ts:495</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -758,7 +840,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L445">frontend/ui/capture/index.ts:445</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L496">frontend/ui/capture/index.ts:496</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -785,7 +867,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessage">sendMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -812,16 +894,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessageandawaitresponse">sendMessageAndAwaitResponse</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/kojiBridge/index.ts#L66">frontend/kojiBridge/index.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/kojiBridge/index.ts#L59">frontend/kojiBridge/index.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>postMessage: <span class="tsd-signature-type">PostMessage</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Data to be sent to the Koji.</p>
-									</div>
 								</li>
 								<li>
 									<h5>platformMessageName: <span class="tsd-signature-type">string</span></h5>
@@ -846,7 +925,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L481">frontend/ui/capture/index.ts:481</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L532">frontend/ui/capture/index.ts:532</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -877,12 +956,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>URL to the audio asset as a string or the [[CaptureValue]] object, if <code>verbose</code> is <code>true</code>.</p>
+							<p>URL to the audio asset as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L482">frontend/ui/capture/index.ts:482</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L533">frontend/ui/capture/index.ts:533</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -899,7 +978,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L483">frontend/ui/capture/index.ts:483</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L534">frontend/ui/capture/index.ts:534</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -927,10 +1006,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L517">frontend/ui/capture/index.ts:517</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L570">frontend/ui/capture/index.ts:570</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.</p>
+								</div>
+								<p>To allow multiple types of media assets, see <a href="frontend_ui_capture.capture.html#media">media</a>. To allow upload of raw files of any type, see <a href="frontend_ui_capture.capture.html#file">file</a>.</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">video</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #001080">ui</span><span style="color: #000000">.</span><span style="color: #001080">capture</span><span style="color: #000000">.</span><span style="color: #795E26">video</span><span style="color: #000000">();</span>
@@ -948,14 +1031,18 @@
 								</li>
 								<li>
 									<h5>verbose: <span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Indicates whether to return additional metadata about the capture event. If <code>false</code> or not specified, returns the URL to the video asset as a string.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/frontend_ui_capture.verbosecapture.html" class="tsd-signature-type" data-tsd-kind="Interface">VerboseCapture</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>URL to the video asset as a string or the <a href="../interfaces/frontend_ui_capture.verbosecapture.html">VerboseCapture</a> object, if <code>verbose</code> is <code>true</code>.</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L518">frontend/ui/capture/index.ts:518</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L571">frontend/ui/capture/index.ts:571</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -972,7 +1059,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/frontend/ui/capture/index.ts#L519">frontend/ui/capture/index.ts:519</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/ui/capture/index.ts#L572">frontend/ui/capture/index.ts:572</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1020,6 +1107,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="frontend_ui_capture.capture.html#color" class="tsd-kind-icon">color</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="frontend_ui_capture.capture.html#custom" class="tsd-kind-icon">custom</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="frontend_ui_capture.capture.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a>
 							</li>
@@ -1062,6 +1152,9 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/frontend_ui_capture.capturecoloroptions.html" class="tsd-kind-icon">Capture<wbr>Color<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/frontend_ui_capture.capturecustomoptions.html" class="tsd-kind-icon">Capture<wbr>Custom<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/frontend_ui_capture.capturefileoptions.html" class="tsd-kind-icon">Capture<wbr>File<wbr>Options</a>

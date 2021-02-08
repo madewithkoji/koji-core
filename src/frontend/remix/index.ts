@@ -130,7 +130,7 @@ export class Remix extends KojiBridge {
    * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
    *
    * @param   plaintextValue Value to encrypt.
-   * @return                 Path where the encrypted value is stored. Use this value to {@link decryptValue | decrypt the value} on the frontend, for the creator, or to {@link resolveValue | resolve the value} on the backend, for other users.
+   * @return                 Path where the encrypted value is stored. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to [[resolveValue | resolve the value]] on the backend, for other users.
    *
    * @example
    * ```javascript
@@ -153,9 +153,9 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Retrieves sensitive data that was {@link encryptValue | stored as an encrypted value}.
+   * Retrieves sensitive data that was [[encryptValue | stored as an encrypted value]].
    *
-   * <p class="note">Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@link resolveValue} on the backend.</p>
+   * <p class="note">Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use [[resolveValue]] on the backend.</p>
    *
    * @param   encryptedValue Path where the encrypted value is stored.
    * @return                 Decrypted value.

@@ -58,21 +58,91 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#withkojicore" id="withkojicore" style="color: inherit; text-decoration: none;">
-					<h1>@withkoji/core</h1>
+				<a href="#koji-core" id="koji-core" style="color: inherit; text-decoration: none;">
+					<h1>Koji Core</h1>
 				</a>
-				<a href="#testing-this-package-from-github" id="testing-this-package-from-github" style="color: inherit; text-decoration: none;">
-					<h2>Testing this package from github</h2>
+				<p><img src="https://img.shields.io/npm/v/@withkoji/core?color=green&style=flat-square" alt="npm (scoped)"></p>
+				<p><strong>Core library for developing remixable Koji templates.</strong></p>
+				<a href="#overview" id="overview" style="color: inherit; text-decoration: none;">
+					<h2>Overview</h2>
 				</a>
-				<p>Inside your project&#39;s root folder, run <code>npm install madewithkoji/koji-core</code>. </p>
-				<p>You should then be able to <code>import Koji, { KojiBackend } from &#39;@withkoji/core</code> inside of your frontend and backend.</p>
-				<a href="#develop" id="develop" style="color: inherit; text-decoration: none;">
-					<h2>Develop</h2>
+				<p>The @withkoji/core package enables you to implement core platform features in your Koji template, including remixing, in-app purchases, UI controls, messaging, and identity services.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
 				</a>
-				<p>Clone this repo and <code>cd new-koji-package</code>
-					<code>npm install</code>
-				<code>npm run watch</code></p>
-				<p>Note that if you are testing declarations you will need to run <code>npm run generate-declarations</code> to get the new values as these aren&#39;t automatically compiled in the watcher.</p>
+				<p>Install the package in the frontend and backend services of your Koji project.</p>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> --</span><span style="color: #001080">save</span><span style="color: #000000"> @</span><span style="color: #001080">withkoji</span><span style="color: #000000">/</span><span style="color: #001080">core</span>
+</code></pre>
+				<a href="#basic-use" id="basic-use" style="color: inherit; text-decoration: none;">
+					<h2>Basic use</h2>
+				</a>
+				<a href="#frontend" id="frontend" style="color: inherit; text-decoration: none;">
+					<h3>Frontend</h3>
+				</a>
+				<p>Enable the user to upload an image from the frontend of the Koji.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">captureImage</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">imageURL</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #001080">ui</span><span style="color: #000000">.</span><span style="color: #001080">capture</span><span style="color: #000000">.</span><span style="color: #795E26">image</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">imageURL</span><span style="color: #000000">); </span><span style="color: #008000">// The publicly accessible, CDN-backed path of the user&#039;s uploaded image</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<a href="#backend" id="backend" style="color: inherit; text-decoration: none;">
+					<h3>Backend</h3>
+				</a>
+				<p>Use the Koji database on the backend of the Koji, and use middleware to scope operations per remix.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">cors</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;cors&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">express</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;express&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bodyParser</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;body-parser&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">app</span><span style="color: #000000"> = </span><span style="color: #795E26">express</span><span style="color: #000000">();</span>
+
+<span style="color: #008000">// Enable cors for preflight</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">options</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;*&#039;</span><span style="color: #000000">, </span><span style="color: #795E26">cors</span><span style="color: #000000">());</span>
+
+<span style="color: #008000">// Whitelist all routes with cors</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #795E26">cors</span><span style="color: #000000">());</span>
+
+<span style="color: #008000">// Use express json</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">express</span><span style="color: #000000">.</span><span style="color: #795E26">json</span><span style="color: #000000">());</span>
+
+<span style="color: #008000">// Parse application/json</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">bodyParser</span><span style="color: #000000">.</span><span style="color: #795E26">json</span><span style="color: #000000">());</span>
+
+<span style="color: #008000">// Use Koji&#039;s middleware to handle scoping across your template&#039;s remixes</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">KojiBackend</span><span style="color: #000000">.</span><span style="color: #001080">middleware</span><span style="color: #000000">);</span>
+
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/data&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">req</span><span style="color: #000000">, </span><span style="color: #001080">res</span><span style="color: #000000">, </span><span style="color: #001080">next</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">database</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">Database</span><span style="color: #000000">({ </span><span style="color: #001080">res</span><span style="color: #000000"> });</span>
+
+<span style="color: #000000">  </span><span style="color: #008000">// Look up an item in the items collection</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">item</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;items&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myItemId&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #000000">  </span><span style="color: #001080">res</span><span style="color: #000000">.</span><span style="color: #795E26">status</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">).</span><span style="color: #795E26">json</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">item</span><span style="color: #000000">,</span>
+<span style="color: #000000">  });</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">listen</span><span style="color: #000000">(</span><span style="color: #0070C1">PORT</span><span style="color: #000000">, () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">`Server is listening on port </span><span style="color: #0000FF">${</span><span style="color: #0070C1">PORT</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<a href="#related-resources" id="related-resources" style="color: inherit; text-decoration: none;">
+					<h2>Related resources</h2>
+				</a>
+				<ul>
+					<li><a href="https://madewithkoji.github.io/koji-core/">Package documentation</a></li>
+					<li><a href="https://developer.withkoji.com/docs/getting-started/instant-remixing">What is remixing?</a></li>
+					<li><a href="https://developer.withkoji.com/docs/getting-started/start-guide-1">Developing your first Koji template</a></li>
+					<li><a href="http://withkoji.com/">Koji homepage</a></li>
+				</ul>
+				<a href="#contributions-and-questions" id="contributions-and-questions" style="color: inherit; text-decoration: none;">
+					<h2>Contributions and questions</h2>
+				</a>
+				<p>See the <a href="https://developer.withkoji.com/docs/about/contribute-koji-developers">contributions page</a> on the developer site for info on how to make contributions to Koji repositories and developer documentation.</p>
+				<p>For any questions, reach out to the developer community or the <code>@Koji Team</code> on our <a href="https://discord.gg/9egkTWf4ec">Discord server</a>.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

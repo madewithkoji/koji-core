@@ -25,11 +25,13 @@ export interface CaptureMessage<T> {
   type: CaptureType;
 }
 
+/** Whether the user completed the selection (`succeeded`) or exited the control without selecting a value (`cancelled`). */
 export enum CaptureStatus {
   SUCCEEDED = 'succeeded',
   CANCELLED = 'cancelled',
 }
 
+/** Capture method types. */
 export enum CaptureType {
   COLOR = 'color',
   FILE = 'file',
@@ -69,6 +71,18 @@ export interface ExtendedMediaResult {
     /** Natural height of the image in pixels. */
     naturalHeight: number;
   };
+}
+
+/**
+ * Configuration options for a [[custom-vcc]] capture.
+ */
+export interface CaptureCustomOptions {
+  /** The short name for the custom vcc */
+  name?: string;
+  /** A url where the custom vcc is being hosted */
+  url?: string;
+  /** Type options specific to the custom vcc */
+  typeOptions?: any;
 }
 
 /**
@@ -205,7 +219,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the color code as a string.
-   * @return          [description]
+   * @return          Color code as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -237,13 +251,50 @@ export class Capture extends KojiBridge {
   }
 
   /**
+   * Prompts the user to select a value from a Custom VCC.
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the value captured by the Custom VCC.
+   * @return          Color code as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
+   *
+   * @example
+   * ```javascript
+   * const music = await Koji.ui.capture.custom({ name: 'scloud' });
+   * ```
+   */
+  custom(options: CaptureCustomOptions, verbose: true): Promise<VerboseCapture>;
+  custom(options?: CaptureCustomOptions, verbose?: false): Promise<any>;
+  custom(options: CaptureCustomOptions, verbose?: boolean): Promise<any | VerboseCapture>;
+  @client
+  async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
+    const { name, url, ...typeOptions } = options;
+
+    if (!name && !url) throw new Error('Please supply the custom name or url for the Custom VCC you would like to load.');
+
+    const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: 'Koji.Capture',
+        data: {
+          type: `custom<${name || url}>`,
+          options: typeOptions,
+        },
+      },
+      'Koji.CaptureSuccess',
+    );
+
+    if (verbose) return this.pickVerboseResultFromMessage(data);
+
+    return data.result;
+  }
+
+  /**
    * Prompts the user to upload a file of any type. Use this method to allow the user to upload raw files in their original format. For example, to capture high-resolution images for download rather than for display in a browser.
    *
    * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[sound]], or [[media]].
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
-   * @return          [description]
+   * @return          URL to the file as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -281,7 +332,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the image asset as a string.
-   * @return          [description]
+   * @return          URL to the image asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -318,7 +369,7 @@ export class Capture extends KojiBridge {
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the Koji as a string.
    *
-   * @return          [description]
+   * @return          URL to the Koji as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    * @example
    * ```javascript
    * const koji = await Koji.ui.capture.koji();
@@ -408,7 +459,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the numeric value as a string.
-   * @return          Numeric value as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   * @return          Numeric value as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -444,7 +495,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the option as a string.
-   * @return         Value of the predefined option as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   * @return         Value of the predefined option as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -487,7 +538,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
-   * @return         URL to the audio asset as a string or the [[CaptureValue]] object, if `verbose` is `true`.
+   * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -519,11 +570,13 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   *
-   *
-   * @param   options [description]
-   * @param   verbose [description]
-   * @return          [description]
+    * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
+    *
+    * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+    *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the video asset as a string.
+   * @return          URL to the video asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript

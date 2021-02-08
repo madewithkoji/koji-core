@@ -68,14 +68,27 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Implements in-app purchases for the backend of your Koji. For more information, see
+						<a href="https://developer.withkoji.com/reference/packages/withkoji-koji-iap-package" class="external">the in-app purchases package reference</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IAP</span>
+						<a href="backend_base.base.html" class="tsd-signature-type" data-tsd-kind="Class">Base</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="../interfaces/backend_iap.iiap.html" class="tsd-signature-type" data-tsd-kind="Interface">IIAP</a>
+								<span class="target">IAP</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="../interfaces/backend_iap.iiap.html" class="tsd-signature-type" data-tsd-kind="Interface">IIAP</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -88,14 +101,14 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="backend_iap.iap.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="backend_iap.iap.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="backend_iap.iap.html#projectid" class="tsd-kind-icon">project<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="backend_iap.iap.html#projecttoken" class="tsd-kind-icon">project<wbr>Token</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="backend_iap.iap.html#projectid" class="tsd-kind-icon">project<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="backend_iap.iap.html#projecttoken" class="tsd-kind-icon">project<wbr>Token</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="backend_iap.iap.html#rootheaders" class="tsd-kind-icon">root<wbr>Headers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="backend_iap.iap.html#rootpath" class="tsd-kind-icon">root<wbr>Path</a></li>
 							</ul>
@@ -115,23 +128,35 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new IAP<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="backend_iap.iap.html" class="tsd-signature-type" data-tsd-kind="Class">IAP</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new IAP<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfigurationInput</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="backend_iap.iap.html" class="tsd-signature-type" data-tsd-kind="Class">IAP</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L31">backend/iap/index.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L36">backend/iap/index.ts:36</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Instantiates <a href="backend_iap.iap.html">IAP</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">iap</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">IAP</span><span style="color: #000000">({ </span><span style="color: #001080">res</span><span style="color: #000000"> });</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>res: <span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>config: <a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfigurationInput</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="backend_iap.iap.html" class="tsd-signature-type" data-tsd-kind="Class">IAP</a></h4>
@@ -139,25 +164,27 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="projectid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> project<wbr>Id</h3>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> project<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">project<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L28">backend/iap/index.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="projecttoken" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> project<wbr>Token</h3>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> project<wbr>Token</h3>
 					<div class="tsd-signature tsd-kind-icon">project<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L29">backend/iap/index.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L31">backend/iap/index.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L36">backend/iap/index.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L30">backend/iap/index.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L35">backend/iap/index.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -194,16 +221,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L118">backend/iap/index.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L177">backend/iap/index.ts:177</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Load product by sku.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">loadProduct</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>sku: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Product sku.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Data object.</p>
 						</li>
 					</ul>
 				</section>
@@ -217,16 +259,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L67">backend/iap/index.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L103">backend/iap/index.ts:103</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get receipts by receipt id</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipt</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptById</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Receipt id.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of receipts.</p>
 						</li>
 					</ul>
 				</section>
@@ -240,16 +297,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L82">backend/iap/index.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L125">backend/iap/index.ts:125</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get receipts for a product by sku</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptById</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>sku: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Product sku.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of receipts that include the product.</p>
 						</li>
 					</ul>
 				</section>
@@ -263,9 +335,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L47">backend/iap/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L72">backend/iap/index.ts:72</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get receipts by user token</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptsByUserToken</span><span style="color: #000000">(</span><span style="color: #001080">token</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -273,6 +356,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of receipts.</p>
 						</li>
 					</ul>
 				</section>
@@ -286,16 +370,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ad9fc6e/src/backend/iap/index.ts#L96">backend/iap/index.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/backend/iap/index.ts#L148">backend/iap/index.ts:148</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update receipt</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">updateReceipt</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, [</span><span style="color: #A31515">&#039;paid&#039;</span><span style="color: #000000">]);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Receipt id.</p>
+									</div>
 								</li>
 								<li>
 									<h5>attributes: <span class="tsd-signature-symbol">{}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of receipt attributes.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-index-signature">
 											<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
@@ -304,9 +405,13 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> notificationMessage: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional notification message.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Data object.</p>
 						</li>
 					</ul>
 				</section>
@@ -333,13 +438,13 @@
 					<li class="current tsd-kind-class tsd-parent-kind-module">
 						<a href="backend_iap.iap.html" class="tsd-kind-icon">IAP</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 								<a href="backend_iap.iap.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="backend_iap.iap.html#projectid" class="tsd-kind-icon">project<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="backend_iap.iap.html#projecttoken" class="tsd-kind-icon">project<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -391,16 +496,18 @@
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
