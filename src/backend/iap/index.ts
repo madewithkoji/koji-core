@@ -69,9 +69,9 @@ export class IAP extends Base {
    * ```
    */
   @server
-  public async resolveReceiptsByUserToken(userToken: UserToken): Promise<IapReceipt[]> {
+  public async resolveReceiptsByUserToken(userToken: UserToken): Promise<IapReceipt[] | null> {
     try {
-      const { data } = await axios.post(
+      const { data: { receipts = [] } } = await axios.post(
         `${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS}`,
         {},
         {
@@ -82,9 +82,10 @@ export class IAP extends Base {
         },
       );
 
-      return data;
+      return receipts;
     } catch (err) {
-      return [];
+      console.log('Error: ', err);
+      return null;
     }
   }
 
@@ -102,10 +103,11 @@ export class IAP extends Base {
   @server
   public async resolveReceiptById(receiptId: string): Promise<IapReceipt | null> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, { receiptId }, { headers: this.rootHeaders });
+      const { data: { receipt } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, { receiptId }, { headers: this.rootHeaders });
 
-      return data;
+      return receipt;
     } catch (err) {
+      console.log('Error: ', err);
       return null;
     }
   }
@@ -122,13 +124,14 @@ export class IAP extends Base {
    * ```
    */
   @server
-  public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
+  public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[] | null> {
     try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, { sku }, { headers: this.rootHeaders });
+      const { data: { receipts } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, { sku }, { headers: this.rootHeaders });
 
-      return data;
+      return receipts;
     } catch (err) {
-      return [];
+      console.log('Error: ', err);
+      return null;
     }
   }
 
