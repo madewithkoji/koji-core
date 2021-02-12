@@ -25,6 +25,21 @@ export interface ValueChanged {
 export class Remix extends KojiBridge {
   private values: any = {};
   private isInitialized: boolean = false;
+  private isAllowedToFinish: boolean = false;
+
+  constructor() {
+    super();
+
+    // After Koji.ready() is invoked, the platform will always respond with a `KojiPreview.IsRemixing`
+    // message. This allows us to use an actual response from the platform to ensure that
+    // finish isn't called before a ready() resolution.
+    this.execCallbackOnMessage(
+      () => {
+        this.isAllowedToFinish = true;
+      },
+      'KojiPreview.IsRemixing',
+    );
+  }
 
   /**
    * Initializes the remix data for the Koji with default values.
@@ -133,6 +148,8 @@ export class Remix extends KojiBridge {
    */
   @client
   public finish() {
+    if (!this.isAllowedToFinish) throw new Error('It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in a remix preview.`');
+
     this.sendMessage({
       kojiEventName: 'KojiPreview.Finish',
     });
