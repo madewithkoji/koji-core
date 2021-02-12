@@ -157,7 +157,7 @@ export class Remix extends KojiBridge {
   /**
    * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
    *
-   * @param   plaintextValue Value to encrypt.
+   * @param   rawValue       Value to encrypt.
    * @return                 Path where the encrypted value is stored. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to [[resolveValue | resolve the value]] on the backend, for other users.
    *
    * @example
@@ -166,12 +166,12 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  public async encryptValue(plaintextValue: string): Promise<string> {
+  public async encryptValue(rawValue: any): Promise<string> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.EncryptValue',
         data: {
-          plaintextValue,
+          plaintextValue: rawValue,
         },
       },
       'KojiPreview.ValueEncrypted',
@@ -194,7 +194,7 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  public async decryptValue(encryptedValue: string): Promise<string> {
+  public async decryptValue(encryptedValue: any): Promise<string> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.DecryptValue',
