@@ -33,12 +33,11 @@ export class Remix extends KojiBridge {
     // After Koji.ready() is invoked, the platform will always respond with a `KojiPreview.IsRemixing`
     // message. This allows us to use an actual response from the platform to ensure that
     // finish isn't called before a ready() resolution.
-    this.execCallbackOnMessage(
-      () => {
+    if (typeof window !== 'undefined') {
+      this.execCallbackOnMessage(() => {
         this.isAllowedToFinish = true;
-      },
-      'KojiPreview.IsRemixing',
-    );
+      }, 'KojiPreview.IsRemixing');
+    }
   }
 
   /**
