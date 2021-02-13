@@ -36,7 +36,10 @@ export function middleware(kojiConfig: KojiConfig = {}) {
 
     const parsedOverrides = typeof overrides === 'string' ? JSON.parse(overrides) : {};
 
-    res.locals.remixData = deepmerge(remixData, parsedOverrides, {
+    // Pull the remixData property from our overrides (which will include the entire koji.json contents)
+    const { remixData: remixDataOverride = {} } = parsedOverrides;
+
+    res.locals.remixData = deepmerge(remixData, remixDataOverride, {
       arrayMerge: (dest, source) => source,
     });
 
