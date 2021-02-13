@@ -586,9 +586,9 @@ export class Capture extends KojiBridge {
    * const video = await Koji.ui.capture.video({ hls: true, verbose: true });
    * ```
    */
-  video(options: CaptureSoundOptions, verbose: true): Promise<VerboseCapture>;
-  video(options?: CaptureSoundOptions, verbose?: false): Promise<string>;
-  video(options: CaptureSoundOptions, verbose?: boolean): Promise<CaptureResult>;
+  video(options: CaptureVideoOptions, verbose: true): Promise<VerboseCapture>;
+  video(options?: CaptureVideoOptions, verbose?: false): Promise<string>;
+  video(options: CaptureVideoOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(

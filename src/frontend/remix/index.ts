@@ -25,6 +25,20 @@ export interface ValueChanged {
 export class Remix extends KojiBridge {
   private values: any = {};
   private isInitialized: boolean = false;
+  private isAllowedToFinish: boolean = false;
+
+  constructor() {
+    super();
+
+    // After Koji.ready() is invoked, the platform will always respond with a `KojiPreview.IsRemixing`
+    // message. This allows us to use an actual response from the platform to ensure that
+    // finish isn't called before a ready() resolution.
+    if (typeof window !== 'undefined') {
+      this.execCallbackOnMessage(() => {
+        this.isAllowedToFinish = true;
+      }, 'KojiPreview.IsRemixing');
+    }
+  }
 
   /**
    * Initializes the remix data for the Koji with default values.
@@ -133,6 +147,8 @@ export class Remix extends KojiBridge {
    */
   @client
   public finish() {
+    if (!this.isAllowedToFinish) throw new Error('It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in a remix preview.`');
+
     this.sendMessage({
       kojiEventName: 'KojiPreview.Finish',
     });
@@ -141,7 +157,7 @@ export class Remix extends KojiBridge {
   /**
    * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
    *
-   * @param   plaintextValue Value to encrypt.
+   * @param   rawValue       Value to encrypt.
    * @return                 Path where the encrypted value is stored. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to [[resolveValue | resolve the value]] on the backend, for other users.
    *
    * @example
@@ -150,12 +166,12 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  public async encryptValue(plaintextValue: string): Promise<string> {
+  public async encryptValue(rawValue: any): Promise<string> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.EncryptValue',
         data: {
-          plaintextValue,
+          plaintextValue: rawValue,
         },
       },
       'KojiPreview.ValueEncrypted',
@@ -178,7 +194,7 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  public async decryptValue(encryptedValue: string): Promise<string> {
+  public async decryptValue(encryptedValue: any): Promise<string> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.DecryptValue',

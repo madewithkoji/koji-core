@@ -32,9 +32,14 @@ export function middleware(kojiConfig: KojiConfig = {}) {
     const { remixData = {} } = kojiConfig;
 
     // Apply remix-specific overrides (equivalent of window.KOJI_OVERRIDES.overrides on the client)
-    const overrides = req.headers['x-trusted-koji-overrides'] || {};
+    const overrides = req.headers['x-trusted-koji-overrides'];
 
-    res.locals.remixData = deepmerge(remixData, overrides, {
+    const parsedOverrides = typeof overrides === 'string' ? JSON.parse(overrides) : {};
+
+    // Pull the remixData property from our overrides (which will include the entire koji.json contents)
+    const { remixData: remixDataOverride = {} } = parsedOverrides;
+
+    res.locals.remixData = deepmerge(remixData, remixDataOverride, {
       arrayMerge: (dest, source) => source,
     });
 

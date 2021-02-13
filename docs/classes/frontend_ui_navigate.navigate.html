@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UI | @withkoji/core</title>
+	<title>Navigate | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,19 +55,26 @@
 					<a href="../modules.html">@withkoji/core</a>
 				</li>
 				<li>
-					<a href="../modules/frontend_ui.html">frontend/ui</a>
+					<a href="../modules/frontend_ui_navigate.html">frontend/ui/navigate</a>
 				</li>
 				<li>
-					<a href="frontend_ui.ui.html">UI</a>
+					<a href="frontend_ui_navigate.navigate.html">Navigate</a>
 				</li>
 			</ul>
-			<h1>Class UI</h1>
+			<h1>Class Navigate</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Allow for navigation within a koji.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -75,7 +82,7 @@
 						<a href="frontend_kojibridge.kojibridge.html" class="tsd-signature-type" data-tsd-kind="Class">KojiBridge</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">UI</span>
+								<span class="target">Navigate</span>
 							</li>
 						</ul>
 					</li>
@@ -88,23 +95,19 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="frontend_ui.ui.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="frontend_ui_navigate.navigate.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="frontend_ui.ui.html#capture" class="tsd-kind-icon">capture</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="frontend_ui.ui.html#navigate" class="tsd-kind-icon">navigate</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="frontend_ui.ui.html#present" class="tsd-kind-icon">present</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-private-protected">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_ui.ui.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_ui.ui.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_ui.ui.html#sendmessageandawaitresponse" class="tsd-kind-icon">send<wbr>Message<wbr>And<wbr>Await<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_navigate.navigate.html#createremix" class="tsd-kind-icon">create<wbr>Remix</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_ui_navigate.navigate.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_navigate.navigate.html#opensharedialog" class="tsd-kind-icon">open<wbr>Share<wbr>Dialog</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_navigate.navigate.html#presentinmodal" class="tsd-kind-icon">present<wbr>InModal</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_ui_navigate.navigate.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_ui_navigate.navigate.html#sendmessageandawaitresponse" class="tsd-kind-icon">send<wbr>Message<wbr>And<wbr>Await<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_ui_navigate.navigate.html#to" class="tsd-kind-icon">to</a></li>
 							</ul>
 						</section>
 					</div>
@@ -116,53 +119,51 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new UI<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="frontend_ui.ui.html" class="tsd-signature-type" data-tsd-kind="Class">UI</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Navigate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="frontend_ui_navigate.navigate.html" class="tsd-signature-type" data-tsd-kind="Class">Navigate</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#constructor">constructor</a></p>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="frontend_ui.ui.html" class="tsd-signature-type" data-tsd-kind="Class">UI</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="frontend_ui_navigate.navigate.html" class="tsd-signature-type" data-tsd-kind="Class">Navigate</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="capture" class="tsd-anchor"></a>
-					<h3>capture</h3>
-					<div class="tsd-signature tsd-kind-icon">capture<span class="tsd-signature-symbol">:</span> <a href="frontend_ui_capture.capture.html" class="tsd-signature-type" data-tsd-kind="Class">Capture</a><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/ui/index.ts#L7">frontend/ui/index.ts:7</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="navigate" class="tsd-anchor"></a>
-					<h3>navigate</h3>
-					<div class="tsd-signature tsd-kind-icon">navigate<span class="tsd-signature-symbol">:</span> <a href="frontend_ui_navigate.navigate.html" class="tsd-signature-type" data-tsd-kind="Class">Navigate</a><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/ui/index.ts#L8">frontend/ui/index.ts:8</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="present" class="tsd-anchor"></a>
-					<h3>present</h3>
-					<div class="tsd-signature tsd-kind-icon">present<span class="tsd-signature-symbol">:</span> <a href="frontend_ui_present.present.html" class="tsd-signature-type" data-tsd-kind="Class">Present</a><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/ui/index.ts#L9">frontend/ui/index.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createremix" class="tsd-anchor"></a>
+					<h3>create<wbr>Remix</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Remix<span class="tsd-signature-symbol">(</span>appId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/ui/navigate/index.ts#L48">frontend/ui/navigate/index.ts:48</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Programmatically create a new remix.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> appId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An optional app id; if this parameter is omitted, the current Koji will be remixed</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="execcallbackonmessage" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> exec<wbr>Callback<wbr>OnMessage</h3>
@@ -210,6 +211,62 @@
 									</ul>
 								</li>
 							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="opensharedialog" class="tsd-anchor"></a>
+					<h3>open<wbr>Share<wbr>Dialog</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">open<wbr>Share<wbr>Dialog<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/ui/navigate/index.ts#L63">frontend/ui/navigate/index.ts:63</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Programmatically open the Koji&#39;s share sheet/dialog.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="presentinmodal" class="tsd-anchor"></a>
+					<h3>present<wbr>InModal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">present<wbr>InModal<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/ui/navigate/index.ts#L32">frontend/ui/navigate/index.ts:32</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Presents the currently loaded Koji in a sheet that animates from
+										the bottom of the screen. If the parent Koji is already presented in a
+										modal, presenting a new Koji will navigate within the sheet instead of
+									presenting another sheet.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The url to present in the modal</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -270,6 +327,37 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="to" class="tsd-anchor"></a>
+					<h3>to</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/ui/navigate/index.ts#L14">frontend/ui/navigate/index.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Navigate replaces the currently loaded Koji with the content of <code>url</code></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>url: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The url to navigate to</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -279,7 +367,7 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/frontend_ui.html">frontend/ui</a>
+						<a href="../modules/frontend_ui_navigate.html">frontend/ui/navigate</a>
 					</li>
 				</ul>
 			</nav>
@@ -288,35 +376,38 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="frontend_ui.ui.html" class="tsd-kind-icon">UI</a>
+						<a href="frontend_ui_navigate.navigate.html" class="tsd-kind-icon">Navigate</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-								<a href="frontend_ui.ui.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="frontend_ui_navigate.navigate.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="frontend_ui.ui.html#capture" class="tsd-kind-icon">capture</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="frontend_ui.ui.html#navigate" class="tsd-kind-icon">navigate</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="frontend_ui.ui.html#present" class="tsd-kind-icon">present</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="frontend_ui_navigate.navigate.html#createremix" class="tsd-kind-icon">create<wbr>Remix</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="frontend_ui.ui.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a>
+								<a href="frontend_ui_navigate.navigate.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="frontend_ui_navigate.navigate.html#opensharedialog" class="tsd-kind-icon">open<wbr>Share<wbr>Dialog</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="frontend_ui_navigate.navigate.html#presentinmodal" class="tsd-kind-icon">present<wbr>InModal</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="frontend_ui.ui.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
+								<a href="frontend_ui_navigate.navigate.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="frontend_ui.ui.html#sendmessageandawaitresponse" class="tsd-kind-icon">send<wbr>Message<wbr>And<wbr>Await<wbr>Response</a>
+								<a href="frontend_ui_navigate.navigate.html#sendmessageandawaitresponse" class="tsd-kind-icon">send<wbr>Message<wbr>And<wbr>Await<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="frontend_ui_navigate.navigate.html#to" class="tsd-kind-icon">to</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/frontend_ui.html#ui-1" class="tsd-kind-icon">ui</a>
+						<a href="../modules/frontend_ui_navigate.html#navigate-1" class="tsd-kind-icon">navigate</a>
 					</li>
 				</ul>
 			</nav>
@@ -338,7 +429,7 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>

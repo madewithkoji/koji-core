@@ -102,6 +102,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_iap.iap.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_iap.iap.html#gettoken" class="tsd-kind-icon">get<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_iap.iap.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="frontend_iap.iap.html#sendmessageandawaitresponse" class="tsd-kind-icon">send<wbr>Message<wbr>And<wbr>Await<wbr>Response</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="frontend_iap.iap.html#startpurchase" class="tsd-kind-icon">start<wbr>Purchase</a></li>
@@ -141,7 +142,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#execcallbackonmessage">execCallbackOnMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -180,6 +181,34 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gettoken" class="tsd-anchor"></a>
+					<h3>get<wbr>Token</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Token<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/iap/index.ts#L35">frontend/iap/index.ts:35</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates an IAP Token (used to resolve receipts in the backend)</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">IAPToken</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">getToken</span><span style="color: #000000">();</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="sendmessage" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> send<wbr>Message</h3>
@@ -191,7 +220,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessage">sendMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -218,7 +247,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessageandawaitresponse">sendMessageAndAwaitResponse</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/kojiBridge/index.ts#L59">frontend/kojiBridge/index.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/kojiBridge/index.ts#L59">frontend/kojiBridge/index.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -247,7 +276,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/5f9d228/src/frontend/iap/index.ts#L37">frontend/iap/index.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/frontend/iap/index.ts#L58">frontend/iap/index.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -302,6 +331,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="frontend_iap.iap.html#execcallbackonmessage" class="tsd-kind-icon">exec<wbr>Callback<wbr>OnMessage</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="frontend_iap.iap.html#gettoken" class="tsd-kind-icon">get<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="frontend_iap.iap.html#sendmessage" class="tsd-kind-icon">send<wbr>Message</a>

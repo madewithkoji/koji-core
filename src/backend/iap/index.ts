@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
+import { IAPToken } from '../../types';
 
 export enum IapRoutes {
   GET_PRODUCT_BY_SKU = '/v1/iap/provider/getProductBySku',
@@ -9,8 +10,6 @@ export enum IapRoutes {
   RESOLVE_RECEIPTS_BY_SKU = '/v1/iap/consumer/resolveReceiptsBySku',
   UPDATE_RECEIPT = '/v1/iap/consumer/updateReceiptAttributes',
 }
-
-export type UserToken = string;
 
 /**
  * Defines an interface for a receipt.
@@ -69,23 +68,19 @@ export class IAP extends Base {
    * ```
    */
   @server
-  public async resolveReceiptsByUserToken(userToken: UserToken): Promise<IapReceipt[]> {
-    try {
-      const { data } = await axios.post(
-        `${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS}`,
-        {},
-        {
-          headers: {
-            ...this.rootHeaders,
-            'X-Koji-Iap-Callback-Token': userToken,
-          },
+  public async resolveReceiptsByIAPToken(iapToken: IAPToken): Promise<IapReceipt[]> {
+    const { data: { receipts = [] } } = await axios.post(
+      `${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS}`,
+      {},
+      {
+        headers: {
+          ...this.rootHeaders,
+          'X-Koji-Iap-Callback-Token': iapToken,
         },
-      );
+      },
+    );
 
-      return data;
-    } catch (err) {
-      return [];
-    }
+    return receipts;
   }
 
   /**
@@ -100,14 +95,10 @@ export class IAP extends Base {
    * ```
    */
   @server
-  public async resolveReceiptById(receiptId: string): Promise<IapReceipt | null> {
-    try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, { receiptId }, { headers: this.rootHeaders });
+  public async resolveReceiptById(receiptId: string): Promise<IapReceipt> {
+    const { data: { receipt } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, { receiptId }, { headers: this.rootHeaders });
 
-      return data;
-    } catch (err) {
-      return null;
-    }
+    return receipt;
   }
 
   /**
@@ -123,13 +114,9 @@ export class IAP extends Base {
    */
   @server
   public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
-    try {
-      const { data } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, { sku }, { headers: this.rootHeaders });
+    const { data: { receipts } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, { sku }, { headers: this.rootHeaders });
 
-      return data;
-    } catch (err) {
-      return [];
-    }
+    return receipts;
   }
 
   /**
@@ -146,21 +133,17 @@ export class IAP extends Base {
    * ```
    */
   public async updateReceipt(receiptId: string, attributes: { [index: string]: any }, notificationMessage?: string): Promise<any> {
-    try {
-      const { data } = await axios.post(
-        `${this.rootPath}${IapRoutes.UPDATE_RECEIPT}`,
-        {
-          receiptId,
-          attributes,
-          notificationMessage,
-        },
-        { headers: this.rootHeaders },
-      );
+    const { data } = await axios.post(
+      `${this.rootPath}${IapRoutes.UPDATE_RECEIPT}`,
+      {
+        receiptId,
+        attributes,
+        notificationMessage,
+      },
+      { headers: this.rootHeaders },
+    );
 
-      return data;
-    } catch (err) {
-      throw new Error('Service error');
-    }
+    return data;
   }
 
   /**
@@ -175,13 +158,9 @@ export class IAP extends Base {
    * ```
    */
   public async loadProduct(sku: string) {
-    try {
-      const { data } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?appId=${this.projectId}&sku=${sku}`, { headers: this.rootHeaders });
+    const { data: { product } } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?appId=${this.projectId}&sku=${sku}`, { headers: this.rootHeaders });
 
-      return data;
-    } catch (err) {
-      return null;
-    }
+    return product;
   }
 }
 
