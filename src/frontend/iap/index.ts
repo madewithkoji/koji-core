@@ -1,6 +1,6 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
-import { UserToken } from '../../types';
+import { IAPToken } from '../../types';
 
 /** Custom information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase. */
 export interface PurchaseOptions {
@@ -15,7 +15,7 @@ export interface Purchase {
   /** Indicates whether the purchase was successful. */
   success: boolean;
   /** Temporary token for the current user’s session. See [[getToken]]. */
-  userToken: UserToken;
+  iapToken: IAPToken;
   /** Unique identifier for the receipt, if the purchase was successful, or `undefined`, if not. */
   receiptId?: string;
 }
@@ -23,6 +23,27 @@ export interface Purchase {
  * Manages in-app purchase transactions on the frontend of your Koji.
  */
 export class IAP extends KojiBridge {
+  /**
+   * Generates an IAP Token (used to resolve receipts in the backend)
+   *
+   * @example
+   * ``` javascript
+   * const IAPToken = await Koji.iap.getToken();
+   * ```
+   */
+  @client
+  async getToken(): Promise<IAPToken> {
+    const { userToken } = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: '@@koji/iap/getToken',
+        data: {},
+      },
+      'KojiIap.TokenCreated',
+    );
+
+    return userToken;
+  }
+
   /**
    * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.
    *
@@ -35,17 +56,20 @@ export class IAP extends KojiBridge {
    */
   @client
   async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
-    const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse({
-      kojiEventName: '@@koji/iap/promptPurchase',
-      data: {
-        sku,
-        purchaseOptions,
+    const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: '@@koji/iap/promptPurchase',
+        data: {
+          sku,
+          purchaseOptions,
+        },
       },
-    }, 'KojiIap.PurchaseFinished');
+      'KojiIap.PurchaseFinished',
+    );
 
     return {
       success,
-      userToken,
+      iapToken: userToken,
       receiptId,
     };
   }

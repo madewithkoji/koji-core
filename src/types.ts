@@ -1,5 +1,7 @@
 export type UserToken = string | null;
 
+export type IAPToken = string | null;
+
 export interface FastlyOptions {
   /**
    * Enables optimizations based on content negotiation.
