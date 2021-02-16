@@ -5,12 +5,18 @@ import axios from 'axios';
 const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
 
+/**
+ * Defines a DispatchConfigurationInput interface.
+ */
 interface DispatchConfigurationInput {
   shardName?: string | null;
   maxConnectionsPerShard: number;
   authorization?: string;
 }
 
+/**
+ * Defines a DispatchOptions interface.
+ */
 interface DispatchOptions {
   projectId?: string;
   shardName?: string | null;
@@ -19,6 +25,9 @@ interface DispatchOptions {
   [index: string]: any;
 }
 
+/**
+ * Defines constants for Koji platform events.
+ */
 export enum PlatformEvents {
   CONNECTED = '@@KOJI_DISPATCH/CONNECTED',
   CONNECTED_CLIENTS_CHANGED = '@@KOJI_DISPATCH/CONNECTED_CLIENTS_CHANGED',
@@ -26,24 +35,39 @@ export enum PlatformEvents {
   SET_USER_INFO = '@@KOJI_DISPATCH/SET_USER_INFO',
 }
 
+/**
+ * Defines a MessageHandler interface.
+ */
 export interface MessageHandler {
   id: string;
   eventName: string;
   callback: MessageHandlerCallback;
 }
 
+/**
+ * Implements the callback function for the MessageHandler interface.
+ */
 export type MessageHandlerCallback = (payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
 
+/**
+ * Defines a ShardInfo interface.
+ */
 export interface ShardInfo {
   shardName: string;
   numConnectedClients: number;
 }
 
+/**
+ * Defines a ConnectionInfo interface.
+ */
 export interface ConnectionInfo {
   clientId?: string;
   shardName: string;
 }
 
+/**
+ * Implements a dispatch system for the frontend of your Koji. For more information, see [[https://developer.withkoji.com/reference/packages/withkoji-dispatch-package | the Koji dispatch package reference]].
+ */
 export class Dispatch {
   private authToken?: string;
   private projectId?: string;
@@ -54,15 +78,49 @@ export class Dispatch {
   private messageQueue: string[] = [];
   private ws: Sockette | null = null;
 
+  /**
+   * Gets shard info for the current project.
+   * 
+   * @return                   Shard info in the form of an array.
+   * 
+   * @example
+   * ```javascript
+   * const myInfo = await dispatch.info('myCollection');
+   * ```
+   */
   public async info(): Promise<ShardInfo[]> {
     const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
     return (data || [])[0];
   }
 
+  /**
+   * Sets the project ID for the current project.
+   * 
+   * @param     projectId     Project ID.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.setProjectId('myProject');
+   * ```
+   */
   public setProjectId(projectId: string) {
     this.projectId = projectId;
   }
 
+  /**
+   * Creates a shard connection.
+   *
+   * @param     shardName     Name of the shard.
+   * @param     maxConnectionsPerShard   Maximum connections per Shard (defaults to 100).
+   * @param     authorization Authorization credentials.
+   *
+   * @return                   ConnectionInfo object.
+   * 
+   * @example
+   * ```javascript
+   * const myInfo = await dispatch.connect('myShard', 100, authorization);
+   * ```
+   */
   public async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
@@ -99,6 +157,19 @@ export class Dispatch {
     });
   }
 
+  /**
+   * Handles a message event.
+   *
+   * @param     data        JSON object containing eventName, latencyMS, and payload.
+   * @param     eventName   PlatformEvents enum value
+   * @param     latencyMS   Latency in milliseconds
+   * @param     payload     Client object
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleMessage(PlatformEvents.CONNECTED, 1000, client);
+   * ```
+   */ 
   private handleMessage({ data }: { data: string }, resolve: Function) {
     const { eventName, latencyMs, payload } = JSON.parse(data || '{}');
 
@@ -120,6 +191,14 @@ export class Dispatch {
     });
   }
 
+  /**
+   * Reconnects a shard.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleReconnect();
+   * ```
+   */
   private handleReconnect() {
     this.isConnected = true;
     this.messageQueue = this.messageQueue.reduce((acc, cur) => {
@@ -130,8 +209,24 @@ export class Dispatch {
     }, []);
   }
 
+  /**
+   * Handles maximum.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleMaximum();
+   * ```
+   */
   private handleMaximum() {}
 
+  /**
+   * Cleans up when connection is closed.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleClose();
+   * ```
+   */
   private handleClose() {
     this.isConnected = false;
   }
