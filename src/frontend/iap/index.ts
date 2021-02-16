@@ -2,7 +2,9 @@ import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
 import { UserToken } from '../../types';
 
-/** Custom information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase. */
+/**
+ * Custom information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase.
+ */
 export interface PurchaseOptions {
   /** Amount of the purchase. */
   amount?: number;
@@ -10,7 +12,9 @@ export interface PurchaseOptions {
   customMessage?: string;
 }
 
-/** Results of an in-app purchase transaction. */
+/**
+ * Results of an in-app purchase transaction.
+ */
 export interface Purchase {
   /** Indicates whether the purchase was successful. */
   success: boolean;
@@ -19,6 +23,7 @@ export interface Purchase {
   /** Unique identifier for the receipt, if the purchase was successful, or `undefined`, if not. */
   receiptId?: string;
 }
+
 /**
  * Manages in-app purchase transactions on the frontend of your Koji.
  */

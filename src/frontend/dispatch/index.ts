@@ -231,10 +231,31 @@ export class Dispatch {
     this.isConnected = false;
   }
 
+  /**
+   * Prints error message to console.
+   * 
+   * @param     e    Event that generated the error.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.handleError(e);
+   * ```
+   */
   private handleError(e: Event) {
     console.error('[Koji Dispatch] error', e);
   }
 
+  /**
+   * Assigns a callback function to an event.
+   * 
+   * @param     eventName     Name of event.
+   * @param     callback      Callback function.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.on('eventName', callbackFunction);
+   * ```
+   */
   public on(eventName: string, callback: MessageHandlerCallback): Function {
     const handlerId = uuidv4();
 
@@ -249,16 +270,48 @@ export class Dispatch {
     };
   }
 
+  /**
+   * Emit SET_USER_INFO event.
+   * 
+   * @param     userInfo     Object containing an array of user info.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.setUserInfo({['user info']});
+   * ```
+   */
   public setUserInfo(userInfo: { [index: string]: any }) {
     this.emitEvent(PlatformEvents.SET_USER_INFO, userInfo);
   }
 
+  /**
+   * Emit IDENTIFY event.
+   * 
+   * @param     authToken     Authorization token.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.identify(token);
+   * ```
+   */
   public identify(authToken: string) {
     this.emitEvent(PlatformEvents.IDENTIFY, {
       token: authToken,
     });
   }
 
+  /**
+   * Emit event.
+   * 
+   * @param     eventName     Name of event.
+   * @param     payload       Array of values to be included in event message.
+   * @param     recipients    One or more event recipients.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.emitEvent('click', [id:1]);
+   * ```
+   */
   public emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
     const message = JSON.stringify({
       eventName,
@@ -285,6 +338,14 @@ export class Dispatch {
     this.ws.send(message);
   }
 
+  /**
+   * Close connection.
+   * 
+   * @example
+   * ```javascript
+   * dispatch.disconnect();
+   * ```
+   */
   public disconnect() {
     if (this.ws) this.ws.close();
     this.ws = null;
