@@ -106,7 +106,7 @@ export class Database extends Base {
   /**
    * Searches a collection for records that match the specified search criteria.
    * The search criteria are the search field and the search value.
-    * 
+    *
    *
    * @typeParam T              Data from a Koji database collection.
    * @param     collection     Name of the collection.
@@ -135,7 +135,7 @@ export class Database extends Base {
   }
 
   /**
-   * Searches a collection for records that satify the specified predicate.
+   * Searches a collection for records that satisfy the specified predicate.
    * The predicate is specified using predicateKey, predicateOperator, and predicateValue.
    *
    * @typeParam T                       Data from a Koji database collection.
@@ -201,7 +201,7 @@ export class Database extends Base {
   }
 
   /**
-   * Searches a collection for records that satify the specified predicate.
+   * Searches a collection for records that satisfy the specified predicate.
    * The predicate is specified using predicateKey, predicateOperator, and predicateValues.
    *
    * @typeParam T                       Data from a Koji database collection.

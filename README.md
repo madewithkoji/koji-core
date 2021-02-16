@@ -1,15 +1,88 @@
-# @withkoji/core
+# Koji Core
+![npm (scoped)](https://img.shields.io/npm/v/@withkoji/core?color=green&style=flat-square)
 
-## Testing this package from github
+**Core library for developing remixable Koji templates.**
 
-Inside your project's root folder, run `npm install madewithkoji/koji-core`. 
+## Overview
 
-You should then be able to `import Koji, { KojiBackend } from '@withkoji/core` inside of your frontend and backend.
+The @withkoji/core package enables you to implement core platform features in your Koji template, including remixing, in-app purchases, UI controls, messaging, and identity services.
 
-## Develop
+## Installation
 
-Clone this repo and `cd new-koji-package`
-`npm install`
-`npm run watch`
+Install the package in the frontend and backend services of your Koji project.
 
-Note that if you are testing declarations you will need to run `npm run generate-declarations` to get the new values as these aren't automatically compiled in the watcher.
+```
+npm install --save @withkoji/core
+```
+
+## Basic use
+
+### Frontend
+
+Enable the user to upload an image from the frontend of the Koji.
+
+```
+import Koji from '@withkoji/core';
+
+const captureImage = async () => {
+  const imageURL = await Koji.ui.capture.image();
+
+  console.log(imageURL); // The publicly accessible, CDN-backed path of the user's uploaded image
+}
+```
+
+### Backend
+
+Use the Koji database on the backend of the Koji, and use middleware to scope operations per remix.
+
+```
+import { KojiBackend } from '@withkoji/core';
+import cors from 'cors';
+import express from 'express';
+import bodyParser from 'body-parser';
+
+const app = express();
+
+// Enable cors for preflight
+app.options('*', cors());
+
+// Whitelist all routes with cors
+app.use(cors());
+
+// Use express json
+app.use(express.json());
+
+// Parse application/json
+app.use(bodyParser.json());
+
+// Use Koji's middleware to handle scoping across your template's remixes
+app.use(KojiBackend.middleware);
+
+app.get('/data', (req, res, next) => {
+  const database = new KojiBackend.Database({ res });
+
+  // Look up an item in the items collection
+  const item = await database.get('items', 'myItemId');
+
+  res.status(200).json({
+    item,
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
+```
+
+## Related resources
+
+- [Package documentation](https://madewithkoji.github.io/koji-core/)
+- [What is remixing?](https://developer.withkoji.com/docs/getting-started/instant-remixing)
+- [Developing your first Koji template](https://developer.withkoji.com/docs/getting-started/start-guide-1)
+- [Koji homepage](http://withkoji.com/)
+
+## Contributions and questions
+
+See the [contributions page](https://developer.withkoji.com/docs/about/contribute-koji-developers) on the developer site for info on how to make contributions to Koji repositories and developer documentation.
+
+For any questions, reach out to the developer community or the `@Koji Team` on our [Discord server](https://discord.gg/9egkTWf4ec).

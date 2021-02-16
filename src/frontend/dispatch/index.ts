@@ -10,7 +10,7 @@ unsafeGlobal.WebSocket = require('isomorphic-ws');
  */
 interface DispatchConfigurationInput {
   shardName?: string | null;
-  maxConnectionsPerShard: number;
+  maxConnectionsPerShard?: number;
   authorization?: string;
 }
 
@@ -121,7 +121,7 @@ export class Dispatch {
    * const myInfo = await dispatch.connect('myShard', 100, authorization);
    * ```
    */
-  public async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
+  public async connect(config: DispatchConfigurationInput = {}): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
@@ -129,8 +129,8 @@ export class Dispatch {
 
       const options: DispatchOptions = {
         projectId: this.projectId,
-        shardName,
-        maxConnectionsPerShard,
+        shardName: config.shardName,
+        maxConnectionsPerShard: config.maxConnectionsPerShard || 100,
       };
 
       const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
@@ -142,7 +142,7 @@ export class Dispatch {
 
       const url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
 
-      this.authToken = authorization;
+      this.authToken = config.authorization;
 
       // Create a socket connection to the dispatch server
       this.ws = new Sockette(url, {
@@ -151,7 +151,7 @@ export class Dispatch {
         onmessage: (e) => this.handleMessage(e, resolve),
         onreconnect: () => this.handleReconnect(),
         onmaximum: () => this.handleMaximum(),
-        onclose: () => this.handleClose(),
+        onclose: (e) => this.handleClose(e),
         onerror: (e) => this.handleError(e),
       });
     });
@@ -172,6 +172,7 @@ export class Dispatch {
    */ 
   private handleMessage({ data }: { data: string }, resolve: Function) {
     const { eventName, latencyMs, payload } = JSON.parse(data || '{}');
+    console.log('message', data);
 
     if (eventName === PlatformEvents.CONNECTED) {
       this.initialConnection = true;
@@ -200,6 +201,7 @@ export class Dispatch {
    * ```
    */
   private handleReconnect() {
+    console.log('reconnect');
     this.isConnected = true;
     this.messageQueue = this.messageQueue.reduce((acc, cur) => {
       if (this.ws) {
@@ -222,19 +224,22 @@ export class Dispatch {
   /**
    * Cleans up when connection is closed.
    * 
+   * @param     e    Event that generated the error.
+   * 
    * @example
    * ```javascript
    * dispatch.handleClose();
    * ```
-   */
-  private handleClose() {
+   */ 
+  private handleClose(e: Event) {
+    console.log('close', e);
     this.isConnected = false;
   }
 
   /**
    * Prints error message to console.
    * 
-   * @param     e    Event that generated the error.
+   * @param     e    Event that executed the method.
    * 
    * @example
    * ```javascript
