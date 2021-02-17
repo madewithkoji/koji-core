@@ -81,9 +81,9 @@ export class Dispatch extends Base {
 
   /**
    * Gets shard info for the current project.
-   * 
+   *
    * @return                   Shard info in the form of an array.
-   * 
+   *
    * @example
    * ```javascript
    * const myInfo = await dispatch.info('myCollection');
@@ -102,7 +102,7 @@ export class Dispatch extends Base {
    * @param     authorization Authorization credentials.
    *
    * @return                   ConnectionInfo object.
-   * 
+   *
    * @example
    * ```javascript
    * const myInfo = await dispatch.connect('myShard', 100, authorization);
@@ -153,7 +153,7 @@ export class Dispatch extends Base {
    * @param     eventName   PlatformEvents enum value
    * @param     latencyMS   Latency in milliseconds
    * @param     payload     Client object
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.handleMessage(PlatformEvents.CONNECTED, 1000, client);
@@ -182,7 +182,7 @@ export class Dispatch extends Base {
 
   /**
    * Reconnects a shard.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.handleReconnect();
@@ -200,7 +200,7 @@ export class Dispatch extends Base {
 
   /**
    * Handles maximum.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.handleMaximum();
@@ -210,7 +210,7 @@ export class Dispatch extends Base {
 
   /**
    * Cleans up when connection is closed.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.handleClose();
@@ -222,9 +222,9 @@ export class Dispatch extends Base {
 
   /**
    * Prints error message to console.
-   * 
+   *
    * @param     e    Event that generated the error.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.handleError(e);
@@ -236,10 +236,10 @@ export class Dispatch extends Base {
 
   /**
    * Assigns a callback function to an event.
-   * 
+   *
    * @param     eventName     Name of event.
    * @param     callback      Callback function.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.on('eventName', callbackFunction);
@@ -261,9 +261,9 @@ export class Dispatch extends Base {
 
   /**
    * Emit SET_USER_INFO event.
-   * 
+   *
    * @param     userInfo     Object containing an array of user info.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.setUserInfo({['user info']});
@@ -275,9 +275,9 @@ export class Dispatch extends Base {
 
   /**
    * Emit IDENTIFY event.
-   * 
+   *
    * @param     authToken     Authorization token.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.identify(token);
@@ -291,11 +291,11 @@ export class Dispatch extends Base {
 
   /**
    * Emit event.
-   * 
+   *
    * @param     eventName     Name of event.
    * @param     payload       Array of values to be included in event message.
    * @param     recipients    One or more event recipients.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.emitEvent('click', [id:1]);
@@ -329,7 +329,7 @@ export class Dispatch extends Base {
 
   /**
    * Close connection.
-   * 
+   *
    * @example
    * ```javascript
    * dispatch.disconnect();

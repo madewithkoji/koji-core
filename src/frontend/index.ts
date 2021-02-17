@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { analytics, Analytics } from './analytics';
 import { dispatch, Dispatch } from './dispatch';
 import { iap, IAP } from './iap';
@@ -69,8 +70,7 @@ export class Koji {
    */
   public config(kojiConfig: KojiConfig = {}, kojiConfigOptions: KojiConfigOptions = { services: {} }): void {
     if (this.configInitialized) {
-      console.warn('You are trying to run config more than one time. The previous configuration options will not be overwritten but this could indicate unexpected behavior in your project.');
-      return;
+      throw new Error('You are trying to run `Koji.config()` more than one time. This could cause unexpected behavior in your project.');
     }
 
     // Deconstruct the user's config
@@ -87,7 +87,7 @@ export class Koji {
   }
 
   private setProjectId(explicitProjectId?: string) {
-    const projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
+    let projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
 
     // Even if the value is overwritten by an override, it should still
     // be defined at this point.
@@ -97,14 +97,15 @@ export class Koji {
     if (window.KOJI_OVERRIDES) {
       const { overrides = {} } = window.KOJI_OVERRIDES;
       if (overrides && overrides.metadata && overrides.metadata.projectId) {
-        this.projectId = overrides.metadata.projectId;
+        projectId = overrides.metadata.projectId;
       }
-    } else {
-      this.projectId = projectId;
     }
 
+    // Set local projectId
+    this.projectId = projectId;
+
     // Init dispatch
-    this.dispatch?.setProjectId(projectId);
+    this.dispatch?.setProjectId(projectId as string);
   }
 
   private setUpServices(develop: Object, deploy: Object, services: Services) {
@@ -152,18 +153,7 @@ export class Koji {
     }
   }
 
-  /**
-   * Indicates that the Koji is ready to start receiving events.
-   *
-   * @example
-   * ```javascript
-   * Koji.ready
-   * ```
-   */
-  @client
-  ready() {
-    this.isReady = true;
-
+  private addClickListeners() {
     // Add a listener to pass click events up to the parent window,
     // as there is no way for the platform to know these clicks are
     // happening due to iframe constraints
@@ -187,6 +177,79 @@ export class Koji {
       },
       { capture: true, passive: true },
     );
+  }
+
+  private addContextPassthroughListeners() {
+    window.addEventListener('message', ({ data, origin }) => {
+      // Handle passthrough of messages from any Kojis inside this Koji
+      if (data._type === 'Koji.ContextPassthrough.Up') {
+        try {
+          // Mutate the source map to add the context
+          if (window.parent) {
+            window.parent.postMessage(
+              {
+                ...data,
+                _path: [origin, ...(data._path || [])],
+              },
+              '*',
+            );
+          }
+        } catch (err) {
+          //
+        }
+      }
+
+      if (data._type === 'Koji.ContextPassthrough.Down') {
+        try {
+          const destinationOrigin = data._path[0];
+          const frame: HTMLIFrameElement | undefined = Array.from(document.getElementsByTagName('iframe')).find(({ src }) => src.startsWith(destinationOrigin));
+
+          if (frame && frame.contentWindow) {
+            if (data._path.length === 0) {
+              frame.contentWindow.postMessage(
+                {
+                  ...data.originalMessage,
+                },
+                '*',
+              );
+            } else {
+              frame.contentWindow.postMessage(
+                {
+                  ...data,
+                  _path: data._path.slice(1),
+                },
+                '*',
+              );
+            }
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    });
+  }
+
+  /**
+   * Indicates that the Koji is ready to start receiving events.
+   *
+   * @example
+   * ```javascript
+   * Koji.ready
+   * ```
+   */
+  @client
+  ready() {
+    if (this.isReady) {
+      throw new Error('You are calling `Koji.ready()` more than one time. This could cause unexpected behavior in your project.');
+    }
+
+    this.isReady = true;
+
+    // Add click listeners to bubble up click events to the platform
+    this.addClickListeners();
+
+    // Add context passthrough listeners to allow messages to bubble up/down between layered Kojis
+    this.addContextPassthroughListeners();
 
     // Send the ready message, letting the platform know it's okay
     // to release any queued messages

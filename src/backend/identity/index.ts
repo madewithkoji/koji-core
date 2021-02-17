@@ -58,7 +58,7 @@ export class Identity extends Base {
    * ```javascript
    * const identity = new KojiBackend.Identity({ config });
    * ```
-   */  
+   */
   constructor(config: BackendConfigurationInput) {
     super(config);
 
@@ -73,11 +73,11 @@ export class Identity extends Base {
 
   /**
    * Sends a notification to a user
-   * 
+   *
    * @param     userId            User id.
    * @param     notification      Notification to send to user.
    * @return                      Data object.
-   * 
+   *
    * @example
    * ```javascript
    * identity.pushNotificationToUser(id, notification);
@@ -99,10 +99,10 @@ export class Identity extends Base {
 
   /**
    * Sends a notification to the owner
-   * 
+   *
    * @param     notification      Notification to send to owner.
    * @return                      Data object.
-   * 
+   *
    * @example
    * ```javascript
    * identity.pushNotificationToUser(id, notification);
@@ -124,15 +124,15 @@ export class Identity extends Base {
 
   /**
    * Gets user by token
-   * 
+   *
    * @param     token      User token.
    * @return               User.
-   * 
+   *
    * @example
    * ```javascript
    * const user = identity.resolveUserFromToken(token);
    * ```
-   */  
+   */
   @server
   public async resolveUserFromToken(token: UserToken): Promise<User> {
     const {

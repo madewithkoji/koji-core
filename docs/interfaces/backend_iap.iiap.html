@@ -85,17 +85,49 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-protected"><a href="backend_iap.iiap.html#projectid" class="tsd-kind-icon">project<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-protected"><a href="backend_iap.iiap.html#projecttoken" class="tsd-kind-icon">project<wbr>Token</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#loadproduct" class="tsd-kind-icon">load<wbr>Product</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptbyid" class="tsd-kind-icon">resolve<wbr>Receipt<wbr>ById</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptsbyiaptoken" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>ByIAPToken</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptsbysku" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>BySku</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptsbyusertoken" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>ByUser<wbr>Token</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#updatereceipt" class="tsd-kind-icon">update<wbr>Receipt</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-protected">
+					<a name="projectid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> project<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">project<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projectid">projectId</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-protected">
+					<a name="projecttoken" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> project<wbr>Token</h3>
+					<div class="tsd-signature tsd-kind-icon">project<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projecttoken">projectToken</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -111,7 +143,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#loadproduct">loadProduct</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L192">backend/iap/index.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/iap/index.ts#L160">backend/iap/index.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -143,14 +175,14 @@
 					<a name="resolvereceiptbyid" class="tsd-anchor"></a>
 					<h3>resolve<wbr>Receipt<wbr>ById</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Receipt<wbr>ById<span class="tsd-signature-symbol">(</span>receiptId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Receipt<wbr>ById<span class="tsd-signature-symbol">(</span>receiptId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptbyid">resolveReceiptById</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L106">backend/iap/index.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/iap/index.ts#L98">backend/iap/index.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -173,7 +205,43 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of receipts.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="resolvereceiptsbyiaptoken" class="tsd-anchor"></a>
+					<h3>resolve<wbr>Receipts<wbr>ByIAPToken</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Receipts<wbr>ByIAPToken<span class="tsd-signature-symbol">(</span>iapToken<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbyiaptoken">resolveReceiptsByIAPToken</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/iap/index.ts#L71">backend/iap/index.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get receipts by user token</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptsByUserToken</span><span style="color: #000000">(</span><span style="color: #001080">token</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>iapToken: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Array of receipts.</p>
 						</li>
 					</ul>
@@ -189,7 +257,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbysku">resolveReceiptsBySku</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L132">backend/iap/index.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/iap/index.ts#L116">backend/iap/index.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -218,42 +286,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="resolvereceiptsbyusertoken" class="tsd-anchor"></a>
-					<h3>resolve<wbr>Receipts<wbr>ByUser<wbr>Token</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">resolve<wbr>Receipts<wbr>ByUser<wbr>Token<span class="tsd-signature-symbol">(</span>userToken<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbyusertoken">resolveReceiptsByUserToken</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L75">backend/iap/index.ts:75</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get receipts by user token</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptsByUserToken</span><span style="color: #000000">(</span><span style="color: #001080">token</span><span style="color: #000000">);</span>
-</code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>userToken: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of receipts.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="updatereceipt" class="tsd-anchor"></a>
 					<h3>update<wbr>Receipt</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
@@ -264,7 +296,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#updatereceipt">updateReceipt</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e44ee7c/src/backend/iap/index.ts#L159">backend/iap/index.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/iap/index.ts#L135">backend/iap/index.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,6 +367,12 @@
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="backend_iap.iiap.html" class="tsd-kind-icon">IIAP</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-protected">
+								<a href="backend_iap.iiap.html#projectid" class="tsd-kind-icon">project<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-protected">
+								<a href="backend_iap.iiap.html#projecttoken" class="tsd-kind-icon">project<wbr>Token</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="backend_iap.iiap.html#loadproduct" class="tsd-kind-icon">load<wbr>Product</a>
 							</li>
@@ -342,10 +380,10 @@
 								<a href="backend_iap.iiap.html#resolvereceiptbyid" class="tsd-kind-icon">resolve<wbr>Receipt<wbr>ById</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="backend_iap.iiap.html#resolvereceiptsbysku" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>BySku</a>
+								<a href="backend_iap.iiap.html#resolvereceiptsbyiaptoken" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>ByIAPToken</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="backend_iap.iiap.html#resolvereceiptsbyusertoken" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>ByUser<wbr>Token</a>
+								<a href="backend_iap.iiap.html#resolvereceiptsbysku" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>BySku</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="backend_iap.iiap.html#updatereceipt" class="tsd-kind-icon">update<wbr>Receipt</a>
@@ -356,9 +394,6 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="backend_iap.iapreceipt.html" class="tsd-kind-icon">Iap<wbr>Receipt</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/backend_iap.html#usertoken" class="tsd-kind-icon">User<wbr>Token</a>
 					</li>
 				</ul>
 			</nav>

@@ -28,7 +28,7 @@ export class Secret extends Base {
 
   /**
    * Gets the value for a secret key.
-   * 
+   *
    * @param   keyPath  Path for secret key
    * @return           Key value.
    *
@@ -56,7 +56,7 @@ export class Secret extends Base {
 
   /**
    * Creates a signed URL.
-   * 
+   *
    * @param   resource        Path to resource
    * @param   expireSeconds   Expiration in seconds
    * @return                  URL for resource.

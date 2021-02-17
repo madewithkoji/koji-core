@@ -1,5 +1,7 @@
 # Koji Core
+
 ![npm (scoped)](https://img.shields.io/npm/v/@withkoji/core?color=green&style=flat-square)
+[![Discord](https://img.shields.io/discord/769256827007139912.svg?style=flat-square)](https://discord.gg/9egkTWf4ec)
 
 **Core library for developing remixable Koji templates.**
 
@@ -14,6 +16,14 @@ Install the package in the frontend and backend services of your Koji project.
 ```
 npm install --save @withkoji/core
 ```
+
+## Documentation
+
+Package documentation is available [here](https://madewithkoji.github.io/koji-core/).
+
+## Migration
+
+If you are migrating a project from the React/Express Scaffold, you may find these [frontend](guides/ScaffoldMigrationGuideFrontend.md) and [backend](guides/ScaffoldMigrationGuideBackend.md) guides helpful.
 
 ## Basic use
 
@@ -76,7 +86,6 @@ app.listen(PORT, () => {
 
 ## Related resources
 
-- [Package documentation](https://madewithkoji.github.io/koji-core/)
 - [What is remixing?](https://developer.withkoji.com/docs/getting-started/instant-remixing)
 - [Developing your first Koji template](https://developer.withkoji.com/docs/getting-started/start-guide-1)
 - [Koji homepage](http://withkoji.com/)
