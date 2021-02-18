@@ -91,6 +91,8 @@ export interface CaptureCustomOptions {
 export interface CaptureColorOptions {
   /** Indicates whether to support transparency (`false`, by default). */
   allowAlpha?: boolean;
+  /** A default value to provide to the color capture tool */
+  value?: string;
 }
 
 /**
@@ -121,6 +123,8 @@ export interface CaptureRangeOptions {
   max?: number;
   /** Default increment/step size. Default is `1`. */
   step?: number;
+  /** A default value to provide to the range capture tool */
+  value?: number;
 }
 
 /**
@@ -141,6 +145,8 @@ export interface CaptureSelectOptions {
   placeholder?: string;
   /** List of predefined options. */
   options?: SelectOption[];
+  /** A default value to provide to the range capture tool */
+  value?: string;
 }
 
 /**
@@ -570,10 +576,10 @@ export class Capture extends KojiBridge {
   }
 
   /**
-    * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
-    *
-    * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
-    *
+   * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
+   *
+   * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+   *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the video asset as a string.
    * @return          URL to the video asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
