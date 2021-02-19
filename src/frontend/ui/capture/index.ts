@@ -91,6 +91,8 @@ export interface CaptureCustomOptions {
 export interface CaptureColorOptions {
   /** Indicates whether to support transparency (`false`, by default). */
   allowAlpha?: boolean;
+  /** A default value to provide to the color capture tool */
+  initialValue?: string;
 }
 
 /**
@@ -121,6 +123,8 @@ export interface CaptureRangeOptions {
   max?: number;
   /** Default increment/step size. Default is `1`. */
   step?: number;
+  /** A default value to provide to the range capture tool */
+  initialValue?: number;
 }
 
 /**
@@ -141,6 +145,8 @@ export interface CaptureSelectOptions {
   placeholder?: string;
   /** List of predefined options. */
   options?: SelectOption[];
+  /** A default value to provide to the range capture tool */
+  initialValue?: string;
 }
 
 /**
@@ -177,7 +183,11 @@ export interface CaptureMediaOptions {
  * Captures user input on the frontend of your Koji.
  */
 export class Capture extends KojiBridge {
-  pickVerboseResultFromMessage(data: CaptureMessage<any>): VerboseCapture {
+  /**
+   * Map capture data to a verbose result
+   * @param data The capture data returned by the platform
+   */
+  private pickVerboseResultFromMessage(data: CaptureMessage<any>): VerboseCapture {
     if (data.status !== CaptureStatus.SUCCEEDED) {
       return {
         captureStatus: data.status,
@@ -206,12 +216,31 @@ export class Capture extends KojiBridge {
     };
   }
 
-  pickResultFromMessage(data: CaptureMessage<any>): CaptureResult {
+  /**
+   * Map any non-successful capture data to a null return
+   * @param data The capture data returned by the platform
+   */
+  private pickResultFromMessage(data: CaptureMessage<any>): CaptureResult {
     if (data.status !== CaptureStatus.SUCCEEDED) {
       return null;
     }
 
     return data.result;
+  }
+
+  /**
+   * Map `initialValue` to `value`, the key where the platform expects to see the initialValue in a postMessage
+   * @param options The initial capture options passed by the user
+   */
+  private transformInitialValueOptions(options: any): any {
+    const {
+      initialValue,
+      ...transformedOptions
+    } = options;
+
+    if (initialValue) transformedOptions.value = initialValue;
+
+    return transformedOptions;
   }
 
   /**
@@ -234,12 +263,14 @@ export class Capture extends KojiBridge {
   color(options: CaptureColorOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   async color(options: CaptureColorOptions = {}, verbose: boolean = false): Promise<CaptureResult> {
+    const transformedOptions = this.transformInitialValueOptions(options);
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
           type: 'color',
-          options,
+          options: transformedOptions,
         },
       },
       'Koji.CaptureSuccess',
@@ -474,12 +505,14 @@ export class Capture extends KojiBridge {
   range(options: CaptureRangeOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   async range(options: CaptureRangeOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    const transformedOptions = this.transformInitialValueOptions(options);
+
     const data: CaptureMessage<number> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
           type: 'range',
-          options,
+          options: transformedOptions,
         },
       },
       'Koji.CaptureSuccess',
@@ -515,12 +548,14 @@ export class Capture extends KojiBridge {
   select(options: CaptureSelectOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   async select(options: CaptureSelectOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    const transformedOptions = this.transformInitialValueOptions(options);
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
           type: 'select',
-          options,
+          options: transformedOptions,
         },
       },
       'Koji.CaptureSuccess',
@@ -570,10 +605,10 @@ export class Capture extends KojiBridge {
   }
 
   /**
-    * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
-    *
-    * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
-    *
+   * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
+   *
+   * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+   *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the video asset as a string.
    * @return          URL to the video asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
