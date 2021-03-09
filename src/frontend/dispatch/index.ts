@@ -101,7 +101,6 @@ export class Dispatch {
 
   private handleMessage({ data }: { data: string }, resolve: Function) {
     const { eventName, latencyMs, payload } = JSON.parse(data || '{}');
-    console.log('message', data);
 
     if (eventName === PlatformEvents.CONNECTED) {
       this.initialConnection = true;
