@@ -46,7 +46,7 @@ export class Present extends KojiBridge {
    * ```
    */
   @client
-  async confirmation(options: PresentConfirmationOptions = {}): Promise<boolean> {
+  public async confirmation(options: PresentConfirmationOptions = {}): Promise<boolean> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.ConfirmPrompt',
@@ -76,7 +76,7 @@ export class Present extends KojiBridge {
    * });
    */
   @client
-  alert(options: PresentConfirmationOptions): void {
+  public alert(options: PresentConfirmationOptions): void {
     this.sendMessage(
       {
         kojiEventName: 'Koji.Alert',

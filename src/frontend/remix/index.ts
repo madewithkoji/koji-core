@@ -51,7 +51,7 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  init(remixData: any) {
+  public init(remixData: any) {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {

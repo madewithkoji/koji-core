@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import Sockette from 'sockette';
 import axios from 'axios';
-import { Base } from '../base';
+import { Base, BackendConfigurationInput } from '../base';
 
 const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
@@ -78,6 +78,18 @@ export class Dispatch extends Base {
   private eventHandlers: MessageHandler[] = [];
   private messageQueue: string[] = [];
   private ws: Sockette | null = null;
+
+  /**
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const database = new KojiBackend.Database({ res });
+   * ```
+   */
+  public constructor(config: BackendConfigurationInput) {
+    super(config);
+  }
 
   /**
    * Gets shard info for the current project.

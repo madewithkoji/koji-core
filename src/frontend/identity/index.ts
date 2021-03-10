@@ -24,7 +24,7 @@ export class Identity extends KojiBridge {
    * ```
    */
   @client
-  async getToken(): Promise<UserToken> {
+  public async getToken(): Promise<UserToken> {
     const { userToken } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
@@ -47,7 +47,7 @@ export class Identity extends KojiBridge {
    * const hasGrant = await Koji.identity.checkGrants(['username', 'push_notifications']);
    * ```
    */
-  async checkGrants(grants: AuthGrantCapability[] = []): Promise<boolean> {
+  public async checkGrants(grants: AuthGrantCapability[] = []): Promise<boolean> {
     const { hasGrants } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/checkGrant',
       data: {
@@ -70,7 +70,7 @@ export class Identity extends KojiBridge {
    * const hasGrant = await Koji.identity.requestGrants(['username', 'push_notifications']);
    * ```
    */
-  async requestGrants(grants: AuthGrantCapability[] = [], usageDescription?: string): Promise<UserToken> {
+  public async requestGrants(grants: AuthGrantCapability[] = [], usageDescription?: string): Promise<UserToken> {
     const { userToken } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {

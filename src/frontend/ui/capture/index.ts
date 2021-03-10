@@ -262,7 +262,7 @@ export class Capture extends KojiBridge {
   color(options?: CaptureColorOptions, verbose?: false): Promise<string | null>;
   color(options: CaptureColorOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async color(options: CaptureColorOptions = {}, verbose: boolean = false): Promise<CaptureResult> {
+  public async color(options: CaptureColorOptions = {}, verbose: boolean = false): Promise<CaptureResult> {
     const transformedOptions = this.transformInitialValueOptions(options);
 
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
@@ -297,7 +297,7 @@ export class Capture extends KojiBridge {
   custom(options?: CaptureCustomOptions, verbose?: false): Promise<any>;
   custom(options: CaptureCustomOptions, verbose?: boolean): Promise<any | VerboseCapture>;
   @client
-  async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
+  public async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
     const { name, url, ...typeOptions } = options;
 
     if (!name && !url) throw new Error('Please supply the custom name or url for the Custom VCC you would like to load.');
@@ -339,7 +339,7 @@ export class Capture extends KojiBridge {
   file(options?: CaptureFileOptions, verbose?: false): Promise<string>;
   file(options: CaptureFileOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async file(options: CaptureFileOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async file(options: CaptureFileOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -377,7 +377,7 @@ export class Capture extends KojiBridge {
   image(options?: CaptureImageOptions, verbose?: false): Promise<string>;
   image(options: CaptureImageOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async image(options: CaptureImageOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async image(options: CaptureImageOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -413,7 +413,7 @@ export class Capture extends KojiBridge {
   koji(options?: CaptureKojiOptions, verbose?: false): Promise<string>;
   koji(options: CaptureKojiOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async koji(options: CaptureKojiOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async koji(options: CaptureKojiOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -449,7 +449,7 @@ export class Capture extends KojiBridge {
   media(options?: CaptureMediaOptions, verbose?: false): Promise<string>;
   media(options: CaptureMediaOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async media(options: CaptureMediaOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async media(options: CaptureMediaOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     if (verbose) {
       const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
         {
@@ -504,7 +504,7 @@ export class Capture extends KojiBridge {
   range(options?: CaptureRangeOptions, verbose?: false): Promise<number>;
   range(options: CaptureRangeOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async range(options: CaptureRangeOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async range(options: CaptureRangeOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const transformedOptions = this.transformInitialValueOptions(options);
 
     const data: CaptureMessage<number> = await this.sendMessageAndAwaitResponse(
@@ -547,7 +547,7 @@ export class Capture extends KojiBridge {
   select(options?: CaptureSelectOptions, verbose?: false): Promise<string>;
   select(options: CaptureSelectOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async select(options: CaptureSelectOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async select(options: CaptureSelectOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const transformedOptions = this.transformInitialValueOptions(options);
 
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
@@ -587,7 +587,7 @@ export class Capture extends KojiBridge {
   sound(options?: CaptureSoundOptions, verbose?: false): Promise<string>;
   sound(options: CaptureSoundOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async sound(options: CaptureSoundOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async sound(options: CaptureSoundOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -625,7 +625,7 @@ export class Capture extends KojiBridge {
   video(options?: CaptureVideoOptions, verbose?: false): Promise<string>;
   video(options: CaptureVideoOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',

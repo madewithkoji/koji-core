@@ -2,6 +2,9 @@ import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 
+/**
+ * API routes for secret/keystore methods.
+ */
 enum SecretRoutes {
   KEYSTORE_GET = '/v1/keystore/get',
   CREATE_SIGNED_REQUEST = '/v1/cdn/signedRequest/create',
@@ -14,7 +17,15 @@ export class Secret extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
-  constructor(config: BackendConfigurationInput) {
+  /**
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const secret = new KojiBackend.Secret({ res });
+   * ```
+   */
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://rest.api.gokoji.com';

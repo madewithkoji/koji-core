@@ -2,6 +2,9 @@ import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 
+/**
+ * API routes for database methods.
+ */
 export enum DatabaseRoutes {
   ARRAY_PUSH = '/v1/store/update/push',
   ARRAY_REMOVE = '/v1/store/update/remove',
@@ -15,6 +18,9 @@ export enum DatabaseRoutes {
   UPDATE = '/v1/store/update',
 }
 
+/**
+ * Available operator types for database comparisons.
+ */
 export enum PredicateOperator {
   LESS_THAN = '<',
   LESS_THAN_OR_EQUAL_TO = '<=',
@@ -36,16 +42,14 @@ export class Database extends Base {
   private rootHeaders: Object;
 
   /**
-   * Instantiates [[Database]].
-   *
    * @param   config
    *
    * @example
    * ```javascript
-   * const database = new KojiBackend.Database({ config });
+   * const database = new KojiBackend.Database({ res });
    * ```
    */
-  constructor(config: BackendConfigurationInput) {
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://database.api.gokoji.com';

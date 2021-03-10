@@ -11,7 +11,7 @@ export class Navigate extends KojiBridge {
    * @param url The url to navigate to
    */
   @client
-  to(url: string): void {
+  public to(url: string): void {
     this.sendMessage({
       kojiEventName: 'Koji.Navigate',
       data: {
@@ -29,7 +29,7 @@ export class Navigate extends KojiBridge {
    * @param url The url to present in the modal
    */
   @client
-  presentInModal(url: string): void {
+  public presentInModal(url: string): void {
     this.sendMessage({
       kojiEventName: 'Koji.Navigate',
       data: {
@@ -45,7 +45,7 @@ export class Navigate extends KojiBridge {
    * @param appId [appId] An optional app id; if this parameter is omitted, the current Koji will be remixed
    */
   @client
-  createRemix(appId?: string): void {
+  public createRemix(appId?: string): void {
     this.sendMessage({
       kojiEventName: 'Koji.CreateRemix',
       data: {
@@ -60,7 +60,7 @@ export class Navigate extends KojiBridge {
    * Programmatically open the Koji's share sheet/dialog.
    */
   @client
-  openShareDialog(): void {
+  public openShareDialog(): void {
     this.sendMessage({
       kojiEventName: 'Koji.Share',
       data: {},

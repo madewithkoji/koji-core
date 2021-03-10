@@ -3,6 +3,9 @@ import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 import { IAPToken } from '../../types';
 
+/**
+ * API routes for iap methods.
+ */
 export enum IapRoutes {
   GET_PRODUCT_BY_SKU = '/v1/iap/provider/getProductBySku',
   RESOLVE_RECEIPTS = '/v1/iap/consumer/resolveReceipts',
@@ -35,16 +38,14 @@ export class IAP extends Base {
   private rootHeaders: Object;
 
   /**
-   * Instantiates [[IAP]].
-   *
-   * @param   res
+   * @param   config
    *
    * @example
    * ```javascript
    * const iap = new KojiBackend.IAP({ res });
    * ```
    */
-  constructor(config: BackendConfigurationInput) {
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://rest.api.gokoji.com';

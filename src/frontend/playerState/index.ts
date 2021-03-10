@@ -56,10 +56,12 @@ export type IsRemixingCallback =
  * Manages the context of the Koji to enable distinct experiences for different users and views.
  */
 export class PlayerState extends KojiBridge {
-  context: PlayerStateContext = 'default';
-  receiptType?: ReceiptType;
+  /** The initial context of the Koji. */
+  public context: PlayerStateContext = 'default';
+  /** The type of receipt. */
+  public receiptType?: ReceiptType;
 
-  constructor() {
+  public constructor() {
     super();
 
     // ToDo: Make this better, as it's just a way to get around the isomorphism
@@ -91,7 +93,7 @@ export class PlayerState extends KojiBridge {
    * ```
    */
   @client
-  subscribe(callback: IsRemixingCallback): Function {
+  public subscribe(callback: IsRemixingCallback): Function {
     return this.execCallbackOnMessage(
       ({ isRemixing, editorAttributes }: { isRemixing: boolean; editorAttributes: EditorAttributes }) => {
         callback(isRemixing, editorAttributes);
