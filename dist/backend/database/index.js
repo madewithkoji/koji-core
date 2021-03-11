@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Database = exports.PredicateOperator = exports.DatabaseRoutes = void 0;
+exports.Database = exports.DatabaseHttpStatusCode = exports.PredicateOperator = exports.DatabaseRoutes = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
@@ -64,7 +64,7 @@ exports.DatabaseRoutes = DatabaseRoutes;
 
 var PredicateOperator;
 /**
- * Implements a Koji database for the backend of your Koji. For more information, see [[https://developer.withkoji.com/docs/develop/koji-database | the Koji database developer guide]].
+ * Possible response values when interacting with the database API.
  */
 
 exports.PredicateOperator = PredicateOperator;
@@ -81,6 +81,23 @@ exports.PredicateOperator = PredicateOperator;
   PredicateOperator["IN"] = "in";
   PredicateOperator["NOT_IN"] = "not-in";
 })(PredicateOperator || (exports.PredicateOperator = PredicateOperator = {}));
+
+var DatabaseHttpStatusCode;
+/**
+ * Implements a Koji database for the backend of your Koji. For more information, see [[https://developer.withkoji.com/docs/develop/koji-database | the Koji database developer guide]].
+ */
+
+exports.DatabaseHttpStatusCode = DatabaseHttpStatusCode;
+
+(function (DatabaseHttpStatusCode) {
+  DatabaseHttpStatusCode[DatabaseHttpStatusCode["OK"] = 200] = "OK";
+  DatabaseHttpStatusCode[DatabaseHttpStatusCode["BAD_REQUEST"] = 400] = "BAD_REQUEST";
+  DatabaseHttpStatusCode[DatabaseHttpStatusCode["UNAUTHORIZED"] = 401] = "UNAUTHORIZED";
+  DatabaseHttpStatusCode[DatabaseHttpStatusCode["NOT_FOUND"] = 404] = "NOT_FOUND";
+  DatabaseHttpStatusCode[DatabaseHttpStatusCode["PRECONDITION_FAILED"] = 412] = "PRECONDITION_FAILED";
+  DatabaseHttpStatusCode[DatabaseHttpStatusCode["INTERNAL_SERVER_ERROR"] = 500] = "INTERNAL_SERVER_ERROR";
+  DatabaseHttpStatusCode[DatabaseHttpStatusCode["SERVICE_UNAVAILABLE"] = 503] = "SERVICE_UNAVAILABLE";
+})(DatabaseHttpStatusCode || (exports.DatabaseHttpStatusCode = DatabaseHttpStatusCode = {}));
 
 var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
   (0, _inherits2["default"])(Database, _Base);
@@ -212,7 +229,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
     /**
      * Searches a collection for records that match the specified search criteria.
      * The search criteria are the search field and the search value.
-      *
+     *
      *
      * @typeParam T              Data from a Koji database collection.
      * @param     collection     Name of the collection.
@@ -435,7 +452,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        Document contents.
-     * @return                        New document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
@@ -446,7 +464,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
   }, {
     key: "set",
     value: function () {
-      var _set = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(collection, documentName, documentBody) {
+      var _set = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7(collection, documentName, documentBody, returnDoc) {
         var _yield$axios$post7, data;
 
         return _regenerator["default"].wrap(function _callee7$(_context7) {
@@ -457,7 +475,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.SET), {
                   collection: collection,
                   documentBody: documentBody,
-                  documentName: documentName
+                  documentName: documentName,
+                  returnDoc: returnDoc
                 }, {
                   headers: this.rootHeaders
                 });
@@ -475,7 +494,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
         }, _callee7, this);
       }));
 
-      function set(_x16, _x17, _x18) {
+      function set(_x16, _x17, _x18, _x19) {
         return _set.apply(this, arguments);
       }
 
@@ -487,7 +506,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        New contents.
-     * @return                        Updated document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
@@ -498,7 +518,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
   }, {
     key: "update",
     value: function () {
-      var _update = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8(collection, documentName, documentBody) {
+      var _update = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8(collection, documentName, documentBody, returnDoc) {
         var _yield$axios$post8, data;
 
         return _regenerator["default"].wrap(function _callee8$(_context8) {
@@ -509,7 +529,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.UPDATE), {
                   collection: collection,
                   documentBody: documentBody,
-                  documentName: documentName
+                  documentName: documentName,
+                  returnDoc: returnDoc
                 }, {
                   headers: this.rootHeaders
                 });
@@ -527,7 +548,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
         }, _callee8, this);
       }));
 
-      function update(_x19, _x20, _x21) {
+      function update(_x20, _x21, _x22, _x23) {
         return _update.apply(this, arguments);
       }
 
@@ -539,7 +560,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        Appended contents.
-     * @return                        Updated document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
@@ -550,7 +572,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
   }, {
     key: "arrayPush",
     value: function () {
-      var _arrayPush = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9(collection, documentName, documentBody) {
+      var _arrayPush = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9(collection, documentName, documentBody, returnDoc) {
         var _yield$axios$post9, data;
 
         return _regenerator["default"].wrap(function _callee9$(_context9) {
@@ -561,7 +583,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.ARRAY_PUSH), {
                   collection: collection,
                   documentBody: documentBody,
-                  documentName: documentName
+                  documentName: documentName,
+                  returnDoc: returnDoc
                 }, {
                   headers: this.rootHeaders
                 });
@@ -579,7 +602,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
         }, _callee9, this);
       }));
 
-      function arrayPush(_x22, _x23, _x24) {
+      function arrayPush(_x24, _x25, _x26, _x27) {
         return _arrayPush.apply(this, arguments);
       }
 
@@ -591,7 +614,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        Removed contents.
-     * @return                        Updated document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
@@ -602,7 +626,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
   }, {
     key: "arrayRemove",
     value: function () {
-      var _arrayRemove = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee10(collection, documentName, documentBody) {
+      var _arrayRemove = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee10(collection, documentName, documentBody, returnDoc) {
         var _yield$axios$post10, data;
 
         return _regenerator["default"].wrap(function _callee10$(_context10) {
@@ -613,7 +637,8 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
                 return _axios["default"].post("".concat(this.rootPath).concat(DatabaseRoutes.ARRAY_REMOVE), {
                   collection: collection,
                   documentBody: documentBody,
-                  documentName: documentName
+                  documentName: documentName,
+                  returnDoc: returnDoc
                 }, {
                   headers: this.rootHeaders
                 });
@@ -631,7 +656,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
         }, _callee10, this);
       }));
 
-      function arrayRemove(_x25, _x26, _x27) {
+      function arrayRemove(_x28, _x29, _x30, _x31) {
         return _arrayRemove.apply(this, arguments);
       }
 
@@ -642,7 +667,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
      *
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
-     * @return                        Deleted document.
+     * @return                        An http status code (e.g., OK).
      *
      * @example
      * ```javascript
@@ -681,7 +706,7 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
         }, _callee11, this);
       }));
 
-      function _delete(_x28, _x29) {
+      function _delete(_x32, _x33) {
         return _delete2.apply(this, arguments);
       }
 

@@ -197,7 +197,8 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
      *
      * @example
      * ```javascript
-     * <sbutton onCLick={() => Koji.remix.cancel()}>Cancel</button>
+     * Koji.remix.cancel()
+     * ```
      */
 
   }, {

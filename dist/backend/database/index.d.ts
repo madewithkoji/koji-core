@@ -30,6 +30,54 @@ export declare enum PredicateOperator {
     NOT_IN = "not-in"
 }
 /**
+ * Possible response values when interacting with the database API.
+ */
+export declare enum DatabaseHttpStatusCode {
+    /**
+     * Standard response for successful HTTP requests.
+     */
+    OK = 200,
+    /**
+     * The server cannot or will not process the request due to an apparent client error
+     *
+     * One of the following error conditions:
+     * Unable to parse data.
+     * Missing data.
+     * The request attempts data that is too large.
+     * The data contains invalid child names as part of the path.
+     * The data path is too long.
+     * The request contains an unrecognized server value.
+     * The request does not support one of the query parameters that is specified.
+     * The request mixes query parameters with a shallow request.
+     */
+    BAD_REQUEST = 400,
+    /**
+     * Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet
+     * been provided.
+     *
+     * One of the following error conditions:
+     * The auth token has expired or missing.
+     * The auth token used in the request is invalid.
+     */
+    UNAUTHORIZED = 401,
+    /**
+     * The specified Database was not found.
+     */
+    NOT_FOUND = 404,
+    /**
+     * The request's specified ETag value in the if-match header did not match the server's value.
+     */
+    PRECONDITION_FAILED = 412,
+    /**
+     * A server error occurred.
+     */
+    INTERNAL_SERVER_ERROR = 500,
+    /**
+     * The specified Database is temporarily unavailable, which means the request was not attempted.
+     */
+    SERVICE_UNAVAILABLE = 503
+}
+/**
  * Implements a Koji database for the backend of your Koji. For more information, see [[https://developer.withkoji.com/docs/develop/koji-database | the Koji database developer guide]].
  */
 export declare class Database extends Base {
@@ -73,7 +121,7 @@ export declare class Database extends Base {
     /**
      * Searches a collection for records that match the specified search criteria.
      * The search criteria are the search field and the search value.
-      *
+     *
      *
      * @typeParam T              Data from a Koji database collection.
      * @param     collection     Name of the collection.
@@ -141,69 +189,73 @@ export declare class Database extends Base {
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        Document contents.
-     * @return                        New document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
      * const myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');
      * ```
      */
-    set(collection: string, documentName: string, documentBody: any): Promise<boolean>;
+    set(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any>;
     /**
      * Replaces the contents of an existing document in a collection.
      *
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        New contents.
-     * @return                        Updated document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
      * const myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');
      * ```
      */
-    update(collection: string, documentName: string, documentBody: any): Promise<boolean | void>;
+    update(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any>;
     /**
      * Appends contents to an existing document in a collection.
      *
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        Appended contents.
-     * @return                        Updated document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
      * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents appended to end of document');
      * ```
      */
-    arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void>;
+    arrayPush(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any>;
     /**
      * Removes part of the contents from an existing document in a collection.
      *
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
      * @param     documentBody        Removed contents.
-     * @return                        Updated document.
+     * @param     returnDoc           Return the updated doc as a response.
+     * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
      *
      * @example
      * ```javascript
      * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents to be removed from document');
      * ```
      */
-    arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void>;
+    arrayRemove(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any>;
     /**
      * Deletes a document from a collection.
      *
      * @param     collection          Name of the collection.
      * @param     documentName        Document name.
-     * @return                        Deleted document.
+     * @return                        An http status code (e.g., OK).
      *
      * @example
      * ```javascript
      * const myData = await database.delete('myCollection', 'myDocument');
      * ```
      */
-    delete(collection: string, documentName: string): Promise<boolean | void>;
+    delete(collection: string, documentName: string): Promise<DatabaseHttpStatusCode>;
 }
 export interface IDatabase extends Database {
 }
