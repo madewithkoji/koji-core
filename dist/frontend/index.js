@@ -45,6 +45,13 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
  * Provides frontend methods for your Koji.
  */
 var Koji = (_class = (_temp = /*#__PURE__*/function () {
+  /** Indicates that the Koji.ready() call has been made. */
+
+  /** Indicates that the Koji.config() call has been made. */
+
+  /** The configured service endpoints. */
+
+  /** The project's id. */
   function Koji() {
     (0, _classCallCheck2["default"])(this, Koji);
     (0, _defineProperty2["default"])(this, "isReady", void 0);

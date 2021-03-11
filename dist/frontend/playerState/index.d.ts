@@ -46,7 +46,9 @@ export declare type IsRemixingCallback =
  * Manages the context of the Koji to enable distinct experiences for different users and views.
  */
 export declare class PlayerState extends KojiBridge {
+    /** The initial context of the Koji. */
     context: PlayerStateContext;
+    /** The type of receipt. */
     receiptType?: ReceiptType;
     constructor();
     /**

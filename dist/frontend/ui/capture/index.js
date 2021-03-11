@@ -56,7 +56,7 @@ exports.CaptureStatus = CaptureStatus;
 
 var CaptureType;
 /**
- * Metadata when the capture option for a media capture request's return type 
+ * Metadata when the capture option for a media capture request's return type
  * is set to `extended`.
  */
 
@@ -70,7 +70,7 @@ exports.CaptureType = CaptureType;
   CaptureType["MEDIA"] = "media";
   CaptureType["RANGE"] = "range";
   CaptureType["SELECT"] = "select";
-  CaptureType["SOUND"] = "sound";
+  CaptureType["SOUND"] = "audio";
   CaptureType["VIDEO"] = "video";
 })(CaptureType || (exports.CaptureType = CaptureType = {}));
 
@@ -151,6 +151,95 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
       return transformedOptions;
     }
     /**
+     * Prompts the user to select a sound by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting a sound.
+     *
+     * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+     *
+     * @param   options
+     * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
+     * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
+     *
+     * @example
+     * ```javascript
+     * const audio = await Koji.ui.capture.audio();
+     *
+     * // Hide asset packs and return an object
+     * const audio = await Koji.ui.capture.audio({ hideExtensions: true }, true);
+     * ```
+     */
+
+  }, {
+    key: "audio",
+    value: function () {
+      var _audio = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+        var options,
+            verbose,
+            _data,
+            data,
+            _args = arguments;
+
+        return _regenerator["default"].wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
+                verbose = _args.length > 1 ? _args[1] : undefined;
+
+                if (!verbose) {
+                  _context.next = 7;
+                  break;
+                }
+
+                _context.next = 5;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['audio'],
+                      audioOptions: options,
+                      returnType: 'extended'
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
+
+              case 5:
+                _data = _context.sent;
+                return _context.abrupt("return", this.pickVerboseResultFromMessage(_data));
+
+              case 7:
+                _context.next = 9;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['audio'],
+                      audioOptions: options,
+                      returnType: 'url'
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
+
+              case 9:
+                data = _context.sent;
+                return _context.abrupt("return", this.pickResultFromMessage(data));
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function audio() {
+        return _audio.apply(this, arguments);
+      }
+
+      return audio;
+    }()
+    /**
      * Prompts the user to select a color, either from a swatch or by entering a color code. Supports HEX, RGB, or HSL by default. Supports RBGA or HSLA, if transparency is enabled in the capture options.
      *
      * @param   options
@@ -162,27 +251,27 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
      * const color = await Koji.ui.capture.color();
      *
      * // Enable transparency and return an object
-     * const color = await Koji.ui.capture.color({ allowAlpha: true, verbose: true });
+     * const color = await Koji.ui.capture.color({ allowAlpha: true }, true);
      * ```
      */
 
   }, {
     key: "color",
     value: function () {
-      var _color = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+      var _color = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
         var options,
             verbose,
             transformedOptions,
             data,
-            _args = arguments;
-        return _regenerator["default"].wrap(function _callee$(_context) {
+            _args2 = arguments;
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
-                options = _args.length > 0 && _args[0] !== undefined ? _args[0] : {};
-                verbose = _args.length > 1 && _args[1] !== undefined ? _args[1] : false;
+                options = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : {};
+                verbose = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : false;
                 transformedOptions = this.transformInitialValueOptions(options);
-                _context.next = 5;
+                _context2.next = 5;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -192,24 +281,24 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'Koji.CaptureSuccess');
 
               case 5:
-                data = _context.sent;
+                data = _context2.sent;
 
                 if (!verbose) {
-                  _context.next = 8;
+                  _context2.next = 8;
                   break;
                 }
 
-                return _context.abrupt("return", this.pickVerboseResultFromMessage(data));
+                return _context2.abrupt("return", this.pickVerboseResultFromMessage(data));
 
               case 8:
-                return _context.abrupt("return", this.pickResultFromMessage(data));
+                return _context2.abrupt("return", this.pickResultFromMessage(data));
 
               case 9:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function color() {
@@ -234,31 +323,31 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "custom",
     value: function () {
-      var _custom = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
+      var _custom = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
         var options,
             verbose,
             name,
             url,
             typeOptions,
             data,
-            _args2 = arguments;
-        return _regenerator["default"].wrap(function _callee2$(_context2) {
+            _args3 = arguments;
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                options = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : {};
-                verbose = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : false;
+                options = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : {};
+                verbose = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : false;
                 name = options.name, url = options.url, typeOptions = (0, _objectWithoutProperties2["default"])(options, ["name", "url"]);
 
                 if (!(!name && !url)) {
-                  _context2.next = 5;
+                  _context3.next = 5;
                   break;
                 }
 
                 throw new Error('Please supply the custom name or url for the Custom VCC you would like to load.');
 
               case 5:
-                _context2.next = 7;
+                _context3.next = 7;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -268,24 +357,24 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'Koji.CaptureSuccess');
 
               case 7:
-                data = _context2.sent;
+                data = _context3.sent;
 
                 if (!verbose) {
-                  _context2.next = 10;
+                  _context3.next = 10;
                   break;
                 }
 
-                return _context2.abrupt("return", this.pickVerboseResultFromMessage(data));
+                return _context3.abrupt("return", this.pickVerboseResultFromMessage(data));
 
               case 10:
-                return _context2.abrupt("return", data.result);
+                return _context3.abrupt("return", data.result);
 
               case 11:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
       function custom() {
@@ -297,7 +386,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     /**
      * Prompts the user to upload a file of any type. Use this method to allow the user to upload raw files in their original format. For example, to capture high-resolution images for download rather than for display in a browser.
      *
-     * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[sound]], or [[media]].
+     * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[audio]], or [[media]].
      *
      * @param   options
      * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
@@ -308,52 +397,73 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
      * const file = await Koji.ui.capture.file();
      *
      * // Return an object
-     * const file = await Koji.ui.capture.file({ verbose: true });
+     * const file = await Koji.ui.capture.file({}, true);
      * ```
      */
 
   }, {
     key: "file",
     value: function () {
-      var _file = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee3() {
+      var _file = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4() {
         var options,
             verbose,
+            _data2,
             data,
-            _args3 = arguments;
-        return _regenerator["default"].wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                options = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : {};
-                verbose = _args3.length > 1 ? _args3[1] : undefined;
-                _context3.next = 4;
-                return this.sendMessageAndAwaitResponse({
-                  kojiEventName: 'Koji.Capture',
-                  data: {
-                    type: 'file',
-                    options: options
-                  }
-                }, 'Koji.CaptureSuccess');
+            _args4 = arguments;
 
-              case 4:
-                data = _context3.sent;
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                options = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : {};
+                verbose = _args4.length > 1 ? _args4[1] : undefined;
 
                 if (!verbose) {
-                  _context3.next = 7;
+                  _context4.next = 7;
                   break;
                 }
 
-                return _context3.abrupt("return", this.pickVerboseResultFromMessage(data));
+                _context4.next = 5;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['file'],
+                      fileOptions: options,
+                      returnType: 'extended'
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
+
+              case 5:
+                _data2 = _context4.sent;
+                return _context4.abrupt("return", this.pickVerboseResultFromMessage(_data2));
 
               case 7:
-                return _context3.abrupt("return", this.pickResultFromMessage(data));
+                _context4.next = 9;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['file'],
+                      fileOptions: options,
+                      returnType: 'url'
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
 
-              case 8:
+              case 9:
+                data = _context4.sent;
+                return _context4.abrupt("return", this.pickResultFromMessage(data));
+
+              case 11:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
       function file() {
@@ -376,52 +486,73 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
      * const image = await Koji.ui.capture.image();
      *
      * // Hide asset packs and return an object
-     * const image = await Koji.ui.capture.image({ hideExtensions: true, verbose: true });
+     * const image = await Koji.ui.capture.image({ hideExtensions: true }, true);
      * ```
      */
 
   }, {
     key: "image",
     value: function () {
-      var _image = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee4() {
+      var _image = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5() {
         var options,
             verbose,
+            _data3,
             data,
-            _args4 = arguments;
-        return _regenerator["default"].wrap(function _callee4$(_context4) {
-          while (1) {
-            switch (_context4.prev = _context4.next) {
-              case 0:
-                options = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : {};
-                verbose = _args4.length > 1 ? _args4[1] : undefined;
-                _context4.next = 4;
-                return this.sendMessageAndAwaitResponse({
-                  kojiEventName: 'Koji.Capture',
-                  data: {
-                    type: 'image',
-                    options: options
-                  }
-                }, 'Koji.CaptureSuccess');
+            _args5 = arguments;
 
-              case 4:
-                data = _context4.sent;
+        return _regenerator["default"].wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                options = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : {};
+                verbose = _args5.length > 1 ? _args5[1] : undefined;
 
                 if (!verbose) {
-                  _context4.next = 7;
+                  _context5.next = 7;
                   break;
                 }
 
-                return _context4.abrupt("return", this.pickVerboseResultFromMessage(data));
+                _context5.next = 5;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['image'],
+                      imageOptions: options,
+                      returnType: 'extended'
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
+
+              case 5:
+                _data3 = _context5.sent;
+                return _context5.abrupt("return", this.pickVerboseResultFromMessage(_data3));
 
               case 7:
-                return _context4.abrupt("return", this.pickResultFromMessage(data));
+                _context5.next = 9;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['image'],
+                      imageOptions: options,
+                      returnType: 'url'
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
 
-              case 8:
+              case 9:
+                data = _context5.sent;
+                return _context5.abrupt("return", this.pickResultFromMessage(data));
+
+              case 11:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee5, this);
       }));
 
       function image() {
@@ -442,25 +573,25 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
      * const koji = await Koji.ui.capture.koji();
      *
      * // Return an object
-     * const koji = await Koji.ui.capture.koji({ verbose: true });
+     * const koji = await Koji.ui.capture.koji({}, true);
      * ```
      */
 
   }, {
     key: "link",
     value: function () {
-      var _link = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee5() {
+      var _link = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6() {
         var options,
             verbose,
             data,
-            _args5 = arguments;
-        return _regenerator["default"].wrap(function _callee5$(_context5) {
+            _args6 = arguments;
+        return _regenerator["default"].wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                options = _args5.length > 0 && _args5[0] !== undefined ? _args5[0] : {};
-                verbose = _args5.length > 1 ? _args5[1] : undefined;
-                _context5.next = 4;
+                options = _args6.length > 0 && _args6[0] !== undefined ? _args6[0] : {};
+                verbose = _args6.length > 1 ? _args6[1] : undefined;
+                _context6.next = 4;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -470,24 +601,24 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'Koji.CaptureSuccess');
 
               case 4:
-                data = _context5.sent;
+                data = _context6.sent;
 
                 if (!verbose) {
-                  _context5.next = 7;
+                  _context6.next = 7;
                   break;
                 }
 
-                return _context5.abrupt("return", this.pickVerboseResultFromMessage(data));
+                return _context6.abrupt("return", this.pickVerboseResultFromMessage(data));
 
               case 7:
-                return _context5.abrupt("return", this.pickResultFromMessage(data));
+                return _context6.abrupt("return", this.pickResultFromMessage(data));
 
               case 8:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, this);
+        }, _callee6, this);
       }));
 
       function link() {
@@ -497,7 +628,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
       return link;
     }()
     /**
-     * Prompts the user to select an image, file, sound, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
+     * Prompts the user to select an image, file, audio, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
      *
      * @param   options
      * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata.
@@ -508,33 +639,33 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
      * const media = await Koji.ui.capture.media();
      *
      * // Limit to image or video, hide asset packs, return an object with extended metadata, transcode videos for HLS
-     * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true }, verbose: true });
+     * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true } }, true);
      * ```
      */
 
   }, {
     key: "media",
     value: function () {
-      var _media = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee6() {
+      var _media = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7() {
         var options,
             verbose,
-            _data,
+            _data4,
             data,
-            _args6 = arguments;
+            _args7 = arguments;
 
-        return _regenerator["default"].wrap(function _callee6$(_context6) {
+        return _regenerator["default"].wrap(function _callee7$(_context7) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context7.prev = _context7.next) {
               case 0:
-                options = _args6.length > 0 && _args6[0] !== undefined ? _args6[0] : {};
-                verbose = _args6.length > 1 ? _args6[1] : undefined;
+                options = _args7.length > 0 && _args7[0] !== undefined ? _args7[0] : {};
+                verbose = _args7.length > 1 ? _args7[1] : undefined;
 
                 if (!verbose) {
-                  _context6.next = 7;
+                  _context7.next = 7;
                   break;
                 }
 
-                _context6.next = 5;
+                _context7.next = 5;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -546,11 +677,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'Koji.CaptureSuccess');
 
               case 5:
-                _data = _context6.sent;
-                return _context6.abrupt("return", this.pickVerboseResultFromMessage(_data));
+                _data4 = _context7.sent;
+                return _context7.abrupt("return", this.pickVerboseResultFromMessage(_data4));
 
               case 7:
-                _context6.next = 9;
+                _context7.next = 9;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -562,15 +693,15 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'Koji.CaptureSuccess');
 
               case 9:
-                data = _context6.sent;
-                return _context6.abrupt("return", this.pickResultFromMessage(data));
+                data = _context7.sent;
+                return _context7.abrupt("return", this.pickResultFromMessage(data));
 
               case 11:
               case "end":
-                return _context6.stop();
+                return _context7.stop();
             }
           }
-        }, _callee6, this);
+        }, _callee7, this);
       }));
 
       function media() {
@@ -591,27 +722,27 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
      * const size = await Koji.ui.capture.range();
      *
      * // Return an object
-     * const size = await Koji.ui.capture.range({ min: 0, max: 60, step: 3, verbose: true });
+     * const size = await Koji.ui.capture.range({ min: 0, max: 60, step: 3 }, true);
      * ```
      */
 
   }, {
     key: "range",
     value: function () {
-      var _range = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee7() {
+      var _range = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8() {
         var options,
             verbose,
             transformedOptions,
             data,
-            _args7 = arguments;
-        return _regenerator["default"].wrap(function _callee7$(_context7) {
+            _args8 = arguments;
+        return _regenerator["default"].wrap(function _callee8$(_context8) {
           while (1) {
-            switch (_context7.prev = _context7.next) {
+            switch (_context8.prev = _context8.next) {
               case 0:
-                options = _args7.length > 0 && _args7[0] !== undefined ? _args7[0] : {};
-                verbose = _args7.length > 1 ? _args7[1] : undefined;
+                options = _args8.length > 0 && _args8[0] !== undefined ? _args8[0] : {};
+                verbose = _args8.length > 1 ? _args8[1] : undefined;
                 transformedOptions = this.transformInitialValueOptions(options);
-                _context7.next = 5;
+                _context8.next = 5;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -621,24 +752,24 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'Koji.CaptureSuccess');
 
               case 5:
-                data = _context7.sent;
+                data = _context8.sent;
 
                 if (!verbose) {
-                  _context7.next = 8;
+                  _context8.next = 8;
                   break;
                 }
 
-                return _context7.abrupt("return", this.pickVerboseResultFromMessage(data));
+                return _context8.abrupt("return", this.pickVerboseResultFromMessage(data));
 
               case 8:
-                return _context7.abrupt("return", this.pickResultFromMessage(data));
+                return _context8.abrupt("return", this.pickResultFromMessage(data));
 
               case 9:
               case "end":
-                return _context7.stop();
+                return _context8.stop();
             }
           }
-        }, _callee7, this);
+        }, _callee8, this);
       }));
 
       function range() {
@@ -671,20 +802,20 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "select",
     value: function () {
-      var _select = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee8() {
+      var _select = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9() {
         var options,
             verbose,
             transformedOptions,
             data,
-            _args8 = arguments;
-        return _regenerator["default"].wrap(function _callee8$(_context8) {
+            _args9 = arguments;
+        return _regenerator["default"].wrap(function _callee9$(_context9) {
           while (1) {
-            switch (_context8.prev = _context8.next) {
+            switch (_context9.prev = _context9.next) {
               case 0:
-                options = _args8.length > 0 && _args8[0] !== undefined ? _args8[0] : {};
-                verbose = _args8.length > 1 ? _args8[1] : undefined;
+                options = _args9.length > 0 && _args9[0] !== undefined ? _args9[0] : {};
+                verbose = _args9.length > 1 ? _args9[1] : undefined;
                 transformedOptions = this.transformInitialValueOptions(options);
-                _context8.next = 5;
+                _context9.next = 5;
                 return this.sendMessageAndAwaitResponse({
                   kojiEventName: 'Koji.Capture',
                   data: {
@@ -694,87 +825,19 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'Koji.CaptureSuccess');
 
               case 5:
-                data = _context8.sent;
-
-                if (!verbose) {
-                  _context8.next = 8;
-                  break;
-                }
-
-                return _context8.abrupt("return", this.pickVerboseResultFromMessage(data));
-
-              case 8:
-                return _context8.abrupt("return", this.pickResultFromMessage(data));
-
-              case 9:
-              case "end":
-                return _context8.stop();
-            }
-          }
-        }, _callee8, this);
-      }));
-
-      function select() {
-        return _select.apply(this, arguments);
-      }
-
-      return select;
-    }()
-    /**
-     * Prompts the user to select a sound by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting a sound.
-     *
-     * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
-     *
-     * @param   options
-     * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
-     * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
-     *
-     * @example
-     * ```javascript
-     * const sound = await Koji.ui.capture.sound();
-     *
-     * // Hide asset packs and return an object
-     * const sound = await Koji.ui.capture.sound({ hideExtensions: true, verbose: true });
-     * ```
-     */
-
-  }, {
-    key: "sound",
-    value: function () {
-      var _sound = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee9() {
-        var options,
-            verbose,
-            data,
-            _args9 = arguments;
-        return _regenerator["default"].wrap(function _callee9$(_context9) {
-          while (1) {
-            switch (_context9.prev = _context9.next) {
-              case 0:
-                options = _args9.length > 0 && _args9[0] !== undefined ? _args9[0] : {};
-                verbose = _args9.length > 1 ? _args9[1] : undefined;
-                _context9.next = 4;
-                return this.sendMessageAndAwaitResponse({
-                  kojiEventName: 'Koji.Capture',
-                  data: {
-                    type: 'sound',
-                    options: options
-                  }
-                }, 'Koji.CaptureSuccess');
-
-              case 4:
                 data = _context9.sent;
 
                 if (!verbose) {
-                  _context9.next = 7;
+                  _context9.next = 8;
                   break;
                 }
 
                 return _context9.abrupt("return", this.pickVerboseResultFromMessage(data));
 
-              case 7:
+              case 8:
                 return _context9.abrupt("return", this.pickResultFromMessage(data));
 
-              case 8:
+              case 9:
               case "end":
                 return _context9.stop();
             }
@@ -782,11 +845,11 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
         }, _callee9, this);
       }));
 
-      function sound() {
-        return _sound.apply(this, arguments);
+      function select() {
+        return _select.apply(this, arguments);
       }
 
-      return sound;
+      return select;
     }()
     /**
      * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
@@ -802,7 +865,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
      * const video = await Koji.ui.capture.video();
      *
      * // Transcode for HLS and return an object
-     * const video = await Koji.ui.capture.video({ hls: true, verbose: true });
+     * const video = await Koji.ui.capture.video({ hls: true }, true);
      * ```
      */
 
@@ -812,37 +875,58 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
       var _video = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee10() {
         var options,
             verbose,
+            _data5,
             data,
             _args10 = arguments;
+
         return _regenerator["default"].wrap(function _callee10$(_context10) {
           while (1) {
             switch (_context10.prev = _context10.next) {
               case 0:
                 options = _args10.length > 0 && _args10[0] !== undefined ? _args10[0] : {};
                 verbose = _args10.length > 1 ? _args10[1] : undefined;
-                _context10.next = 4;
-                return this.sendMessageAndAwaitResponse({
-                  kojiEventName: 'Koji.Capture',
-                  data: {
-                    type: 'video',
-                    options: options
-                  }
-                }, 'Koji.CaptureSuccess');
-
-              case 4:
-                data = _context10.sent;
 
                 if (!verbose) {
                   _context10.next = 7;
                   break;
                 }
 
-                return _context10.abrupt("return", this.pickVerboseResultFromMessage(data));
+                _context10.next = 5;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['video'],
+                      returnType: 'extended',
+                      videoOptions: options
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
+
+              case 5:
+                _data5 = _context10.sent;
+                return _context10.abrupt("return", this.pickVerboseResultFromMessage(_data5));
 
               case 7:
+                _context10.next = 9;
+                return this.sendMessageAndAwaitResponse({
+                  kojiEventName: 'Koji.Capture',
+                  data: {
+                    type: 'media',
+                    options: {
+                      acceptOnly: ['video'],
+                      returnType: 'url',
+                      videoOptions: options
+                    }
+                  }
+                }, 'Koji.CaptureSuccess');
+
+              case 9:
+                data = _context10.sent;
                 return _context10.abrupt("return", this.pickResultFromMessage(data));
 
-              case 8:
+              case 11:
               case "end":
                 return _context10.stop();
             }
@@ -858,7 +942,7 @@ var Capture = (_class = /*#__PURE__*/function (_KojiBridge) {
     }()
   }]);
   return Capture;
-}(_kojiBridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "color", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "color"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "custom", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "custom"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "file", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "file"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "image", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "image"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "link", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "link"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "media", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "media"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "range", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "range"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "select", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "select"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "sound", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "sound"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "video", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "video"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "audio", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "audio"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "color", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "color"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "custom", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "custom"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "file", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "file"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "image", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "image"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "link", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "link"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "media", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "media"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "range", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "range"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "select", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "select"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "video", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "video"), _class.prototype)), _class);
 exports.Capture = Capture;
 var capture = new Capture();
 exports.capture = capture;

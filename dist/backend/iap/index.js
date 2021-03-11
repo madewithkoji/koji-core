@@ -43,6 +43,9 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
+/**
+ * API routes for iap methods.
+ */
 var IapRoutes;
 /**
  * Defines an interface for a receipt.
@@ -68,9 +71,7 @@ var IAP = (_class = (_temp = /*#__PURE__*/function (_Base) {
   var _super = _createSuper(IAP);
 
   /**
-   * Instantiates [[IAP]].
-   *
-   * @param   res
+   * @param   config
    *
    * @example
    * ```javascript

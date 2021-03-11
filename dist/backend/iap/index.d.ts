@@ -1,5 +1,8 @@
 import { Base, BackendConfigurationInput } from '../base';
 import { IAPToken } from '../../types';
+/**
+ * API routes for iap methods.
+ */
 export declare enum IapRoutes {
     GET_PRODUCT_BY_SKU = "/v1/iap/provider/getProductBySku",
     RESOLVE_RECEIPTS = "/v1/iap/consumer/resolveReceipts",
@@ -31,9 +34,7 @@ export declare class IAP extends Base {
     private rootPath;
     private rootHeaders;
     /**
-     * Instantiates [[IAP]].
-     *
-     * @param   res
+     * @param   config
      *
      * @example
      * ```javascript

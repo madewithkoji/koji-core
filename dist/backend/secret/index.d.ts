@@ -5,6 +5,14 @@ import { Base, BackendConfigurationInput } from '../base';
 export declare class Secret extends Base {
     private rootPath;
     private rootHeaders;
+    /**
+     * @param   config
+     *
+     * @example
+     * ```javascript
+     * const secret = new KojiBackend.Secret({ res });
+     * ```
+     */
     constructor(config: BackendConfigurationInput);
     /**
      * Gets the value for a secret key.

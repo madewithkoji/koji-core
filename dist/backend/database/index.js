@@ -39,7 +39,14 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
+/**
+ * API routes for database methods.
+ */
 var DatabaseRoutes;
+/**
+ * Available operator types for database comparisons.
+ */
+
 exports.DatabaseRoutes = DatabaseRoutes;
 
 (function (DatabaseRoutes) {
@@ -81,13 +88,11 @@ var Database = (_class = (_temp = /*#__PURE__*/function (_Base) {
   var _super = _createSuper(Database);
 
   /**
-   * Instantiates [[Database]].
-   *
    * @param   config
    *
    * @example
    * ```javascript
-   * const database = new KojiBackend.Database({ config });
+   * const database = new KojiBackend.Database({ res });
    * ```
    */
   function Database(config) {

@@ -162,8 +162,6 @@ var Dispatch = /*#__PURE__*/function () {
           latencyMs = _JSON$parse.latencyMs,
           payload = _JSON$parse.payload;
 
-      console.log('message', data);
-
       if (eventName === PlatformEvents.CONNECTED) {
         this.initialConnection = true;
         this.isConnected = true;

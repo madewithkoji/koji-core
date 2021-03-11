@@ -39,6 +39,9 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
+/**
+ * API routes for secret/keystore methods.
+ */
 var SecretRoutes;
 /**
  * Implements a class for handling secret keys in your Koji.
@@ -54,6 +57,14 @@ var Secret = (_class = (_temp = /*#__PURE__*/function (_Base) {
 
   var _super = _createSuper(Secret);
 
+  /**
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const secret = new KojiBackend.Secret({ res });
+   * ```
+   */
   function Secret(config) {
     var _this;
 

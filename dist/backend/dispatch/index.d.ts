@@ -1,4 +1,4 @@
-import { Base } from '../base';
+import { Base, BackendConfigurationInput } from '../base';
 /**
  * Defines constants for Koji platform events.
  */
@@ -48,6 +48,15 @@ export declare class Dispatch extends Base {
     private eventHandlers;
     private messageQueue;
     private ws;
+    /**
+     * @param   config
+     *
+     * @example
+     * ```javascript
+     * const dispatch = new KojiBackend.Dispatch({ res });
+     * ```
+     */
+    constructor(config: BackendConfigurationInput);
     /**
      * Gets shard info for the current project.
      *

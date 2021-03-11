@@ -37,9 +37,13 @@ export interface KojiConfigOptions {
  * Provides frontend methods for your Koji.
  */
 export declare class Koji {
+    /** Indicates that the Koji.ready() call has been made. */
     isReady: boolean;
+    /** Indicates that the Koji.config() call has been made. */
     configInitialized: boolean;
+    /** The configured service endpoints. */
     services: Services;
+    /** The project's id. */
     projectId?: string;
     analytics: Analytics;
     dispatch: Dispatch;

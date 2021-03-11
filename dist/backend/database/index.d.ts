@@ -1,4 +1,7 @@
 import { Base, BackendConfigurationInput } from '../base';
+/**
+ * API routes for database methods.
+ */
 export declare enum DatabaseRoutes {
     ARRAY_PUSH = "/v1/store/update/push",
     ARRAY_REMOVE = "/v1/store/update/remove",
@@ -11,6 +14,9 @@ export declare enum DatabaseRoutes {
     SET = "/v1/store/set",
     UPDATE = "/v1/store/update"
 }
+/**
+ * Available operator types for database comparisons.
+ */
 export declare enum PredicateOperator {
     LESS_THAN = "<",
     LESS_THAN_OR_EQUAL_TO = "<=",
@@ -30,13 +36,11 @@ export declare class Database extends Base {
     private rootPath;
     private rootHeaders;
     /**
-     * Instantiates [[Database]].
-     *
      * @param   config
      *
      * @example
      * ```javascript
-     * const database = new KojiBackend.Database({ config });
+     * const database = new KojiBackend.Database({ res });
      * ```
      */
     constructor(config: BackendConfigurationInput);

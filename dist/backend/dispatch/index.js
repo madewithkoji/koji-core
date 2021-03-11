@@ -68,16 +68,19 @@ var Dispatch = /*#__PURE__*/function (_Base) {
 
   var _super = _createSuper(Dispatch);
 
-  function Dispatch() {
+  /**
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const dispatch = new KojiBackend.Dispatch({ res });
+   * ```
+   */
+  function Dispatch(config) {
     var _this;
 
     (0, _classCallCheck2["default"])(this, Dispatch);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
+    _this = _super.call(this, config);
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "authToken", void 0);
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "initialConnection", false);
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "isConnected", false);
@@ -86,20 +89,20 @@ var Dispatch = /*#__PURE__*/function (_Base) {
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "ws", null);
     return _this;
   }
+  /**
+   * Gets shard info for the current project.
+   *
+   * @return                   Shard info in the form of an array.
+   *
+   * @example
+   * ```javascript
+   * const myInfo = await dispatch.info('myCollection');
+   * ```
+   */
+
 
   (0, _createClass2["default"])(Dispatch, [{
     key: "info",
-
-    /**
-     * Gets shard info for the current project.
-     *
-     * @return                   Shard info in the form of an array.
-     *
-     * @example
-     * ```javascript
-     * const myInfo = await dispatch.info('myCollection');
-     * ```
-     */
     value: function () {
       var _info = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
         var _yield$axios$get, data;

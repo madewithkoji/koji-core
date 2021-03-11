@@ -1,10 +1,16 @@
 import { Base, BackendConfigurationInput } from '../base';
 import { UserToken } from '../../types';
+/**
+ * API routes for auth methods.
+ */
 export declare enum AuthRoutes {
     GET_GRANT = "/v1/apps/auth/consumer/getGrantForToken",
     GET_ROLE = "/v1/apps/auth/consumer/getRoleForToken",
     PUSH_NOTIFICATION = "/v1/apps/auth/consumer/pushNotification"
 }
+/**
+ * Possible values for a user's role within a Koji.
+ */
 export declare enum UserRole {
     ADMIN = "admin",
     UNKNOWN = "unknown",
@@ -44,13 +50,11 @@ export declare class Identity extends Base {
     private rootPath;
     private rootHeaders;
     /**
-     * Instantiates [[Identity]].
-     *
      * @param   config
      *
      * @example
      * ```javascript
-     * const identity = new KojiBackend.Identity({ config });
+     * const identity = new KojiBackend.Identity({ res });
      * ```
      */
     constructor(config: BackendConfigurationInput);

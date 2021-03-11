@@ -43,6 +43,9 @@ var PlayerState = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
 
   var _super = _createSuper(PlayerState);
 
+  /** The initial context of the Koji. */
+
+  /** The type of receipt. */
   function PlayerState() {
     var _this;
 

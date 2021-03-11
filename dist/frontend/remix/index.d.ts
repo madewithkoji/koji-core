@@ -92,6 +92,14 @@ export declare class Remix extends KojiBridge {
      */
     finish(): void;
     /**
+     * Cancels the remix experience and navigates the user back to where they were before they started remixing. If the user has made changes, they will be prompted by the Koji platform to confirm this action.
+     *
+     * @example
+     * ```javascript
+     * <sbutton onCLick={() => Koji.remix.cancel()}>Cancel</button>
+     */
+    cancel(): void;
+    /**
      * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
      *
      * @param   rawValue       Value to encrypt.
