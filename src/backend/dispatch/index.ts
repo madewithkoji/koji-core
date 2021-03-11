@@ -84,7 +84,7 @@ export class Dispatch extends Base {
    *
    * @example
    * ```javascript
-   * const database = new KojiBackend.Database({ res });
+   * const dispatch = new KojiBackend.Dispatch({ res });
    * ```
    */
   public constructor(config: BackendConfigurationInput) {

@@ -255,7 +255,7 @@ export class Capture extends KojiBridge {
    * const color = await Koji.ui.capture.color();
    *
    * // Enable transparency and return an object
-   * const color = await Koji.ui.capture.color({ allowAlpha: true, verbose: true });
+   * const color = await Koji.ui.capture.color({ allowAlpha: true }, true);
    * ```
    */
   color(options: CaptureColorOptions, verbose: true): Promise<VerboseCapture>;
@@ -332,7 +332,7 @@ export class Capture extends KojiBridge {
    * const file = await Koji.ui.capture.file();
    *
    * // Return an object
-   * const file = await Koji.ui.capture.file({ verbose: true });
+   * const file = await Koji.ui.capture.file({}, true);
    * ```
    */
   file(options: CaptureFileOptions, verbose: true): Promise<VerboseCapture>;
@@ -370,7 +370,7 @@ export class Capture extends KojiBridge {
    * const image = await Koji.ui.capture.image();
    *
    * // Hide asset packs and return an object
-   * const image = await Koji.ui.capture.image({ hideExtensions: true, verbose: true });
+   * const image = await Koji.ui.capture.image({ hideExtensions: true }, true);
    * ```
    */
   image(options: CaptureImageOptions, verbose: true): Promise<VerboseCapture>;
@@ -406,7 +406,7 @@ export class Capture extends KojiBridge {
    * const koji = await Koji.ui.capture.koji();
    *
    * // Return an object
-   * const koji = await Koji.ui.capture.koji({ verbose: true });
+   * const koji = await Koji.ui.capture.koji({}, true);
    * ```
    */
   koji(options: CaptureKojiOptions, verbose: true): Promise<VerboseCapture>;
@@ -442,7 +442,7 @@ export class Capture extends KojiBridge {
    * const media = await Koji.ui.capture.media();
    *
    * // Limit to image or video, hide asset packs, return an object with extended metadata, transcode videos for HLS
-   * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true }, verbose: true });
+   * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true } }, true);
    * ```
    */
   media(options: CaptureMediaOptions, verbose: true): Promise<VerboseCapture>;
@@ -497,7 +497,7 @@ export class Capture extends KojiBridge {
    * const size = await Koji.ui.capture.range();
    *
    * // Return an object
-   * const size = await Koji.ui.capture.range({ min: 0, max: 60, step: 3, verbose: true });
+   * const size = await Koji.ui.capture.range({ min: 0, max: 60, step: 3 }, true);
    * ```
    */
   range(options: CaptureRangeOptions, verbose: true): Promise<VerboseCapture>;
@@ -580,7 +580,7 @@ export class Capture extends KojiBridge {
    * const sound = await Koji.ui.capture.sound();
    *
    * // Hide asset packs and return an object
-   * const sound = await Koji.ui.capture.sound({ hideExtensions: true, verbose: true });
+   * const sound = await Koji.ui.capture.sound({ hideExtensions: true }, true);
    * ```
    */
   sound(options: CaptureSoundOptions, verbose: true): Promise<VerboseCapture>;
@@ -618,7 +618,7 @@ export class Capture extends KojiBridge {
    * const video = await Koji.ui.capture.video();
    *
    * // Transcode for HLS and return an object
-   * const video = await Koji.ui.capture.video({ hls: true, verbose: true });
+   * const video = await Koji.ui.capture.video({ hls: true }, true);
    * ```
    */
   video(options: CaptureVideoOptions, verbose: true): Promise<VerboseCapture>;
@@ -626,6 +626,26 @@ export class Capture extends KojiBridge {
   video(options: CaptureVideoOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   public async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'video',
+            options: {
+              ...options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      console.log('DATA', data);
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
@@ -636,8 +656,6 @@ export class Capture extends KojiBridge {
       },
       'Koji.CaptureSuccess',
     );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
 
     return this.pickResultFromMessage(data);
   }
