@@ -40,7 +40,7 @@ export enum CaptureType {
   MEDIA = 'media',
   RANGE = 'range',
   SELECT = 'select',
-  SOUND = 'sound',
+  SOUND = 'audio',
   VIDEO = 'video',
 }
 
@@ -179,8 +179,8 @@ export interface CaptureVideoOptions {
   hideExtensions?: boolean;
 }
 
-export interface CaptureSoundOptions {
-  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium sounds). */
+export interface CaptureAudioOptions {
+  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium audios). */
   hideExtensions?: boolean;
 }
 
@@ -254,6 +254,65 @@ export class Capture extends KojiBridge {
     if (initialValue) transformedOptions.value = initialValue;
 
     return transformedOptions;
+  }
+
+  /**
+   * Prompts the user to select a sound by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting a sound.
+   *
+   * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
+   * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
+   *
+   * @example
+   * ```javascript
+   * const audio = await Koji.ui.capture.audio();
+   *
+   * // Hide asset packs and return an object
+   * const audio = await Koji.ui.capture.audio({ hideExtensions: true }, true);
+   * ```
+   */
+  audio(options: CaptureAudioOptions, verbose: true): Promise<VerboseCapture>;
+  audio(options?: CaptureAudioOptions, verbose?: false): Promise<string>;
+  audio(options: CaptureAudioOptions, verbose?: boolean): Promise<CaptureResult>;
+  @client
+  public async audio(options: CaptureAudioOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['audio'],
+              audioOptions: options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
+    const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: 'Koji.Capture',
+        data: {
+          type: 'media',
+          options: {
+            acceptOnly: ['audio'],
+            audioOptions: options,
+            returnType: 'url',
+          },
+        },
+      },
+      'Koji.CaptureSuccess',
+    );
+
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -334,7 +393,7 @@ export class Capture extends KojiBridge {
   /**
    * Prompts the user to upload a file of any type. Use this method to allow the user to upload raw files in their original format. For example, to capture high-resolution images for download rather than for display in a browser.
    *
-   * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[sound]], or [[media]].
+   * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[audio]], or [[media]].
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
@@ -485,7 +544,7 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select an image, file, sound, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
+   * Prompts the user to select an image, file, audio, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata.
@@ -616,65 +675,6 @@ export class Capture extends KojiBridge {
     );
 
     if (verbose) return this.pickVerboseResultFromMessage(data);
-
-    return this.pickResultFromMessage(data);
-  }
-
-  /**
-   * Prompts the user to select a sound by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting a sound.
-   *
-   * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
-   *
-   * @param   options
-   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
-   * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
-   *
-   * @example
-   * ```javascript
-   * const sound = await Koji.ui.capture.sound();
-   *
-   * // Hide asset packs and return an object
-   * const sound = await Koji.ui.capture.sound({ hideExtensions: true }, true);
-   * ```
-   */
-  sound(options: CaptureSoundOptions, verbose: true): Promise<VerboseCapture>;
-  sound(options?: CaptureSoundOptions, verbose?: false): Promise<string>;
-  sound(options: CaptureSoundOptions, verbose?: boolean): Promise<CaptureResult>;
-  @client
-  public async sound(options: CaptureSoundOptions = {}, verbose?: boolean): Promise<CaptureResult> {
-    if (verbose) {
-      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
-        {
-          kojiEventName: 'Koji.Capture',
-          data: {
-            type: 'media',
-            options: {
-              acceptOnly: ['audio'],
-              audioOptions: options,
-              returnType: 'extended',
-            },
-          },
-        },
-        'Koji.CaptureSuccess',
-      );
-
-      return this.pickVerboseResultFromMessage(data);
-    }
-
-    const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
-      {
-        kojiEventName: 'Koji.Capture',
-        data: {
-          type: 'media',
-          options: {
-            acceptOnly: ['audio'],
-            audioOptions: options,
-            returnType: 'url',
-          },
-        },
-      },
-      'Koji.CaptureSuccess',
-    );
 
     return this.pickResultFromMessage(data);
   }
