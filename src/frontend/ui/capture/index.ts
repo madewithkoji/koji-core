@@ -14,7 +14,7 @@ export interface VerboseCapture {
   /** Value captured from the user. */
   result?: CaptureResult;
   /** Metadata associated with the captured result */
-  resultMetadata?: ExtendedMediaResult | null;
+  resultMetadata?: ExtendedMediaResult | ExtendedLinkResult | null;
 }
 
 export interface CaptureMessage<T> {
@@ -36,7 +36,7 @@ export enum CaptureType {
   COLOR = 'color',
   FILE = 'file',
   IMAGE = 'image',
-  KOJI = 'koji',
+  LINK = 'link',
   MEDIA = 'media',
   RANGE = 'range',
   SELECT = 'select',
@@ -45,7 +45,8 @@ export enum CaptureType {
 }
 
 /**
- * Metadata when the capture option for the return type is set to `extended`.
+ * Metadata when the capture option for a media capture request's return type 
+ * is set to `extended`.
  */
 export interface ExtendedMediaResult {
   /** URL of the selected media file. */
@@ -71,6 +72,19 @@ export interface ExtendedMediaResult {
     /** Natural height of the image in pixels. */
     naturalHeight: number;
   };
+}
+
+/**
+ * Metadat awhen the capture option for the return type for a link capture
+ * request is set to `extended`
+ */
+export interface ExtendedLinkResult {
+  url: string;
+  title: string|null;
+  description: string|null;
+  thumbnailUrl: string|null;
+  sourceName: string|null;
+  sourceThumbnailUrl: string|null;
 }
 
 /**
@@ -109,9 +123,11 @@ export interface CaptureImageOptions extends FastlyOptions {
 export interface CaptureFileOptions {}
 
 /**
- * Configuration options for a [[koji]] capture.
+ * Configuration options for a [[link]] capture.
  */
-export interface CaptureKojiOptions {}
+export interface CaptureLinkOptions {
+  kojiTemplateId?: string;
+}
 
 /**
  * Configuration options for a [[range]] capture.
@@ -409,16 +425,16 @@ export class Capture extends KojiBridge {
    * const koji = await Koji.ui.capture.koji({}, true);
    * ```
    */
-  koji(options: CaptureKojiOptions, verbose: true): Promise<VerboseCapture>;
-  koji(options?: CaptureKojiOptions, verbose?: false): Promise<string>;
-  koji(options: CaptureKojiOptions, verbose?: boolean): Promise<CaptureResult>;
+  link(options: CaptureLinkOptions, verbose: true): Promise<VerboseCapture>;
+  link(options?: CaptureLinkOptions, verbose?: false): Promise<string>;
+  link(options: CaptureLinkOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  public async koji(options: CaptureKojiOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  async link(options: CaptureLinkOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'koji',
+          type: 'link',
           options,
         },
       },
