@@ -45,7 +45,7 @@ export enum CaptureType {
 }
 
 /**
- * Metadata when the capture option for a media capture request's return type 
+ * Metadata when the capture option for a media capture request's return type
  * is set to `extended`.
  */
 export interface ExtendedMediaResult {
@@ -75,16 +75,16 @@ export interface ExtendedMediaResult {
 }
 
 /**
- * Metadat awhen the capture option for the return type for a link capture
+ * Metadata when the capture option for the return type for a link capture
  * request is set to `extended`
  */
 export interface ExtendedLinkResult {
   url: string;
-  title: string|null;
-  description: string|null;
-  thumbnailUrl: string|null;
-  sourceName: string|null;
-  sourceThumbnailUrl: string|null;
+  title: string | null;
+  description: string | null;
+  thumbnailUrl: string | null;
+  sourceName: string | null;
+  sourceThumbnailUrl: string | null;
 }
 
 /**
@@ -249,10 +249,7 @@ export class Capture extends KojiBridge {
    * @param options The initial capture options passed by the user
    */
   private transformInitialValueOptions(options: any): any {
-    const {
-      initialValue,
-      ...transformedOptions
-    } = options;
+    const { initialValue, ...transformedOptions } = options;
 
     if (initialValue) transformedOptions.value = initialValue;
 
@@ -356,19 +353,39 @@ export class Capture extends KojiBridge {
   file(options: CaptureFileOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   public async file(options: CaptureFileOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['file'],
+              fileOptions: options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'file',
-          options,
+          type: 'media',
+          options: {
+            acceptOnly: ['file'],
+            fileOptions: options,
+            returnType: 'url',
+          },
         },
       },
       'Koji.CaptureSuccess',
     );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
-
     return this.pickResultFromMessage(data);
   }
 
@@ -394,18 +411,39 @@ export class Capture extends KojiBridge {
   image(options: CaptureImageOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   public async image(options: CaptureImageOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['image'],
+              imageOptions: options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'image',
-          options,
+          type: 'media',
+          options: {
+            acceptOnly: ['image'],
+            imageOptions: options,
+            returnType: 'url',
+          },
         },
       },
       'Koji.CaptureSuccess',
     );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
 
     return this.pickResultFromMessage(data);
   }
@@ -604,18 +642,39 @@ export class Capture extends KojiBridge {
   sound(options: CaptureSoundOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
   public async sound(options: CaptureSoundOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['audio'],
+              audioOptions: options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'sound',
-          options,
+          type: 'media',
+          options: {
+            acceptOnly: ['audio'],
+            audioOptions: options,
+            returnType: 'url',
+          },
         },
       },
       'Koji.CaptureSuccess',
     );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
 
     return this.pickResultFromMessage(data);
   }
@@ -647,17 +706,16 @@ export class Capture extends KojiBridge {
         {
           kojiEventName: 'Koji.Capture',
           data: {
-            type: 'video',
+            type: 'media',
             options: {
-              ...options,
+              acceptOnly: ['video'],
               returnType: 'extended',
+              videoOptions: options,
             },
           },
         },
         'Koji.CaptureSuccess',
       );
-
-      console.log('DATA', data);
 
       return this.pickVerboseResultFromMessage(data);
     }
@@ -666,8 +724,12 @@ export class Capture extends KojiBridge {
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'video',
-          options,
+          type: 'media',
+          options: {
+            acceptOnly: ['video'],
+            returnType: 'url',
+            videoOptions: options,
+          },
         },
       },
       'Koji.CaptureSuccess',
