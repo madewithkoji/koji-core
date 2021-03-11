@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
+import { HttpStatusCode } from '../../types';
 
 /**
  * API routes for database methods.
@@ -110,7 +111,7 @@ export class Database extends Base {
   /**
    * Searches a collection for records that match the specified search criteria.
    * The search criteria are the search field and the search value.
-    *
+   *
    *
    * @typeParam T              Data from a Koji database collection.
    * @param     collection     Name of the collection.
@@ -155,12 +156,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async getWhere<T>(
-    collection: string,
-    predicateKey: string,
-    predicateOperation: PredicateOperator,
-    predicateValue: string,
-  ): Promise<T> {
+  public async getWhere<T>(collection: string, predicateKey: string, predicateOperation: PredicateOperator, predicateValue: string): Promise<T> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET}`,
       {
@@ -221,12 +217,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async getAllWhere<T>(
-    collection: string,
-    predicateKey: string,
-    predicateOperation: PredicateOperator,
-    predicateValues: string[],
-  ): Promise<T[]> {
+  public async getAllWhere<T>(collection: string, predicateKey: string, predicateOperation: PredicateOperator, predicateValues: string[]): Promise<T[]> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET_ALL_WHERE}`,
       {
@@ -247,7 +238,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        Document contents.
-   * @return                        New document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -255,13 +247,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async set(collection: string, documentName: string, documentBody: any): Promise<boolean> {
+  public async set(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.SET}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -275,7 +268,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        New contents.
-   * @return                        Updated document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -283,13 +277,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async update(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
+  public async update(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.UPDATE}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -303,7 +298,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        Appended contents.
-   * @return                        Updated document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -311,13 +307,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
+  public async arrayPush(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -331,7 +328,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        Removed contents.
-   * @return                        Updated document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -339,13 +337,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
+  public async arrayRemove(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -358,7 +357,7 @@ export class Database extends Base {
    *
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
-   * @return                        Deleted document.
+   * @return                        An http status code (e.g., OK).
    *
    * @example
    * ```javascript
@@ -366,7 +365,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async delete(collection: string, documentName: string): Promise<boolean | void> {
+  public async delete(collection: string, documentName: string): Promise<HttpStatusCode> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.DELETE}`,
       {
