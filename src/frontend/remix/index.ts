@@ -161,7 +161,8 @@ export class Remix extends KojiBridge {
    *
    * @example
    * ```javascript
-   * <sbutton onCLick={() => Koji.remix.cancel()}>Cancel</button>
+   * Koji.remix.cancel()
+   * ```
    */
   @client
   public cancel() {
