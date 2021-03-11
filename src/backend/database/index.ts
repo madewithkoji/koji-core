@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
-import { HttpStatusCode } from '../../types';
 
 /**
  * API routes for database methods.
@@ -33,6 +32,61 @@ export enum PredicateOperator {
   ARRAY_CONTAINS_ANY = 'array-contains-any',
   IN = 'in',
   NOT_IN = 'not-in',
+}
+
+/**
+ * Possible response values when interacting with the database API.
+ */
+export enum DatabaseHttpStatusCode {
+  /**
+   * Standard response for successful HTTP requests.
+   */
+  OK = 200,
+
+  /**
+   * The server cannot or will not process the request due to an apparent client error
+   *
+   * One of the following error conditions:
+   * Unable to parse data.
+   * Missing data.
+   * The request attempts data that is too large.
+   * The data contains invalid child names as part of the path.
+   * The data path is too long.
+   * The request contains an unrecognized server value.
+   * The request does not support one of the query parameters that is specified.
+   * The request mixes query parameters with a shallow request.
+   */
+  BAD_REQUEST = 400,
+
+  /**
+   * Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet
+   * been provided.
+   *
+   * One of the following error conditions:
+   * The auth token has expired or missing.
+   * The auth token used in the request is invalid.
+   */
+  UNAUTHORIZED = 401,
+
+  /**
+   * The specified Database was not found.
+   */
+  NOT_FOUND = 404,
+
+  /**
+   * The request's specified ETag value in the if-match header did not match the server's value.
+   */
+  PRECONDITION_FAILED = 412,
+
+  /**
+   * A server error occurred.
+   */
+  INTERNAL_SERVER_ERROR = 500,
+
+  /**
+   * The specified Database is temporarily unavailable, which means the request was not attempted.
+   */
+  SERVICE_UNAVAILABLE = 503,
 }
 
 /**
@@ -247,7 +301,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async set(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
+  public async set(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.SET}`,
       {
@@ -277,7 +331,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async update(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
+  public async update(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.UPDATE}`,
       {
@@ -307,7 +361,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayPush(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
+  public async arrayPush(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`,
       {
@@ -337,7 +391,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayRemove(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<HttpStatusCode | any> {
+  public async arrayRemove(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`,
       {
@@ -365,7 +419,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async delete(collection: string, documentName: string): Promise<HttpStatusCode> {
+  public async delete(collection: string, documentName: string): Promise<DatabaseHttpStatusCode> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.DELETE}`,
       {
