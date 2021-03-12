@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "0.0.17",
+  "version": "1.0.0-beta.1",
   "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {

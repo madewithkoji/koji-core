@@ -91,6 +91,7 @@ var PlayerState = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
   (0, _createClass2["default"])(PlayerState, [{
     key: "onFocus",
     value: function onFocus(callback) {
+      this.hasFocus = true;
       return this.execCallbackOnMessage(function () {
         callback();
       }, 'KojiFeed.Play');
@@ -105,6 +106,7 @@ var PlayerState = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
   }, {
     key: "onBlur",
     value: function onBlur(callback) {
+      this.hasFocus = false;
       return this.execCallbackOnMessage(function () {
         callback();
       }, 'KojiFeed.Pause');
