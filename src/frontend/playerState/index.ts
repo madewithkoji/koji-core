@@ -52,6 +52,10 @@ export type IsRemixingCallback =
    */
   (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
 
+export type BlurCallback = () => void;
+
+export type FocusCallback = () => void;
+
 /**
  * Manages the context of the Koji to enable distinct experiences for different users and views.
  */
@@ -95,7 +99,7 @@ export class PlayerState extends KojiBridge {
    * @return            Function to unsubscribe from the focus state listener.
    */
   @client
-  public onFocus(callback: Function): Function {
+  public onFocus(callback: FocusCallback): Function {
     this.hasFocus = true;
 
     return this.execCallbackOnMessage(() => {
@@ -110,7 +114,7 @@ export class PlayerState extends KojiBridge {
    * @return            Function to unsubscribe from the un-focus state listener.
    */
   @client
-  public onBlur(callback: Function): Function {
+  public onBlur(callback: BlurCallback): Function {
     this.hasFocus = false;
 
     return this.execCallbackOnMessage(() => {
