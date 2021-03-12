@@ -260,6 +260,7 @@ export class Koji {
     window.parent.postMessage(
       {
         _type: 'KojiPreview.Ready',
+        _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
       },
       '*',
     );
