@@ -42,6 +42,8 @@ export declare type IsRemixingCallback =
  * @param editorAttributes
  */
 (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
+export declare type BlurCallback = () => void;
+export declare type FocusCallback = () => void;
 /**
  * Manages the context of the Koji to enable distinct experiences for different users and views.
  */
@@ -59,14 +61,14 @@ export declare class PlayerState extends KojiBridge {
      * @param   callback  Callback function.
      * @return            Function to unsubscribe from the focus state listener.
      */
-    onFocus(callback: Function): Function;
+    onFocus(callback: FocusCallback): Function;
     /**
      * Listens to when a Koji leaves a focus state.
      *
      * @param   callback  Callback function.
      * @return            Function to unsubscribe from the un-focus state listener.
      */
-    onBlur(callback: Function): Function;
+    onBlur(callback: BlurCallback): Function;
     /**
      * Listens to changes in remix state and invokes a callback function to enable different experiences during remix, preview, or use.
      *
