@@ -96,6 +96,8 @@ export class PlayerState extends KojiBridge {
    */
   @client
   public onFocus(callback: Function): Function {
+    this.hasFocus = true;
+
     return this.execCallbackOnMessage(() => {
       callback();
     }, 'KojiFeed.Play');
@@ -109,6 +111,8 @@ export class PlayerState extends KojiBridge {
    */
   @client
   public onBlur(callback: Function): Function {
+    this.hasFocus = false;
+
     return this.execCallbackOnMessage(() => {
       callback();
     }, 'KojiFeed.Pause');
