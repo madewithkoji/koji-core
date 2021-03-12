@@ -93,9 +93,23 @@ var PlayerState = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
         callback(isRemixing, editorAttributes);
       }, 'KojiPreview.IsRemixing');
     }
+  }, {
+    key: "onFocus",
+    value: function onFocus(callback) {
+      return this.execCallbackOnMessage(function () {
+        callback();
+      }, 'KojiFeed.Play');
+    }
+  }, {
+    key: "onBlur",
+    value: function onBlur(callback) {
+      return this.execCallbackOnMessage(function () {
+        callback();
+      }, 'KojiFeed.Pause');
+    }
   }]);
   return PlayerState;
-}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "subscribe", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "subscribe"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "onFocus", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "onFocus"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "onBlur", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "onBlur"), _class.prototype)), _class);
 exports.PlayerState = PlayerState;
 var playerState = new PlayerState();
 exports.playerState = playerState;

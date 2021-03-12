@@ -193,6 +193,21 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
       });
     }
     /**
+     * Cancels the remix experience and navigates the user back to where they were before they started remixing. If the user has made changes, they will be prompted by the Koji platform to confirm this action.
+     *
+     * @example
+     * ```javascript
+     * <sbutton onCLick={() => Koji.remix.cancel()}>Cancel</button>
+     */
+
+  }, {
+    key: "cancel",
+    value: function cancel() {
+      this.sendMessage({
+        kojiEventName: 'KojiPreview.Cancel'
+      });
+    }
+    /**
      * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
      *
      * @param   rawValue       Value to encrypt.
@@ -333,7 +348,7 @@ var Remix = (_class = (_temp = /*#__PURE__*/function (_KojiBridge) {
     }()
   }]);
   return Remix;
-}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "init", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "init"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "get", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "get"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "set", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "set"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "overwrite", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "overwrite"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "finish", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "finish"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "encryptValue", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "encryptValue"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "decryptValue", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "decryptValue"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), _temp), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "init", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "init"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "get", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "get"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "set", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "set"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "overwrite", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "overwrite"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "finish", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "finish"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "cancel", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "cancel"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "encryptValue", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "encryptValue"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "decryptValue", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "decryptValue"), _class.prototype)), _class);
 exports.Remix = Remix;
 var remix = new Remix();
 exports.remix = remix;
