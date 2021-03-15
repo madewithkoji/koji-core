@@ -97,6 +97,18 @@ var Navigate = (_class = /*#__PURE__*/function (_KojiBridge) {
       });
     }
     /**
+     * Programmatically navigate to the Koji's edit experience. This should only be called if the template knows that the user is an admin, otherwise the user will not be authorized to edit the Koji.
+     */
+
+  }, {
+    key: "edit",
+    value: function edit() {
+      this.sendMessage({
+        kojiEventName: 'Koji.Edit',
+        data: {}
+      });
+    }
+    /**
      * Programmatically open the Koji's share sheet/dialog.
      */
 
@@ -110,7 +122,7 @@ var Navigate = (_class = /*#__PURE__*/function (_KojiBridge) {
     }
   }]);
   return Navigate;
-}(_kojiBridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "to", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "to"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "presentInModal", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "presentInModal"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "createRemix", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "createRemix"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "openShareDialog", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "openShareDialog"), _class.prototype)), _class);
+}(_kojiBridge.KojiBridge), ((0, _applyDecoratedDescriptor2["default"])(_class.prototype, "to", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "to"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "presentInModal", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "presentInModal"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "createRemix", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "createRemix"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "edit", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "edit"), _class.prototype), (0, _applyDecoratedDescriptor2["default"])(_class.prototype, "openShareDialog", [_client.client], Object.getOwnPropertyDescriptor(_class.prototype, "openShareDialog"), _class.prototype)), _class);
 exports.Navigate = Navigate;
 var navigate = new Navigate();
 exports.navigate = navigate;

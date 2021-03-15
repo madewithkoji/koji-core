@@ -59,7 +59,7 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
      */
     value: function () {
       var _getToken = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
-        var _yield$this$sendMessa, userToken;
+        var _yield$this$sendMessa, userToken, presumedRole;
 
         return _regenerator["default"].wrap(function _callee$(_context) {
           while (1) {
@@ -77,9 +77,13 @@ var Identity = (_class = /*#__PURE__*/function (_KojiBridge) {
               case 2:
                 _yield$this$sendMessa = _context.sent;
                 userToken = _yield$this$sendMessa.userToken;
-                return _context.abrupt("return", userToken);
+                presumedRole = _yield$this$sendMessa.presumedRole;
+                return _context.abrupt("return", {
+                  token: userToken,
+                  presumedRole: presumedRole
+                });
 
-              case 5:
+              case 6:
               case "end":
                 return _context.stop();
             }
