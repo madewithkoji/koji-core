@@ -30,8 +30,7 @@ export interface IapReceipt {
 }
 
 /**
- * Implements in-app purchases for the backend of your Koji. For more information, see
- * [[https://developer.withkoji.com/reference/packages/withkoji-koji-iap-package | the in-app purchases package reference]].
+ * Implements in-app purchases for the backend of your Koji.
  */
 export class IAP extends Base {
   private rootPath: string;

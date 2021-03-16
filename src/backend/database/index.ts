@@ -90,7 +90,7 @@ export enum DatabaseHttpStatusCode {
 }
 
 /**
- * Implements a Koji database for the backend of your Koji. For more information, see [[https://developer.withkoji.com/docs/develop/koji-database | the Koji database developer guide]].
+ * Implements a Koji database for the backend of your Koji.
  */
 export class Database extends Base {
   private rootPath: string;

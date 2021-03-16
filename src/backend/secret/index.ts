@@ -11,7 +11,7 @@ enum SecretRoutes {
 }
 
 /**
- * Implements a class for handling secret keys in your Koji.
+ * Implements a class for handling secret values in your Koji.
  */
 export class Secret extends Base {
   private rootPath: string;
