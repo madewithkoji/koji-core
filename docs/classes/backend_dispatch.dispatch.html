@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Implements a dispatch system for the backend of your Koji. For more information, see <a href="https://developer.withkoji.com/reference/packages/withkoji-dispatch-package" class="external">the Koji dispatch package reference</a>.</p>
+						<p>Implements a real-time messaging dispatch system for the backend of your Koji.</p>
 					</div>
 				</div>
 			</section>
@@ -144,13 +144,23 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L80">backend/dispatch/index.ts:80</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">dispatch</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">Dispatch</span><span style="color: #000000">({ </span><span style="color: #001080">res</span><span style="color: #000000"> });</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfigurationInput</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="backend_dispatch.dispatch.html" class="tsd-signature-type" data-tsd-kind="Class">Dispatch</a></h4>
@@ -166,7 +176,7 @@
 					<div class="tsd-signature tsd-kind-icon">auth<wbr>Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L74">backend/dispatch/index.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L74">backend/dispatch/index.ts:74</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +186,7 @@
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Handlers<span class="tsd-signature-symbol">:</span> <a href="../interfaces/backend_dispatch.messagehandler.html" class="tsd-signature-type" data-tsd-kind="Interface">MessageHandler</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L78">backend/dispatch/index.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L78">backend/dispatch/index.ts:78</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +196,7 @@
 					<div class="tsd-signature tsd-kind-icon">initial<wbr>Connection<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L76">backend/dispatch/index.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L76">backend/dispatch/index.ts:76</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +206,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Connected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L77">backend/dispatch/index.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L77">backend/dispatch/index.ts:77</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +216,7 @@
 					<div class="tsd-signature tsd-kind-icon">message<wbr>Queue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L79">backend/dispatch/index.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L79">backend/dispatch/index.ts:79</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +227,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -228,7 +238,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -238,7 +248,7 @@
 					<div class="tsd-signature tsd-kind-icon">ws<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">default</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L80">backend/dispatch/index.ts:80</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L80">backend/dispatch/index.ts:80</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -255,7 +265,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L111">backend/dispatch/index.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L123">backend/dispatch/index.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -290,7 +300,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L338">backend/dispatch/index.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L350">backend/dispatch/index.ts:350</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -318,7 +328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L304">backend/dispatch/index.ts:304</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L316">backend/dispatch/index.ts:316</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L219">backend/dispatch/index.ts:219</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L231">backend/dispatch/index.ts:231</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -400,7 +410,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L233">backend/dispatch/index.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L245">backend/dispatch/index.ts:245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -437,7 +447,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L209">backend/dispatch/index.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L221">backend/dispatch/index.ts:221</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -465,7 +475,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L162">backend/dispatch/index.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L174">backend/dispatch/index.ts:174</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -510,7 +520,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L191">backend/dispatch/index.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L203">backend/dispatch/index.ts:203</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -538,7 +548,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L286">backend/dispatch/index.ts:286</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L298">backend/dispatch/index.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -575,7 +585,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L92">backend/dispatch/index.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L104">backend/dispatch/index.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -604,7 +614,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L248">backend/dispatch/index.ts:248</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L260">backend/dispatch/index.ts:260</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -647,7 +657,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/52c5af6/src/backend/dispatch/index.ts#L272">backend/dispatch/index.ts:272</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/backend/dispatch/index.ts#L284">backend/dispatch/index.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

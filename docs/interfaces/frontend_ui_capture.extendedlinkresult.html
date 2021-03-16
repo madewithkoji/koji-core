@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ExtendedMediaResult | @withkoji/core</title>
+	<title>ExtendedLinkResult | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/frontend_ui_capture.html">frontend/ui/capture</a>
 				</li>
 				<li>
-					<a href="frontend_ui_capture.extendedmediaresult.html">ExtendedMediaResult</a>
+					<a href="frontend_ui_capture.extendedlinkresult.html">ExtendedLinkResult</a>
 				</li>
 			</ul>
-			<h1>Interface ExtendedMediaResult</h1>
+			<h1>Interface ExtendedLinkResult</h1>
 		</div>
 	</div>
 </header>
@@ -71,8 +71,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Metadata when the capture option for a media capture request&#39;s return type
-						is set to <code>extended</code>.</p>
+						<p>Metadata when the capture option for the return type for a link capture
+						request is set to <code>extended</code></p>
 					</div>
 				</div>
 			</section>
@@ -80,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ExtendedMediaResult</span>
+						<span class="target">ExtendedLinkResult</span>
 					</li>
 				</ul>
 			</section>
@@ -91,12 +91,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedmediaresult.html#audiometadata" class="tsd-kind-icon">audio<wbr>Metadata</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedmediaresult.html#imagemetadata" class="tsd-kind-icon">image<wbr>Metadata</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedmediaresult.html#sizebytes" class="tsd-kind-icon">size<wbr>Bytes</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedmediaresult.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedmediaresult.html#url" class="tsd-kind-icon">url</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedmediaresult.html#videometadata" class="tsd-kind-icon">video<wbr>Metadata</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#description" class="tsd-kind-icon">description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#sourcename" class="tsd-kind-icon">source<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#sourcethumbnailurl" class="tsd-kind-icon">source<wbr>Thumbnail<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#thumbnailurl" class="tsd-kind-icon">thumbnail<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#title" class="tsd-kind-icon">title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#url" class="tsd-kind-icon">url</a></li>
 							</ul>
 						</section>
 					</div>
@@ -105,94 +105,64 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="audiometadata" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> audio<wbr>Metadata</h3>
-					<div class="tsd-signature tsd-kind-icon">audio<wbr>Metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>durationSeconds<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
+					<a name="description" class="tsd-anchor"></a>
+					<h3>description</h3>
+					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L64">frontend/ui/capture/index.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L84">frontend/ui/capture/index.ts:84</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Metadata for an audio file.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="imagemetadata" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> image<wbr>Metadata</h3>
-					<div class="tsd-signature tsd-kind-icon">image<wbr>Metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>naturalHeight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>naturalWidth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
+					<a name="sourcename" class="tsd-anchor"></a>
+					<h3>source<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">source<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L69">frontend/ui/capture/index.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L86">frontend/ui/capture/index.ts:86</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Metadata for an image file.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="sizebytes" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> size<wbr>Bytes</h3>
-					<div class="tsd-signature tsd-kind-icon">size<wbr>Bytes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="sourcethumbnailurl" class="tsd-anchor"></a>
+					<h3>source<wbr>Thumbnail<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">source<wbr>Thumbnail<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L57">frontend/ui/capture/index.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L87">frontend/ui/capture/index.ts:87</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Size in bytes of the media file.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="type" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<a name="thumbnailurl" class="tsd-anchor"></a>
+					<h3>thumbnail<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">thumbnail<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L55">frontend/ui/capture/index.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L85">frontend/ui/capture/index.ts:85</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type of media: <code>image</code>, <code>video</code>, <code>audio</code>, or <code>file</code>.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="title" class="tsd-anchor"></a>
+					<h3>title</h3>
+					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L83">frontend/ui/capture/index.ts:83</a></li>
+						</ul>
+					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="url" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> url</h3>
-					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<h3>url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L53">frontend/ui/capture/index.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L82">frontend/ui/capture/index.ts:82</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>URL of the selected media file.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="videometadata" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> video<wbr>Metadata</h3>
-					<div class="tsd-signature tsd-kind-icon">video<wbr>Metadata<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>thumbnailUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/8e1ee27/src/frontend/ui/capture/index.ts#L59">frontend/ui/capture/index.ts:59</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Metadata for a video file.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -251,36 +221,36 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.capturevideooptions.html" class="tsd-kind-icon">Capture<wbr>Video<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_ui_capture.extendedlinkresult.html" class="tsd-kind-icon">Extended<wbr>Link<wbr>Result</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_ui_capture.extendedmediaresult.html" class="tsd-kind-icon">Extended<wbr>Media<wbr>Result</a>
+						<a href="frontend_ui_capture.extendedlinkresult.html" class="tsd-kind-icon">Extended<wbr>Link<wbr>Result</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.extendedmediaresult.html#audiometadata" class="tsd-kind-icon">audio<wbr>Metadata</a>
+								<a href="frontend_ui_capture.extendedlinkresult.html#description" class="tsd-kind-icon">description</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.extendedmediaresult.html#imagemetadata" class="tsd-kind-icon">image<wbr>Metadata</a>
+								<a href="frontend_ui_capture.extendedlinkresult.html#sourcename" class="tsd-kind-icon">source<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.extendedmediaresult.html#sizebytes" class="tsd-kind-icon">size<wbr>Bytes</a>
+								<a href="frontend_ui_capture.extendedlinkresult.html#sourcethumbnailurl" class="tsd-kind-icon">source<wbr>Thumbnail<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.extendedmediaresult.html#type" class="tsd-kind-icon">type</a>
+								<a href="frontend_ui_capture.extendedlinkresult.html#thumbnailurl" class="tsd-kind-icon">thumbnail<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.extendedmediaresult.html#url" class="tsd-kind-icon">url</a>
+								<a href="frontend_ui_capture.extendedlinkresult.html#title" class="tsd-kind-icon">title</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.extendedmediaresult.html#videometadata" class="tsd-kind-icon">video<wbr>Metadata</a>
+								<a href="frontend_ui_capture.extendedlinkresult.html#url" class="tsd-kind-icon">url</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.extendedmediaresult.html" class="tsd-kind-icon">Extended<wbr>Media<wbr>Result</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.selectoption.html" class="tsd-kind-icon">Select<wbr>Option</a>
 					</li>

@@ -52,7 +52,9 @@ export type IsRemixingCallback =
    */
   (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
 
-export type BlurCallback = () => void;
+export type BlurCallback =
+/** Called when the Koji leaves focus. */
+() => void;
 
 export type FocusCallback = () => void;
 

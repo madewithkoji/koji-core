@@ -123,13 +123,13 @@ export class IAP extends Base {
    * Update receipt
    *
    * @param     receiptId     Receipt id.
-   * @param     attributes    Array of receipt attributes.
+   * @param     attributes    Object of key-value paired attributes to store.
    * @param     notificationMessage    Optional notification message.
    * @return                  Data object.
    *
    * @example
    * ```javascript
-   * iap.updateReceipt(id, ['paid']);
+   * iap.updateReceipt(id, { consumed: true }, 'You have successfully redeemed your purchase.');
    * ```
    */
   public async updateReceipt(receiptId: string, attributes: { [index: string]: any }, notificationMessage?: string): Promise<any> {
