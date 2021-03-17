@@ -123,7 +123,7 @@ export class IAP extends Base {
    * Update receipt
    *
    * @param     receiptId     Receipt id.
-   * @param     attributes    Object of key-value paired attributes to store.
+   * @param     attributes    Object of key-value paired attributes to store with the receipt.
    * @param     notificationMessage    Optional notification message.
    * @return                  Data object.
    *
