@@ -305,7 +305,7 @@ export class Dispatch extends Base {
    * Emit event.
    *
    * @param     eventName     Name of event.
-   * @param     payload       Array of values to be included in event message.
+   * @param     payload       Object of key-value paired data to send as a message payload.
    * @param     recipients    One or more event recipients.
    *
    * @example
