@@ -68,13 +68,16 @@ export class Secret extends Base {
   /**
    * Creates a signed URL.
    *
-   * @param   resource        Path to resource
+   * @param   resource        Path to resource. If the resource is a Koji CDN-hosted image, you can also pass in transforms via query parameters.
    * @param   expireSeconds   Expiration in seconds
    * @return                  URL for resource.
    *
    * @example
    * ```javascript
-   * const secretPath = await secret.generateSignedUrl();
+   * const temporaryImagePath = await secret.generateSignedUrl('https://images.koji-cdn.com/e83eaff0-279f-4403-951b-e56507af923d/userData/emfga-icon.png');
+   *
+   * // Blur the image
+   * const temporaryBlurredImagePath = await secret.generateSignedUrl('https://images.koji-cdn.com/e83eaff0-279f-4403-951b-e56507af923d/userData/emfga-icon.png?blur=10');
    * ```
    */
   @server
