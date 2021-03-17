@@ -11,6 +11,11 @@ export type AuthGrantCapability =
   /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
   'username';
 
+export interface IdentityResult {
+  token: UserToken;
+  presumedRole: 'admin'|'user'|'unknown';
+}
+
 /**
  * Manages authentication and authorization on the frontend of your Koji.
  */
@@ -24,8 +29,8 @@ export class Identity extends KojiBridge {
    * ```
    */
   @client
-  public async getToken(): Promise<UserToken> {
-    const { userToken } = await this.sendMessageAndAwaitResponse({
+  public async getToken(): Promise<IdentityResult> {
+    const { userToken, presumedRole } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants: [],
@@ -33,7 +38,10 @@ export class Identity extends KojiBridge {
       },
     }, 'KojiAuth.TokenCreated');
 
-    return userToken;
+    return {
+      token: userToken,
+      presumedRole,
+    };
   }
 
   /**
