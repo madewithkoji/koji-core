@@ -56,7 +56,9 @@ export type BlurCallback =
 /** Called when the Koji leaves focus. */
 () => void;
 
-export type FocusCallback = () => void;
+export type FocusCallback =
+/** Called when the Koji enters focus. */
+() => void;
 
 /**
  * Manages the context of the Koji to enable distinct experiences for different users and views.
