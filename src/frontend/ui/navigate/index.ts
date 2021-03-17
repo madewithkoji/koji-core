@@ -60,7 +60,7 @@ export class Navigate extends KojiBridge {
    * Programmatically navigate to the Koji's edit experience. This should only be called if the template knows that the user is an admin, otherwise the user will not be authorized to edit the Koji.
    */
   @client
-  edit(): void {
+  public edit(): void {
     this.sendMessage({
       kojiEventName: 'Koji.Edit',
       data: {},
