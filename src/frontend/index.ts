@@ -41,18 +41,22 @@ export interface KojiConfigOptions {
  * Provides frontend methods for your Koji.
  */
 export class Koji {
-  isReady: boolean;
-  configInitialized: boolean = false;
-  services: Services = {};
-  projectId?: string;
+  /** Indicates that the Koji.ready() call has been made. */
+  public isReady: boolean;
+  /** Indicates that the Koji.config() call has been made. */
+  public configInitialized: boolean = false;
+  /** The configured service endpoints. */
+  public services: Services = {};
+  /** The project's id. */
+  public projectId?: string;
 
-  analytics: Analytics = analytics;
-  dispatch: Dispatch = dispatch;
-  iap: IAP = iap;
-  identity: Identity = identity;
-  playerState: PlayerState = playerState;
-  remix: Remix = remix;
-  ui: UI = ui;
+  public analytics: Analytics = analytics;
+  public dispatch: Dispatch = dispatch;
+  public iap: IAP = iap;
+  public identity: Identity = identity;
+  public playerState: PlayerState = playerState;
+  public remix: Remix = remix;
+  public ui: UI = ui;
 
   constructor() {
     this.isReady = false;
@@ -238,7 +242,7 @@ export class Koji {
    * ```
    */
   @client
-  ready() {
+  public ready() {
     if (this.isReady) {
       throw new Error('You are calling `Koji.ready()` more than one time. This could cause unexpected behavior in your project.');
     }
@@ -256,6 +260,7 @@ export class Koji {
     window.parent.postMessage(
       {
         _type: 'KojiPreview.Ready',
+        _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
       },
       '*',
     );

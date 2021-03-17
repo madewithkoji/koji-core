@@ -51,7 +51,7 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  init(remixData: any) {
+  public init(remixData: any) {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {
@@ -153,6 +153,21 @@ export class Remix extends KojiBridge {
 
     this.sendMessage({
       kojiEventName: 'KojiPreview.Finish',
+    });
+  }
+
+  /**
+   * Cancels the remix experience and navigates the user back to where they were before they started remixing. If the user has made changes, they will be prompted by the Koji platform to confirm this action.
+   *
+   * @example
+   * ```javascript
+   * Koji.remix.cancel()
+   * ```
+   */
+  @client
+  public cancel() {
+    this.sendMessage({
+      kojiEventName: 'KojiPreview.Cancel',
     });
   }
 

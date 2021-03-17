@@ -3,12 +3,18 @@ import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 import { UserToken } from '../../types';
 
+/**
+ * API routes for auth methods.
+ */
 export enum AuthRoutes {
   GET_GRANT = '/v1/apps/auth/consumer/getGrantForToken',
   GET_ROLE = '/v1/apps/auth/consumer/getRoleForToken',
   PUSH_NOTIFICATION = '/v1/apps/auth/consumer/pushNotification',
 }
 
+/**
+ * Possible values for a user's role within a Koji.
+ */
 export enum UserRole {
   ADMIN = 'admin',
   UNKNOWN = 'unknown',
@@ -50,16 +56,14 @@ export class Identity extends Base {
   private rootHeaders: Object;
 
   /**
-   * Instantiates [[Identity]].
-   *
    * @param   config
    *
    * @example
    * ```javascript
-   * const identity = new KojiBackend.Identity({ config });
+   * const identity = new KojiBackend.Identity({ res });
    * ```
    */
-  constructor(config: BackendConfigurationInput) {
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://rest.api.gokoji.com';
