@@ -13,11 +13,17 @@ export type PlayerStateContext = 'about' | 'admin' | 'remix' | 'sticker' | 'rece
 export type PlayerStateReceiptType = 'buyer' | 'seller';
 
 /**
+ * Presentation style of the Koji. Popover presentation style does not include the Koji button, and thus the Koji can use the full screen.
+ */
+export type PlayerPresentationStyle = 'fullscreen' | 'popover';
+
+/**
  *
  */
 export interface ExpectedQueryParameters {
   context?: PlayerStateContext;
   'dynamic-receipt'?: PlayerStateReceiptType;
+  presentationStyle?: PlayerPresentationStyle;
 }
 
 /**
@@ -70,6 +76,8 @@ export class PlayerState extends KojiBridge {
   public receiptType?: ReceiptType;
   /** Focus state of the Koji. */
   public hasFocus: boolean = false;
+  /** The presentation style of the Koji */
+  public presentationStyle: PlayerPresentationStyle = 'fullscreen';
 
   public constructor() {
     super();
@@ -86,10 +94,15 @@ export class PlayerState extends KojiBridge {
       this.context = 'screenshot';
     } else {
       // Otherwise, pull the context from the query parameters
-      const { context = 'default', 'dynamic-receipt': receiptType } = params;
+      const {
+        context = 'default',
+        'dynamic-receipt': receiptType,
+        presentationStyle = 'fullscreen',
+      } = params;
 
       this.context = context;
       this.receiptType = receiptType;
+      this.presentationStyle = presentationStyle;
     }
 
     // Set the initial value based on the feed hash
