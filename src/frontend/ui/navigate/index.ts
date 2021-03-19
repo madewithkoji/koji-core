@@ -68,6 +68,17 @@ export class Navigate extends KojiBridge {
   }
 
   /**
+   * Dismiss a Koji that has been presented in a popover
+   */
+  @client
+  public dismiss(): void {
+    this.sendMessage({
+      kojiEventName: 'Koji.Dismiss',
+      data: {},
+    });
+  }
+
+  /**
    * Programmatically open the Koji's share sheet/dialog.
    */
   @client
