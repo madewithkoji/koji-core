@@ -120,7 +120,7 @@ export class Dispatch extends Base {
    * const myInfo = await dispatch.connect('myShard', 100, authorization);
    * ```
    */
-  private async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
+  public async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
