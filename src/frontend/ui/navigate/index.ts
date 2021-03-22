@@ -2,11 +2,11 @@ import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
 
 /**
- * Allow for navigation within a koji.
+ * Provides methods for controlling navigation within your Koji template.
  */
 export class Navigate extends KojiBridge {
   /**
-   * Navigate replaces the currently loaded Koji with the content of `url`
+   * Replaces the currently loaded Koji with the content of `url`.
    *
    * @param url The url to navigate to
    */

@@ -68,7 +68,7 @@ export interface ConnectionInfo {
 }
 
 /**
- * Implements a dispatch system for the backend of your Koji. For more information, see [[https://developer.withkoji.com/reference/packages/withkoji-dispatch-package | the Koji dispatch package reference]].
+ * Implements a dispatch system for real-time communication on the backend of your Koji. For more information, see [[https://developer.withkoji.com/reference/packages/withkoji-dispatch-package | the Koji dispatch package reference]].
  */
 export class Dispatch extends Base {
   private authToken?: string;
