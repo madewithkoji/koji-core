@@ -25,17 +25,17 @@ export interface ValueChanged {
 export class Remix extends KojiBridge {
   private values: any = {};
   private isInitialized: boolean = false;
-  private isAllowedToFinish: boolean = false;
+  private hasReceivedReadyResponse: boolean = false;
 
   constructor() {
     super();
 
     // After Koji.ready() is invoked, the platform will always respond with a `KojiPreview.IsRemixing`
     // message. This allows us to use an actual response from the platform to ensure that
-    // finish isn't called before a ready() resolution.
+    // finish and set aren't called before a ready() resolution.
     if (typeof window !== 'undefined') {
       this.execCallbackOnMessage(() => {
-        this.isAllowedToFinish = true;
+        this.hasReceivedReadyResponse = true;
       }, 'KojiPreview.IsRemixing');
     }
   }
@@ -51,7 +51,7 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  init(remixData: any) {
+  public init(remixData: any) {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {
@@ -112,6 +112,8 @@ export class Remix extends KojiBridge {
    */
   @client
   public set(newValue: Object): Promise<boolean> {
+    if (!this.hasReceivedReadyResponse) throw new Error('It looks like you are trying to call the `Koji.remix.set()` method before calling `Koji.ready(). This will prevent data from being stored properly.`');
+
     this.values = deepmerge(this.values, newValue, {
       arrayMerge: (dest, source) => source,
     });
@@ -147,10 +149,25 @@ export class Remix extends KojiBridge {
    */
   @client
   public finish() {
-    if (!this.isAllowedToFinish) throw new Error('It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in a remix preview.`');
+    if (!this.hasReceivedReadyResponse) throw new Error('It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in a remix preview.`');
 
     this.sendMessage({
       kojiEventName: 'KojiPreview.Finish',
+    });
+  }
+
+  /**
+   * Cancels the remix experience and navigates the user back to where they were before they started remixing. If the user has made changes, they will be prompted by the Koji platform to confirm this action.
+   *
+   * @example
+   * ```javascript
+   * Koji.remix.cancel()
+   * ```
+   */
+  @client
+  public cancel() {
+    this.sendMessage({
+      kojiEventName: 'KojiPreview.Cancel',
     });
   }
 

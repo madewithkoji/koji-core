@@ -3,6 +3,9 @@ import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 import { IAPToken } from '../../types';
 
+/**
+ * API routes for iap methods.
+ */
 export enum IapRoutes {
   GET_PRODUCT_BY_SKU = '/v1/iap/provider/getProductBySku',
   RESOLVE_RECEIPTS = '/v1/iap/consumer/resolveReceipts',
@@ -27,24 +30,21 @@ export interface IapReceipt {
 }
 
 /**
- * Implements in-app purchases for the backend of your Koji. For more information, see
- * [[https://developer.withkoji.com/reference/packages/withkoji-koji-iap-package | the in-app purchases package reference]].
+ * Implements in-app purchases for the backend of your Koji.
  */
 export class IAP extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
   /**
-   * Instantiates [[IAP]].
-   *
-   * @param   res
+   * @param   config
    *
    * @example
    * ```javascript
    * const iap = new KojiBackend.IAP({ res });
    * ```
    */
-  constructor(config: BackendConfigurationInput) {
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://rest.api.gokoji.com';
@@ -123,13 +123,13 @@ export class IAP extends Base {
    * Update receipt
    *
    * @param     receiptId     Receipt id.
-   * @param     attributes    Array of receipt attributes.
+   * @param     attributes    Object of key-value paired attributes to store with the receipt.
    * @param     notificationMessage    Optional notification message.
    * @return                  Data object.
    *
    * @example
    * ```javascript
-   * iap.updateReceipt(id, ['paid']);
+   * iap.updateReceipt(id, { consumed: true }, 'You have successfully redeemed your purchase.');
    * ```
    */
   public async updateReceipt(receiptId: string, attributes: { [index: string]: any }, notificationMessage?: string): Promise<any> {

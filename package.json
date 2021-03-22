@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "0.0.14",
+  "version": "1.1.0",
   "description": "Easily access core pieces of Koij's platform features",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "check-types": "tsc",
     "doc": "typedoc src",
     "generate-declarations": "tsc --emitDeclarationOnly",
-    "json-doc": "typedoc src --json test.json",
+    "json-doc": "typedoc src --json koji-core-docs.json --excludePrivate --excludeProtected",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "eslint --ext .ts src/ --fix",
     "prepare": "npm run build & npm run generate-declarations",

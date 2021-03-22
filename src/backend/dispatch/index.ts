@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import Sockette from 'sockette';
 import axios from 'axios';
-import { Base } from '../base';
+import { Base, BackendConfigurationInput } from '../base';
 
 const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
@@ -68,7 +68,7 @@ export interface ConnectionInfo {
 }
 
 /**
- * Implements a dispatch system for real-time communication on the backend of your Koji. For more information, see [[https://developer.withkoji.com/reference/packages/withkoji-dispatch-package | the Koji dispatch package reference]].
+ * Implements a real-time messaging dispatch system for the backend of your Koji.
  */
 export class Dispatch extends Base {
   private authToken?: string;
@@ -78,6 +78,18 @@ export class Dispatch extends Base {
   private eventHandlers: MessageHandler[] = [];
   private messageQueue: string[] = [];
   private ws: Sockette | null = null;
+
+  /**
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const dispatch = new KojiBackend.Dispatch({ res });
+   * ```
+   */
+  public constructor(config: BackendConfigurationInput) {
+    super(config);
+  }
 
   /**
    * Gets shard info for the current project.
@@ -293,7 +305,7 @@ export class Dispatch extends Base {
    * Emit event.
    *
    * @param     eventName     Name of event.
-   * @param     payload       Array of values to be included in event message.
+   * @param     payload       Object of key-value paired data to send as a message payload.
    * @param     recipients    One or more event recipients.
    *
    * @example

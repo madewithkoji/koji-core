@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Implements a Koji database for the backend of your Koji. For more information, see <a href="https://developer.withkoji.com/docs/develop/koji-database" class="external">the Koji database developer guide</a>.</p>
+						<p>Implements a Koji database for the backend of your Koji.</p>
 					</div>
 				</div>
 			</section>
@@ -144,16 +144,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L36">backend/database/index.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L97">backend/database/index.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Instantiates <a href="backend_database.database.html">Database</a>.</p>
-								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">database</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">Database</span><span style="color: #000000">({ </span><span style="color: #001080">config</span><span style="color: #000000"> });</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">database</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">Database</span><span style="color: #000000">({ </span><span style="color: #001080">res</span><span style="color: #000000"> });</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -180,7 +177,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -191,7 +188,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="backend_base.base.html">Base</a>.<a href="backend_base.base.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -201,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L36">backend/database/index.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L97">backend/database/index.ts:97</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L35">backend/database/index.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L96">backend/database/index.ts:96</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -222,13 +219,13 @@
 					<a name="arraypush" class="tsd-anchor"></a>
 					<h3>array<wbr>Push</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">array<wbr>Push<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">array<wbr>Push<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, returnDoc<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L310">backend/database/index.ts:310</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L364">backend/database/index.ts:364</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -262,9 +259,15 @@
 										<p>Appended contents.</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Return the updated doc as a response.</p>
+									</div>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Updated document.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
 						</li>
 					</ul>
 				</section>
@@ -272,13 +275,13 @@
 					<a name="arrayremove" class="tsd-anchor"></a>
 					<h3>array<wbr>Remove</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">array<wbr>Remove<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">array<wbr>Remove<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, returnDoc<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L338">backend/database/index.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L394">backend/database/index.ts:394</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -312,9 +315,15 @@
 										<p>Removed contents.</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Return the updated doc as a response.</p>
+									</div>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Updated document.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
 						</li>
 					</ul>
 				</section>
@@ -322,13 +331,13 @@
 					<a name="delete" class="tsd-anchor"></a>
 					<h3>delete</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/backend_database.databasehttpstatuscode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">DatabaseHttpStatusCode</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L365">backend/database/index.ts:365</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L422">backend/database/index.ts:422</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -357,8 +366,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Deleted document.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/backend_database.databasehttpstatuscode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">DatabaseHttpStatusCode</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An http status code (e.g., OK).</p>
 						</li>
 					</ul>
 				</section>
@@ -372,7 +381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L75">backend/database/index.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L134">backend/database/index.ts:134</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -426,7 +435,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L190">backend/database/index.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L244">backend/database/index.ts:244</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -479,7 +488,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L220">backend/database/index.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L274">backend/database/index.ts:274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -545,7 +554,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L98">backend/database/index.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L157">backend/database/index.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -574,7 +583,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L154">backend/database/index.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L213">backend/database/index.ts:213</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -640,7 +649,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L123">backend/database/index.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L182">backend/database/index.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -694,13 +703,13 @@
 					<a name="set" class="tsd-anchor"></a>
 					<h3>set</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, returnDoc<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L254">backend/database/index.ts:254</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L304">backend/database/index.ts:304</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -734,9 +743,15 @@
 										<p>Document contents.</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Return the updated doc as a response.</p>
+									</div>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>New document.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
 						</li>
 					</ul>
 				</section>
@@ -744,13 +759,13 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3>update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>collection<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, documentBody<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, returnDoc<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b2f49d2/src/backend/database/index.ts#L282">backend/database/index.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/database/index.ts#L334">backend/database/index.ts:334</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -784,9 +799,15 @@
 										<p>New contents.</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Return the updated doc as a response.</p>
+									</div>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Updated document.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
 						</li>
 					</ul>
 				</section>
@@ -805,6 +826,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/backend_database.databasehttpstatuscode.html" class="tsd-kind-icon">Database<wbr>Http<wbr>Status<wbr>Code</a>
+					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/backend_database.databaseroutes.html" class="tsd-kind-icon">Database<wbr>Routes</a>
 					</li>

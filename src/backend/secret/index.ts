@@ -2,19 +2,30 @@ import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 
+/**
+ * API routes for secret/keystore methods.
+ */
 enum SecretRoutes {
   KEYSTORE_GET = '/v1/keystore/get',
   CREATE_SIGNED_REQUEST = '/v1/cdn/signedRequest/create',
 }
 
 /**
- * Implements a class for handling secret keys in your Koji.
+ * Implements a class for handling secret values in your Koji.
  */
 export class Secret extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
-  constructor(config: BackendConfigurationInput) {
+  /**
+   * @param   config
+   *
+   * @example
+   * ```javascript
+   * const secret = new KojiBackend.Secret({ res });
+   * ```
+   */
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://rest.api.gokoji.com';
@@ -57,13 +68,16 @@ export class Secret extends Base {
   /**
    * Creates a signed URL.
    *
-   * @param   resource        Path to resource
+   * @param   resource        Path to resource. If the resource is a Koji CDN-hosted image, you can also pass in transforms via query parameters.
    * @param   expireSeconds   Expiration in seconds
    * @return                  URL for resource.
    *
    * @example
    * ```javascript
-   * const secretPath = await secret.generateSignedUrl();
+   * const temporaryImagePath = await secret.generateSignedUrl('https://images.koji-cdn.com/e83eaff0-279f-4403-951b-e56507af923d/userData/emfga-icon.png');
+   *
+   * // Blur the image
+   * const temporaryBlurredImagePath = await secret.generateSignedUrl('https://images.koji-cdn.com/e83eaff0-279f-4403-951b-e56507af923d/userData/emfga-icon.png?blur=10');
    * ```
    */
   @server

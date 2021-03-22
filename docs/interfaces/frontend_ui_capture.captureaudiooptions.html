@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CaptureKojiOptions | @withkoji/core</title>
+	<title>CaptureAudioOptions | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,30 +58,54 @@
 					<a href="../modules/frontend_ui_capture.html">frontend/ui/capture</a>
 				</li>
 				<li>
-					<a href="frontend_ui_capture.capturekojioptions.html">CaptureKojiOptions</a>
+					<a href="frontend_ui_capture.captureaudiooptions.html">CaptureAudioOptions</a>
 				</li>
 			</ul>
-			<h1>Interface CaptureKojiOptions</h1>
+			<h1>Interface CaptureAudioOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Configuration options for a <a href="../classes/frontend_ui_capture.capture.html#koji">koji</a> capture.</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CaptureKojiOptions</span>
+						<span class="target">CaptureAudioOptions</span>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.captureaudiooptions.html#hideextensions" class="tsd-kind-icon">hide<wbr>Extensions</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="hideextensions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> hide<wbr>Extensions</h3>
+					<div class="tsd-signature tsd-kind-icon">hide<wbr>Extensions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L184">frontend/ui/capture/index.ts:184</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium audios).</p>
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -106,6 +130,18 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/frontend_ui_capture.capture.html" class="tsd-kind-icon">Capture</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.captureaudiooptions.html" class="tsd-kind-icon">Capture<wbr>Audio<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_capture.captureaudiooptions.html#hideextensions" class="tsd-kind-icon">hide<wbr>Extensions</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.capturecoloroptions.html" class="tsd-kind-icon">Capture<wbr>Color<wbr>Options</a>
 					</li>
@@ -118,13 +154,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.captureimageoptions.html" class="tsd-kind-icon">Capture<wbr>Image<wbr>Options</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_ui_capture.capturekojioptions.html" class="tsd-kind-icon">Capture<wbr>Koji<wbr>Options</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.capturelinkoptions.html" class="tsd-kind-icon">Capture<wbr>Link<wbr>Options</a>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.capturemediaoptions.html" class="tsd-kind-icon">Capture<wbr>Media<wbr>Options</a>
 					</li>
@@ -138,10 +170,10 @@
 						<a href="frontend_ui_capture.captureselectoptions.html" class="tsd-kind-icon">Capture<wbr>Select<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_ui_capture.capturesoundoptions.html" class="tsd-kind-icon">Capture<wbr>Sound<wbr>Options</a>
+						<a href="frontend_ui_capture.capturevideooptions.html" class="tsd-kind-icon">Capture<wbr>Video<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_ui_capture.capturevideooptions.html" class="tsd-kind-icon">Capture<wbr>Video<wbr>Options</a>
+						<a href="frontend_ui_capture.extendedlinkresult.html" class="tsd-kind-icon">Extended<wbr>Link<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.extendedmediaresult.html" class="tsd-kind-icon">Extended<wbr>Media<wbr>Result</a>
@@ -178,6 +210,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>

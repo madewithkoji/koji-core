@@ -25,7 +25,7 @@ export class Analytics {
    * ```
    */
   @client
-  track(event: string, payload?: { [index: string]: any }): boolean {
+  public track(event: string, payload?: { [index: string]: any }): boolean {
     window.parent.postMessage(
       {
         _kojiEventName: '@@koji/analytics/track',

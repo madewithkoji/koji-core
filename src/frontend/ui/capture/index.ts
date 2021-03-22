@@ -14,7 +14,7 @@ export interface VerboseCapture {
   /** Value captured from the user. */
   result?: CaptureResult;
   /** Metadata associated with the captured result */
-  resultMetadata?: ExtendedMediaResult | null;
+  resultMetadata?: ExtendedMediaResult | ExtendedLinkResult | null;
 }
 
 export interface CaptureMessage<T> {
@@ -36,16 +36,17 @@ export enum CaptureType {
   COLOR = 'color',
   FILE = 'file',
   IMAGE = 'image',
-  KOJI = 'koji',
+  LINK = 'link',
   MEDIA = 'media',
   RANGE = 'range',
   SELECT = 'select',
-  SOUND = 'sound',
+  SOUND = 'audio',
   VIDEO = 'video',
 }
 
 /**
- * Metadata when the capture option for the return type is set to `extended`.
+ * Metadata when the capture option for a media capture request's return type
+ * is set to `extended`.
  */
 export interface ExtendedMediaResult {
   /** URL of the selected media file. */
@@ -74,6 +75,19 @@ export interface ExtendedMediaResult {
 }
 
 /**
+ * Metadata when the capture option for the return type for a link capture
+ * request is set to `extended`
+ */
+export interface ExtendedLinkResult {
+  url: string;
+  title: string | null;
+  description: string | null;
+  thumbnailUrl: string | null;
+  sourceName: string | null;
+  sourceThumbnailUrl: string | null;
+}
+
+/**
  * Configuration options for a [[custom-vcc]] capture.
  */
 export interface CaptureCustomOptions {
@@ -91,6 +105,8 @@ export interface CaptureCustomOptions {
 export interface CaptureColorOptions {
   /** Indicates whether to support transparency (`false`, by default). */
   allowAlpha?: boolean;
+  /** A default value to provide to the color capture tool */
+  initialValue?: string;
 }
 
 /**
@@ -107,9 +123,11 @@ export interface CaptureImageOptions extends FastlyOptions {
 export interface CaptureFileOptions {}
 
 /**
- * Configuration options for a [[koji]] capture.
+ * Configuration options for a [[link]] capture.
  */
-export interface CaptureKojiOptions {}
+export interface CaptureLinkOptions {
+  kojiTemplateId?: string;
+}
 
 /**
  * Configuration options for a [[range]] capture.
@@ -121,6 +139,8 @@ export interface CaptureRangeOptions {
   max?: number;
   /** Default increment/step size. Default is `1`. */
   step?: number;
+  /** A default value to provide to the range capture tool */
+  initialValue?: number;
 }
 
 /**
@@ -141,6 +161,8 @@ export interface CaptureSelectOptions {
   placeholder?: string;
   /** List of predefined options. */
   options?: SelectOption[];
+  /** A default value to provide to the range capture tool */
+  initialValue?: string;
 }
 
 /**
@@ -157,8 +179,8 @@ export interface CaptureVideoOptions {
   hideExtensions?: boolean;
 }
 
-export interface CaptureSoundOptions {
-  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium sounds). */
+export interface CaptureAudioOptions {
+  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium audios). */
   hideExtensions?: boolean;
 }
 
@@ -177,7 +199,11 @@ export interface CaptureMediaOptions {
  * Captures user input on the frontend of your Koji.
  */
 export class Capture extends KojiBridge {
-  pickVerboseResultFromMessage(data: CaptureMessage<any>): VerboseCapture {
+  /**
+   * Map capture data to a verbose result
+   * @param data The capture data returned by the platform
+   */
+  private pickVerboseResultFromMessage(data: CaptureMessage<any>): VerboseCapture {
     if (data.status !== CaptureStatus.SUCCEEDED) {
       return {
         captureStatus: data.status,
@@ -206,12 +232,87 @@ export class Capture extends KojiBridge {
     };
   }
 
-  pickResultFromMessage(data: CaptureMessage<any>): CaptureResult {
+  /**
+   * Map any non-successful capture data to a null return
+   * @param data The capture data returned by the platform
+   */
+  private pickResultFromMessage(data: CaptureMessage<any>): CaptureResult {
     if (data.status !== CaptureStatus.SUCCEEDED) {
       return null;
     }
 
     return data.result;
+  }
+
+  /**
+   * Map `initialValue` to `value`, the key where the platform expects to see the initialValue in a postMessage
+   * @param options The initial capture options passed by the user
+   */
+  private transformInitialValueOptions(options: any): any {
+    const { initialValue, ...transformedOptions } = options;
+
+    if (initialValue) transformedOptions.value = initialValue;
+
+    return transformedOptions;
+  }
+
+  /**
+   * Prompts the user to select a sound by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting a sound.
+   *
+   * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
+   *
+   * @param   options
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
+   * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
+   *
+   * @example
+   * ```javascript
+   * const audio = await Koji.ui.capture.audio();
+   *
+   * // Hide asset packs and return an object
+   * const audio = await Koji.ui.capture.audio({ hideExtensions: true }, true);
+   * ```
+   */
+  audio(options: CaptureAudioOptions, verbose: true): Promise<VerboseCapture>;
+  audio(options?: CaptureAudioOptions, verbose?: false): Promise<string>;
+  audio(options: CaptureAudioOptions, verbose?: boolean): Promise<CaptureResult>;
+  @client
+  public async audio(options: CaptureAudioOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['audio'],
+              audioOptions: options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
+    const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: 'Koji.Capture',
+        data: {
+          type: 'media',
+          options: {
+            acceptOnly: ['audio'],
+            audioOptions: options,
+            returnType: 'url',
+          },
+        },
+      },
+      'Koji.CaptureSuccess',
+    );
+
+    return this.pickResultFromMessage(data);
   }
 
   /**
@@ -226,20 +327,22 @@ export class Capture extends KojiBridge {
    * const color = await Koji.ui.capture.color();
    *
    * // Enable transparency and return an object
-   * const color = await Koji.ui.capture.color({ allowAlpha: true, verbose: true });
+   * const color = await Koji.ui.capture.color({ allowAlpha: true }, true);
    * ```
    */
   color(options: CaptureColorOptions, verbose: true): Promise<VerboseCapture>;
   color(options?: CaptureColorOptions, verbose?: false): Promise<string | null>;
   color(options: CaptureColorOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async color(options: CaptureColorOptions = {}, verbose: boolean = false): Promise<CaptureResult> {
+  public async color(options: CaptureColorOptions = {}, verbose: boolean = false): Promise<CaptureResult> {
+    const transformedOptions = this.transformInitialValueOptions(options);
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
           type: 'color',
-          options,
+          options: transformedOptions,
         },
       },
       'Koji.CaptureSuccess',
@@ -266,7 +369,7 @@ export class Capture extends KojiBridge {
   custom(options?: CaptureCustomOptions, verbose?: false): Promise<any>;
   custom(options: CaptureCustomOptions, verbose?: boolean): Promise<any | VerboseCapture>;
   @client
-  async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
+  public async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
     const { name, url, ...typeOptions } = options;
 
     if (!name && !url) throw new Error('Please supply the custom name or url for the Custom VCC you would like to load.');
@@ -290,7 +393,7 @@ export class Capture extends KojiBridge {
   /**
    * Prompts the user to upload a file of any type. Use this method to allow the user to upload raw files in their original format. For example, to capture high-resolution images for download rather than for display in a browser.
    *
-   * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[sound]], or [[media]].
+   * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[audio]], or [[media]].
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
@@ -301,27 +404,47 @@ export class Capture extends KojiBridge {
    * const file = await Koji.ui.capture.file();
    *
    * // Return an object
-   * const file = await Koji.ui.capture.file({ verbose: true });
+   * const file = await Koji.ui.capture.file({}, true);
    * ```
    */
   file(options: CaptureFileOptions, verbose: true): Promise<VerboseCapture>;
   file(options?: CaptureFileOptions, verbose?: false): Promise<string>;
   file(options: CaptureFileOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async file(options: CaptureFileOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async file(options: CaptureFileOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['file'],
+              fileOptions: options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'file',
-          options,
+          type: 'media',
+          options: {
+            acceptOnly: ['file'],
+            fileOptions: options,
+            returnType: 'url',
+          },
         },
       },
       'Koji.CaptureSuccess',
     );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
-
     return this.pickResultFromMessage(data);
   }
 
@@ -339,26 +462,47 @@ export class Capture extends KojiBridge {
    * const image = await Koji.ui.capture.image();
    *
    * // Hide asset packs and return an object
-   * const image = await Koji.ui.capture.image({ hideExtensions: true, verbose: true });
+   * const image = await Koji.ui.capture.image({ hideExtensions: true }, true);
    * ```
    */
   image(options: CaptureImageOptions, verbose: true): Promise<VerboseCapture>;
   image(options?: CaptureImageOptions, verbose?: false): Promise<string>;
   image(options: CaptureImageOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async image(options: CaptureImageOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async image(options: CaptureImageOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['image'],
+              imageOptions: options,
+              returnType: 'extended',
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'image',
-          options,
+          type: 'media',
+          options: {
+            acceptOnly: ['image'],
+            imageOptions: options,
+            returnType: 'url',
+          },
         },
       },
       'Koji.CaptureSuccess',
     );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
 
     return this.pickResultFromMessage(data);
   }
@@ -375,19 +519,19 @@ export class Capture extends KojiBridge {
    * const koji = await Koji.ui.capture.koji();
    *
    * // Return an object
-   * const koji = await Koji.ui.capture.koji({ verbose: true });
+   * const koji = await Koji.ui.capture.koji({}, true);
    * ```
    */
-  koji(options: CaptureKojiOptions, verbose: true): Promise<VerboseCapture>;
-  koji(options?: CaptureKojiOptions, verbose?: false): Promise<string>;
-  koji(options: CaptureKojiOptions, verbose?: boolean): Promise<CaptureResult>;
+  link(options: CaptureLinkOptions, verbose: true): Promise<VerboseCapture>;
+  link(options?: CaptureLinkOptions, verbose?: false): Promise<string>;
+  link(options: CaptureLinkOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async koji(options: CaptureKojiOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  async link(options: CaptureLinkOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'koji',
+          type: 'link',
           options,
         },
       },
@@ -400,7 +544,7 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select an image, file, sound, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
+   * Prompts the user to select an image, file, audio, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata.
@@ -411,14 +555,14 @@ export class Capture extends KojiBridge {
    * const media = await Koji.ui.capture.media();
    *
    * // Limit to image or video, hide asset packs, return an object with extended metadata, transcode videos for HLS
-   * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true }, verbose: true });
+   * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true } }, true);
    * ```
    */
   media(options: CaptureMediaOptions, verbose: true): Promise<VerboseCapture>;
   media(options?: CaptureMediaOptions, verbose?: false): Promise<string>;
   media(options: CaptureMediaOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async media(options: CaptureMediaOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async media(options: CaptureMediaOptions = {}, verbose?: boolean): Promise<CaptureResult> {
     if (verbose) {
       const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
         {
@@ -466,20 +610,22 @@ export class Capture extends KojiBridge {
    * const size = await Koji.ui.capture.range();
    *
    * // Return an object
-   * const size = await Koji.ui.capture.range({ min: 0, max: 60, step: 3, verbose: true });
+   * const size = await Koji.ui.capture.range({ min: 0, max: 60, step: 3 }, true);
    * ```
    */
   range(options: CaptureRangeOptions, verbose: true): Promise<VerboseCapture>;
   range(options?: CaptureRangeOptions, verbose?: false): Promise<number>;
   range(options: CaptureRangeOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async range(options: CaptureRangeOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async range(options: CaptureRangeOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    const transformedOptions = this.transformInitialValueOptions(options);
+
     const data: CaptureMessage<number> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
           type: 'range',
-          options,
+          options: transformedOptions,
         },
       },
       'Koji.CaptureSuccess',
@@ -514,13 +660,15 @@ export class Capture extends KojiBridge {
   select(options?: CaptureSelectOptions, verbose?: false): Promise<string>;
   select(options: CaptureSelectOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async select(options: CaptureSelectOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async select(options: CaptureSelectOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    const transformedOptions = this.transformInitialValueOptions(options);
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
           type: 'select',
-          options,
+          options: transformedOptions,
         },
       },
       'Koji.CaptureSuccess',
@@ -532,48 +680,10 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select a sound by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method when you want to limit the user to selecting a sound.
+   * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
    *
    * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
    *
-   * @param   options
-   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the audio asset as a string.
-   * @return         URL to the audio asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
-   *
-   * @example
-   * ```javascript
-   * const sound = await Koji.ui.capture.sound();
-   *
-   * // Hide asset packs and return an object
-   * const sound = await Koji.ui.capture.sound({ hideExtensions: true, verbose: true });
-   * ```
-   */
-  sound(options: CaptureSoundOptions, verbose: true): Promise<VerboseCapture>;
-  sound(options?: CaptureSoundOptions, verbose?: false): Promise<string>;
-  sound(options: CaptureSoundOptions, verbose?: boolean): Promise<CaptureResult>;
-  @client
-  async sound(options: CaptureSoundOptions = {}, verbose?: boolean): Promise<CaptureResult> {
-    const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
-      {
-        kojiEventName: 'Koji.Capture',
-        data: {
-          type: 'sound',
-          options,
-        },
-      },
-      'Koji.CaptureSuccess',
-    );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
-
-    return this.pickResultFromMessage(data);
-  }
-
-  /**
-    * Prompts the user to upload a video. Use this method when you want to limit the user to uploading a video file.
-    *
-    * To allow multiple types of media assets, see [[media]]. To allow upload of raw files of any type, see [[file]].
-    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the video asset as a string.
    * @return          URL to the video asset as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
@@ -583,26 +693,47 @@ export class Capture extends KojiBridge {
    * const video = await Koji.ui.capture.video();
    *
    * // Transcode for HLS and return an object
-   * const video = await Koji.ui.capture.video({ hls: true, verbose: true });
+   * const video = await Koji.ui.capture.video({ hls: true }, true);
    * ```
    */
   video(options: CaptureVideoOptions, verbose: true): Promise<VerboseCapture>;
   video(options?: CaptureVideoOptions, verbose?: false): Promise<string>;
   video(options: CaptureVideoOptions, verbose?: boolean): Promise<CaptureResult>;
   @client
-  async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+  public async video(options: CaptureVideoOptions = {}, verbose?: boolean): Promise<CaptureResult> {
+    if (verbose) {
+      const data: CaptureMessage<ExtendedMediaResult> = await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: 'Koji.Capture',
+          data: {
+            type: 'media',
+            options: {
+              acceptOnly: ['video'],
+              returnType: 'extended',
+              videoOptions: options,
+            },
+          },
+        },
+        'Koji.CaptureSuccess',
+      );
+
+      return this.pickVerboseResultFromMessage(data);
+    }
+
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: 'video',
-          options,
+          type: 'media',
+          options: {
+            acceptOnly: ['video'],
+            returnType: 'url',
+            videoOptions: options,
+          },
         },
       },
       'Koji.CaptureSuccess',
     );
-
-    if (verbose) return this.pickVerboseResultFromMessage(data);
 
     return this.pickResultFromMessage(data);
   }

@@ -66,7 +66,7 @@ export interface ConnectionInfo {
 }
 
 /**
- * Implements a dispatch system for real-time communication on the frontend of your Koji template. For more information, see [[https://developer.withkoji.com/reference/packages/withkoji-dispatch-package | the Koji dispatch package reference]].
+ * Implements a real-time messaging dispatch system for the frontend of your Koji.
  */
 export class Dispatch {
   private authToken?: string;
@@ -172,7 +172,6 @@ export class Dispatch {
    */
   private handleMessage({ data }: { data: string }, resolve: Function) {
     const { eventName, latencyMs, payload } = JSON.parse(data || '{}');
-    console.log('message', data);
 
     if (eventName === PlatformEvents.CONNECTED) {
       this.initialConnection = true;
@@ -224,8 +223,6 @@ export class Dispatch {
   /**
    * Cleans up when connection is closed.
    *
-   * @param     e    Event that generated the error.
-   *
    * @example
    * ```javascript
    * dispatch.handleClose();
@@ -239,7 +236,7 @@ export class Dispatch {
   /**
    * Prints error message to console.
    *
-   * @param     e    Event that executed the method.
+   * @param     e    Event that generated the error.
    *
    * @example
    * ```javascript
@@ -309,7 +306,7 @@ export class Dispatch {
    * Emit event.
    *
    * @param     eventName     Name of event.
-   * @param     payload       Array of values to be included in event message.
+   * @param     payload       Object of key-value paired data to send as a message payload.
    * @param     recipients    One or more event recipients.
    *
    * @example

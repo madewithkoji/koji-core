@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CaptureRangeOptions | @withkoji/core</title>
+	<title>ExtendedLinkResult | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/frontend_ui_capture.html">frontend/ui/capture</a>
 				</li>
 				<li>
-					<a href="frontend_ui_capture.capturerangeoptions.html">CaptureRangeOptions</a>
+					<a href="frontend_ui_capture.extendedlinkresult.html">ExtendedLinkResult</a>
 				</li>
 			</ul>
-			<h1>Interface CaptureRangeOptions</h1>
+			<h1>Interface ExtendedLinkResult</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Configuration options for a <a href="../classes/frontend_ui_capture.capture.html#range">range</a> capture.</p>
+						<p>Metadata when the capture option for the return type for a link capture
+						request is set to <code>extended</code></p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CaptureRangeOptions</span>
+						<span class="target">ExtendedLinkResult</span>
 					</li>
 				</ul>
 			</section>
@@ -90,10 +91,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.capturerangeoptions.html#initialvalue" class="tsd-kind-icon">initial<wbr>Value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.capturerangeoptions.html#max" class="tsd-kind-icon">max</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.capturerangeoptions.html#min" class="tsd-kind-icon">min</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.capturerangeoptions.html#step" class="tsd-kind-icon">step</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#description" class="tsd-kind-icon">description</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#sourcename" class="tsd-kind-icon">source<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#sourcethumbnailurl" class="tsd-kind-icon">source<wbr>Thumbnail<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#thumbnailurl" class="tsd-kind-icon">thumbnail<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#title" class="tsd-kind-icon">title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.extendedlinkresult.html#url" class="tsd-kind-icon">url</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,64 +105,64 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="initialvalue" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> initial<wbr>Value</h3>
-					<div class="tsd-signature tsd-kind-icon">initial<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="description" class="tsd-anchor"></a>
+					<h3>description</h3>
+					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L143">frontend/ui/capture/index.ts:143</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L84">frontend/ui/capture/index.ts:84</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A default value to provide to the range capture tool</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="max" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max</h3>
-					<div class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="sourcename" class="tsd-anchor"></a>
+					<h3>source<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">source<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L139">frontend/ui/capture/index.ts:139</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L86">frontend/ui/capture/index.ts:86</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Maximum value. Default is <code>100</code>.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="min" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min</h3>
-					<div class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="sourcethumbnailurl" class="tsd-anchor"></a>
+					<h3>source<wbr>Thumbnail<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">source<wbr>Thumbnail<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L137">frontend/ui/capture/index.ts:137</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L87">frontend/ui/capture/index.ts:87</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Minimum value. Default is <code>0</code>.</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="step" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> step</h3>
-					<div class="tsd-signature tsd-kind-icon">step<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<a name="thumbnailurl" class="tsd-anchor"></a>
+					<h3>thumbnail<wbr>Url</h3>
+					<div class="tsd-signature tsd-kind-icon">thumbnail<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L141">frontend/ui/capture/index.ts:141</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L85">frontend/ui/capture/index.ts:85</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Default increment/step size. Default is <code>1</code>.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="title" class="tsd-anchor"></a>
+					<h3>title</h3>
+					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L83">frontend/ui/capture/index.ts:83</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="url" class="tsd-anchor"></a>
+					<h3>url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/ui/capture/index.ts#L82">frontend/ui/capture/index.ts:82</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -209,36 +212,42 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="frontend_ui_capture.capturemessage.html" class="tsd-kind-icon">Capture<wbr>Message</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.capturerangeoptions.html" class="tsd-kind-icon">Capture<wbr>Range<wbr>Options</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.capturerangeoptions.html#initialvalue" class="tsd-kind-icon">initial<wbr>Value</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.capturerangeoptions.html#max" class="tsd-kind-icon">max</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.capturerangeoptions.html#min" class="tsd-kind-icon">min</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_capture.capturerangeoptions.html#step" class="tsd-kind-icon">step</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.captureselectoptions.html" class="tsd-kind-icon">Capture<wbr>Select<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.capturevideooptions.html" class="tsd-kind-icon">Capture<wbr>Video<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.extendedlinkresult.html" class="tsd-kind-icon">Extended<wbr>Link<wbr>Result</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_capture.extendedlinkresult.html#description" class="tsd-kind-icon">description</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_capture.extendedlinkresult.html#sourcename" class="tsd-kind-icon">source<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_capture.extendedlinkresult.html#sourcethumbnailurl" class="tsd-kind-icon">source<wbr>Thumbnail<wbr>Url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_capture.extendedlinkresult.html#thumbnailurl" class="tsd-kind-icon">thumbnail<wbr>Url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_capture.extendedlinkresult.html#title" class="tsd-kind-icon">title</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_capture.extendedlinkresult.html#url" class="tsd-kind-icon">url</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="frontend_ui_capture.extendedmediaresult.html" class="tsd-kind-icon">Extended<wbr>Media<wbr>Result</a>
 					</li>

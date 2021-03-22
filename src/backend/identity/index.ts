@@ -3,12 +3,18 @@ import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 import { UserToken } from '../../types';
 
+/**
+ * API routes for auth methods.
+ */
 export enum AuthRoutes {
   GET_GRANT = '/v1/apps/auth/consumer/getGrantForToken',
   GET_ROLE = '/v1/apps/auth/consumer/getRoleForToken',
   PUSH_NOTIFICATION = '/v1/apps/auth/consumer/pushNotification',
 }
 
+/**
+ * Possible values for a user's role within a Koji.
+ */
 export enum UserRole {
   ADMIN = 'admin',
   UNKNOWN = 'unknown',
@@ -19,13 +25,13 @@ export enum UserRole {
  * Defines an interface for a user.
  */
 export interface User {
-  id: string;
-  attributes: { [index: string]: any };
-  dateCreated: string;
+  id: string | null;
+  attributes: { [index: string]: any } | null;
+  dateCreated: string | null;
   grants: {
     pushNotificationsEnabled: boolean;
-  };
-  role: UserRole;
+  } | null;
+  role: UserRole | null;
 }
 
 /**
@@ -50,16 +56,14 @@ export class Identity extends Base {
   private rootHeaders: Object;
 
   /**
-   * Instantiates [[Identity]].
-   *
    * @param   config
    *
    * @example
    * ```javascript
-   * const identity = new KojiBackend.Identity({ config });
+   * const identity = new KojiBackend.Identity({ res });
    * ```
    */
-  constructor(config: BackendConfigurationInput) {
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://rest.api.gokoji.com';
@@ -135,32 +139,45 @@ export class Identity extends Base {
    */
   @server
   public async resolveUserFromToken(token: UserToken): Promise<User> {
-    const {
-      data: { role },
-    } = await axios.post(
-      `${this.rootPath}${AuthRoutes.GET_ROLE}`,
-      {},
-      {
-        headers: {
-          ...this.rootHeaders,
-          'X-Koji-Auth-Callback-Token': token,
+    const data = await axios.all([
+      axios.post(
+        `${this.rootPath}${AuthRoutes.GET_ROLE}`,
+        {},
+        {
+          headers: {
+            ...this.rootHeaders,
+            'X-Koji-Auth-Callback-Token': token,
+          },
         },
-      },
-    );
-
-    const {
-      data: { grant = {} },
-    } = await axios.post(
-      `${this.rootPath}${AuthRoutes.GET_GRANT}`,
-      {},
-      {
-        headers: {
-          ...this.rootHeaders,
-          'X-Koji-Auth-Callback-Token': token,
+      ),
+      axios.post(
+        `${this.rootPath}${AuthRoutes.GET_GRANT}`,
+        {},
+        {
+          headers: {
+            ...this.rootHeaders,
+            'X-Koji-Auth-Callback-Token': token,
+          },
         },
-      },
-    );
+      ),
+    ]);
 
+    const [{ data: { role } }, { data: { grant } }] = data;
+
+    // If the user hasn't granted any permissions, the only thing
+    // we return is the role.
+    if (!grant) {
+      return {
+        id: null,
+        attributes: null,
+        dateCreated: null,
+        grants: null,
+        role,
+      };
+    }
+
+    // If the user has made a grant, we can look for specific attributes
+    // and properties from the grant declaration.
     return {
       id: grant.userId,
       attributes: grant.attributes,

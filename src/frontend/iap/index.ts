@@ -37,7 +37,7 @@ export class IAP extends KojiBridge {
    * ```
    */
   @client
-  async getToken(): Promise<IAPToken> {
+  public async getToken(): Promise<IAPToken> {
     const { userToken } = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: '@@koji/iap/getToken',
@@ -60,7 +60,7 @@ export class IAP extends KojiBridge {
    * ```
    */
   @client
-  async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
+  public async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
     const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: '@@koji/iap/promptPurchase',

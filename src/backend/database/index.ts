@@ -2,6 +2,9 @@ import axios from 'axios';
 import { server } from '../@decorators/server';
 import { Base, BackendConfigurationInput } from '../base';
 
+/**
+ * API routes for database methods.
+ */
 export enum DatabaseRoutes {
   ARRAY_PUSH = '/v1/store/update/push',
   ARRAY_REMOVE = '/v1/store/update/remove',
@@ -15,6 +18,9 @@ export enum DatabaseRoutes {
   UPDATE = '/v1/store/update',
 }
 
+/**
+ * Available operator types for database comparisons.
+ */
 export enum PredicateOperator {
   LESS_THAN = '<',
   LESS_THAN_OR_EQUAL_TO = '<=',
@@ -29,23 +35,76 @@ export enum PredicateOperator {
 }
 
 /**
- * Implements a Koji database for the backend of your Koji. For more information, see [[https://developer.withkoji.com/docs/develop/koji-database | the Koji database developer guide]].
+ * Possible response values when interacting with the database API.
+ */
+export enum DatabaseHttpStatusCode {
+  /**
+   * Standard response for successful HTTP requests.
+   */
+  OK = 200,
+
+  /**
+   * The server cannot or will not process the request due to an apparent client error
+   *
+   * One of the following error conditions:
+   * Unable to parse data.
+   * Missing data.
+   * The request attempts data that is too large.
+   * The data contains invalid child names as part of the path.
+   * The data path is too long.
+   * The request contains an unrecognized server value.
+   * The request does not support one of the query parameters that is specified.
+   * The request mixes query parameters with a shallow request.
+   */
+  BAD_REQUEST = 400,
+
+  /**
+   * Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet
+   * been provided.
+   *
+   * One of the following error conditions:
+   * The auth token has expired or missing.
+   * The auth token used in the request is invalid.
+   */
+  UNAUTHORIZED = 401,
+
+  /**
+   * The specified Database was not found.
+   */
+  NOT_FOUND = 404,
+
+  /**
+   * The request's specified ETag value in the if-match header did not match the server's value.
+   */
+  PRECONDITION_FAILED = 412,
+
+  /**
+   * A server error occurred.
+   */
+  INTERNAL_SERVER_ERROR = 500,
+
+  /**
+   * The specified Database is temporarily unavailable, which means the request was not attempted.
+   */
+  SERVICE_UNAVAILABLE = 503,
+}
+
+/**
+ * Implements a Koji database for the backend of your Koji.
  */
 export class Database extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
   /**
-   * Instantiates [[Database]].
-   *
    * @param   config
    *
    * @example
    * ```javascript
-   * const database = new KojiBackend.Database({ config });
+   * const database = new KojiBackend.Database({ res });
    * ```
    */
-  constructor(config: BackendConfigurationInput) {
+  public constructor(config: BackendConfigurationInput) {
     super(config);
 
     this.rootPath = 'https://database.api.gokoji.com';
@@ -106,7 +165,7 @@ export class Database extends Base {
   /**
    * Searches a collection for records that match the specified search criteria.
    * The search criteria are the search field and the search value.
-    *
+   *
    *
    * @typeParam T              Data from a Koji database collection.
    * @param     collection     Name of the collection.
@@ -151,12 +210,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async getWhere<T>(
-    collection: string,
-    predicateKey: string,
-    predicateOperation: PredicateOperator,
-    predicateValue: string,
-  ): Promise<T> {
+  public async getWhere<T>(collection: string, predicateKey: string, predicateOperation: PredicateOperator, predicateValue: string): Promise<T> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET}`,
       {
@@ -217,12 +271,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async getAllWhere<T>(
-    collection: string,
-    predicateKey: string,
-    predicateOperation: PredicateOperator,
-    predicateValues: string[],
-  ): Promise<T[]> {
+  public async getAllWhere<T>(collection: string, predicateKey: string, predicateOperation: PredicateOperator, predicateValues: string[]): Promise<T[]> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET_ALL_WHERE}`,
       {
@@ -243,7 +292,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        Document contents.
-   * @return                        New document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -251,13 +301,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async set(collection: string, documentName: string, documentBody: any): Promise<boolean> {
+  public async set(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.SET}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -271,7 +322,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        New contents.
-   * @return                        Updated document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -279,13 +331,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async update(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
+  public async update(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.UPDATE}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -299,7 +352,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        Appended contents.
-   * @return                        Updated document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -307,13 +361,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayPush(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
+  public async arrayPush(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -327,7 +382,8 @@ export class Database extends Base {
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
    * @param     documentBody        Removed contents.
-   * @return                        Updated document.
+   * @param     returnDoc           Return the updated doc as a response.
+   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
    *
    * @example
    * ```javascript
@@ -335,13 +391,14 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayRemove(collection: string, documentName: string, documentBody: any): Promise<boolean | void> {
+  public async arrayRemove(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`,
       {
         collection,
         documentBody,
         documentName,
+        returnDoc,
       },
       { headers: this.rootHeaders },
     );
@@ -354,7 +411,7 @@ export class Database extends Base {
    *
    * @param     collection          Name of the collection.
    * @param     documentName        Document name.
-   * @return                        Deleted document.
+   * @return                        An http status code (e.g., OK).
    *
    * @example
    * ```javascript
@@ -362,7 +419,7 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async delete(collection: string, documentName: string): Promise<boolean | void> {
+  public async delete(collection: string, documentName: string): Promise<DatabaseHttpStatusCode> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.DELETE}`,
       {

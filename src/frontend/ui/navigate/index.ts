@@ -11,7 +11,7 @@ export class Navigate extends KojiBridge {
    * @param url The url to navigate to
    */
   @client
-  to(url: string): void {
+  public to(url: string): void {
     this.sendMessage({
       kojiEventName: 'Koji.Navigate',
       data: {
@@ -29,7 +29,7 @@ export class Navigate extends KojiBridge {
    * @param url The url to present in the modal
    */
   @client
-  presentInModal(url: string): void {
+  public presentInModal(url: string): void {
     this.sendMessage({
       kojiEventName: 'Koji.Navigate',
       data: {
@@ -45,7 +45,7 @@ export class Navigate extends KojiBridge {
    * @param appId [appId] An optional app id; if this parameter is omitted, the current Koji will be remixed
    */
   @client
-  createRemix(appId?: string): void {
+  public createRemix(appId?: string): void {
     this.sendMessage({
       kojiEventName: 'Koji.CreateRemix',
       data: {
@@ -57,10 +57,32 @@ export class Navigate extends KojiBridge {
   }
 
   /**
+   * Programmatically navigate to the Koji's edit experience. This should only be called if the template knows that the user is an admin, otherwise the user will not be authorized to edit the Koji.
+   */
+  @client
+  public edit(): void {
+    this.sendMessage({
+      kojiEventName: 'Koji.Edit',
+      data: {},
+    });
+  }
+
+  /**
+   * Dismiss a Koji that has been presented in a popover
+   */
+  @client
+  public dismiss(): void {
+    this.sendMessage({
+      kojiEventName: 'Koji.Dismiss',
+      data: {},
+    });
+  }
+
+  /**
    * Programmatically open the Koji's share sheet/dialog.
    */
   @client
-  openShareDialog(): void {
+  public openShareDialog(): void {
     this.sendMessage({
       kojiEventName: 'Koji.Share',
       data: {},
