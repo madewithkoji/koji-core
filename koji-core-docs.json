@@ -14914,7 +14914,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Prompts the user to select a value from a custom control. To build a custom control, use the [[https://developer.withkoji.com/reference/packages/customvcc/withkoji-custom-vcc-sdk \\ @withkoji/custom-vcc-sdk package]].",
+										"shortText": "Prompts the user to select a value from a custom control. To build a custom control, use the [[https://developer.withkoji.com/reference/packages/customvcc/withkoji-custom-vcc-sdk | @withkoji/custom-vcc-sdk package]].",
 										"returns": "Color code as a string or the [[VerboseCapture]] object, if `verbose` is `true`.\n",
 										"tags": [
 											{
@@ -15559,7 +15559,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 578,
+									"line": 584,
 									"character": 7
 								}
 							],
@@ -15576,7 +15576,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst media = await Koji.ui.capture.media();\n\n// Limit to image or video, hide asset packs, return an object with extended metadata, transcode videos for HLS\nconst media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true } }, true);\n```\n"
+												"text": "\n```javascript\nconst media = await Koji.ui.capture.media();\n\n// Limit to image or video, hide asset packs,\n// return an object with extended metadata, transcode videos for HLS\nconst media = await Koji.ui.capture.media({\n   acceptOnly: [image, video],\n   hideExtensions: true,\n   returnType: 'extended',\n   videoOptions: { hls: true }\n }, true);\n```\n"
 											}
 										]
 									},
@@ -15723,7 +15723,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 634,
+									"line": 640,
 									"character": 7
 								}
 							],
@@ -15887,7 +15887,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 677,
+									"line": 683,
 									"character": 8
 								}
 							],
@@ -16051,7 +16051,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 717,
+									"line": 723,
 									"character": 7
 								}
 							],
@@ -16475,7 +16475,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "URL where the custom control is being hosted."
+								"shortText": "URL where the custom control is hosted."
 							},
 							"sources": [
 								{
@@ -16554,13 +16554,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables optimizations based on content negotiation.",
-								"text": "Allowed values: 'webp'\n\nNotes:\n\nAlthough the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.\n"
+								"shortText": "Enables optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
+								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 15,
+									"line": 11,
 									"character": 6
 								}
 							],
@@ -16598,7 +16598,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 15,
+									"line": 11,
 									"character": 16
 								}
 							],
@@ -16636,7 +16636,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 33,
+									"line": 29,
 									"character": 6
 								}
 							],
@@ -16674,7 +16674,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 47,
+									"line": 43,
 									"character": 12
 								}
 							],
@@ -16712,7 +16712,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 59,
+									"line": 55,
 									"character": 10
 								}
 							],
@@ -16750,7 +16750,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 83,
+									"line": 79,
 									"character": 6
 								}
 							],
@@ -16788,7 +16788,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 99,
+									"line": 95,
 									"character": 5
 								}
 							],
@@ -16833,7 +16833,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 103,
+									"line": 99,
 									"character": 5
 								}
 							],
@@ -16871,7 +16871,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 129,
+									"line": 125,
 									"character": 8
 								}
 							],
@@ -16944,7 +16944,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 133,
+									"line": 129,
 									"character": 7
 								}
 							],
@@ -16982,7 +16982,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 151,
+									"line": 147,
 									"character": 8
 								}
 							],
@@ -17052,7 +17052,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 162,
+									"line": 158,
 									"character": 10
 								}
 							],
@@ -17098,7 +17098,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 174,
+									"line": 170,
 									"character": 8
 								}
 							],
@@ -17184,7 +17184,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 199,
+									"line": 195,
 									"character": 5
 								}
 							],
@@ -17222,7 +17222,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 205,
+									"line": 201,
 									"character": 9
 								}
 							],
@@ -17260,7 +17260,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 222,
+									"line": 218,
 									"character": 9
 								}
 							],
@@ -17298,7 +17298,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 222,
+									"line": 218,
 									"character": 19
 								}
 							],
@@ -17352,7 +17352,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 252,
+									"line": 248,
 									"character": 12
 								}
 							],
@@ -17390,7 +17390,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 264,
+									"line": 260,
 									"character": 9
 								}
 							],
@@ -17428,7 +17428,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 280,
+									"line": 276,
 									"character": 6
 								}
 							],
@@ -17466,7 +17466,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 306,
+									"line": 302,
 									"character": 7
 								}
 							],
@@ -19107,7 +19107,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media file type."
+						"shortText": "Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media type."
 					},
 					"sources": [
 						{
@@ -19185,7 +19185,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 760,
+							"line": 766,
 							"character": 20
 						}
 					],
@@ -20259,13 +20259,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables optimizations based on content negotiation.",
-								"text": "Allowed values: 'webp'\n\nNotes:\n\nAlthough the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.\n"
+								"shortText": "Enables optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
+								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 15,
+									"line": 11,
 									"character": 6
 								}
 							],
@@ -20298,7 +20298,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 15,
+									"line": 11,
 									"character": 16
 								}
 							],
@@ -20331,7 +20331,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 33,
+									"line": 29,
 									"character": 6
 								}
 							],
@@ -20364,7 +20364,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 47,
+									"line": 43,
 									"character": 12
 								}
 							],
@@ -20397,7 +20397,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 59,
+									"line": 55,
 									"character": 10
 								}
 							],
@@ -20430,7 +20430,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 83,
+									"line": 79,
 									"character": 6
 								}
 							],
@@ -20463,7 +20463,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 99,
+									"line": 95,
 									"character": 5
 								}
 							],
@@ -20503,7 +20503,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 103,
+									"line": 99,
 									"character": 5
 								}
 							],
@@ -20536,7 +20536,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 129,
+									"line": 125,
 									"character": 8
 								}
 							],
@@ -20604,7 +20604,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 133,
+									"line": 129,
 									"character": 7
 								}
 							],
@@ -20637,7 +20637,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 151,
+									"line": 147,
 									"character": 8
 								}
 							],
@@ -20670,7 +20670,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 162,
+									"line": 158,
 									"character": 10
 								}
 							],
@@ -20711,7 +20711,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 174,
+									"line": 170,
 									"character": 8
 								}
 							],
@@ -20792,7 +20792,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 199,
+									"line": 195,
 									"character": 5
 								}
 							],
@@ -20825,7 +20825,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 205,
+									"line": 201,
 									"character": 9
 								}
 							],
@@ -20858,7 +20858,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 222,
+									"line": 218,
 									"character": 9
 								}
 							],
@@ -20891,7 +20891,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 222,
+									"line": 218,
 									"character": 19
 								}
 							],
@@ -20940,7 +20940,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 252,
+									"line": 248,
 									"character": 12
 								}
 							],
@@ -20973,7 +20973,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 264,
+									"line": 260,
 									"character": 9
 								}
 							],
@@ -21006,7 +21006,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 280,
+									"line": 276,
 									"character": 6
 								}
 							],
@@ -21039,7 +21039,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 306,
+									"line": 302,
 									"character": 7
 								}
 							],

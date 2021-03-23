@@ -97,7 +97,7 @@ export interface ExtendedLinkResult {
 export interface CaptureCustomOptions {
   /** Short name for the custom control. */
   name?: string;
-  /** URL where the custom control is being hosted. */
+  /** URL where the custom control is hosted. */
   url?: string;
   /** Type options specific to the custom control. */
   typeOptions?: any;
@@ -170,7 +170,7 @@ export interface CaptureSelectOptions {
 }
 
 /**
- * Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media file type.
+ * Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media type.
  */
 export type CaptureMediaAcceptOnly = 'image' | 'video' | 'audio' | 'file';
 
@@ -370,7 +370,7 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select a value from a custom control. To build a custom control, use the [[https://developer.withkoji.com/reference/packages/customvcc/withkoji-custom-vcc-sdk \ @withkoji/custom-vcc-sdk package]].
+   * Prompts the user to select a value from a custom control. To build a custom control, use the [[https://developer.withkoji.com/reference/packages/customvcc/withkoji-custom-vcc-sdk | @withkoji/custom-vcc-sdk package]].
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the value captured by the custom control.
@@ -571,8 +571,14 @@ export class Capture extends KojiBridge {
    * ```javascript
    * const media = await Koji.ui.capture.media();
    *
-   * // Limit to image or video, hide asset packs, return an object with extended metadata, transcode videos for HLS
-   * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true } }, true);
+   * // Limit to image or video, hide asset packs,
+   * // return an object with extended metadata, transcode videos for HLS
+   * const media = await Koji.ui.capture.media({
+   *    acceptOnly: [image, video],
+   *    hideExtensions: true,
+   *    returnType: 'extended',
+   *    videoOptions: { hls: true }
+   *  }, true);
    * ```
    */
   media(options: CaptureMediaOptions, verbose: true): Promise<VerboseCapture>;

@@ -4,13 +4,9 @@ export type IAPToken = string | null;
 
 export interface FastlyOptions {
   /**
-   * Enables optimizations based on content negotiation.
+   * Enables optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].
    *
-   * Allowed values: 'webp'
-   *
-   * Notes:
-   *
-   * Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.
+   * <p class="note">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>
    */
   auto?: 'webp';
   /**
