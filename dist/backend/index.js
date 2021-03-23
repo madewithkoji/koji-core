@@ -17,6 +17,8 @@ var _identity = require("./identity");
 
 var _secret = require("./secret");
 
+var _utilities = require("./utilities");
+
 /**
  * Provides backend methods for your Koji.
  */
@@ -26,6 +28,7 @@ var KojiBackend = {
   Dispatch: _dispatch.Dispatch,
   Identity: _identity.Identity,
   Secret: _secret.Secret,
+  Utilities: _utilities.Utilities,
   middleware: _middleware.middleware
 };
 exports.KojiBackend = KojiBackend;
