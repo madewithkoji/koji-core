@@ -4,81 +4,61 @@ export type IAPToken = string | null;
 
 export interface FastlyOptions {
   /**
-   * Enables optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].
+   * Enables image optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].
    *
-   * <p class="note">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>
+   * <p class="note">Although the [[https://en.wikipedia.org/wiki/WebP | WebP format]] produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>
    */
   auto?: 'webp';
   /**
-   * The bg-color parameter sets the background color of an image to use when applying padding or when replacing transparent pixels.
-   *
-   * Value may be one of:
-   *
-   * Hex RGB value: Both 3- and 6-digit values are acceptable (e.g. a22 or cf23a5).
-   *
-   * Decimal RGB: RGB values between 0 and 255. Comma-delimited (e.g. 255,0,0).
-   *
-   * Decimal RGB with alpha| RGBA colors include an additional value for alpha (transparency), which ranges from 0 for fully transparent to 1 for fully opaque.
+   * Sets the background color to use when applying padding or when replacing transparent pixels in the image.
+   * Value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).
    */
   'bg-color'?: string;
   /**
-   * Applies a Gaussian blur filter to the image.
-   *
-   * Value is a number of pixels between 0.5 and 1000 or a percentage (of the dimensions of the image) suffixed with p (e.g., 1p for 1%).
+   * Applies a [[https://en.wikipedia.org/wiki/Gaussian_blur | Gaussian blur]] filter to the image.
+   * Value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).
    */
   blur?: string;
   /**
-   * The brightness parameter increases or decreases the amount of perceived light an image radiates or reflects.
+   * Increases or decreases the brightness of the image.
+   * Value can be a number between -100 and 100, as follows:
    *
-   * Value may be any number between -100 and 100.
-   *
-   * Notes:
-   *
-   * The default value is 0. This leaves the image unchanged.
-   *
-   * A value of 100 will result in a fully white image.
-   *
-   * A value of -100 will result in a fully black image.
+   * * `0` (default) – Leaves the image unchanged.
+   * * `100` – Results in a fully white image.
+   * * `-100` – Results in a fully black image.
    */
   brightness?: string;
   /**
-   * The contrast parameter increases or decreases the difference between the darkest and lightest tones in an image.
+   * Increases or decreases the difference between the darkest and lightest tones in the image.
+   * Value can be a number between -100 and 100, as follows:
    *
-   * Value may be any number between -100 and 100.
-   *
-   * Notes:
-   *
-   * The default value is 0. This leaves the image unchanged.
-   *
-   * A value of -100 will result in a fully grey image.
+   * * `0` (default) – Leaves the image unchanged.
+   * * `-100` – Results in a fully grey image.
    */
   contrast?: string;
   /**
    * Removes pixels from an image.
    *
-   * When specifying a crop parameter, the value starts with the desired width and height, either as measurements of pixels, separated with a comma, or as a ratio, separated with a colon (for example, crop=4:3 or crop=640,480 or crop=0.8,0.4).
+   * The value starts with the desired width and height of the final image, either as measurements of pixels separated with a comma (for example, `640,480`), or as a ratio separated with a colon (for example, `4:3`).
    *
-   * The remaining parameters determine the position of the cropped region. On each dimension, placement can be made either with a position coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using offset-x and offset-y. These can be mixed and matched, but only one method can be used for each dimension (i.e., x can be combined with offset-y but x cannot be combined with offset-x).
+   * The rest of the value determines the position of the cropped region within the existing image. For each dimension, specify the position as a coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using `offset-x` and `offset-y`. These can be mixed and matched, but only one method can be used for each dimension (that is, x can be combined with offset-y but x cannot be combined with offset-x).
    *
    * Offset positioning acts to distribute the remaining space according to the specified offset proportions. If an image is 2000 pixels wide and is being cropped to 1000 pixels wide, offset-x10 would crop 10% (100 pixels) from the left of the image and 90% (900 pixels) from the right. An offset of 50 centers the crop in the middle of the image.
    *
-   * Appending ,smart to the parameter value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.
+   * Appending `,smart` to the value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.
    *
-   * If the specified cropped region is outside the bounds of the image, the transformation will fail with the error "Invalid transformation for requested image: Invalid crop, region out of bounds". Append ,safe to the parameter value to override this. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.
+   * If the specified cropped region is outside the bounds of the image, the transformation will fail with the error "Invalid transformation for requested image: Invalid crop, region out of bounds". Append `,safe` to the parameter value to override this error. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.
    *
    * Notes:
    *
-   * x and y can be set as a value in pixels (e.g., 40 is 40 pixels) or as a percentage suffixed with p (e.g., 50p is 50%).
-   *
-   * offset-x and offset-y are always interpreted as percentages of the image size (e.g., 25 is 25%).
-   *
-   * When using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.
-   *
-   * If any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.
+   * * `x` and `y` can be set as a value in pixels (for example, `40` is 40 pixels) or as a percentage suffixed with p (for example, `50p` is 50%).
+   * * `offset-x` and `offset-y` are always interpreted as percentages of the image size (for example, `25` is 25%).
+   * * When using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.
+   * * If any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.
    */
   crop?: string;
   /**
-   * Device pixel ratio.
+   * Serve correctly sized images for devices that expose a device pixel ratio.
    *
    * The dpr parameter provides a means to multiply image dimensions in order to translate logical pixels (also 'CSS pixels') into physical pixels. The device pixel ratio is therefore the ratio between physical pixels and logical pixels.
    *
@@ -94,7 +74,7 @@ export interface FastlyOptions {
    */
   dpr?: 'bounds' | 'cover' | 'crop';
   /**
-   * The fit parameter controls how the image will be constrained within the provided size (width and height) values, in order to maintain the correct proportions.
+   * Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions.
    */
   fit?: string;
   /**
@@ -146,7 +126,7 @@ export interface FastlyOptions {
    */
   height?: string;
   /**
-   * The optimize parameter automatically applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.
+   * Applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.
    * Notes:
    *
    * Optimize is currently supported by the following output formats: JPEG, WebP.
@@ -169,7 +149,7 @@ export interface FastlyOptions {
    */
   orient?: 'r' | 'l' | 'h' | 'v' | 'hv' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8';
   /**
-   * Add pixels to the edge of an image.
+   * Adds pixels to the edge of an image.
    *
    * Notes:
    *

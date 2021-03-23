@@ -16554,8 +16554,8 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
-								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
+								"text": "<p class=\"note\">Although the [[https://en.wikipedia.org/wiki/WebP | WebP format]] produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
@@ -16592,8 +16592,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The bg-color parameter sets the background color of an image to use when applying padding or when replacing transparent pixels.",
-								"text": "Value may be one of:\n\nHex RGB value: Both 3- and 6-digit values are acceptable (e.g. a22 or cf23a5).\n\nDecimal RGB: RGB values between 0 and 255. Comma-delimited (e.g. 255,0,0).\n\nDecimal RGB with alpha| RGBA colors include an additional value for alpha (transparency), which ranges from 0 for fully transparent to 1 for fully opaque.\n"
+								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`)."
 							},
 							"sources": [
 								{
@@ -16630,13 +16629,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies a Gaussian blur filter to the image.",
-								"text": "Value is a number of pixels between 0.5 and 1000 or a percentage (of the dimensions of the image) suffixed with p (e.g., 1p for 1%).\n"
+								"shortText": "Applies a [[https://en.wikipedia.org/wiki/Gaussian_blur | Gaussian blur]] filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%)."
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 29,
+									"line": 21,
 									"character": 6
 								}
 							],
@@ -16668,13 +16666,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The brightness parameter increases or decreases the amount of perceived light an image radiates or reflects.",
-								"text": "Value may be any number between -100 and 100.\n\nNotes:\n\nThe default value is 0. This leaves the image unchanged.\n\nA value of 100 will result in a fully white image.\n\nA value of -100 will result in a fully black image.\n"
+								"shortText": "Increases or decreases the brightness of the image.\nValue can be a number between -100 and 100, as follows:",
+								"text": "* `0` (default) – Leaves the image unchanged.\n* `100` – Results in a fully white image.\n* `-100` – Results in a fully black image.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 43,
+									"line": 30,
 									"character": 12
 								}
 							],
@@ -16706,13 +16704,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The contrast parameter increases or decreases the difference between the darkest and lightest tones in an image.",
-								"text": "Value may be any number between -100 and 100.\n\nNotes:\n\nThe default value is 0. This leaves the image unchanged.\n\nA value of -100 will result in a fully grey image.\n"
+								"shortText": "Increases or decreases the difference between the darkest and lightest tones in the image.\nValue can be a number between -100 and 100, as follows:",
+								"text": "* `0` (default) – Leaves the image unchanged.\n* `-100` – Results in a fully grey image.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 55,
+									"line": 38,
 									"character": 10
 								}
 							],
@@ -16745,12 +16743,12 @@
 							},
 							"comment": {
 								"shortText": "Removes pixels from an image.",
-								"text": "When specifying a crop parameter, the value starts with the desired width and height, either as measurements of pixels, separated with a comma, or as a ratio, separated with a colon (for example, crop=4:3 or crop=640,480 or crop=0.8,0.4).\n\nThe remaining parameters determine the position of the cropped region. On each dimension, placement can be made either with a position coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using offset-x and offset-y. These can be mixed and matched, but only one method can be used for each dimension (i.e., x can be combined with offset-y but x cannot be combined with offset-x).\n\nOffset positioning acts to distribute the remaining space according to the specified offset proportions. If an image is 2000 pixels wide and is being cropped to 1000 pixels wide, offset-x10 would crop 10% (100 pixels) from the left of the image and 90% (900 pixels) from the right. An offset of 50 centers the crop in the middle of the image.\n\nAppending ,smart to the parameter value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.\n\nIf the specified cropped region is outside the bounds of the image, the transformation will fail with the error \"Invalid transformation for requested image: Invalid crop, region out of bounds\". Append ,safe to the parameter value to override this. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.\n\nNotes:\n\nx and y can be set as a value in pixels (e.g., 40 is 40 pixels) or as a percentage suffixed with p (e.g., 50p is 50%).\n\noffset-x and offset-y are always interpreted as percentages of the image size (e.g., 25 is 25%).\n\nWhen using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.\n\nIf any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.\n"
+								"text": "The value starts with the desired width and height of the final image, either as measurements of pixels separated with a comma (for example, `640,480`), or as a ratio separated with a colon (for example, `4:3`).\n\nThe rest of the value determines the position of the cropped region within the existing image. For each dimension, specify the position as a coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using `offset-x` and `offset-y`. These can be mixed and matched, but only one method can be used for each dimension (that is, x can be combined with offset-y but x cannot be combined with offset-x).\n\nOffset positioning acts to distribute the remaining space according to the specified offset proportions. If an image is 2000 pixels wide and is being cropped to 1000 pixels wide, offset-x10 would crop 10% (100 pixels) from the left of the image and 90% (900 pixels) from the right. An offset of 50 centers the crop in the middle of the image.\n\nAppending `,smart` to the value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.\n\nIf the specified cropped region is outside the bounds of the image, the transformation will fail with the error \"Invalid transformation for requested image: Invalid crop, region out of bounds\". Append `,safe` to the parameter value to override this error. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.\n\nNotes:\n\n* `x` and `y` can be set as a value in pixels (for example, `40` is 40 pixels) or as a percentage suffixed with p (for example, `50p` is 50%).\n* `offset-x` and `offset-y` are always interpreted as percentages of the image size (for example, `25` is 25%).\n* When using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.\n* If any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 79,
+									"line": 59,
 									"character": 6
 								}
 							],
@@ -16782,13 +16780,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Device pixel ratio.",
+								"shortText": "Serve correctly sized images for devices that expose a device pixel ratio.",
 								"text": "The dpr parameter provides a means to multiply image dimensions in order to translate logical pixels (also 'CSS pixels') into physical pixels. The device pixel ratio is therefore the ratio between physical pixels and logical pixels.\n\nIt is usually possible for client-side software to query the host system to determine the DPR of the display the user is viewing. In web browsers, this is available as the Window.devicePixelRatio variable in JavaScript. The iPhone 5 reports a device pixel ratio of 2, because the physical linear resolution is double the logical resolution.\n\nPhysical Resolution: 960 x 640\n\nLogical Resolution: 480 x 320\n\nOther devices report varying device pixel ratios, including non-integer ones. For example, the Nokia Lumia 1020 reports 1.6667, whereas the Samsung Galaxy S4 reports 3.\n\nValue may be any number between 1 and 10.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 95,
+									"line": 75,
 									"character": 5
 								}
 							],
@@ -16828,12 +16826,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The fit parameter controls how the image will be constrained within the provided size (width and height) values, in order to maintain the correct proportions."
+								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 99,
+									"line": 79,
 									"character": 5
 								}
 							],
@@ -16871,7 +16869,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 125,
+									"line": 105,
 									"character": 8
 								}
 							],
@@ -16944,7 +16942,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 129,
+									"line": 109,
 									"character": 7
 								}
 							],
@@ -16982,7 +16980,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 147,
+									"line": 127,
 									"character": 8
 								}
 							],
@@ -17046,13 +17044,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The optimize parameter automatically applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.\nNotes:",
+								"shortText": "Applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.\nNotes:",
 								"text": "Optimize is currently supported by the following output formats: JPEG, WebP.\n\nIf the quality parameter is also provided, quality overrides optimize because it is more precise.\n\nBecause optimize attempts to produce an output image with as much visual quality as possible while minimizing the file size, the operations applied are subject to change.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 158,
+									"line": 138,
 									"character": 10
 								}
 							],
@@ -17098,7 +17096,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 170,
+									"line": 150,
 									"character": 8
 								}
 							],
@@ -17178,13 +17176,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Add pixels to the edge of an image.",
+								"shortText": "Adds pixels to the edge of an image.",
 								"text": "Notes:\n\nSyntax is very similar to css padding; see examples below.\n\npad={all-sides}\npad={top-and-bottom},{left-and-right}\npad={top},{left-and-right},{bottom}\npad={top},{right},{bottom},{left}\n\nBy default padding applies a background color of white. See bg-color to change that.\n\nIf the source image contains a transparent background and the output image also contains transparency, the padding will be made up of transparent pixels.\n\nWhen using pad and canvas at the same time, pad will be ignored.\n\nValues can be specified using CSS style shorthand values. (see CSS Margin or CSS Padding for more examples).\n\nCSS shorthand allows for all edges to be specified in one property.\n\nAny fractional pixel measurements will be rounded to the nearest whole pixel.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 195,
+									"line": 175,
 									"character": 5
 								}
 							],
@@ -17222,7 +17220,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 201,
+									"line": 181,
 									"character": 9
 								}
 							],
@@ -17260,7 +17258,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 218,
+									"line": 198,
 									"character": 9
 								}
 							],
@@ -17298,7 +17296,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 218,
+									"line": 198,
 									"character": 19
 								}
 							],
@@ -17352,7 +17350,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 248,
+									"line": 228,
 									"character": 12
 								}
 							],
@@ -17390,7 +17388,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 260,
+									"line": 240,
 									"character": 9
 								}
 							],
@@ -17428,7 +17426,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 276,
+									"line": 256,
 									"character": 6
 								}
 							],
@@ -17466,7 +17464,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 302,
+									"line": 282,
 									"character": 7
 								}
 							],
@@ -20259,8 +20257,8 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
-								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
+								"text": "<p class=\"note\">Although the [[https://en.wikipedia.org/wiki/WebP | WebP format]] produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
@@ -20292,8 +20290,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The bg-color parameter sets the background color of an image to use when applying padding or when replacing transparent pixels.",
-								"text": "Value may be one of:\n\nHex RGB value: Both 3- and 6-digit values are acceptable (e.g. a22 or cf23a5).\n\nDecimal RGB: RGB values between 0 and 255. Comma-delimited (e.g. 255,0,0).\n\nDecimal RGB with alpha| RGBA colors include an additional value for alpha (transparency), which ranges from 0 for fully transparent to 1 for fully opaque.\n"
+								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`)."
 							},
 							"sources": [
 								{
@@ -20325,13 +20322,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies a Gaussian blur filter to the image.",
-								"text": "Value is a number of pixels between 0.5 and 1000 or a percentage (of the dimensions of the image) suffixed with p (e.g., 1p for 1%).\n"
+								"shortText": "Applies a [[https://en.wikipedia.org/wiki/Gaussian_blur | Gaussian blur]] filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%)."
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 29,
+									"line": 21,
 									"character": 6
 								}
 							],
@@ -20358,13 +20354,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The brightness parameter increases or decreases the amount of perceived light an image radiates or reflects.",
-								"text": "Value may be any number between -100 and 100.\n\nNotes:\n\nThe default value is 0. This leaves the image unchanged.\n\nA value of 100 will result in a fully white image.\n\nA value of -100 will result in a fully black image.\n"
+								"shortText": "Increases or decreases the brightness of the image.\nValue can be a number between -100 and 100, as follows:",
+								"text": "* `0` (default) – Leaves the image unchanged.\n* `100` – Results in a fully white image.\n* `-100` – Results in a fully black image.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 43,
+									"line": 30,
 									"character": 12
 								}
 							],
@@ -20391,13 +20387,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The contrast parameter increases or decreases the difference between the darkest and lightest tones in an image.",
-								"text": "Value may be any number between -100 and 100.\n\nNotes:\n\nThe default value is 0. This leaves the image unchanged.\n\nA value of -100 will result in a fully grey image.\n"
+								"shortText": "Increases or decreases the difference between the darkest and lightest tones in the image.\nValue can be a number between -100 and 100, as follows:",
+								"text": "* `0` (default) – Leaves the image unchanged.\n* `-100` – Results in a fully grey image.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 55,
+									"line": 38,
 									"character": 10
 								}
 							],
@@ -20425,12 +20421,12 @@
 							},
 							"comment": {
 								"shortText": "Removes pixels from an image.",
-								"text": "When specifying a crop parameter, the value starts with the desired width and height, either as measurements of pixels, separated with a comma, or as a ratio, separated with a colon (for example, crop=4:3 or crop=640,480 or crop=0.8,0.4).\n\nThe remaining parameters determine the position of the cropped region. On each dimension, placement can be made either with a position coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using offset-x and offset-y. These can be mixed and matched, but only one method can be used for each dimension (i.e., x can be combined with offset-y but x cannot be combined with offset-x).\n\nOffset positioning acts to distribute the remaining space according to the specified offset proportions. If an image is 2000 pixels wide and is being cropped to 1000 pixels wide, offset-x10 would crop 10% (100 pixels) from the left of the image and 90% (900 pixels) from the right. An offset of 50 centers the crop in the middle of the image.\n\nAppending ,smart to the parameter value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.\n\nIf the specified cropped region is outside the bounds of the image, the transformation will fail with the error \"Invalid transformation for requested image: Invalid crop, region out of bounds\". Append ,safe to the parameter value to override this. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.\n\nNotes:\n\nx and y can be set as a value in pixels (e.g., 40 is 40 pixels) or as a percentage suffixed with p (e.g., 50p is 50%).\n\noffset-x and offset-y are always interpreted as percentages of the image size (e.g., 25 is 25%).\n\nWhen using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.\n\nIf any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.\n"
+								"text": "The value starts with the desired width and height of the final image, either as measurements of pixels separated with a comma (for example, `640,480`), or as a ratio separated with a colon (for example, `4:3`).\n\nThe rest of the value determines the position of the cropped region within the existing image. For each dimension, specify the position as a coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using `offset-x` and `offset-y`. These can be mixed and matched, but only one method can be used for each dimension (that is, x can be combined with offset-y but x cannot be combined with offset-x).\n\nOffset positioning acts to distribute the remaining space according to the specified offset proportions. If an image is 2000 pixels wide and is being cropped to 1000 pixels wide, offset-x10 would crop 10% (100 pixels) from the left of the image and 90% (900 pixels) from the right. An offset of 50 centers the crop in the middle of the image.\n\nAppending `,smart` to the value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.\n\nIf the specified cropped region is outside the bounds of the image, the transformation will fail with the error \"Invalid transformation for requested image: Invalid crop, region out of bounds\". Append `,safe` to the parameter value to override this error. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.\n\nNotes:\n\n* `x` and `y` can be set as a value in pixels (for example, `40` is 40 pixels) or as a percentage suffixed with p (for example, `50p` is 50%).\n* `offset-x` and `offset-y` are always interpreted as percentages of the image size (for example, `25` is 25%).\n* When using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.\n* If any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 79,
+									"line": 59,
 									"character": 6
 								}
 							],
@@ -20457,13 +20453,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Device pixel ratio.",
+								"shortText": "Serve correctly sized images for devices that expose a device pixel ratio.",
 								"text": "The dpr parameter provides a means to multiply image dimensions in order to translate logical pixels (also 'CSS pixels') into physical pixels. The device pixel ratio is therefore the ratio between physical pixels and logical pixels.\n\nIt is usually possible for client-side software to query the host system to determine the DPR of the display the user is viewing. In web browsers, this is available as the Window.devicePixelRatio variable in JavaScript. The iPhone 5 reports a device pixel ratio of 2, because the physical linear resolution is double the logical resolution.\n\nPhysical Resolution: 960 x 640\n\nLogical Resolution: 480 x 320\n\nOther devices report varying device pixel ratios, including non-integer ones. For example, the Nokia Lumia 1020 reports 1.6667, whereas the Samsung Galaxy S4 reports 3.\n\nValue may be any number between 1 and 10.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 95,
+									"line": 75,
 									"character": 5
 								}
 							],
@@ -20498,12 +20494,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The fit parameter controls how the image will be constrained within the provided size (width and height) values, in order to maintain the correct proportions."
+								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 99,
+									"line": 79,
 									"character": 5
 								}
 							],
@@ -20536,7 +20532,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 125,
+									"line": 105,
 									"character": 8
 								}
 							],
@@ -20604,7 +20600,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 129,
+									"line": 109,
 									"character": 7
 								}
 							],
@@ -20637,7 +20633,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 147,
+									"line": 127,
 									"character": 8
 								}
 							],
@@ -20664,13 +20660,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The optimize parameter automatically applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.\nNotes:",
+								"shortText": "Applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.\nNotes:",
 								"text": "Optimize is currently supported by the following output formats: JPEG, WebP.\n\nIf the quality parameter is also provided, quality overrides optimize because it is more precise.\n\nBecause optimize attempts to produce an output image with as much visual quality as possible while minimizing the file size, the operations applied are subject to change.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 158,
+									"line": 138,
 									"character": 10
 								}
 							],
@@ -20711,7 +20707,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 170,
+									"line": 150,
 									"character": 8
 								}
 							],
@@ -20786,13 +20782,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Add pixels to the edge of an image.",
+								"shortText": "Adds pixels to the edge of an image.",
 								"text": "Notes:\n\nSyntax is very similar to css padding; see examples below.\n\npad={all-sides}\npad={top-and-bottom},{left-and-right}\npad={top},{left-and-right},{bottom}\npad={top},{right},{bottom},{left}\n\nBy default padding applies a background color of white. See bg-color to change that.\n\nIf the source image contains a transparent background and the output image also contains transparency, the padding will be made up of transparent pixels.\n\nWhen using pad and canvas at the same time, pad will be ignored.\n\nValues can be specified using CSS style shorthand values. (see CSS Margin or CSS Padding for more examples).\n\nCSS shorthand allows for all edges to be specified in one property.\n\nAny fractional pixel measurements will be rounded to the nearest whole pixel.\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 195,
+									"line": 175,
 									"character": 5
 								}
 							],
@@ -20825,7 +20821,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 201,
+									"line": 181,
 									"character": 9
 								}
 							],
@@ -20858,7 +20854,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 218,
+									"line": 198,
 									"character": 9
 								}
 							],
@@ -20891,7 +20887,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 218,
+									"line": 198,
 									"character": 19
 								}
 							],
@@ -20940,7 +20936,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 248,
+									"line": 228,
 									"character": 12
 								}
 							],
@@ -20973,7 +20969,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 260,
+									"line": 240,
 									"character": 9
 								}
 							],
@@ -21006,7 +21002,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 276,
+									"line": 256,
 									"character": 6
 								}
 							],
@@ -21039,7 +21035,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 302,
+									"line": 282,
 									"character": 7
 								}
 							],
