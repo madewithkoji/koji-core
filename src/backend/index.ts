@@ -4,6 +4,7 @@ import { Database } from './database';
 import { Dispatch } from './dispatch';
 import { Identity } from './identity';
 import { Secret } from './secret';
+import { Utilities } from './utilities';
 
 /**
  * Provides backend methods for your Koji.
@@ -14,5 +15,6 @@ export const KojiBackend = {
   Dispatch,
   Identity,
   Secret,
+  Utilities,
   middleware,
 };
