@@ -8,7 +8,7 @@ unsafeGlobal.WebSocket = require('isomorphic-ws');
 /**
  * Defines a DispatchConfigurationInput interface.
  */
-interface DispatchConfigurationInput {
+export interface DispatchConfigurationInput {
   shardName?: string | null;
   maxConnectionsPerShard?: number;
   authorization?: string;
@@ -17,7 +17,7 @@ interface DispatchConfigurationInput {
 /**
  * Defines a DispatchOptions interface.
  */
-interface DispatchOptions {
+export interface DispatchOptions {
   projectId?: string;
   shardName?: string | null;
   maxConnectionsPerShard?: number;
