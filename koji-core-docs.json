@@ -16554,13 +16554,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables image optimizations based on content.\nFor more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly parameter reference]].",
-								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on content.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly `auto` reference]].\n\n<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 12,
+									"line": 13,
 									"character": 6
 								}
 							],
@@ -16592,13 +16592,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).",
-								"text": "For more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly parameter reference]].\n"
+								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.",
+								"text": "Value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly bg-color reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 12,
+									"line": 13,
 									"character": 16
 								}
 							],
@@ -16630,13 +16630,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies a Gaussian blur filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).",
-								"text": "For more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly parameter reference]].\n"
+								"shortText": "Applies a Gaussian blur filter to the image.",
+								"text": "Value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly blur reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 26,
+									"line": 29,
 									"character": 6
 								}
 							],
@@ -16674,7 +16674,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 35,
+									"line": 38,
 									"character": 12
 								}
 							],
@@ -16712,7 +16712,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 43,
+									"line": 46,
 									"character": 10
 								}
 							],
@@ -16750,7 +16750,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 64,
+									"line": 67,
 									"character": 6
 								}
 							],
@@ -16788,7 +16788,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 80,
+									"line": 83,
 									"character": 5
 								}
 							],
@@ -16825,7 +16825,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 84,
+									"line": 87,
 									"character": 5
 								}
 							],
@@ -16871,7 +16871,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 110,
+									"line": 113,
 									"character": 8
 								}
 							],
@@ -16944,7 +16944,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 114,
+									"line": 117,
 									"character": 7
 								}
 							],
@@ -16982,7 +16982,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 132,
+									"line": 135,
 									"character": 8
 								}
 							],
@@ -17052,7 +17052,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 143,
+									"line": 146,
 									"character": 10
 								}
 							],
@@ -17098,7 +17098,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 155,
+									"line": 158,
 									"character": 8
 								}
 							],
@@ -17184,7 +17184,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 180,
+									"line": 183,
 									"character": 5
 								}
 							],
@@ -17222,7 +17222,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 186,
+									"line": 189,
 									"character": 9
 								}
 							],
@@ -17260,7 +17260,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 203,
+									"line": 206,
 									"character": 9
 								}
 							],
@@ -17298,7 +17298,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 203,
+									"line": 206,
 									"character": 19
 								}
 							],
@@ -17352,7 +17352,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 233,
+									"line": 236,
 									"character": 12
 								}
 							],
@@ -17390,7 +17390,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 245,
+									"line": 248,
 									"character": 9
 								}
 							],
@@ -17428,7 +17428,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 261,
+									"line": 264,
 									"character": 6
 								}
 							],
@@ -17466,7 +17466,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 287,
+									"line": 290,
 									"character": 7
 								}
 							],
@@ -20259,13 +20259,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables image optimizations based on content.\nFor more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly parameter reference]].",
-								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on content.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly `auto` reference]].\n\n<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 12,
+									"line": 13,
 									"character": 6
 								}
 							],
@@ -20292,13 +20292,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).",
-								"text": "For more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly parameter reference]].\n"
+								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.",
+								"text": "Value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly bg-color reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 12,
+									"line": 13,
 									"character": 16
 								}
 							],
@@ -20325,13 +20325,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies a Gaussian blur filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).",
-								"text": "For more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly parameter reference]].\n"
+								"shortText": "Applies a Gaussian blur filter to the image.",
+								"text": "Value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly blur reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 26,
+									"line": 29,
 									"character": 6
 								}
 							],
@@ -20364,7 +20364,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 35,
+									"line": 38,
 									"character": 12
 								}
 							],
@@ -20397,7 +20397,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 43,
+									"line": 46,
 									"character": 10
 								}
 							],
@@ -20430,7 +20430,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 64,
+									"line": 67,
 									"character": 6
 								}
 							],
@@ -20463,7 +20463,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 80,
+									"line": 83,
 									"character": 5
 								}
 							],
@@ -20495,7 +20495,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 84,
+									"line": 87,
 									"character": 5
 								}
 							],
@@ -20536,7 +20536,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 110,
+									"line": 113,
 									"character": 8
 								}
 							],
@@ -20604,7 +20604,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 114,
+									"line": 117,
 									"character": 7
 								}
 							],
@@ -20637,7 +20637,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 132,
+									"line": 135,
 									"character": 8
 								}
 							],
@@ -20670,7 +20670,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 143,
+									"line": 146,
 									"character": 10
 								}
 							],
@@ -20711,7 +20711,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 155,
+									"line": 158,
 									"character": 8
 								}
 							],
@@ -20792,7 +20792,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 180,
+									"line": 183,
 									"character": 5
 								}
 							],
@@ -20825,7 +20825,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 186,
+									"line": 189,
 									"character": 9
 								}
 							],
@@ -20858,7 +20858,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 203,
+									"line": 206,
 									"character": 9
 								}
 							],
@@ -20891,7 +20891,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 203,
+									"line": 206,
 									"character": 19
 								}
 							],
@@ -20940,7 +20940,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 233,
+									"line": 236,
 									"character": 12
 								}
 							],
@@ -20973,7 +20973,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 245,
+									"line": 248,
 									"character": 9
 								}
 							],
@@ -21006,7 +21006,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 261,
+									"line": 264,
 									"character": 6
 								}
 							],
@@ -21039,7 +21039,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 287,
+									"line": 290,
 									"character": 7
 								}
 							],

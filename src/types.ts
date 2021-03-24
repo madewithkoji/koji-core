@@ -5,23 +5,26 @@ export type IAPToken = string | null;
 export interface FastlyOptions {
   /**
    * Enables image optimizations based on content.
-   * For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly parameter reference]].
+   *
+   * For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly `auto` reference]].
    *
    * <p class="note">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>
    */
   auto?: 'webp';
   /**
    * Sets the background color to use when applying padding or when replacing transparent pixels in the image.
+   *
    * Value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).
    *
-   * For more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly parameter reference]].
+   * For more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly bg-color reference]].
    */
   'bg-color'?: string;
   /**
    * Applies a Gaussian blur filter to the image.
+   *
    * Value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).
    *
-   * For more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly parameter reference]].
+   * For more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly blur reference]].
    */
   blur?: string;
   /**
