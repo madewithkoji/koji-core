@@ -9,6 +9,13 @@ export class Navigate extends KojiBridge {
    * Replaces the currently loaded Koji with the content at the specified URL.
    *
    * @param url URL of the content to load.
+   *
+   *  @example
+   *  ```html
+   *  <button type="button" onClick={() => Koji.ui.navigate.to(url)}>
+   *    My favorite Koji
+   *  </button>
+   *  ```
    */
   @client
   public to(url: string): void {
@@ -24,8 +31,14 @@ export class Navigate extends KojiBridge {
    * Opens the content at the specified URL in a modal window that animates from the bottom of the screen.
    * If the parent Koji is already displayed in a modal window, the content will open in the same window, replacing the current view.
    *
-   *
    * @param url URL of the content to load.
+   *
+   * @example
+   *  ```html
+   *  <button type="button" onClick={() => Koji.ui.navigate.presentInModal(url)}>
+   *    My favorite Koji
+   *  </button>
+   *  ```
    */
   @client
   public presentInModal(url: string): void {
@@ -42,6 +55,13 @@ export class Navigate extends KojiBridge {
    * Starts a new remix.
    *
    * @param appId ID of the Koji project to remix. Defaults to the current Koji, if an ID is not specified.
+   *
+   * @example
+   *  ```html
+   *  <button type="button" onClick={() => Koji.ui.navigate.createRemix()}>
+   *    Create my own remix
+   *  </button>
+   *  ```
    */
   @client
   public createRemix(appId?: string): void {
@@ -60,6 +80,13 @@ export class Navigate extends KojiBridge {
    *
    * <p class="note"> Check that the current user is an admin before calling this method.
    * Otherwise, the user will not be authorized to edit the Koji.</p>
+   *
+   * @example
+   *  ```html
+   *  <button type="button" onClick={() => Koji.ui.navigate.edit()}>
+   *    Edit this Koji
+   *  </button>
+   *  ```
    */
   @client
   public edit(): void {
@@ -71,6 +98,13 @@ export class Navigate extends KojiBridge {
 
   /**
    * Closes a Koji that is open in a modal window.
+   *
+   * @example
+   *  ```html
+   *  <button type="button" onClick={() => Koji.ui.navigate.dismiss()}>
+   *    Close window
+   *  </button>
+   *  ```
    */
   @client
   public dismiss(): void {
@@ -82,6 +116,13 @@ export class Navigate extends KojiBridge {
 
   /**
    * Opens the sharing dialog box.
+   *
+   * @example
+   *  ```html
+   *  <button type="button" onClick={() => Koji.ui.navigate.openShareDialog()}>
+   *    Share this Koji
+   *  </button>
+   *  ```
    */
   @client
   public openShareDialog(): void {

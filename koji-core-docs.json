@@ -19332,7 +19332,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 47,
+									"line": 67,
 									"character": 20
 								}
 							],
@@ -19344,7 +19344,13 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Starts a new remix."
+										"shortText": "Starts a new remix.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.createRemix()}>\n   Create my own remix\n </button>\n ```\n"
+											}
+										]
 									},
 									"parameters": [
 										{
@@ -19392,7 +19398,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 76,
+									"line": 110,
 									"character": 16
 								}
 							],
@@ -19404,7 +19410,13 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Closes a Koji that is open in a modal window."
+										"shortText": "Closes a Koji that is open in a modal window.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.dismiss()}>\n   Close window\n </button>\n ```\n"
+											}
+										]
 									},
 									"type": {
 										"type": "intrinsic",
@@ -19434,7 +19446,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 65,
+									"line": 92,
 									"character": 13
 								}
 							],
@@ -19447,7 +19459,13 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Opens the Koji in the editing experience.",
-										"text": "<p class=\"note\"> Check that the current user is an admin before calling this method.\nOtherwise, the user will not be authorized to edit the Koji.</p>\n"
+										"text": "<p class=\"note\"> Check that the current user is an admin before calling this method.\nOtherwise, the user will not be authorized to edit the Koji.</p>\n",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.edit()}>\n   Edit this Koji\n </button>\n ```\n"
+											}
+										]
 									},
 									"type": {
 										"type": "intrinsic",
@@ -19477,7 +19495,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 87,
+									"line": 128,
 									"character": 24
 								}
 							],
@@ -19489,7 +19507,13 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Opens the sharing dialog box."
+										"shortText": "Opens the sharing dialog box.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.openShareDialog()}>\n   Share this Koji\n </button>\n ```\n"
+											}
+										]
 									},
 									"type": {
 										"type": "intrinsic",
@@ -19519,7 +19543,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 31,
+									"line": 44,
 									"character": 23
 								}
 							],
@@ -19531,7 +19555,13 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Opens the content at the specified URL in a modal window that animates from the bottom of the screen.\nIf the parent Koji is already displayed in a modal window, the content will open in the same window, replacing the current view."
+										"shortText": "Opens the content at the specified URL in a modal window that animates from the bottom of the screen.\nIf the parent Koji is already displayed in a modal window, the content will open in the same window, replacing the current view.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.presentInModal(url)}>\n   My favorite Koji\n </button>\n ```\n"
+											}
+										]
 									},
 									"parameters": [
 										{
@@ -19577,7 +19607,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 14,
+									"line": 21,
 									"character": 11
 								}
 							],
@@ -19589,7 +19619,13 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces the currently loaded Koji with the content at the specified URL."
+										"shortText": "Replaces the currently loaded Koji with the content at the specified URL.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.to(url)}>\n   My favorite Koji\n </button>\n ```\n"
+											}
+										]
 									},
 									"parameters": [
 										{
@@ -19662,7 +19698,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/navigate/index.ts",
-							"line": 95,
+							"line": 136,
 							"character": 21
 						}
 					],

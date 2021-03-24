@@ -145,20 +145,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/ui/navigate/index.ts#L48">frontend/ui/navigate/index.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/ui/navigate/index.ts#L67">frontend/ui/navigate/index.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Programmatically create a new remix.</p>
+									<p>Starts a new remix.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-html"><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #0000FF">&quot;button&quot;</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{()</span><span style="color: #000000"> </span><span style="color: #CD3131">=</span><span style="color: #800000">&gt;</span><span style="color: #000000"> Koji.ui.navigate.createRemix()}&gt;</span>
+<span style="color: #000000">  Create my own remix</span>
+<span style="color: #800000">&lt;/button&gt;</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> appId: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>An optional app id; if this parameter is omitted, the current Koji will be remixed</p>
+										<p>ID of the Koji project to remix. Defaults to the current Koji, if an ID is not specified.</p>
 									</div>
 								</li>
 							</ul>
@@ -176,13 +184,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/ui/navigate/index.ts#L74">frontend/ui/navigate/index.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/ui/navigate/index.ts#L110">frontend/ui/navigate/index.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Dismiss a Koji that has been presented in a popover</p>
+									<p>Closes a Koji that is open in a modal window.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-html"><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #0000FF">&quot;button&quot;</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{()</span><span style="color: #000000"> </span><span style="color: #CD3131">=</span><span style="color: #800000">&gt;</span><span style="color: #000000"> Koji.ui.navigate.dismiss()}&gt;</span>
+<span style="color: #000000">  Close window</span>
+<span style="color: #800000">&lt;/button&gt;</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -198,13 +214,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/ui/navigate/index.ts#L63">frontend/ui/navigate/index.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/ui/navigate/index.ts#L92">frontend/ui/navigate/index.ts:92</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Programmatically navigate to the Koji&#39;s edit experience. This should only be called if the template knows that the user is an admin, otherwise the user will not be authorized to edit the Koji.</p>
+									<p>Opens the Koji in the editing experience.</p>
 								</div>
+								<p class="note"> Check that the current user is an admin before calling this method.
+								Otherwise, the user will not be authorized to edit the Koji.</p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-html"><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #0000FF">&quot;button&quot;</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{()</span><span style="color: #000000"> </span><span style="color: #CD3131">=</span><span style="color: #800000">&gt;</span><span style="color: #000000"> Koji.ui.navigate.edit()}&gt;</span>
+<span style="color: #000000">  Edit this Koji</span>
+<span style="color: #800000">&lt;/button&gt;</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -221,7 +247,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#execcallbackonmessage">execCallbackOnMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,13 +296,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/ui/navigate/index.ts#L85">frontend/ui/navigate/index.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/ui/navigate/index.ts#L128">frontend/ui/navigate/index.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Programmatically open the Koji&#39;s share sheet/dialog.</p>
+									<p>Opens the sharing dialog box.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-html"><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #0000FF">&quot;button&quot;</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{()</span><span style="color: #000000"> </span><span style="color: #CD3131">=</span><span style="color: #800000">&gt;</span><span style="color: #000000"> Koji.ui.navigate.openShareDialog()}&gt;</span>
+<span style="color: #000000">  Share this Koji</span>
+<span style="color: #800000">&lt;/button&gt;</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -292,23 +326,29 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/ui/navigate/index.ts#L32">frontend/ui/navigate/index.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/ui/navigate/index.ts#L44">frontend/ui/navigate/index.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Presents the currently loaded Koji in a sheet that animates from
-										the bottom of the screen. If the parent Koji is already presented in a
-										modal, presenting a new Koji will navigate within the sheet instead of
-									presenting another sheet.</p>
+									<p>Opens the content at the specified URL in a modal window that animates from the bottom of the screen.
+									If the parent Koji is already displayed in a modal window, the content will open in the same window, replacing the current view.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-html"><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #0000FF">&quot;button&quot;</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{()</span><span style="color: #000000"> </span><span style="color: #CD3131">=</span><span style="color: #800000">&gt;</span><span style="color: #000000"> Koji.ui.navigate.presentInModal(url)}&gt;</span>
+<span style="color: #000000">  My favorite Koji</span>
+<span style="color: #800000">&lt;/button&gt;</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The url to present in the modal</p>
+										<p>URL of the content to load.</p>
 									</div>
 								</li>
 							</ul>
@@ -327,7 +367,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessage">sendMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -354,7 +394,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessageandawaitresponse">sendMessageAndAwaitResponse</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/kojiBridge/index.ts#L59">frontend/kojiBridge/index.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/kojiBridge/index.ts#L59">frontend/kojiBridge/index.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -383,20 +423,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/703a34a/src/frontend/ui/navigate/index.ts#L14">frontend/ui/navigate/index.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/d75b9fb/src/frontend/ui/navigate/index.ts#L21">frontend/ui/navigate/index.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Replaces the currently loaded Koji with the content of <code>url</code>.</p>
+									<p>Replaces the currently loaded Koji with the content at the specified URL.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-html"><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">type</span><span style="color: #000000">=</span><span style="color: #0000FF">&quot;button&quot;</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{()</span><span style="color: #000000"> </span><span style="color: #CD3131">=</span><span style="color: #800000">&gt;</span><span style="color: #000000"> Koji.ui.navigate.to(url)}&gt;</span>
+<span style="color: #000000">  My favorite Koji</span>
+<span style="color: #800000">&lt;/button&gt;</span>
+</code></pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>url: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The url to navigate to</p>
+										<p>URL of the content to load.</p>
 									</div>
 								</li>
 							</ul>
