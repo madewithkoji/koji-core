@@ -96,11 +96,11 @@ export interface FastlyOptions {
    *
    * Value may be any number between 1 and 10.
    */
-  dpr?: 'bounds' | 'cover' | 'crop';
+  dpr?: string;
   /**
    * The fit parameter controls how the image will be constrained within the provided size (width and height) values, in order to maintain the correct proportions.
    */
-  fit?: string;
+  fit?: 'bounds' | 'cover' | 'crop';
   /**
    * Specifies the desired output encoding for the image.
    *
