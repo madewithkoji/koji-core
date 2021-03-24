@@ -16554,8 +16554,8 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables image optimizations based on content.",
-								"text": "For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly `auto` reference]].\n\n<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on content negotiation.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly auto reference]].\n\n<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
@@ -16593,7 +16593,7 @@
 							},
 							"comment": {
 								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.",
-								"text": "Value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly bg-color reference]].\n"
+								"text": "The value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly bg-color reference]].\n"
 							},
 							"sources": [
 								{
@@ -16631,7 +16631,7 @@
 							},
 							"comment": {
 								"shortText": "Applies a Gaussian blur filter to the image.",
-								"text": "Value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly blur reference]].\n"
+								"text": "The value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage followed by `p` (for example, `1p` for 1%).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly blur reference]].\n"
 							},
 							"sources": [
 								{
@@ -16668,13 +16668,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Increases or decreases the brightness of the image.\nValue can be a number between -100 and 100, as follows:",
-								"text": "* `0` (default) – Leaves the image unchanged.\n* `100` – Results in a fully white image.\n* `-100` – Results in a fully black image.\n"
+								"shortText": "Increases or decreases the brightness of the image.",
+								"text": "The value can be a number between -100 and 100, as follows:\n\n* `0` (default) – Leaves the image unchanged.\n* `100` – Results in a fully white image.\n* `-100` – Results in a fully black image.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/brightness | Fastly brightness reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 38,
+									"line": 41,
 									"character": 12
 								}
 							],
@@ -16706,13 +16706,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Increases or decreases the difference between the darkest and lightest tones in the image.\nValue can be a number between -100 and 100, as follows:",
-								"text": "* `0` (default) – Leaves the image unchanged.\n* `-100` – Results in a fully grey image.\n"
+								"shortText": "Increases or decreases the difference between the darkest and lightest tones in the image.",
+								"text": "The value can be a number between -100 and 100, as follows:\n\n* `0` (default) – Leaves the image unchanged.\n* `-100` – Results in a fully grey image.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/contrast | Fastly contrast reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 46,
+									"line": 52,
 									"character": 10
 								}
 							],
@@ -16745,12 +16745,12 @@
 							},
 							"comment": {
 								"shortText": "Removes pixels from an image.",
-								"text": "The value starts with the desired width and height of the final image, either as measurements of pixels separated with a comma (for example, `640,480`), or as a ratio separated with a colon (for example, `4:3`).\n\nThe rest of the value determines the position of the cropped region within the existing image. For each dimension, specify the position as a coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using `offset-x` and `offset-y`. These can be mixed and matched, but only one method can be used for each dimension (that is, x can be combined with offset-y but x cannot be combined with offset-x).\n\nOffset positioning acts to distribute the remaining space according to the specified offset proportions. If an image is 2000 pixels wide and is being cropped to 1000 pixels wide, offset-x10 would crop 10% (100 pixels) from the left of the image and 90% (900 pixels) from the right. An offset of 50 centers the crop in the middle of the image.\n\nAppending `,smart` to the value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.\n\nIf the specified cropped region is outside the bounds of the image, the transformation will fail with the error \"Invalid transformation for requested image: Invalid crop, region out of bounds\". Append `,safe` to the parameter value to override this error. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.\n\nNotes:\n\n* `x` and `y` can be set as a value in pixels (for example, `40` is 40 pixels) or as a percentage suffixed with p (for example, `50p` is 50%).\n* `offset-x` and `offset-y` are always interpreted as percentages of the image size (for example, `25` is 25%).\n* When using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.\n* If any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.\n"
+								"text": "The value starts with the desired width and height of the final image.\nThe rest of the value determines the position of the cropped region within the existing image.\nFor example: `150,100,x50,y50`\tcrops the image to 150px by 100px and selects the starting sub region x coordinate to be 50px and the y coordinate to be 50px. `16:9`\tcrops the image to an aspect ratio of 16:9.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/crop | Fastly crop reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 67,
+									"line": 62,
 									"character": 6
 								}
 							],
@@ -16782,13 +16782,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Serve correctly sized images for devices that expose a device pixel ratio.",
-								"text": "The dpr parameter provides a means to multiply image dimensions in order to translate logical pixels (also 'CSS pixels') into physical pixels. The device pixel ratio is therefore the ratio between physical pixels and logical pixels.\n\nIt is usually possible for client-side software to query the host system to determine the DPR of the display the user is viewing. In web browsers, this is available as the Window.devicePixelRatio variable in JavaScript. The iPhone 5 reports a device pixel ratio of 2, because the physical linear resolution is double the logical resolution.\n\nPhysical Resolution: 960 x 640\n\nLogical Resolution: 480 x 320\n\nOther devices report varying device pixel ratios, including non-integer ones. For example, the Nokia Lumia 1020 reports 1.6667, whereas the Samsung Galaxy S4 reports 3.\n\nValue may be any number between 1 and 10.\n"
+								"shortText": "Serves correctly sized images for devices that expose a device pixel ratio.",
+								"text": "The value can be any number between 1 and 10.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/dpr | Fastly dpr reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 83,
+									"line": 70,
 									"character": 5
 								}
 							],
@@ -16820,12 +16820,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
+								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/fit | Fastly fit reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 87,
+									"line": 76,
 									"character": 5
 								}
 							],
@@ -16865,13 +16866,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Specifies the desired output encoding for the image.",
-								"text": "The format parameter enables the source image to be converted (a.k.a., \"transcoded\") from one encoded format to another. This is useful when the source image has been saved in a sub-optimal file format that hinders performance.\n\nNotes:\n\nAutomatic delivery of WebP format images via content negotiation can be enabled using the auto=webp parameter. This will override the format parameter in browsers that support WebP. Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.\n\nThe source image can be any of the following image formats: JPEG, PNG, GIF, WEBP.\n\nJPEG, progressive JPEG, WebP (Lossy), and PNG8 have a sliding quality scale that supports the quality parameter.\n\nGIF and PNG do not have a sliding quality scale. They do not support the quality parameter.\n\nA progressive JPEG pjpg is an image created using the JPEG suite of compression algorithms that will \"fade in\" successive waves of lines until the entire image has completely arrived. For this reason, progressive JPEGs typically appear to load quicker than the Baseline JPEG jpg format.\n\nWebP support is available in Google Chrome, Mozilla Firefox 65 and later, Safari 14 and later, Opera, and Android Browser.\n\nLossless compression is currently supported for WebP only.\n\nGIF to WebP conversion is currently not supported.\n\nMP4 conversion is only available for animated GIF source images.\n"
+								"shortText": "Converts the image to the specified encoded format.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/format | Fastly format reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 113,
+									"line": 82,
 									"character": 8
 								}
 							],
@@ -16939,12 +16940,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Extracts the first frame from an animated image sequence."
+								"shortText": "Extracts the first frame from an animated image sequence.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/frame | Fastly frame reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 117,
+									"line": 88,
 									"character": 7
 								}
 							],
@@ -16976,13 +16978,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The desired height of the output image.",
-								"text": "The height parameter enables dynamic height resizing based on pixels and percent values.\n\nThe value can be either a positive integer or a positive number less than 1. If the value is an integer greater than or equal to 1, the value is interpreted as a pixel height. If the height parameter is less than 1, the value is interpreted as a percentage height.\n\nUnless a width parameter is present, the height value will cause the width of the image to be scaled in proportion to the requested height. If both width and height are omitted, the input image dimensions are used.\n\nNotes:\n\nThe maximum output dimensions are 8,192 x 8,192 pixels.\n\nBecause we use a positive number between 0 and 0.99 to return a percentage-based scaled image, in order to return an image that is 100% or more, a p suffix can be appended to the value. For example, height=250p would return an image that is 250% the height of the original. We use p as a simple way to represent percentages.\n\nIf the requested height is not a whole number of pixels (e.g., as a result of applying a percentage value for height), it is rounded to the nearest integer.\n"
+								"shortText": "Resizes the height of the image based on pixels or percent.",
+								"text": "For absolute heights, set an integer number of pixels.\nFor relative heights (percent), set a value between 0 and 1 or a value between 0 and 100 followed by `p` (for example, `0.5` or `50p` for 50 percent).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/height | Fastly height reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 135,
+									"line": 97,
 									"character": 8
 								}
 							],
@@ -17046,13 +17048,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.\nNotes:",
-								"text": "Optimize is currently supported by the following output formats: JPEG, WebP.\n\nIf the quality parameter is also provided, quality overrides optimize because it is more precise.\n\nBecause optimize attempts to produce an output image with as much visual quality as possible while minimizing the file size, the operations applied are subject to change.\n"
+								"shortText": "Applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/optimize | Fastly optimize reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 146,
+									"line": 103,
 									"character": 10
 								}
 							],
@@ -17092,13 +17094,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "How the image will be orientated.",
-								"text": "The orient parameter controls the cardinal orientation of the image.\n\nNotes:\n\nBy default, if the source image contains orientation information stored within its metadata, that orientation will be applied to the image data and the orientation override removed from metadata.\n\nThe numerical values are the same as EXIF rotation numbers.\n"
+								"shortText": "Changes the cardinal orientation of the image.",
+								"text": "The value can orient the image right or left, flip it horizontally, flip it vertically, or apply a combination of these options.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/orient | Fastly orient reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 158,
+									"line": 111,
 									"character": 8
 								}
 							],
@@ -17179,12 +17181,12 @@
 							},
 							"comment": {
 								"shortText": "Adds pixels to the edge of an image.",
-								"text": "Notes:\n\nSyntax is very similar to css padding; see examples below.\n\npad={all-sides}\npad={top-and-bottom},{left-and-right}\npad={top},{left-and-right},{bottom}\npad={top},{right},{bottom},{left}\n\nBy default padding applies a background color of white. See bg-color to change that.\n\nIf the source image contains a transparent background and the output image also contains transparency, the padding will be made up of transparent pixels.\n\nWhen using pad and canvas at the same time, pad will be ignored.\n\nValues can be specified using CSS style shorthand values. (see CSS Margin or CSS Padding for more examples).\n\nCSS shorthand allows for all edges to be specified in one property.\n\nAny fractional pixel measurements will be rounded to the nearest whole pixel.\n"
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/pad | Fastly pad reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 183,
+									"line": 117,
 									"character": 5
 								}
 							],
@@ -17217,12 +17219,12 @@
 							},
 							"comment": {
 								"shortText": "Removes pixels from an image before any other transformations occur.",
-								"text": "Identical to crop except that precrop is performed before any other transformations.\n"
+								"text": "The value is specified in the same way as `crop`, except that `precrop` is performed before any other transformations.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/precrop | Fastly precrop reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 189,
+									"line": 125,
 									"character": 9
 								}
 							],
@@ -17254,13 +17256,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Output image quality for lossy file formats.",
-								"text": "The quality parameter enables control over the compression level for lossy file-formatted images.\n\nValue may be any integer between 1 and 100, where 1 is a lower quality image and a smaller file and 100 is the highest quality image and larger file. If desired, a second quality level can be specified for use when auto=webp is enabled and a WebP output format has been selected.\n\nNotes:\nThe quality parameter can be applied to the following output formats: png8, jpg, pjpg, webp, and webply.\n\nIf no quality parameter is present for jpg, pjpg, or webp, the output image will be returned at the default value set in the Image Optimizer user interface.\n\nIf auto=webp is enabled by the URL or the service settings, the second value will be used as the quality value if the requestor sends the accept: image/webp request header.\n\nWhen only specifying quality, if the output image file size is larger than the input image, the original image will be delivered.\n"
+								"shortText": "Optimizes the image to the given compression level for lossy file formatted images.",
+								"text": "The value can be any integer between 1 and 100, where 1 is a lower quality image and a smaller file and 100 is the highest quality image and larger file.\nAn optional second quality level can be specified for use when auto=webp is enabled and a WebP output format has been selected.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/quality | Fastly quality reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 206,
+									"line": 134,
 									"character": 9
 								}
 							],
@@ -17292,13 +17294,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The resize-filter parameter enables control over the resizing filter used to generate a new image with a higher or lower number of pixels.",
-								"text": "Notes:\n\nWhen making an image smaller, use bicubic, which has a natural sharpening effect.\n\nWhen making an image larger, use bilinear, which has a natural smoothing effect.\n\nWhen resizing pixel art, use nearest, which has a natural pixelation effect.\n\nWhen quality is the main concern, use lanczos, which typically renders the best results.\n"
+								"shortText": "Controls the filter used to resize an image to a higher or lower number of pixels.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/resize-filter | Fastly resize-filter reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 206,
+									"line": 134,
 									"character": 19
 								}
 							],
@@ -17346,13 +17348,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Saturation of the output image.",
-								"text": "The saturation parameter increases or decreases the intensity of the colors in an image.\n\nValue may be any number between -100 and 100.\n\nNotes:\n\nThe default value is 0. This leaves the image unchanged.\n\nValid values range from -100 to 100\n\nA value of -100 will generate a grayscale image.\n"
+								"shortText": "Sets the intensity of the colors in the image.",
+								"text": "The value can be any number between -100 and 100, as follows:\n\n* `0` (default) – Leaves the image unchanged.\n* `-100` – Generates a grayscale image.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/saturation | Fastly saturation reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 236,
+									"line": 151,
 									"character": 12
 								}
 							],
@@ -17384,13 +17386,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Sharpness of the output image.",
-								"text": "The sharpen parameter increases the definition of the edges of objects in an image.\n\nSyntax: sharpen=a{a},r{r},t{t} (e.g., sharpen: 'a5,r2,t0')\n\nNotes:\n\nThe sharpen parameter is an implementation of an unsharp mask.\n"
+								"shortText": "Increases the definition of the edges of objects in the image.",
+								"text": "The value specifies the amount, radius, and threshold for an unsharp mask (for example, `a5,r2,t0`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/sharpen | Fastly sharpen reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 248,
+									"line": 159,
 									"character": 9
 								}
 							],
@@ -17422,13 +17424,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Remove pixels from the edge of an image.",
-								"text": "The trim parameter removes pixels from the edge of an image by pixel or percentage value. This can be useful for removing whitespace and borders that appear on a source image.\n\nSyntax: trim={top},{right},{bottom},{left}\n\nNotes:\n\nValues can be specified using CSS style shorthand values. (See CSS Margin or CSS Padding for more examples).\n\nCSS shorthand allows for all edges to be specified in one property.\n\nAny fractional pixel measurements will be rounded to the nearest whole pixel.\n"
+								"shortText": "Removes pixels from the edge of the image.",
+								"text": "The value can be specified in pixels or percent.\nFor example: `25,50,75,100` trims the top edge 25px, right edge 50px, bottom edge 75px, and left edge 100px.\n`0.25`\ttrims all edges by 25 percent.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/trim | Fastly trim reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 264,
+									"line": 169,
 									"character": 6
 								}
 							],
@@ -17460,13 +17462,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The desired width of the output image.",
-								"text": "The width parameter enables dynamic width resizing based on pixels and percent values.\n\nThe {value} can be either a positive integer or a number less than 1. If the value is an integer greater than or equal to 1, the value is interpreted as a pixel width. If the width parameter is less than 1, the value is interpreted as a percentage width.\n\nUnless a height parameter is present, the width value will cause the height of the image to be scaled in proportion to the requested width. If both width and height are omitted, the input image dimensions are used.\n\nValue may be one of:\n\nAbsolute width: An integer between 1 and 8192.\n\nRelative width: A fraction between 0 and 0.99 (e.g. ,0.5) or a percentage between 0 and 100 followed by the letter p (e.g., 50p). In either case the value indicates the desired width relative to the image's natural width.\n\nNotes:\n\nThe maximum output dimensions are 8,192 x 8,192 pixels.\n\nIf the image is animated, the maximum output dimensions apply to the sum of the area of all the frames of the image. For example, a 1024x1024px GIF could have 64 frames before it would exceed the size limit.\n\nBecause we use a positive number less than 1 to return a percentage-based scaled image, in order to return an image that is 100% or more, a p suffix can be appended to the value. For example, width=250p would return an image that is 250% the width of the original. We use p as a simple way to represent percent.\n\nIf the requested width is a fraction of a pixel (e.g., as a result of applying a percentage value for width), it is rounded to the nearest integer.\n"
+								"shortText": "Resizes the width of the image based on pixels or percent.",
+								"text": "For absolute widths, set an integer number of pixels between 1 and 8192.\nFor relative widths (percent), set a value between 0 and 1 or a value between 0 and 100 followed by p (for example, `0.5` or `50p` for 50 percent).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/width | Fastly width reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 290,
+									"line": 178,
 									"character": 7
 								}
 							],
@@ -20259,8 +20261,8 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables image optimizations based on content.",
-								"text": "For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly `auto` reference]].\n\n<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on content negotiation.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly auto reference]].\n\n<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
@@ -20293,7 +20295,7 @@
 							},
 							"comment": {
 								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.",
-								"text": "Value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly bg-color reference]].\n"
+								"text": "The value can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly bg-color reference]].\n"
 							},
 							"sources": [
 								{
@@ -20326,7 +20328,7 @@
 							},
 							"comment": {
 								"shortText": "Applies a Gaussian blur filter to the image.",
-								"text": "Value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly blur reference]].\n"
+								"text": "The value can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage followed by `p` (for example, `1p` for 1%).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly blur reference]].\n"
 							},
 							"sources": [
 								{
@@ -20358,13 +20360,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Increases or decreases the brightness of the image.\nValue can be a number between -100 and 100, as follows:",
-								"text": "* `0` (default) – Leaves the image unchanged.\n* `100` – Results in a fully white image.\n* `-100` – Results in a fully black image.\n"
+								"shortText": "Increases or decreases the brightness of the image.",
+								"text": "The value can be a number between -100 and 100, as follows:\n\n* `0` (default) – Leaves the image unchanged.\n* `100` – Results in a fully white image.\n* `-100` – Results in a fully black image.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/brightness | Fastly brightness reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 38,
+									"line": 41,
 									"character": 12
 								}
 							],
@@ -20391,13 +20393,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Increases or decreases the difference between the darkest and lightest tones in the image.\nValue can be a number between -100 and 100, as follows:",
-								"text": "* `0` (default) – Leaves the image unchanged.\n* `-100` – Results in a fully grey image.\n"
+								"shortText": "Increases or decreases the difference between the darkest and lightest tones in the image.",
+								"text": "The value can be a number between -100 and 100, as follows:\n\n* `0` (default) – Leaves the image unchanged.\n* `-100` – Results in a fully grey image.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/contrast | Fastly contrast reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 46,
+									"line": 52,
 									"character": 10
 								}
 							],
@@ -20425,12 +20427,12 @@
 							},
 							"comment": {
 								"shortText": "Removes pixels from an image.",
-								"text": "The value starts with the desired width and height of the final image, either as measurements of pixels separated with a comma (for example, `640,480`), or as a ratio separated with a colon (for example, `4:3`).\n\nThe rest of the value determines the position of the cropped region within the existing image. For each dimension, specify the position as a coordinate (x or y, which are relative to the top left of the uncropped image) or as a percentage offset from the center of the image using `offset-x` and `offset-y`. These can be mixed and matched, but only one method can be used for each dimension (that is, x can be combined with offset-y but x cannot be combined with offset-x).\n\nOffset positioning acts to distribute the remaining space according to the specified offset proportions. If an image is 2000 pixels wide and is being cropped to 1000 pixels wide, offset-x10 would crop 10% (100 pixels) from the left of the image and 90% (900 pixels) from the right. An offset of 50 centers the crop in the middle of the image.\n\nAppending `,smart` to the value enables content-aware algorithms to attempt to crop the image to the desired aspect ratio while intelligently focusing on the most important visual content, including the detection of faces.\n\nIf the specified cropped region is outside the bounds of the image, the transformation will fail with the error \"Invalid transformation for requested image: Invalid crop, region out of bounds\". Append `,safe` to the parameter value to override this error. In safe mode, the image gets delivered as an intersection of the origin image and the specified cropped region. This avoids the error, but the resulting image may not be of the specified dimensions.\n\nNotes:\n\n* `x` and `y` can be set as a value in pixels (for example, `40` is 40 pixels) or as a percentage suffixed with p (for example, `50p` is 50%).\n* `offset-x` and `offset-y` are always interpreted as percentages of the image size (for example, `25` is 25%).\n* When using aspect ratio cropping, crop must be used in conjunction with a width or height parameter (or both) to return the correct output image size. If no width or height are supplied, the largest area of the requested aspect ratio will be returned based on the dimensions of the source image.\n* If any dimension ends up at a fraction of a pixel, it is rounded to the nearest whole pixel.\n"
+								"text": "The value starts with the desired width and height of the final image.\nThe rest of the value determines the position of the cropped region within the existing image.\nFor example: `150,100,x50,y50`\tcrops the image to 150px by 100px and selects the starting sub region x coordinate to be 50px and the y coordinate to be 50px. `16:9`\tcrops the image to an aspect ratio of 16:9.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/crop | Fastly crop reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 67,
+									"line": 62,
 									"character": 6
 								}
 							],
@@ -20457,13 +20459,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Serve correctly sized images for devices that expose a device pixel ratio.",
-								"text": "The dpr parameter provides a means to multiply image dimensions in order to translate logical pixels (also 'CSS pixels') into physical pixels. The device pixel ratio is therefore the ratio between physical pixels and logical pixels.\n\nIt is usually possible for client-side software to query the host system to determine the DPR of the display the user is viewing. In web browsers, this is available as the Window.devicePixelRatio variable in JavaScript. The iPhone 5 reports a device pixel ratio of 2, because the physical linear resolution is double the logical resolution.\n\nPhysical Resolution: 960 x 640\n\nLogical Resolution: 480 x 320\n\nOther devices report varying device pixel ratios, including non-integer ones. For example, the Nokia Lumia 1020 reports 1.6667, whereas the Samsung Galaxy S4 reports 3.\n\nValue may be any number between 1 and 10.\n"
+								"shortText": "Serves correctly sized images for devices that expose a device pixel ratio.",
+								"text": "The value can be any number between 1 and 10.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/dpr | Fastly dpr reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 83,
+									"line": 70,
 									"character": 5
 								}
 							],
@@ -20490,12 +20492,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
+								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/fit | Fastly fit reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 87,
+									"line": 76,
 									"character": 5
 								}
 							],
@@ -20530,13 +20533,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Specifies the desired output encoding for the image.",
-								"text": "The format parameter enables the source image to be converted (a.k.a., \"transcoded\") from one encoded format to another. This is useful when the source image has been saved in a sub-optimal file format that hinders performance.\n\nNotes:\n\nAutomatic delivery of WebP format images via content negotiation can be enabled using the auto=webp parameter. This will override the format parameter in browsers that support WebP. Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.\n\nThe source image can be any of the following image formats: JPEG, PNG, GIF, WEBP.\n\nJPEG, progressive JPEG, WebP (Lossy), and PNG8 have a sliding quality scale that supports the quality parameter.\n\nGIF and PNG do not have a sliding quality scale. They do not support the quality parameter.\n\nA progressive JPEG pjpg is an image created using the JPEG suite of compression algorithms that will \"fade in\" successive waves of lines until the entire image has completely arrived. For this reason, progressive JPEGs typically appear to load quicker than the Baseline JPEG jpg format.\n\nWebP support is available in Google Chrome, Mozilla Firefox 65 and later, Safari 14 and later, Opera, and Android Browser.\n\nLossless compression is currently supported for WebP only.\n\nGIF to WebP conversion is currently not supported.\n\nMP4 conversion is only available for animated GIF source images.\n"
+								"shortText": "Converts the image to the specified encoded format.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/format | Fastly format reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 113,
+									"line": 82,
 									"character": 8
 								}
 							],
@@ -20599,12 +20602,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Extracts the first frame from an animated image sequence."
+								"shortText": "Extracts the first frame from an animated image sequence.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/frame | Fastly frame reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 117,
+									"line": 88,
 									"character": 7
 								}
 							],
@@ -20631,13 +20635,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The desired height of the output image.",
-								"text": "The height parameter enables dynamic height resizing based on pixels and percent values.\n\nThe value can be either a positive integer or a positive number less than 1. If the value is an integer greater than or equal to 1, the value is interpreted as a pixel height. If the height parameter is less than 1, the value is interpreted as a percentage height.\n\nUnless a width parameter is present, the height value will cause the width of the image to be scaled in proportion to the requested height. If both width and height are omitted, the input image dimensions are used.\n\nNotes:\n\nThe maximum output dimensions are 8,192 x 8,192 pixels.\n\nBecause we use a positive number between 0 and 0.99 to return a percentage-based scaled image, in order to return an image that is 100% or more, a p suffix can be appended to the value. For example, height=250p would return an image that is 250% the height of the original. We use p as a simple way to represent percentages.\n\nIf the requested height is not a whole number of pixels (e.g., as a result of applying a percentage value for height), it is rounded to the nearest integer.\n"
+								"shortText": "Resizes the height of the image based on pixels or percent.",
+								"text": "For absolute heights, set an integer number of pixels.\nFor relative heights (percent), set a value between 0 and 1 or a value between 0 and 100 followed by `p` (for example, `0.5` or `50p` for 50 percent).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/height | Fastly height reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 135,
+									"line": 97,
 									"character": 8
 								}
 							],
@@ -20664,13 +20668,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.\nNotes:",
-								"text": "Optimize is currently supported by the following output formats: JPEG, WebP.\n\nIf the quality parameter is also provided, quality overrides optimize because it is more precise.\n\nBecause optimize attempts to produce an output image with as much visual quality as possible while minimizing the file size, the operations applied are subject to change.\n"
+								"shortText": "Applies optimal quality compression to produce an output image with as much visual fidelity as possible, while minimizing the file size.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/optimize | Fastly optimize reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 146,
+									"line": 103,
 									"character": 10
 								}
 							],
@@ -20705,13 +20709,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "How the image will be orientated.",
-								"text": "The orient parameter controls the cardinal orientation of the image.\n\nNotes:\n\nBy default, if the source image contains orientation information stored within its metadata, that orientation will be applied to the image data and the orientation override removed from metadata.\n\nThe numerical values are the same as EXIF rotation numbers.\n"
+								"shortText": "Changes the cardinal orientation of the image.",
+								"text": "The value can orient the image right or left, flip it horizontally, flip it vertically, or apply a combination of these options.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/orient | Fastly orient reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 158,
+									"line": 111,
 									"character": 8
 								}
 							],
@@ -20787,12 +20791,12 @@
 							},
 							"comment": {
 								"shortText": "Adds pixels to the edge of an image.",
-								"text": "Notes:\n\nSyntax is very similar to css padding; see examples below.\n\npad={all-sides}\npad={top-and-bottom},{left-and-right}\npad={top},{left-and-right},{bottom}\npad={top},{right},{bottom},{left}\n\nBy default padding applies a background color of white. See bg-color to change that.\n\nIf the source image contains a transparent background and the output image also contains transparency, the padding will be made up of transparent pixels.\n\nWhen using pad and canvas at the same time, pad will be ignored.\n\nValues can be specified using CSS style shorthand values. (see CSS Margin or CSS Padding for more examples).\n\nCSS shorthand allows for all edges to be specified in one property.\n\nAny fractional pixel measurements will be rounded to the nearest whole pixel.\n"
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/pad | Fastly pad reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 183,
+									"line": 117,
 									"character": 5
 								}
 							],
@@ -20820,12 +20824,12 @@
 							},
 							"comment": {
 								"shortText": "Removes pixels from an image before any other transformations occur.",
-								"text": "Identical to crop except that precrop is performed before any other transformations.\n"
+								"text": "The value is specified in the same way as `crop`, except that `precrop` is performed before any other transformations.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/precrop | Fastly precrop reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 189,
+									"line": 125,
 									"character": 9
 								}
 							],
@@ -20852,13 +20856,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Output image quality for lossy file formats.",
-								"text": "The quality parameter enables control over the compression level for lossy file-formatted images.\n\nValue may be any integer between 1 and 100, where 1 is a lower quality image and a smaller file and 100 is the highest quality image and larger file. If desired, a second quality level can be specified for use when auto=webp is enabled and a WebP output format has been selected.\n\nNotes:\nThe quality parameter can be applied to the following output formats: png8, jpg, pjpg, webp, and webply.\n\nIf no quality parameter is present for jpg, pjpg, or webp, the output image will be returned at the default value set in the Image Optimizer user interface.\n\nIf auto=webp is enabled by the URL or the service settings, the second value will be used as the quality value if the requestor sends the accept: image/webp request header.\n\nWhen only specifying quality, if the output image file size is larger than the input image, the original image will be delivered.\n"
+								"shortText": "Optimizes the image to the given compression level for lossy file formatted images.",
+								"text": "The value can be any integer between 1 and 100, where 1 is a lower quality image and a smaller file and 100 is the highest quality image and larger file.\nAn optional second quality level can be specified for use when auto=webp is enabled and a WebP output format has been selected.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/quality | Fastly quality reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 206,
+									"line": 134,
 									"character": 9
 								}
 							],
@@ -20885,13 +20889,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The resize-filter parameter enables control over the resizing filter used to generate a new image with a higher or lower number of pixels.",
-								"text": "Notes:\n\nWhen making an image smaller, use bicubic, which has a natural sharpening effect.\n\nWhen making an image larger, use bilinear, which has a natural smoothing effect.\n\nWhen resizing pixel art, use nearest, which has a natural pixelation effect.\n\nWhen quality is the main concern, use lanczos, which typically renders the best results.\n"
+								"shortText": "Controls the filter used to resize an image to a higher or lower number of pixels.",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/resize-filter | Fastly resize-filter reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 206,
+									"line": 134,
 									"character": 19
 								}
 							],
@@ -20934,13 +20938,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Saturation of the output image.",
-								"text": "The saturation parameter increases or decreases the intensity of the colors in an image.\n\nValue may be any number between -100 and 100.\n\nNotes:\n\nThe default value is 0. This leaves the image unchanged.\n\nValid values range from -100 to 100\n\nA value of -100 will generate a grayscale image.\n"
+								"shortText": "Sets the intensity of the colors in the image.",
+								"text": "The value can be any number between -100 and 100, as follows:\n\n* `0` (default) – Leaves the image unchanged.\n* `-100` – Generates a grayscale image.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/saturation | Fastly saturation reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 236,
+									"line": 151,
 									"character": 12
 								}
 							],
@@ -20967,13 +20971,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Sharpness of the output image.",
-								"text": "The sharpen parameter increases the definition of the edges of objects in an image.\n\nSyntax: sharpen=a{a},r{r},t{t} (e.g., sharpen: 'a5,r2,t0')\n\nNotes:\n\nThe sharpen parameter is an implementation of an unsharp mask.\n"
+								"shortText": "Increases the definition of the edges of objects in the image.",
+								"text": "The value specifies the amount, radius, and threshold for an unsharp mask (for example, `a5,r2,t0`).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/sharpen | Fastly sharpen reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 248,
+									"line": 159,
 									"character": 9
 								}
 							],
@@ -21000,13 +21004,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Remove pixels from the edge of an image.",
-								"text": "The trim parameter removes pixels from the edge of an image by pixel or percentage value. This can be useful for removing whitespace and borders that appear on a source image.\n\nSyntax: trim={top},{right},{bottom},{left}\n\nNotes:\n\nValues can be specified using CSS style shorthand values. (See CSS Margin or CSS Padding for more examples).\n\nCSS shorthand allows for all edges to be specified in one property.\n\nAny fractional pixel measurements will be rounded to the nearest whole pixel.\n"
+								"shortText": "Removes pixels from the edge of the image.",
+								"text": "The value can be specified in pixels or percent.\nFor example: `25,50,75,100` trims the top edge 25px, right edge 50px, bottom edge 75px, and left edge 100px.\n`0.25`\ttrims all edges by 25 percent.\n\nFor more information, see the [[https://developer.fastly.com/reference/io/trim | Fastly trim reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 264,
+									"line": 169,
 									"character": 6
 								}
 							],
@@ -21033,13 +21037,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The desired width of the output image.",
-								"text": "The width parameter enables dynamic width resizing based on pixels and percent values.\n\nThe {value} can be either a positive integer or a number less than 1. If the value is an integer greater than or equal to 1, the value is interpreted as a pixel width. If the width parameter is less than 1, the value is interpreted as a percentage width.\n\nUnless a height parameter is present, the width value will cause the height of the image to be scaled in proportion to the requested width. If both width and height are omitted, the input image dimensions are used.\n\nValue may be one of:\n\nAbsolute width: An integer between 1 and 8192.\n\nRelative width: A fraction between 0 and 0.99 (e.g. ,0.5) or a percentage between 0 and 100 followed by the letter p (e.g., 50p). In either case the value indicates the desired width relative to the image's natural width.\n\nNotes:\n\nThe maximum output dimensions are 8,192 x 8,192 pixels.\n\nIf the image is animated, the maximum output dimensions apply to the sum of the area of all the frames of the image. For example, a 1024x1024px GIF could have 64 frames before it would exceed the size limit.\n\nBecause we use a positive number less than 1 to return a percentage-based scaled image, in order to return an image that is 100% or more, a p suffix can be appended to the value. For example, width=250p would return an image that is 250% the width of the original. We use p as a simple way to represent percent.\n\nIf the requested width is a fraction of a pixel (e.g., as a result of applying a percentage value for width), it is rounded to the nearest integer.\n"
+								"shortText": "Resizes the width of the image based on pixels or percent.",
+								"text": "For absolute widths, set an integer number of pixels between 1 and 8192.\nFor relative widths (percent), set a value between 0 and 1 or a value between 0 and 100 followed by p (for example, `0.5` or `50p` for 50 percent).\n\nFor more information, see the [[https://developer.fastly.com/reference/io/width | Fastly width reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 290,
+									"line": 178,
 									"character": 7
 								}
 							],
