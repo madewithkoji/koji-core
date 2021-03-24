@@ -13122,7 +13122,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 168,
+									"line": 172,
 									"character": 15
 								}
 							],
@@ -13134,11 +13134,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Cancels the remix experience and navigates the user back to where they were before they started remixing. If the user has made changes, they will be prompted by the Koji platform to confirm this action.",
+										"shortText": "Cancels the remix experience and returns the user to where they were before they started remixing. If the user has made changes, they are prompted to confirm this action.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nKoji.remix.cancel()\n```\n"
+												"text": "\n```javascript\nKoji.remix.cancel();\n```\n"
 											}
 										]
 									},
@@ -13170,7 +13170,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 214,
+									"line": 218,
 									"character": 27
 								}
 							],
@@ -13242,7 +13242,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 186,
+									"line": 190,
 									"character": 27
 								}
 							],
@@ -13313,7 +13313,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 151,
+									"line": 155,
 									"character": 15
 								}
 							],
@@ -13329,7 +13329,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\n<button onClick={() => Koji.remix.finish()}>Next</button>\n```\n"
+												"text": "\n```html\n<button onClick={() => Koji.remix.finish()}>\n Next\n</button>\n```\n"
 											}
 										]
 									},
@@ -13361,7 +13361,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 94,
+									"line": 95,
 									"character": 12
 								}
 							],
@@ -13401,7 +13401,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "An array of keys to target a specific value in the object."
+												"text": "Array of keys to target a specific value in the object."
 											},
 											"type": {
 												"type": "array",
@@ -13420,7 +13420,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "A value to return if no value exists at the targeted path."
+												"text": "Value to return if no value exists at the targeted path."
 											},
 											"type": {
 												"type": "reference",
@@ -13456,7 +13456,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 54,
+									"line": 55,
 									"character": 13
 								}
 							],
@@ -13483,6 +13483,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Object containing the default values for your Koji.\n"
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "any"
@@ -13517,7 +13520,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 137,
+									"line": 139,
 									"character": 18
 								}
 							],
@@ -13530,7 +13533,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Replaces all remix data with the specified object.",
-										"text": "<p class=\"note\">This method overwrites all existing values in the remix data. To update specific values only, use [[set]].</p>\n",
+										"text": "<p class=\"note\">This method overwrites all existing values in the remix data.\nTo update specific values only, use [[set]].</p>\n",
 										"returns": "Indicates whether the remix data was successfully replaced.\n",
 										"tags": [
 											{
@@ -13589,7 +13592,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 114,
+									"line": 115,
 									"character": 12
 								}
 							],
@@ -13667,7 +13670,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 25,
+							"line": 26,
 							"character": 18
 						}
 					],
@@ -13701,7 +13704,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 17,
+									"line": 18,
 									"character": 10
 								}
 							],
@@ -13722,7 +13725,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 15,
+									"line": 16,
 									"character": 6
 								}
 							],
@@ -13746,7 +13749,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 19,
+									"line": 20,
 									"character": 12
 								}
 							],
@@ -13770,7 +13773,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 13,
+							"line": 14,
 							"character": 29
 						}
 					]
@@ -13786,7 +13789,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 250,
+							"line": 254,
 							"character": 18
 						}
 					],

@@ -9,6 +9,7 @@ declare global {
     KOJI_OVERRIDES: any;
   }
 }
+
 /** Communicates changes to remix data. */
 export interface ValueChanged {
   /** Path of the changed value. */
@@ -43,7 +44,7 @@ export class Remix extends KojiBridge {
   /**
    * Initializes the remix data for the Koji with default values.
    *
-   * @param   kojiConfig    Object containing the default values for your Koji.
+   * @param   remixData    Object containing the default values for your Koji.
    *
    * @example
    * ```javascript
@@ -73,8 +74,8 @@ export class Remix extends KojiBridge {
   /**
    * Gets the remix data for the Koji.
    *
-   * @param   path [path]   An array of keys to target a specific value in the object.
-   * @param   defaultValue [defaultValue]   A value to return if no value exists at the targeted path.
+   * @param   path   Array of keys to target a specific value in the object.
+   * @param   defaultValue   Value to return if no value exists at the targeted path.
    * @return  Object containing the current remix data.
    *
    * @example
@@ -123,7 +124,8 @@ export class Remix extends KojiBridge {
   /**
    * Replaces all remix data with the specified object.
    *
-   * <p class="note">This method overwrites all existing values in the remix data. To update specific values only, use [[set]].</p>
+   * <p class="note">This method overwrites all existing values in the remix data.
+   * To update specific values only, use [[set]].</p>
    *
    * @param   newValues Object containing the new remix data for the Koji.
    * @return            Indicates whether the remix data was successfully replaced.
@@ -143,8 +145,10 @@ export class Remix extends KojiBridge {
    * Advances the Koji from remix to preview.
    *
    * @example
-   * ```javascript
-   * <button onClick={() => Koji.remix.finish()}>Next</button>
+   * ```html
+   * <button onClick={() => Koji.remix.finish()}>
+   *  Next
+   * </button>
    * ```
    */
   @client
@@ -157,11 +161,11 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Cancels the remix experience and navigates the user back to where they were before they started remixing. If the user has made changes, they will be prompted by the Koji platform to confirm this action.
+   * Cancels the remix experience and returns the user to where they were before they started remixing. If the user has made changes, they are prompted to confirm this action.
    *
    * @example
    * ```javascript
-   * Koji.remix.cancel()
+   * Koji.remix.cancel();
    * ```
    */
   @client
@@ -228,7 +232,7 @@ export class Remix extends KojiBridge {
   /**
    * Sends an event to update the preview with the current remix data.
    *
-   * @return  [description]
+   * @return
    */
   private async sendValues() {
     const data: ValueChanged = await this.sendMessageAndAwaitResponse(
