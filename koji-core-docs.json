@@ -14303,7 +14303,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 31,
+									"line": 35,
 									"character": 11
 								}
 							],
@@ -14318,7 +14318,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 30,
+									"line": 34,
 									"character": 11
 								}
 							],
@@ -14338,7 +14338,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 29,
+							"line": 33,
 							"character": 25
 						}
 					]
@@ -14362,7 +14362,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 36,
+									"line": 40,
 									"character": 7
 								}
 							],
@@ -14377,7 +14377,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 37,
+									"line": 41,
 									"character": 6
 								}
 							],
@@ -14392,7 +14392,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 38,
+									"line": 42,
 									"character": 7
 								}
 							],
@@ -14407,7 +14407,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 39,
+									"line": 43,
 									"character": 6
 								}
 							],
@@ -14422,7 +14422,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 40,
+									"line": 44,
 									"character": 7
 								}
 							],
@@ -14437,7 +14437,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 41,
+									"line": 45,
 									"character": 7
 								}
 							],
@@ -14452,7 +14452,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 42,
+									"line": 46,
 									"character": 8
 								}
 							],
@@ -14467,7 +14467,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 43,
+									"line": 47,
 									"character": 7
 								}
 							],
@@ -14482,7 +14482,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 44,
+									"line": 48,
 									"character": 7
 								}
 							],
@@ -14509,7 +14509,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 35,
+							"line": 39,
 							"character": 23
 						}
 					]
@@ -14564,7 +14564,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 292,
+									"line": 296,
 									"character": 7
 								}
 							],
@@ -14729,7 +14729,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 349,
+									"line": 353,
 									"character": 7
 								}
 							],
@@ -14902,7 +14902,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 384,
+									"line": 388,
 									"character": 8
 								}
 							],
@@ -15065,7 +15065,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 426,
+									"line": 430,
 									"character": 6
 								}
 							],
@@ -15230,7 +15230,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 484,
+									"line": 488,
 									"character": 7
 								}
 							],
@@ -15395,7 +15395,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 542,
+									"line": 546,
 									"character": 6
 								}
 							],
@@ -15559,7 +15559,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 584,
+									"line": 588,
 									"character": 7
 								}
 							],
@@ -15723,7 +15723,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 640,
+									"line": 644,
 									"character": 7
 								}
 							],
@@ -15887,7 +15887,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 683,
+									"line": 687,
 									"character": 8
 								}
 							],
@@ -16051,7 +16051,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 723,
+									"line": 727,
 									"character": 7
 								}
 							],
@@ -16236,7 +16236,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 214,
+							"line": 218,
 							"character": 20
 						}
 					],
@@ -16272,7 +16272,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 194,
+									"line": 198,
 									"character": 16
 								}
 							],
@@ -16303,7 +16303,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 192,
+							"line": 196,
 							"character": 36
 						}
 					]
@@ -16332,7 +16332,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 111,
+									"line": 115,
 									"character": 12
 								}
 							],
@@ -16364,7 +16364,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 113,
+									"line": 117,
 									"character": 14
 								}
 							],
@@ -16396,7 +16396,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 109,
+							"line": 113,
 							"character": 36
 						}
 					]
@@ -16425,7 +16425,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 99,
+									"line": 103,
 									"character": 6
 								}
 							],
@@ -16457,7 +16457,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 103,
+									"line": 107,
 									"character": 13
 								}
 							],
@@ -16480,7 +16480,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 101,
+									"line": 105,
 									"character": 5
 								}
 							],
@@ -16513,7 +16513,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 97,
+							"line": 101,
 							"character": 37
 						}
 					]
@@ -16530,7 +16530,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 127,
+							"line": 131,
 							"character": 35
 						}
 					]
@@ -17021,7 +17021,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 121,
+									"line": 125,
 									"character": 16
 								}
 							],
@@ -17525,7 +17525,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 119,
+							"line": 123,
 							"character": 36
 						}
 					],
@@ -17558,7 +17558,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 133,
+									"line": 137,
 									"character": 16
 								}
 							],
@@ -17589,7 +17589,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 132,
+							"line": 136,
 							"character": 35
 						}
 					]
@@ -17618,7 +17618,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 202,
+									"line": 206,
 									"character": 12
 								}
 							],
@@ -17654,7 +17654,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 204,
+									"line": 208,
 									"character": 16
 								}
 							],
@@ -17686,7 +17686,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 208,
+									"line": 212,
 									"character": 14
 								}
 							],
@@ -17719,7 +17719,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 206,
+									"line": 210,
 									"character": 14
 								}
 							],
@@ -17754,7 +17754,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 200,
+							"line": 204,
 							"character": 36
 						}
 					]
@@ -17775,7 +17775,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 21,
+									"line": 25,
 									"character": 17
 								}
 							],
@@ -17793,7 +17793,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 22,
+									"line": 26,
 									"character": 7
 								}
 							],
@@ -17811,7 +17811,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 23,
+									"line": 27,
 									"character": 8
 								}
 							],
@@ -17829,7 +17829,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 24,
+									"line": 28,
 									"character": 8
 								}
 							],
@@ -17848,7 +17848,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 25,
+									"line": 29,
 									"character": 6
 								}
 							],
@@ -17875,7 +17875,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 20,
+							"line": 24,
 							"character": 31
 						}
 					],
@@ -17913,7 +17913,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 147,
+									"line": 151,
 									"character": 14
 								}
 							],
@@ -17945,7 +17945,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 143,
+									"line": 147,
 									"character": 5
 								}
 							],
@@ -17977,7 +17977,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 141,
+									"line": 145,
 									"character": 5
 								}
 							],
@@ -18009,7 +18009,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 145,
+									"line": 149,
 									"character": 6
 								}
 							],
@@ -18043,7 +18043,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 139,
+							"line": 143,
 							"character": 36
 						}
 					]
@@ -18072,7 +18072,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 169,
+									"line": 173,
 									"character": 14
 								}
 							],
@@ -18104,7 +18104,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 167,
+									"line": 171,
 									"character": 9
 								}
 							],
@@ -18140,7 +18140,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 165,
+									"line": 169,
 									"character": 13
 								}
 							],
@@ -18173,7 +18173,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 163,
+							"line": 167,
 							"character": 37
 						}
 					]
@@ -18202,7 +18202,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 184,
+									"line": 188,
 									"character": 15
 								}
 							],
@@ -18234,7 +18234,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 186,
+									"line": 190,
 									"character": 16
 								}
 							],
@@ -18266,7 +18266,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 182,
+									"line": 186,
 									"character": 5
 								}
 							],
@@ -18299,7 +18299,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 180,
+							"line": 184,
 							"character": 36
 						}
 					]
@@ -18326,7 +18326,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 85,
+									"line": 89,
 									"character": 13
 								}
 							],
@@ -18356,7 +18356,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 89,
+									"line": 93,
 									"character": 12
 								}
 							],
@@ -18386,7 +18386,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 91,
+									"line": 95,
 									"character": 20
 								}
 							],
@@ -18416,7 +18416,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 87,
+									"line": 91,
 									"character": 14
 								}
 							],
@@ -18446,7 +18446,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 83,
+									"line": 87,
 									"character": 7
 								}
 							],
@@ -18476,7 +18476,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 81,
+									"line": 85,
 									"character": 5
 								}
 							],
@@ -18503,7 +18503,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 79,
+							"line": 83,
 							"character": 35
 						}
 					]
@@ -18532,7 +18532,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 63,
+									"line": 67,
 									"character": 15
 								}
 							],
@@ -18564,7 +18564,7 @@
 													"sources": [
 														{
 															"fileName": "frontend/ui/capture/index.ts",
-															"line": 65,
+															"line": 69,
 															"character": 19
 														}
 													],
@@ -18602,7 +18602,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 68,
+									"line": 72,
 									"character": 15
 								}
 							],
@@ -18634,7 +18634,7 @@
 													"sources": [
 														{
 															"fileName": "frontend/ui/capture/index.ts",
-															"line": 72,
+															"line": 76,
 															"character": 17
 														}
 													],
@@ -18655,7 +18655,7 @@
 													"sources": [
 														{
 															"fileName": "frontend/ui/capture/index.ts",
-															"line": 70,
+															"line": 74,
 															"character": 16
 														}
 													],
@@ -18694,7 +18694,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 56,
+									"line": 60,
 									"character": 11
 								}
 							],
@@ -18726,7 +18726,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 54,
+									"line": 58,
 									"character": 6
 								}
 							],
@@ -18758,7 +18758,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 52,
+									"line": 56,
 									"character": 5
 								}
 							],
@@ -18790,7 +18790,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 58,
+									"line": 62,
 									"character": 15
 								}
 							],
@@ -18822,7 +18822,7 @@
 													"sources": [
 														{
 															"fileName": "frontend/ui/capture/index.ts",
-															"line": 60,
+															"line": 64,
 															"character": 16
 														}
 													],
@@ -18864,7 +18864,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 50,
+							"line": 54,
 							"character": 36
 						}
 					]
@@ -18891,7 +18891,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 157,
+									"line": 161,
 									"character": 7
 								}
 							],
@@ -18912,7 +18912,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 155,
+									"line": 159,
 									"character": 7
 								}
 							],
@@ -18935,7 +18935,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 153,
+							"line": 157,
 							"character": 29
 						}
 					]
@@ -18962,7 +18962,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 11,
+									"line": 15,
 									"character": 15
 								}
 							],
@@ -18984,7 +18984,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 13,
+									"line": 17,
 									"character": 13
 								}
 							],
@@ -19008,7 +19008,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 15,
+									"line": 19,
 									"character": 8
 								}
 							],
@@ -19053,7 +19053,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 17,
+									"line": 21,
 									"character": 16
 								}
 							],
@@ -19097,7 +19097,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 9,
+							"line": 13,
 							"character": 31
 						}
 					]
@@ -19114,7 +19114,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 175,
+							"line": 179,
 							"character": 34
 						}
 					],
@@ -19146,10 +19146,13 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Result of a user input capture."
+					},
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 5,
+							"line": 8,
 							"character": 25
 						}
 					],
@@ -19187,7 +19190,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 766,
+							"line": 770,
 							"character": 20
 						}
 					],
@@ -19329,7 +19332,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 48,
+									"line": 47,
 									"character": 20
 								}
 							],
@@ -19341,7 +19344,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Programmatically create a new remix."
+										"shortText": "Starts a new remix."
 									},
 									"parameters": [
 										{
@@ -19353,7 +19356,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "An optional app id; if this parameter is omitted, the current Koji will be remixed\n"
+												"text": "ID of the Koji project to remix. Defaults to the current Koji, if an ID is not specified.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -19389,7 +19392,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 74,
+									"line": 76,
 									"character": 16
 								}
 							],
@@ -19401,7 +19404,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Dismiss a Koji that has been presented in a popover"
+										"shortText": "Closes a Koji that is open in a modal window."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -19431,7 +19434,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 63,
+									"line": 65,
 									"character": 13
 								}
 							],
@@ -19443,7 +19446,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Programmatically navigate to the Koji's edit experience. This should only be called if the template knows that the user is an admin, otherwise the user will not be authorized to edit the Koji."
+										"shortText": "Opens the Koji in the editing experience.",
+										"text": "<p class=\"note\"> Check that the current user is an admin before calling this method.\nOtherwise, the user will not be authorized to edit the Koji.</p>\n"
 									},
 									"type": {
 										"type": "intrinsic",
@@ -19473,7 +19477,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 85,
+									"line": 87,
 									"character": 24
 								}
 							],
@@ -19485,7 +19489,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Programmatically open the Koji's share sheet/dialog."
+										"shortText": "Opens the sharing dialog box."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -19515,7 +19519,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 32,
+									"line": 31,
 									"character": 23
 								}
 							],
@@ -19527,7 +19531,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Presents the currently loaded Koji in a sheet that animates from\nthe bottom of the screen. If the parent Koji is already presented in a\nmodal, presenting a new Koji will navigate within the sheet instead of\npresenting another sheet."
+										"shortText": "Opens the content at the specified URL in a modal window that animates from the bottom of the screen.\nIf the parent Koji is already displayed in a modal window, the content will open in the same window, replacing the current view."
 									},
 									"parameters": [
 										{
@@ -19537,7 +19541,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "The url to present in the modal\n"
+												"text": "URL of the content to load.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -19585,7 +19589,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces the currently loaded Koji with the content of `url`."
+										"shortText": "Replaces the currently loaded Koji with the content at the specified URL."
 									},
 									"parameters": [
 										{
@@ -19595,7 +19599,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "The url to navigate to\n"
+												"text": "URL of the content to load.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -19658,7 +19662,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/navigate/index.ts",
-							"line": 93,
+							"line": 95,
 							"character": 21
 						}
 					],

@@ -2,7 +2,11 @@ import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
 import { FastlyOptions } from '../../../types';
 
+/**
+ * Result of a user input capture.
+ */
 export type CaptureResult = string | number | null | VerboseCapture;
+
 /**
  * Extended result of a user input capture.
  */
