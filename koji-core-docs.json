@@ -16554,13 +16554,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables image optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
-								"text": "<p class=\"note\">Although the [[https://en.wikipedia.org/wiki/WebP | WebP format]] produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on content.\nFor more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly parameter reference]].",
+								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 11,
+									"line": 12,
 									"character": 6
 								}
 							],
@@ -16592,12 +16592,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`)."
+								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly parameter reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 11,
+									"line": 12,
 									"character": 16
 								}
 							],
@@ -16629,12 +16630,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies a [[https://en.wikipedia.org/wiki/Gaussian_blur | Gaussian blur]] filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%)."
+								"shortText": "Applies a Gaussian blur filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly parameter reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 21,
+									"line": 26,
 									"character": 6
 								}
 							],
@@ -16672,7 +16674,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 30,
+									"line": 35,
 									"character": 12
 								}
 							],
@@ -16710,7 +16712,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 38,
+									"line": 43,
 									"character": 10
 								}
 							],
@@ -16748,7 +16750,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 59,
+									"line": 64,
 									"character": 6
 								}
 							],
@@ -16786,7 +16788,44 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 75,
+									"line": 80,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"id": 1129,
+								"name": "FastlyOptions.dpr"
+							}
+						},
+						{
+							"id": 861,
+							"name": "fit",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
+							},
+							"sources": [
+								{
+									"fileName": "types.ts",
+									"line": 84,
 									"character": 5
 								}
 							],
@@ -16813,43 +16852,6 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1129,
-								"name": "FastlyOptions.dpr"
-							}
-						},
-						{
-							"id": 861,
-							"name": "fit",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
-							},
-							"sources": [
-								{
-									"fileName": "types.ts",
-									"line": 79,
-									"character": 5
-								}
-							],
-							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "string"
-									}
-								]
-							},
-							"inheritedFrom": {
-								"type": "reference",
 								"id": 1130,
 								"name": "FastlyOptions.fit"
 							}
@@ -16869,7 +16871,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 105,
+									"line": 110,
 									"character": 8
 								}
 							],
@@ -16942,7 +16944,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 109,
+									"line": 114,
 									"character": 7
 								}
 							],
@@ -16980,7 +16982,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 127,
+									"line": 132,
 									"character": 8
 								}
 							],
@@ -17050,7 +17052,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 138,
+									"line": 143,
 									"character": 10
 								}
 							],
@@ -17096,7 +17098,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 150,
+									"line": 155,
 									"character": 8
 								}
 							],
@@ -17182,7 +17184,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 175,
+									"line": 180,
 									"character": 5
 								}
 							],
@@ -17220,7 +17222,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 181,
+									"line": 186,
 									"character": 9
 								}
 							],
@@ -17258,7 +17260,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 198,
+									"line": 203,
 									"character": 9
 								}
 							],
@@ -17296,7 +17298,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 198,
+									"line": 203,
 									"character": 19
 								}
 							],
@@ -17350,7 +17352,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 228,
+									"line": 233,
 									"character": 12
 								}
 							],
@@ -17388,7 +17390,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 240,
+									"line": 245,
 									"character": 9
 								}
 							],
@@ -17426,7 +17428,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 256,
+									"line": 261,
 									"character": 6
 								}
 							],
@@ -17464,7 +17466,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 282,
+									"line": 287,
 									"character": 7
 								}
 							],
@@ -20257,13 +20259,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Enables image optimizations based on [[https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation | content negotiation]].",
-								"text": "<p class=\"note\">Although the [[https://en.wikipedia.org/wiki/WebP | WebP format]] produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
+								"shortText": "Enables image optimizations based on content.\nFor more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly parameter reference]].",
+								"text": "<p class=\"note\">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 11,
+									"line": 12,
 									"character": 6
 								}
 							],
@@ -20290,12 +20292,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`)."
+								"shortText": "Sets the background color to use when applying padding or when replacing transparent pixels in the image.\nValue can be in HEX 3- and 6-digit format (for example, `a22` or `cf23a5`), RGB format (for example,  `255,0,0`), or RGBA format (for example, `0,255,0,0.5`).",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/bg-color | Fastly parameter reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 11,
+									"line": 12,
 									"character": 16
 								}
 							],
@@ -20322,12 +20325,13 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Applies a [[https://en.wikipedia.org/wiki/Gaussian_blur | Gaussian blur]] filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%)."
+								"shortText": "Applies a Gaussian blur filter to the image.\nValue can be a number of pixels between 0.5 and 1000 (for example, `50`), or a percentage of the dimensions of the image suffixed with p (for example, `1p` for 1%).",
+								"text": "For more information, see the [[https://developer.fastly.com/reference/io/blur | Fastly parameter reference]].\n"
 							},
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 21,
+									"line": 26,
 									"character": 6
 								}
 							],
@@ -20360,7 +20364,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 30,
+									"line": 35,
 									"character": 12
 								}
 							],
@@ -20393,7 +20397,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 38,
+									"line": 43,
 									"character": 10
 								}
 							],
@@ -20426,7 +20430,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 59,
+									"line": 64,
 									"character": 6
 								}
 							],
@@ -20459,7 +20463,39 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 75,
+									"line": 80,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 1130,
+							"name": "fit",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
+							},
+							"sources": [
+								{
+									"fileName": "types.ts",
+									"line": 84,
 									"character": 5
 								}
 							],
@@ -20486,38 +20522,6 @@
 							}
 						},
 						{
-							"id": 1130,
-							"name": "fit",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "Controls how the image will be constrained within the provided size (width and height) values to maintain the correct proportions."
-							},
-							"sources": [
-								{
-									"fileName": "types.ts",
-									"line": 79,
-									"character": 5
-								}
-							],
-							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "undefined"
-									},
-									{
-										"type": "intrinsic",
-										"name": "string"
-									}
-								]
-							}
-						},
-						{
 							"id": 1131,
 							"name": "format",
 							"kind": 1024,
@@ -20532,7 +20536,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 105,
+									"line": 110,
 									"character": 8
 								}
 							],
@@ -20600,7 +20604,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 109,
+									"line": 114,
 									"character": 7
 								}
 							],
@@ -20633,7 +20637,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 127,
+									"line": 132,
 									"character": 8
 								}
 							],
@@ -20666,7 +20670,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 138,
+									"line": 143,
 									"character": 10
 								}
 							],
@@ -20707,7 +20711,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 150,
+									"line": 155,
 									"character": 8
 								}
 							],
@@ -20788,7 +20792,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 175,
+									"line": 180,
 									"character": 5
 								}
 							],
@@ -20821,7 +20825,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 181,
+									"line": 186,
 									"character": 9
 								}
 							],
@@ -20854,7 +20858,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 198,
+									"line": 203,
 									"character": 9
 								}
 							],
@@ -20887,7 +20891,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 198,
+									"line": 203,
 									"character": 19
 								}
 							],
@@ -20936,7 +20940,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 228,
+									"line": 233,
 									"character": 12
 								}
 							],
@@ -20969,7 +20973,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 240,
+									"line": 245,
 									"character": 9
 								}
 							],
@@ -21002,7 +21006,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 256,
+									"line": 261,
 									"character": 6
 								}
 							],
@@ -21035,7 +21039,7 @@
 							"sources": [
 								{
 									"fileName": "types.ts",
-									"line": 282,
+									"line": 287,
 									"character": 7
 								}
 							],
