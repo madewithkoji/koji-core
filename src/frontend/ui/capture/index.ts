@@ -127,6 +127,7 @@ export interface CaptureFileOptions {}
  */
 export interface CaptureLinkOptions {
   kojiTemplateId?: string;
+  disableExternalLinks?: boolean;
 }
 
 /**
