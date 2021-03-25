@@ -18,7 +18,7 @@ export interface PurchaseOptions {
 export interface Purchase {
   /** Indicates whether the purchase was successful. */
   success: boolean;
-  /** Temporary token for the current user’s session. See [[getToken]]. */
+  /** Temporary IAP token for the current user. See [[getToken]]. */
   iapToken: IAPToken;
   /** Unique identifier for the receipt, if the purchase was successful, or `undefined`, if not. */
   receiptId?: string;
@@ -29,7 +29,9 @@ export interface Purchase {
  */
 export class IAP extends KojiBridge {
   /**
-   * Generates an IAP Token (used to resolve receipts in the backend)
+   * Generates an IAP token for the current user that can be used to resolve receipts on the backend.
+   *
+   * @return
    *
    * @example
    * ``` javascript

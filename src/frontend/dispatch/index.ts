@@ -6,11 +6,14 @@ const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
 
 /**
- * Defines a DispatchConfigurationInput interface.
+ * Configuration options for a new connection.
  */
 export interface DispatchConfigurationInput {
+  /** Name of the dispatch shard to use. If not specified, the client is added to a shard automatically. */
   shardName?: string | null;
+  /** Total clients to allow on a shard before it is full. When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
   maxConnectionsPerShard?: number;
+  /** Short-lived token that identifies the client, so the server and other connected clients can send it secure messages. If the token is not included, you can [[identify | identify the client]] after it is connected. */
   authorization?: string;
 }
 
@@ -44,29 +47,37 @@ export interface MessageHandler {
   callback: MessageHandlerCallback;
 }
 
+export type MessageHandlerCallback =
 /**
- * Implements the callback function for the MessageHandler interface.
+ * Function to handle a dispatch event. Invoked by the [[Dispatch.on | on]] listener.
+ *
+ * @param payload   Data payload sent with the fired event.
+ * @param metadata  Object containing additional information about the event, including the message latency in milliseconds.
  */
-export type MessageHandlerCallback = (payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
+(payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
 
 /**
- * Defines a ShardInfo interface.
+ * Information about a dispatch shard.
  */
 export interface ShardInfo {
+  /** Name of the dispatch shard. */
   shardName: string;
+  /** Number of clients currently connected to the dispatch shard. */
   numConnectedClients: number;
 }
 
 /**
- * Defines a ConnectionInfo interface.
+ * Connection details for a client. Returned when the client [[Dispatch.connect | connects to a dispatch shard]].
  */
 export interface ConnectionInfo {
+  /** ID of the connected client. */
   clientId?: string;
+  /** Name of the dispatch shard that the client is connected to. */
   shardName: string;
 }
 
 /**
- * Implements a real-time messaging dispatch system for the frontend of your Koji.
+ * Implements a dispatch system for real-time communication on the frontend of your Koji template.
  */
 export class Dispatch {
   private authToken?: string;
@@ -79,13 +90,13 @@ export class Dispatch {
   private ws: Sockette | null = null;
 
   /**
-   * Gets shard info for the current project.
+   * Gets information about the active dispatch shards.
    *
-   * @return                   Shard info in the form of an array.
+   * @return    Array of objects containing information about the dispatch shards.
    *
    * @example
    * ```javascript
-   * const myInfo = await dispatch.info('myCollection');
+   * const shardInfo = await Koji.dispatch.info();
    * ```
    */
   public async info(): Promise<ShardInfo[]> {
@@ -94,13 +105,13 @@ export class Dispatch {
   }
 
   /**
-   * Sets the project ID for the current project.
+   * Sets the project ID for the dispatch service.
    *
-   * @param     projectId     Project ID.
+   * @param     projectId     Unique identifier for the Koji project.
    *
    * @example
    * ```javascript
-   * dispatch.setProjectId('myProject');
+   * Koji.dispatch.setProjectId(myProject);
    * ```
    */
   public setProjectId(projectId: string) {
@@ -108,17 +119,19 @@ export class Dispatch {
   }
 
   /**
-   * Creates a shard connection.
+   * Connects a client to a dispatch shard.
    *
-   * @param     shardName     Name of the shard.
-   * @param     maxConnectionsPerShard   Maximum connections per Shard (defaults to 100).
-   * @param     authorization Authorization credentials.
+   * @param     config
    *
-   * @return                   ConnectionInfo object.
+   * @return              Connection details, including the client ID and shard name.
+
    *
    * @example
    * ```javascript
-   * const myInfo = await dispatch.connect('myShard', 100, authorization);
+   * const myInfo = await Koji.dispatch.connect({
+   *  maxConnectionsPerShard: '25',
+   *  authorization: token
+   * });
    * ```
    */
   public async connect(config: DispatchConfigurationInput = {}): Promise<ConnectionInfo> {
@@ -248,14 +261,16 @@ export class Dispatch {
   }
 
   /**
-   * Assigns a callback function to an event.
+   * Sets a listener for a specific event, and invokes a callback function when the event is dispatched over the shard.
    *
-   * @param     eventName     Name of event.
-   * @param     callback      Callback function.
+   * @param     eventName     Name of the event to subscribe to.
+   * @param     callback      Function to invoke when the event is fired.
+   *
+   * @return                  Function to unsubscribe from the event listener.
    *
    * @example
    * ```javascript
-   * dispatch.on('eventName', callbackFunction);
+   * unsubscribeEvent = Koji.dispatch.on('eventName', callbackFunction);
    * ```
    */
   public on(eventName: string, callback: MessageHandlerCallback): Function {
@@ -273,13 +288,13 @@ export class Dispatch {
   }
 
   /**
-   * Emit SET_USER_INFO event.
+   * Broadcasts user information for the client in the shard.
    *
-   * @param     userInfo     Object containing an array of user info.
+   * @param     userInfo      Data for the user information to set.
    *
    * @example
    * ```javascript
-   * dispatch.setUserInfo({['user info']});
+   * Koji.dispatch.setUserInfo({ avatar: userAvatar });
    * ```
    */
   public setUserInfo(userInfo: { [index: string]: any }) {
@@ -287,13 +302,14 @@ export class Dispatch {
   }
 
   /**
-   * Emit IDENTIFY event.
+   * Identifies a connected client, which enables the server and other connected clients to send it secure messages.
    *
-   * @param     authToken     Authorization token.
+   * @param     authToken     Short-lived token for the connected client. To get a token, use [[Identity.getToken]].
    *
    * @example
    * ```javascript
-   * dispatch.identify(token);
+   * const tokenInfo = await Koji.identity.getToken();
+   * Koji.dispatch.identify(tokenInfo.token);
    * ```
    */
   public identify(authToken: string) {
@@ -303,15 +319,15 @@ export class Dispatch {
   }
 
   /**
-   * Emit event.
+   * Emits the named event to the specified recipients or to all clients.
    *
    * @param     eventName     Name of event.
    * @param     payload       Object of key-value paired data to send as a message payload.
-   * @param     recipients    One or more event recipients.
+   * @param     recipients    List of clients to receive the event. If this parameter is not included, the event is sent to all clients on the current shard.
    *
    * @example
    * ```javascript
-   * dispatch.emitEvent('click', [id:1]);
+   * Koji.dispatch.emitEvent('myEvent', myDataPayload);
    * ```
    */
   public emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
@@ -341,11 +357,11 @@ export class Dispatch {
   }
 
   /**
-   * Close connection.
+   * Disconnects the dispatch client from the shard.
    *
    * @example
    * ```javascript
-   * dispatch.disconnect();
+   * Koji.dispatch.disconnect();
    * ```
    */
   public disconnect() {

@@ -11,8 +11,15 @@ export type AuthGrantCapability =
   /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
   'username';
 
+/**
+ * Identity information for the current user of the Koji.
+ */
 export interface IdentityResult {
+  /** Short-lived token to identify the user. */
   token: UserToken;
+  /** Presumed role of the current user as the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`).
+  * Admin actions must still be secured on the backend by resolving the user’s role.
+  */
   presumedRole: 'admin'|'user'|'unknown';
 }
 
@@ -25,7 +32,7 @@ export class Identity extends KojiBridge {
    *
    * @example
    * ```javascript
-   * const token = await Koji.identity.getToken();
+   * const tokenInfo = await Koji.identity.getToken();
    * ```
    */
   @client

@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Defines a DispatchConfigurationInput interface.</p>
+						<p>Configuration options for a new connection.</p>
 					</div>
 				</div>
 			</section>
@@ -106,9 +106,14 @@
 					<div class="tsd-signature tsd-kind-icon">authorization<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/a92b78f/src/frontend/dispatch/index.ts#L14">frontend/dispatch/index.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/55426e4/src/frontend/dispatch/index.ts#L17">frontend/dispatch/index.ts:17</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Short-lived token that identifies the client, so the server and other connected clients can send it secure messages. If the token is not included, you can <a href="../classes/backend_dispatch.dispatch.html#identify">identify the client</a> after it is connected.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="maxconnectionspershard" class="tsd-anchor"></a>
@@ -116,9 +121,14 @@
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Connections<wbr>Per<wbr>Shard<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/a92b78f/src/frontend/dispatch/index.ts#L13">frontend/dispatch/index.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/55426e4/src/frontend/dispatch/index.ts#L15">frontend/dispatch/index.ts:15</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Total clients to allow on a shard before it is full. When a shard is full, new clients are added to a new shard unless a different shard is explicitly set.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="shardname" class="tsd-anchor"></a>
@@ -126,9 +136,14 @@
 					<div class="tsd-signature tsd-kind-icon">shard<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/a92b78f/src/frontend/dispatch/index.ts#L12">frontend/dispatch/index.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/55426e4/src/frontend/dispatch/index.ts#L13">frontend/dispatch/index.ts:13</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Name of the dispatch shard to use. If not specified, the client is added to a shard automatically.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

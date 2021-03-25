@@ -9476,7 +9476,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 32,
+									"line": 35,
 									"character": 11
 								}
 							],
@@ -9491,7 +9491,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 33,
+									"line": 36,
 									"character": 27
 								}
 							],
@@ -9506,7 +9506,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 34,
+									"line": 37,
 									"character": 10
 								}
 							],
@@ -9521,7 +9521,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 35,
+									"line": 38,
 									"character": 15
 								}
 							],
@@ -9543,7 +9543,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
-							"line": 31,
+							"line": 34,
 							"character": 26
 						}
 					]
@@ -9555,7 +9555,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Implements a real-time messaging dispatch system for the frontend of your Koji."
+						"shortText": "Implements a dispatch system for real-time communication on the frontend of your Koji template."
 					},
 					"children": [
 						{
@@ -9590,7 +9590,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 124,
+									"line": 137,
 									"character": 22
 								}
 							],
@@ -9602,12 +9602,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Creates a shard connection.",
-										"returns": "ConnectionInfo object.\n",
+										"shortText": "Connects a client to a dispatch shard.",
+										"returns": "Connection details, including the client ID and shard name.\n\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myInfo = await dispatch.connect('myShard', 100, authorization);\n```\n"
+												"text": "\n```javascript\nconst myInfo = await Koji.dispatch.connect({\n maxConnectionsPerShard: '25',\n authorization: token\n});\n```\n"
 											}
 										]
 									},
@@ -9618,6 +9618,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "\n"
+											},
 											"type": {
 												"type": "reference",
 												"id": 453,
@@ -9651,7 +9654,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 351,
+									"line": 367,
 									"character": 19
 								}
 							],
@@ -9663,11 +9666,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Close connection.",
+										"shortText": "Disconnects the dispatch client from the shard.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\ndispatch.disconnect();\n```\n"
+												"text": "\n```javascript\nKoji.dispatch.disconnect();\n```\n"
 											}
 										]
 									},
@@ -9689,7 +9692,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 317,
+									"line": 333,
 									"character": 18
 								}
 							],
@@ -9701,11 +9704,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Emit event.",
+										"shortText": "Emits the named event to the specified recipients or to all clients.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\ndispatch.emitEvent('click', [id:1]);\n```\n"
+												"text": "\n```javascript\nKoji.dispatch.emitEvent('myEvent', myDataPayload);\n```\n"
 											}
 										]
 									},
@@ -9776,7 +9779,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "One or more event recipients.\n"
+												"text": "List of clients to receive the event. If this parameter is not included, the event is sent to all clients on the current shard.\n"
 											},
 											"type": {
 												"type": "array",
@@ -9805,7 +9808,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 299,
+									"line": 315,
 									"character": 17
 								}
 							],
@@ -9817,11 +9820,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Emit IDENTIFY event.",
+										"shortText": "Identifies a connected client, which enables the server and other connected clients to send it secure messages.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\ndispatch.identify(token);\n```\n"
+												"text": "\n```javascript\nconst tokenInfo = await Koji.identity.getToken();\nKoji.dispatch.identify(tokenInfo.token);\n```\n"
 											}
 										]
 									},
@@ -9833,7 +9836,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Authorization token.\n"
+												"text": "Short-lived token for the connected client. To get a token, use [[Identity.getToken]].\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -9859,7 +9862,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 91,
+									"line": 102,
 									"character": 19
 								}
 							],
@@ -9871,12 +9874,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets shard info for the current project.",
-										"returns": "Shard info in the form of an array.\n",
+										"shortText": "Gets information about the active dispatch shards.",
+										"returns": "Array of objects containing information about the dispatch shards.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myInfo = await dispatch.info('myCollection');\n```\n"
+												"text": "\n```javascript\nconst shardInfo = await Koji.dispatch.info();\n```\n"
 											}
 										]
 									},
@@ -9908,7 +9911,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 261,
+									"line": 276,
 									"character": 11
 								}
 							],
@@ -9920,11 +9923,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Assigns a callback function to an event.",
+										"shortText": "Sets a listener for a specific event, and invokes a callback function when the event is dispatched over the shard.",
+										"returns": "Function to unsubscribe from the event listener.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\ndispatch.on('eventName', callbackFunction);\n```\n"
+												"text": "\n```javascript\nunsubscribeEvent = Koji.dispatch.on('eventName', callbackFunction);\n```\n"
 											}
 										]
 									},
@@ -9936,7 +9940,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Name of event."
+												"text": "Name of the event to subscribe to."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -9950,7 +9954,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Callback function.\n"
+												"text": "Function to invoke when the event is fired.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9977,7 +9981,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 106,
+									"line": 117,
 									"character": 21
 								}
 							],
@@ -9989,11 +9993,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Sets the project ID for the current project.",
+										"shortText": "Sets the project ID for the dispatch service.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\ndispatch.setProjectId('myProject');\n```\n"
+												"text": "\n```javascript\nKoji.dispatch.setProjectId(myProject);\n```\n"
 											}
 										]
 									},
@@ -10005,7 +10009,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Project ID.\n"
+												"text": "Unique identifier for the Koji project.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -10031,7 +10035,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 285,
+									"line": 300,
 									"character": 20
 								}
 							],
@@ -10043,11 +10047,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Emit SET_USER_INFO event.",
+										"shortText": "Broadcasts user information for the client in the shard.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\ndispatch.setUserInfo({['user info']});\n```\n"
+												"text": "\n```javascript\nKoji.dispatch.setUserInfo({ avatar: userAvatar });\n```\n"
 											}
 										]
 									},
@@ -10059,7 +10063,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Object containing an array of user info.\n"
+												"text": "Data for the user information to set.\n"
 											},
 											"type": {
 												"type": "reflection",
@@ -10130,7 +10134,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
-							"line": 71,
+							"line": 82,
 							"character": 21
 						}
 					]
@@ -10142,7 +10146,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Defines a ConnectionInfo interface."
+						"shortText": "Connection details for a client. Returned when the client [[Dispatch.connect | connects to a dispatch shard]]."
 					},
 					"children": [
 						{
@@ -10153,10 +10157,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "ID of the connected client."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 64,
+									"line": 74,
 									"character": 10
 								}
 							],
@@ -10180,10 +10187,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Name of the dispatch shard that the client is connected to."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 65,
+									"line": 76,
 									"character": 11
 								}
 							],
@@ -10206,7 +10216,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
-							"line": 63,
+							"line": 72,
 							"character": 31
 						}
 					]
@@ -10218,7 +10228,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Defines a DispatchConfigurationInput interface."
+						"shortText": "Configuration options for a new connection."
 					},
 					"children": [
 						{
@@ -10229,10 +10239,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Short-lived token that identifies the client, so the server and other connected clients can send it secure messages. If the token is not included, you can [[identify | identify the client]] after it is connected."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 14,
+									"line": 17,
 									"character": 15
 								}
 							],
@@ -10258,10 +10271,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Total clients to allow on a shard before it is full. When a shard is full, new clients are added to a new shard unless a different shard is explicitly set."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 13,
+									"line": 15,
 									"character": 24
 								}
 							],
@@ -10287,10 +10303,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Name of the dispatch shard to use. If not specified, the client is added to a shard automatically."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 12,
+									"line": 13,
 									"character": 11
 								}
 							],
@@ -10353,7 +10372,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 24,
+									"line": 27,
 									"character": 15
 								}
 							],
@@ -10382,7 +10401,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 23,
+									"line": 26,
 									"character": 24
 								}
 							],
@@ -10411,7 +10430,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 21,
+									"line": 24,
 									"character": 11
 								}
 							],
@@ -10440,7 +10459,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 22,
+									"line": 25,
 									"character": 11
 								}
 							],
@@ -10478,7 +10497,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
-							"line": 20,
+							"line": 23,
 							"character": 32
 						}
 					],
@@ -10528,7 +10547,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 44,
+									"line": 47,
 									"character": 10
 								}
 							],
@@ -10547,7 +10566,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 43,
+									"line": 46,
 									"character": 11
 								}
 							],
@@ -10565,7 +10584,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 42,
+									"line": 45,
 									"character": 4
 								}
 							],
@@ -10589,7 +10608,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
-							"line": 41,
+							"line": 44,
 							"character": 31
 						}
 					]
@@ -10601,7 +10620,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Defines a ShardInfo interface."
+						"shortText": "Information about a dispatch shard."
 					},
 					"children": [
 						{
@@ -10610,10 +10629,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Number of clients currently connected to the dispatch shard."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 57,
+									"line": 66,
 									"character": 21
 								}
 							],
@@ -10628,10 +10650,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Name of the dispatch shard."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
-									"line": 56,
+									"line": 64,
 									"character": 11
 								}
 							],
@@ -10654,7 +10679,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
-							"line": 55,
+							"line": 62,
 							"character": 26
 						}
 					]
@@ -10665,9 +10690,6 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
-					"comment": {
-						"shortText": "Implements the callback function for the MessageHandler interface."
-					},
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
@@ -10683,6 +10705,9 @@
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
+							"comment": {
+								"shortText": "Function to handle a dispatch event. Invoked by the [[Dispatch.on | on]] listener."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/dispatch/index.ts",
@@ -10697,6 +10722,9 @@
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
+									"comment": {
+										"shortText": "Function to handle a dispatch event. Invoked by the [[Dispatch.on | on]] listener."
+									},
 									"parameters": [
 										{
 											"id": 476,
@@ -10704,6 +10732,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Data payload sent with the fired event."
+											},
 											"type": {
 												"type": "reflection",
 												"declaration": {
@@ -10715,8 +10746,8 @@
 													"sources": [
 														{
 															"fileName": "frontend/dispatch/index.ts",
-															"line": 50,
-															"character": 46
+															"line": 57,
+															"character": 9
 														}
 													],
 													"indexSignature": {
@@ -10751,6 +10782,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
+											"comment": {
+												"text": "Object containing additional information about the event, including the message latency in milliseconds.\n"
+											},
 											"type": {
 												"type": "reflection",
 												"declaration": {
@@ -10771,8 +10805,8 @@
 															"sources": [
 																{
 																	"fileName": "frontend/dispatch/index.ts",
-																	"line": 50,
-																	"character": 94
+																	"line": 57,
+																	"character": 57
 																}
 															],
 															"type": {
@@ -10793,8 +10827,8 @@
 													"sources": [
 														{
 															"fileName": "frontend/dispatch/index.ts",
-															"line": 50,
-															"character": 82
+															"line": 57,
+															"character": 45
 														}
 													]
 												}
@@ -10821,7 +10855,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/dispatch/index.ts",
-							"line": 357,
+							"line": 373,
 							"character": 21
 						}
 					],
@@ -10951,7 +10985,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/iap/index.ts",
-									"line": 40,
+									"line": 42,
 									"character": 23
 								}
 							],
@@ -10963,7 +10997,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Generates an IAP Token (used to resolve receipts in the backend)",
+										"shortText": "Generates an IAP token for the current user that can be used to resolve receipts on the backend.",
+										"returns": "\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -11014,7 +11049,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/iap/index.ts",
-									"line": 63,
+									"line": 65,
 									"character": 28
 								}
 							],
@@ -11127,7 +11162,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Temporary token for the current user’s session. See [[getToken]]."
+								"shortText": "Temporary IAP token for the current user. See [[getToken]]."
 							},
 							"sources": [
 								{
@@ -11327,7 +11362,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/iap/index.ts",
-							"line": 83,
+							"line": 85,
 							"character": 16
 						}
 					],
@@ -11430,7 +11465,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 58,
+									"line": 65,
 									"character": 26
 								}
 							],
@@ -11506,7 +11541,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 32,
+									"line": 39,
 									"character": 23
 								}
 							],
@@ -11522,7 +11557,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst token = await Koji.identity.getToken();\n```\n"
+												"text": "\n```javascript\nconst tokenInfo = await Koji.identity.getToken();\n```\n"
 											}
 										]
 									},
@@ -11551,7 +11586,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 81,
+									"line": 88,
 									"character": 28
 								}
 							],
@@ -11653,7 +11688,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 22,
+							"line": 29,
 							"character": 21
 						}
 					],
@@ -11671,6 +11706,9 @@
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
+					"comment": {
+						"shortText": "Identity information for the current user of the Koji."
+					},
 					"children": [
 						{
 							"id": 584,
@@ -11678,10 +11716,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Presumed role of the current user as the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`).\nAdmin actions must still be secured on the backend by resolving the user’s role."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 16,
+									"line": 23,
 									"character": 14
 								}
 							],
@@ -11709,10 +11750,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Short-lived token to identify the user."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 15,
+									"line": 19,
 									"character": 7
 								}
 							],
@@ -11744,7 +11788,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 14,
+							"line": 17,
 							"character": 31
 						}
 					]
@@ -11790,7 +11834,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 94,
+							"line": 101,
 							"character": 21
 						}
 					],
