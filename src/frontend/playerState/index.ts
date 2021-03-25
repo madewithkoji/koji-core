@@ -8,7 +8,7 @@ import { client } from '../@decorators/client';
 export type PlayerStateContext = 'about' | 'admin' | 'remix' | 'sticker' | 'receipt' | 'screenshot' | 'default';
 
 /**
- * Who is viewing the receipt for a transaction, either `buyer` or `seller`.
+ * View of the receipt for a transaction, either `buyer` or `seller`.
  */
 export type PlayerStateReceiptType = 'buyer' | 'seller';
 
@@ -52,7 +52,7 @@ export type ReceiptType = 'seller' | 'buyer';
 
 export type IsRemixingCallback =
   /**
-   * Function to handle changes in remix state.
+   * Function to handle changes in remix state. Invoked by the [[subscribe]] listener.
    *
    * @param isRemixing Indicates whether the Koji is in remixing mode.
    * @param editorAttributes
@@ -60,24 +60,24 @@ export type IsRemixingCallback =
   (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
 
 export type BlurCallback =
-/** Function to handle when the Koji leaves focus. */
+/** Function to handle when the Koji leaves focus. Invoked by the [[onBlur]] listener. */
 () => void;
 
 export type FocusCallback =
-/** Function to handle when the Koji enters focus. */
+/** Function to handle when the Koji enters focus. Invoked by the [[onFocus]] listener. */
 () => void;
 
 /**
  * Manages the state of the Koji player to enable distinct experiences for different users and views.
  */
 export class PlayerState extends KojiBridge {
-  /** The initial context of the Koji. */
+  /** Context of the Koji. */
   public context: PlayerStateContext = 'default';
-  /** The type of receipt. */
+  /** Type of receipt. */
   public receiptType?: ReceiptType;
   /** Focus state of the Koji. */
   public hasFocus: boolean = false;
-  /** The presentation style of the Koji */
+  /** Presentation style of the Koji. */
   public presentationStyle: PlayerPresentationStyle = 'fullscreen';
 
   public constructor() {
@@ -113,7 +113,7 @@ export class PlayerState extends KojiBridge {
   /**
    * Listens for when a Koji enters focus and invokes a callback function to respond to the focus state change.
    *
-   * @param   callback
+   * @param   callback  Function to handle when the Koji enters focus.
    *
    * @return            Function to unsubscribe from the onFocus listener.
    *
@@ -136,7 +136,7 @@ export class PlayerState extends KojiBridge {
   /**
    * Listens for when a Koji leaves focus and invokes a callback function to respond to the focus state change.
    *
-   * @param   callback
+   * @param   callback Function to handle when the Koji leaves focus.
    *
    * @return            Function to unsubscribe from the onBlur listener.
    *
@@ -159,7 +159,7 @@ export class PlayerState extends KojiBridge {
   /**
    * Listens to changes in remix state and invokes a callback function to enable different experiences during remix, preview, or use.
    *
-   * @param   callback
+   * @param   callback Function to handle changes in remix state.
    *
    * @return           Function to unsubscribe from the remix state listener.
    *

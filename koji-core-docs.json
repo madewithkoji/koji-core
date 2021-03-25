@@ -12027,7 +12027,7 @@
 								"isPublic": true
 							},
 							"comment": {
-								"shortText": "The initial context of the Koji."
+								"shortText": "Context of the Koji."
 							},
 							"sources": [
 								{
@@ -12076,7 +12076,7 @@
 								"isPublic": true
 							},
 							"comment": {
-								"shortText": "The presentation style of the Koji"
+								"shortText": "Presentation style of the Koji."
 							},
 							"sources": [
 								{
@@ -12102,7 +12102,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "The type of receipt."
+								"shortText": "Type of receipt."
 							},
 							"sources": [
 								{
@@ -12179,7 +12179,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "\n"
+												"text": "Function to handle when the Koji leaves focus.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12245,7 +12245,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "\n"
+												"text": "Function to handle when the Koji enters focus.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12311,7 +12311,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "\n"
+												"text": "Function to handle changes in remix state.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12640,7 +12640,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Function to handle when the Koji leaves focus."
+								"shortText": "Function to handle when the Koji leaves focus. Invoked by the [[onBlur]] listener."
 							},
 							"sources": [
 								{
@@ -12657,7 +12657,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Function to handle when the Koji leaves focus."
+										"shortText": "Function to handle when the Koji leaves focus. Invoked by the [[onBlur]] listener."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -12750,7 +12750,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Function to handle when the Koji enters focus."
+								"shortText": "Function to handle when the Koji enters focus. Invoked by the [[onFocus]] listener."
 							},
 							"sources": [
 								{
@@ -12767,7 +12767,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Function to handle when the Koji enters focus."
+										"shortText": "Function to handle when the Koji enters focus. Invoked by the [[onFocus]] listener."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -12800,7 +12800,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Function to handle changes in remix state."
+								"shortText": "Function to handle changes in remix state. Invoked by the [[subscribe]] listener."
 							},
 							"sources": [
 								{
@@ -12817,7 +12817,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Function to handle changes in remix state."
+										"shortText": "Function to handle changes in remix state. Invoked by the [[subscribe]] listener."
 									},
 									"parameters": [
 										{
@@ -12946,7 +12946,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Who is viewing the receipt for a transaction, either `buyer` or `seller`."
+						"shortText": "View of the receipt for a transaction, either `buyer` or `seller`."
 					},
 					"sources": [
 						{
