@@ -11466,7 +11466,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 65,
+									"line": 67,
 									"character": 26
 								}
 							],
@@ -11542,7 +11542,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 39,
+									"line": 41,
 									"character": 23
 								}
 							],
@@ -11555,6 +11555,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Gets a token identifying the current user.",
+										"returns": "Identity information for the current user of the Koji.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -11587,7 +11588,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 89,
+									"line": 91,
 									"character": 28
 								}
 							],
@@ -11835,7 +11836,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 102,
+							"line": 104,
 							"character": 21
 						}
 					],

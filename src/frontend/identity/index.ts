@@ -30,6 +30,8 @@ export class Identity extends KojiBridge {
   /**
    * Gets a token identifying the current user.
    *
+   * @return    Identity information for the current user of the Koji.
+   *
    * @example
    * ```javascript
    * const tokenInfo = await Koji.identity.getToken();
