@@ -19413,7 +19413,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.createRemix()}>\n   Create my own remix\n </button>\n ```\n"
+												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.createRemix()}>\n  Create my own remix\n</button>\n```\n"
 											}
 										]
 									},
@@ -19479,7 +19479,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.dismiss()}>\n   Close window\n </button>\n ```\n"
+												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.dismiss()}>\n  Close window\n</button>\n```\n"
 											}
 										]
 									},
@@ -19528,7 +19528,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.edit()}>\n   Edit this Koji\n </button>\n ```\n"
+												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.edit()}>\n  Edit this Koji\n</button>\n```\n"
 											}
 										]
 									},
@@ -19576,7 +19576,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.openShareDialog()}>\n   Share this Koji\n </button>\n ```\n"
+												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.openShareDialog()}>\n  Share this Koji\n</button>\n```\n"
 											}
 										]
 									},
@@ -19624,7 +19624,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.presentInModal(url)}>\n   My favorite Koji\n </button>\n ```\n"
+												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.presentInModal(url)}>\n  My favorite Koji\n</button>\n```\n"
 											}
 										]
 									},
@@ -19688,7 +19688,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n ```html\n <button type=\"button\" onClick={() => Koji.ui.navigate.to(url)}>\n   My favorite Koji\n </button>\n ```\n"
+												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.to(url)}>\n My favorite Koji\n</button>\n```\n"
 											}
 										]
 									},
