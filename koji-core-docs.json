@@ -11984,7 +11984,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Manages the context of the Koji to enable distinct experiences for different users and views."
+						"shortText": "Manages the state of the Koji player to enable distinct experiences for different users and views."
 					},
 					"children": [
 						{
@@ -12032,7 +12032,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 74,
+									"line": 75,
 									"character": 16
 								}
 							],
@@ -12057,7 +12057,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 78,
+									"line": 79,
 									"character": 17
 								}
 							],
@@ -12081,7 +12081,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 80,
+									"line": 81,
 									"character": 26
 								}
 							],
@@ -12107,7 +12107,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 76,
+									"line": 77,
 									"character": 20
 								}
 							],
@@ -12150,7 +12150,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 150,
+									"line": 151,
 									"character": 15
 								}
 							],
@@ -12216,7 +12216,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 127,
+									"line": 128,
 									"character": 16
 								}
 							],
@@ -12282,7 +12282,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 173,
+									"line": 174,
 									"character": 18
 								}
 							],
@@ -12359,7 +12359,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 72,
+							"line": 73,
 							"character": 24
 						}
 					],
@@ -12392,7 +12392,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 44,
+									"line": 45,
 									"character": 6
 								}
 							],
@@ -12428,7 +12428,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 43,
+									"line": 44,
 									"character": 6
 								}
 							],
@@ -12464,7 +12464,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 41,
+							"line": 42,
 							"character": 33
 						}
 					]
@@ -12475,7 +12475,9 @@
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
-					"comment": {},
+					"comment": {
+						"shortText": "URL query parameters that describe the current state of the Koji player."
+					},
 					"children": [
 						{
 							"id": 681,
@@ -12488,7 +12490,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 24,
+									"line": 25,
 									"character": 9
 								}
 							],
@@ -12541,7 +12543,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 24,
+									"line": 25,
 									"character": 31
 								}
 							],
@@ -12574,7 +12576,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 26,
+									"line": 27,
 									"character": 19
 								}
 							],
@@ -12611,7 +12613,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 23,
+							"line": 24,
 							"character": 40
 						}
 					]
@@ -12625,7 +12627,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 61,
+							"line": 62,
 							"character": 24
 						}
 					],
@@ -12643,7 +12645,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 61,
+									"line": 62,
 									"character": 26
 								}
 							],
@@ -12678,7 +12680,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 36,
+							"line": 37,
 							"character": 22
 						}
 					],
@@ -12708,7 +12710,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 32,
+							"line": 33,
 							"character": 22
 						}
 					],
@@ -12735,7 +12737,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 65,
+							"line": 66,
 							"character": 25
 						}
 					],
@@ -12753,7 +12755,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 65,
+									"line": 66,
 									"character": 27
 								}
 							],
@@ -12785,7 +12787,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 52,
+							"line": 53,
 							"character": 30
 						}
 					],
@@ -12798,12 +12800,12 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Function to handle changes in remix state. Receives the `isRemixing` and `editorAttributes` properties as inputs."
+								"shortText": "Function to handle changes in remix state."
 							},
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 52,
+									"line": 53,
 									"character": 32
 								}
 							],
@@ -12815,7 +12817,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Function to handle changes in remix state. Receives the `isRemixing` and `editorAttributes` properties as inputs."
+										"shortText": "Function to handle changes in remix state."
 									},
 									"parameters": [
 										{
@@ -12864,12 +12866,12 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Presentation style of the Koji. Popover presentation style does not include the Koji button, and thus the Koji can use the full screen."
+						"shortText": "Presentation style of the Koji, either in a modal window (`popover`) or the standard player (`fullscreen`).\nThe popover presentation style does not display the Koji button, so the Koji can use the full view."
 					},
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 18,
+							"line": 19,
 							"character": 35
 						}
 					],
@@ -12979,7 +12981,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 50,
+							"line": 51,
 							"character": 23
 						}
 					],
@@ -13008,7 +13010,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 180,
+							"line": 181,
 							"character": 24
 						}
 					],

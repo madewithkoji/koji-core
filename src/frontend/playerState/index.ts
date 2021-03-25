@@ -13,12 +13,13 @@ export type PlayerStateContext = 'about' | 'admin' | 'remix' | 'sticker' | 'rece
 export type PlayerStateReceiptType = 'buyer' | 'seller';
 
 /**
- * Presentation style of the Koji. Popover presentation style does not include the Koji button, and thus the Koji can use the full screen.
+ * Presentation style of the Koji, either in a modal window (`popover`) or the standard player (`fullscreen`).
+ * The popover presentation style does not display the Koji button, so the Koji can use the full view.
  */
 export type PlayerPresentationStyle = 'fullscreen' | 'popover';
 
 /**
- *
+ * URL query parameters that describe the current state of the Koji player.
  */
 export interface ExpectedQueryParameters {
   context?: PlayerStateContext;
@@ -51,7 +52,7 @@ export type ReceiptType = 'seller' | 'buyer';
 
 export type IsRemixingCallback =
   /**
-   * Function to handle changes in remix state. Receives the `isRemixing` and `editorAttributes` properties as inputs.
+   * Function to handle changes in remix state.
    *
    * @param isRemixing Indicates whether the Koji is in remixing mode.
    * @param editorAttributes
@@ -67,7 +68,7 @@ export type FocusCallback =
 () => void;
 
 /**
- * Manages the context of the Koji to enable distinct experiences for different users and views.
+ * Manages the state of the Koji player to enable distinct experiences for different users and views.
  */
 export class PlayerState extends KojiBridge {
   /** The initial context of the Koji. */
@@ -112,7 +113,7 @@ export class PlayerState extends KojiBridge {
   /**
    * Listens for when a Koji enters focus and invokes a callback function to respond to the focus state change.
    *
-   * @param   callback  
+   * @param   callback
    *
    * @return            Function to unsubscribe from the onFocus listener.
    *
