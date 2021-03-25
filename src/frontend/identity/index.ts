@@ -76,9 +76,10 @@ export class Identity extends KojiBridge {
   /**
    * Requests the specified authorization grants from the user for the Koji.
    *
-   * @param   grants           List of authorization grants to request from the user.
-   * @param   usageDescription Custom message to display when requesting the grant.
-   * @return
+   * @param   grants            List of authorization grants to request from the user.
+   * @param   usageDescription  Custom message to display when requesting the grant.
+   *
+   * @return                    Indicates whether authorization for the capabilities was successfully obtained from the user.
    *
    * @example
    * ```javascript

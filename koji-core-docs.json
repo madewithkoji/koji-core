@@ -9243,8 +9243,8 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Enables you to track custom events in your Koji templates. For example, track `onClick` events for the links and buttons in a Koji.",
-						"text": "To view the analytics data for your published Koji, go to **Manage this Koji > Open Creator Dashboard > Open Analytics**. You will see data for your custom events along with a standard set of built-in metrics, which are calculated from the Koji’s access logs.\n\n<p class=\"tip\">Analytics data is processed at frequent intervals throughout the day. If you are testing the custom events in a published template and you don’t see results at first, wait 10 minutes to account for data processing latency, and then check again.</p>\n"
+						"shortText": "Enables you to track custom events in your Koji templates.\nFor example, track `onClick` events for the links and buttons in a Koji.",
+						"text": "To view the analytics data for a published Koji, click the **Koji** button and click **Analytics**.\nYou will see data for the custom events along with a standard set of built-in metrics, which are calculated from the Koji’s access logs.\n\n<p class=\"tip\">Analytics data is processed at frequent intervals throughout the day. If you are testing the custom events in a published template and you don’t see results at first, wait 10 minutes to account for data processing latency, and then check again.</p>\n"
 					},
 					"children": [
 						{
@@ -9289,7 +9289,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/analytics/index.ts",
-									"line": 28,
+									"line": 30,
 									"character": 14
 								}
 							],
@@ -9398,7 +9398,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/analytics/index.ts",
-							"line": 10,
+							"line": 12,
 							"character": 22
 						}
 					]
@@ -9414,7 +9414,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/analytics/index.ts",
-							"line": 42,
+							"line": 44,
 							"character": 22
 						}
 					],
@@ -10998,7 +10998,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Generates an IAP token for the current user that can be used to resolve receipts on the backend.",
-										"returns": "\n",
+										"returns": "Short-lived IAP token for the current user.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -11049,7 +11049,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/iap/index.ts",
-									"line": 65,
+									"line": 68,
 									"character": 28
 								}
 							],
@@ -11062,10 +11062,11 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.",
+										"returns": "Results of the in-app purchase transaction.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n``` javascript\nKoji.iap.startPurchase(sku, purchaseOptions);\n```\n"
+												"text": "\n``` javascript\nconst purchase = await Koji.iap.startPurchase(sku, purchaseOptions);\n```\n"
 											}
 										]
 									},
@@ -11077,7 +11078,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Identifier for the product to purchase.\n"
+												"text": "Identifier for the product to purchase."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -11162,7 +11163,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Temporary IAP token for the current user. See [[getToken]]."
+								"shortText": "Short-lived IAP token for the current user. See [[getToken]]."
 							},
 							"sources": [
 								{
@@ -11362,7 +11363,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/iap/index.ts",
-							"line": 85,
+							"line": 88,
 							"character": 16
 						}
 					],
@@ -11586,7 +11587,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/identity/index.ts",
-									"line": 88,
+									"line": 89,
 									"character": 28
 								}
 							],
@@ -11599,7 +11600,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Requests the specified authorization grants from the user for the Koji.",
-										"returns": "\n",
+										"returns": "Indicates whether authorization for the capabilities was successfully obtained from the user.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -11636,7 +11637,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Custom message to display when requesting the grant."
+												"text": "Custom message to display when requesting the grant.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -11834,7 +11835,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/identity/index.ts",
-							"line": 101,
+							"line": 102,
 							"character": 21
 						}
 					],
