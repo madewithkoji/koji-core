@@ -59,11 +59,11 @@ export type IsRemixingCallback =
   (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
 
 export type BlurCallback =
-/** Called when the Koji leaves focus. */
+/** Function to handle when the Koji leaves focus. */
 () => void;
 
 export type FocusCallback =
-/** Called when the Koji enters focus. */
+/** Function to handle when the Koji enters focus. */
 () => void;
 
 /**
@@ -110,10 +110,18 @@ export class PlayerState extends KojiBridge {
   }
 
   /**
-   * Listens to when a Koji is returned to a focus state.
+   * Listens for when a Koji enters focus and invokes a callback function to respond to the focus state change.
    *
-   * @param   callback  Callback function.
-   * @return            Function to unsubscribe from the focus state listener.
+   * @param   callback  
+   *
+   * @return            Function to unsubscribe from the onFocus listener.
+   *
+   * @example
+   * ```javascript
+   * const unsubscribeFocus = Koji.playerState.onFocus((focus) => {
+   *  // Change Koji experience
+   * });
+   * ```
    */
   @client
   public onFocus(callback: FocusCallback): Function {
@@ -125,10 +133,18 @@ export class PlayerState extends KojiBridge {
   }
 
   /**
-   * Listens to when a Koji leaves a focus state.
+   * Listens for when a Koji leaves focus and invokes a callback function to respond to the focus state change.
    *
-   * @param   callback  Callback function.
-   * @return            Function to unsubscribe from the un-focus state listener.
+   * @param   callback
+   *
+   * @return            Function to unsubscribe from the onBlur listener.
+   *
+   * @example
+   * ```javascript
+   * const unsubscribeBlur = Koji.playerState.onBlur((blur) => {
+   *  // Change Koji experience
+   * });
+   * ```
    */
   @client
   public onBlur(callback: BlurCallback): Function {
@@ -143,7 +159,9 @@ export class PlayerState extends KojiBridge {
    * Listens to changes in remix state and invokes a callback function to enable different experiences during remix, preview, or use.
    *
    * @param   callback
-   * @return           Function to unsubscribe from remix state listener.
+   *
+   * @return           Function to unsubscribe from the remix state listener.
+   *
    * @example
    * ```javascript
    * const unsubscribe = Koji.playerState.subscribe((remixing, { type, mode }) => {

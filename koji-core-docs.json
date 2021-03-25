@@ -12150,7 +12150,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 134,
+									"line": 150,
 									"character": 15
 								}
 							],
@@ -12162,8 +12162,14 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Listens to when a Koji leaves a focus state.",
-										"returns": "Function to unsubscribe from the un-focus state listener.\n"
+										"shortText": "Listens for when a Koji leaves focus and invokes a callback function to respond to the focus state change.",
+										"returns": "Function to unsubscribe from the onBlur listener.\n",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nconst unsubscribeBlur = Koji.playerState.onBlur((blur) => {\n // Change Koji experience\n});\n```\n"
+											}
+										]
 									},
 									"parameters": [
 										{
@@ -12173,7 +12179,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Callback function."
+												"text": "\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12210,7 +12216,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 119,
+									"line": 127,
 									"character": 16
 								}
 							],
@@ -12222,8 +12228,14 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Listens to when a Koji is returned to a focus state.",
-										"returns": "Function to unsubscribe from the focus state listener.\n"
+										"shortText": "Listens for when a Koji enters focus and invokes a callback function to respond to the focus state change.",
+										"returns": "Function to unsubscribe from the onFocus listener.\n",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nconst unsubscribeFocus = Koji.playerState.onFocus((focus) => {\n // Change Koji experience\n});\n```\n"
+											}
+										]
 									},
 									"parameters": [
 										{
@@ -12233,7 +12245,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Callback function."
+												"text": "\n"
 											},
 											"type": {
 												"type": "reference",
@@ -12270,7 +12282,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/playerState/index.ts",
-									"line": 155,
+									"line": 173,
 									"character": 18
 								}
 							],
@@ -12283,7 +12295,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Listens to changes in remix state and invokes a callback function to enable different experiences during remix, preview, or use.",
-										"returns": "Function to unsubscribe from remix state listener.",
+										"returns": "Function to unsubscribe from the remix state listener.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -12298,7 +12310,9 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {},
+											"comment": {
+												"text": "\n"
+											},
 											"type": {
 												"type": "reference",
 												"id": 690,
@@ -12624,7 +12638,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Called when the Koji leaves focus."
+								"shortText": "Function to handle when the Koji leaves focus."
 							},
 							"sources": [
 								{
@@ -12641,7 +12655,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Called when the Koji leaves focus."
+										"shortText": "Function to handle when the Koji leaves focus."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -12734,7 +12748,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Called when the Koji enters focus."
+								"shortText": "Function to handle when the Koji enters focus."
 							},
 							"sources": [
 								{
@@ -12751,7 +12765,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Called when the Koji enters focus."
+										"shortText": "Function to handle when the Koji enters focus."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -12994,7 +13008,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/playerState/index.ts",
-							"line": 162,
+							"line": 180,
 							"character": 24
 						}
 					],
