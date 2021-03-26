@@ -76,15 +76,13 @@ export class Present extends KojiBridge {
    * });
    */
   @client
-  public alert(options: PresentConfirmationOptions): void {
+  public alert(options: PresentAlertOptions): void {
     this.sendMessage(
       {
         kojiEventName: 'Koji.Alert',
         data: {
           title: options.title,
           message: options.message,
-          confirmButtonLabel: options.confirmButtonLabel,
-          cancelButtonLabel: options.cancelButtonLabel,
         },
       },
     );

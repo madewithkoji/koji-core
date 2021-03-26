@@ -10,13 +10,15 @@ enum UtilitiesRoutes {
 }
 
 /**
- * Implements a class for handling secret values in your Koji.
+ * Provides utility methods for improving the performance and functionality of your Koji template.
  */
 export class Utilities extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
   /**
+   * Instantiates the Utilities class.
+   *
    * @param   config
    *
    * @example
@@ -37,9 +39,9 @@ export class Utilities extends Base {
   }
 
   /**
-   * Unfreeze a response that has been frozen by an `x-koji-freeze-key` header.
+   * Unfreezes a response that has been frozen with an `x-koji-freeze-key` header.
    *
-   * @param   key      The key used to free the response
+   * @param   key      Key used to free the response.
    *
    * @example
    * ```javascript
