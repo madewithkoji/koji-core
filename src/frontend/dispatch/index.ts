@@ -288,7 +288,7 @@ export class Dispatch {
   }
 
   /**
-   * Broadcasts user information for the client in the shard.
+   * Broadcasts user information for the client to connected clients in the shard.
    *
    * @param     userInfo      Data for the user information to set.
    *
@@ -321,8 +321,8 @@ export class Dispatch {
   /**
    * Emits the named event to the specified recipients or to all clients.
    *
-   * @param     eventName     Name of event.
-   * @param     payload       Object of key-value paired data to send as a message payload.
+   * @param     eventName     Name of the event.
+   * @param     payload       Object of key-value pair data to send as a message payload.
    * @param     recipients    List of clients to receive the event. If this parameter is not included, the event is sent to all clients on the current shard.
    *
    * @example
@@ -357,7 +357,7 @@ export class Dispatch {
   }
 
   /**
-   * Disconnects the dispatch client from the shard.
+   * Disconnects the client from the dispatch shard.
    *
    * @example
    * ```javascript

@@ -15,22 +15,36 @@ export enum IapRoutes {
 }
 
 /**
- * Defines an interface for a receipt.
+ * Receipt for a user’s purchase of a product.
+ * Resolve receipts with [[resolveReceiptById]], [[resolveReceiptsByIAPToken]], or [[resolveReceiptsBySku]].
+ * Add custom attributes for to a receipt with [[updateReceipt]].
  */
 export interface IapReceipt {
+  /** Unique identifier for the receipt. */
   receiptId: string;
+  /** Unique identifier for the product. */
   productId: string;
+  /** Price the user paid for the product. */
   purchasedPrice: number;
+  /** Object containing a list of custom key-value pairs associated with the receipt.
+  * You can use [[updateReceipt]] to update these values.
+  * Additionally, the fulfillment information (email, phone, or address) and customMessage are included this object, if set at purchase time.
+  */
   attributes: { [index: string]: any };
+  /**
+   * Object containing references to the associated transaction receipts – `credit` for the user receiving the funds (seller), `debit` for the user sending the funds (buyer).
+   * To link to the transaction receipt in the user’s Koji wallet, use the format `https://withkoji.com/payments/transactions/TXN_ID`.
+   */
   transactionIds: {
     credit: string;
     debit: string;
   };
+  /** Date of the purchase */
   datePurchased: Date;
 }
 
 /**
- * Implements in-app purchases for the backend of your Koji.
+ * Manages in-app purchases on the backend of your Koji template.
  */
 export class IAP extends Base {
   private rootPath: string;
@@ -57,14 +71,15 @@ export class IAP extends Base {
   }
 
   /**
-   * Get receipts by user token
+   * Gets all receipts for the current user, which can be used to validate purchases for specific products.
    *
-   * @param     authToken     User token.
-   * @return                  Array of receipts.
+   * @param     iapToken     Short-lived IAP token for the current user.
+   *
+   * @return                 Array of receipts for the user's purchases.
    *
    * @example
    * ```javascript
-   * const receipts = iap.resolveReceiptsByUserToken(token);
+   * const receipts = await iap.resolveReceiptsByIAPToken(token);
    * ```
    */
   @server
@@ -84,14 +99,21 @@ export class IAP extends Base {
   }
 
   /**
-   * Get receipts by receipt id
+   * Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.
+   * For example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.
    *
-   * @param     receiptId     Receipt id.
-   * @return                  Array of receipts.
+   * @param     receiptId     Unique identifier for the receipt.
+   * @return                  Object for the specified receipt.
    *
    * @example
    * ```javascript
-   * const receipt = iap.resolveReceiptById(id);
+   * const receipt = await iap.resolveReceiptById(id);
+   *
+   * // Use custom attributes for a video response
+   * this.setState({
+   *  instructions: receipt.attributes.message,
+   *  video: receipt.attributes.video,
+   * });
    * ```
    */
   @server
@@ -102,14 +124,14 @@ export class IAP extends Base {
   }
 
   /**
-   * Get receipts for a product by sku
+   * Gets all receipts for a specified product, which can be used to aggregate sales data.
    *
-   * @param     sku     Product sku.
-   * @return            Array of receipts that include the product.
+   * @param     sku     Identifier for the product. Products are defined in the entitlements file and registered or updated when the template is published.
+   * @return            Array of receipts for the specified product.
    *
    * @example
    * ```javascript
-   * const receipts = iap.resolveReceiptById(sku);
+   * const receipts = await iap.resolveReceiptBySku(sku);
    * ```
    */
   @server
@@ -120,12 +142,14 @@ export class IAP extends Base {
   }
 
   /**
-   * Update receipt
+   * Updates the custom attributes for a specified receipt.
+   * For example, if a user purchases a "power up" and then uses it in a game, you can update the receipt to indicate that the product has been consumed and is not available for future sessions.
    *
-   * @param     receiptId     Receipt id.
-   * @param     attributes    Object of key-value paired attributes to store with the receipt.
-   * @param     notificationMessage    Optional notification message.
-   * @return                  Data object.
+   * @param     receiptId             Unique identifier for the receipt.
+   * @param     attributes            Object of key-value paired attributes to store with the receipt.
+   * @param     notificationMessage   Custom message to sent the user when the receipt is updated (up to 80 characters). If undefined, the message will read: `Your receipt for PRODUCT_NAME was updated.`
+   *
+   * @return                          Confirmation of the update, if the request was successful, or an error message, if not.
    *
    * @example
    * ```javascript
@@ -147,14 +171,15 @@ export class IAP extends Base {
   }
 
   /**
-   * Load product by sku.
+   * Gets the properties of a specified product, which enables the template to leverage dynamic product information.
+   * For example, you can check the stock for a product with limited quantity (via the `numAvailable` property), and indicate the number of remaining items.
    *
-   * @param     sku     Product sku.
-   * @return            Data object.
+   * @param     sku     Identifier for the product.
+   * @return            Properties of the specified product.
    *
    * @example
    * ```javascript
-   * iap.loadProduct(sku);
+   * const product = await iap.loadProduct(sku);
    * ```
    */
   public async loadProduct(sku: string) {
