@@ -41,7 +41,7 @@ export class Utilities extends Base {
   /**
    * Unfreezes a response that has been frozen with an `x-koji-freeze-key` header.
    *
-   * @param   key      Key used to free the response.
+   * @param   key      Key used to freeze the response.
    *
    * @example
    * ```javascript

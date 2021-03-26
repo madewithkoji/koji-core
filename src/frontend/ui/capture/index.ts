@@ -135,6 +135,7 @@ export interface CaptureFileOptions {}
  */
 export interface CaptureLinkOptions {
   kojiTemplateId?: string;
+  /** Whether to prevent users from pasting an external link. If `true`, users can select only one of their Kojis. */
   disableExternalLinks?: boolean;
 }
 
