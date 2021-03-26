@@ -120,7 +120,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -131,7 +131,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -149,16 +149,19 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#arraypush">arrayPush</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L364">backend/database/index.ts:364</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L378">backend/database/index.ts:378</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Appends contents to an existing document in a collection.</p>
+									<p>Appends data to an existing database entry.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">arrayPush</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Contents appended to end of document&#039;</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">isAdded</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">arrayPush</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData1&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData2&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue2&#039;</span>
+<span style="color: #000000">});</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -174,24 +177,24 @@
 								<li>
 									<h5>documentName: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Document name.</p>
+										<p>Name of the entry.</p>
 									</div>
 								</li>
 								<li>
 									<h5>documentBody: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Appended contents.</p>
+										<p>Data to append to the entry.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Return the updated doc as a response.</p>
+										<p>Whether to return the updated entry as a response.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
+							<p>An HTTP status code indicating whether the request was successful, or the updated entry if <code>returnDoc</code> was set to <code>true</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -206,16 +209,19 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#arrayremove">arrayRemove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L394">backend/database/index.ts:394</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L411">backend/database/index.ts:411</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes part of the contents from an existing document in a collection.</p>
+									<p>Removes data from an existing database entry.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">arrayPush</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Contents to be removed from document&#039;</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">isRemoved</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">arrayRemove</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData1&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData2&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue2&#039;</span>
+<span style="color: #000000">});</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -231,24 +237,24 @@
 								<li>
 									<h5>documentName: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Document name.</p>
+										<p>Name of the entry.</p>
 									</div>
 								</li>
 								<li>
 									<h5>documentBody: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Removed contents.</p>
+										<p>Data to remove from the entry.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Return the updated doc as a response.</p>
+										<p>Whether to return the updated entry as a response.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
+							<p>An HTTP status code indicating whether the request was successful, or the updated entry if <code>returnDoc</code> was set to <code>true</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -263,16 +269,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L422">backend/database/index.ts:422</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L439">backend/database/index.ts:439</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deletes a document from a collection.</p>
+									<p>Deletes a database entry from a collection.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">delete</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">isDeleted</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">delete</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">);</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -288,12 +294,12 @@
 								<li>
 									<h5>documentName: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Document name.</p>
+										<p>Name of the entry.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/backend_database.databasehttpstatuscode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">DatabaseHttpStatusCode</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An http status code (e.g., OK).</p>
+							<p>An HTTP status code indicating whether the request was successful.</p>
 						</li>
 					</ul>
 				</section>
@@ -308,7 +314,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L134">backend/database/index.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L137">backend/database/index.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -363,12 +369,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getall">getAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L244">backend/database/index.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L248">backend/database/index.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Searches a collection for the documents whose names are included in an array of document names.</p>
+									<p>Gets the specified database entries.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
@@ -397,7 +403,7 @@
 								<li>
 									<h5>documentNames: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Array of one or more document names</p>
+										<p>Array of one or more entry names to retrieve.</p>
 									</div>
 								</li>
 							</ul>
@@ -417,7 +423,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getallwhere">getAllWhere</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L274">backend/database/index.ts:274</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L279">backend/database/index.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,7 +433,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">getAllWhere</span><span style="color: #000000">&lt;</span><span style="color: #A31515">&#039;myClass&#039;</span><span style="color: #000000">&gt;(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myField&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myOperator, [&#039;</span><span style="color: #001080">mySearchValue1</span><span style="color: #A31515">&#039;, mySearchValue2])</span><span style="color: #CD3131">;</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">getAllWhere</span><span style="color: #000000">&lt;</span><span style="color: #A31515">&#039;myClass&#039;</span><span style="color: #000000">&gt;(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myField&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;==&#039;</span><span style="color: #000000">, [</span><span style="color: #A31515">&#039;mySearchValue1&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;mySearchValue2&#039;</span><span style="color: #000000">]);</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -458,13 +465,13 @@
 								<li>
 									<h5>predicateOperation: <a href="../enums/backend_database.predicateoperator.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PredicateOperator</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>An operator such as &#39;=&#39;, &#39;&lt;&gt;&#39;, &#39;&gt;&#39;, etc.</p>
+										<p>Operator to use for the search.</p>
 									</div>
 								</li>
 								<li>
 									<h5>predicateValues: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>An array of one or more search values.</p>
+										<p>Array of one or more search values.</p>
 									</div>
 								</li>
 							</ul>
@@ -484,7 +491,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getcollections">getCollections</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L157">backend/database/index.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L160">backend/database/index.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -514,7 +521,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getwhere">getWhere</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L213">backend/database/index.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L217">backend/database/index.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -524,7 +531,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">getWhere</span><span style="color: #000000">&lt;</span><span style="color: #A31515">&#039;myClass&#039;</span><span style="color: #000000">&gt;(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myField&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myOperator, &#039;</span><span style="color: #001080">mySearchValue</span><span style="color: #A31515">&#039;)</span><span style="color: #CD3131">;</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">getWhere</span><span style="color: #000000">&lt;</span><span style="color: #A31515">&#039;myClass&#039;</span><span style="color: #000000">&gt;(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myField&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myOperator, &#039;</span><span style="color: #001080">mySearchValue</span><span style="color: #A31515">&#039;)</span><span style="color: #CD3131">;</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -549,13 +557,13 @@
 								<li>
 									<h5>predicateKey: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Name of a field in the collection.</p>
+										<p>Name of the field to search.</p>
 									</div>
 								</li>
 								<li>
 									<h5>predicateOperation: <a href="../enums/backend_database.predicateoperator.html" class="tsd-signature-type" data-tsd-kind="Enumeration">PredicateOperator</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>An operator such as &#39;=&#39;, &#39;&lt;&gt;&#39;, &#39;&gt;&#39;, etc.</p>
+										<p>Operator to use for the search.</p>
 									</div>
 								</li>
 								<li>
@@ -581,7 +589,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#search">search</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L182">backend/database/index.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L185">backend/database/index.ts:185</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -642,16 +650,19 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L304">backend/database/index.ts:304</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L312">backend/database/index.ts:312</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Inserts a new document into a collection.</p>
+									<p>Adds an entry to a database collection.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Some contents for the document&#039;</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData1&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData2&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue2&#039;</span>
+<span style="color: #000000">});</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -667,24 +678,24 @@
 								<li>
 									<h5>documentName: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Document name.</p>
+										<p>Name of the entry.</p>
 									</div>
 								</li>
 								<li>
 									<h5>documentBody: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Document contents.</p>
+										<p>Data for the entry.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Return the updated doc as a response.</p>
+										<p>Whether to return the updated entry as a response.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
+							<p>An HTTP status code indicating whether the request was successful, or the updated entry if <code>returnDoc</code> was set to <code>true</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -699,16 +710,19 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/f6d633c/src/backend/database/index.ts#L334">backend/database/index.ts:334</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/802fef9/src/backend/database/index.ts#L345">backend/database/index.ts:345</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Replaces the contents of an existing document in a collection.</p>
+									<p>Replaces the contents of an existing entry in a collection.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">set</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Some contents for the document&#039;</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">myData</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">update</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData1&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData2&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue2&#039;</span>
+<span style="color: #000000">});</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -724,24 +738,24 @@
 								<li>
 									<h5>documentName: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Document name.</p>
+										<p>Name of the entry.</p>
 									</div>
 								</li>
 								<li>
 									<h5>documentBody: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>New contents.</p>
+										<p>New data.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnDoc: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Return the updated doc as a response.</p>
+										<p>Whether to return the updated entry as a response.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An http status code (e.g., OK), or the updated document if returnDoc was specified as true.</p>
+							<p>An HTTP status code indicating whether the request was successful, or the updated entry if <code>returnDoc</code> was set to <code>true</code>.</p>
 						</li>
 					</ul>
 				</section>

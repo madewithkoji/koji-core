@@ -839,7 +839,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Express response object. Used in conjunction with middleware to scope environment variables for instant remixes of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]"
+								"shortText": "Express response object. Used in conjunction with middleware to scope environment variables for instant remixes of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]."
 							},
 							"sources": [
 								{
@@ -1569,7 +1569,8 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Implements a Koji database for the backend of your Koji."
+						"shortText": "Implements a Koji database for the backend of your Koji.",
+						"text": "A Koji database is a key-value store that is included with each project on Koji.\nFor more information, see the [[https://developer.withkoji.com/docs/develop/koji-database | Koji database developer guide]].\n"
 					},
 					"children": [
 						{
@@ -1649,7 +1650,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 364,
+									"line": 378,
 									"character": 24
 								}
 							],
@@ -1661,12 +1662,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Appends contents to an existing document in a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Appends data to an existing database entry.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.arrayPush('myCollection', 'myDocument', 'Contents appended to end of document');\n```\n"
+												"text": "\n```javascript\nconst isAdded = await database.arrayPush('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -1692,7 +1693,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1706,7 +1707,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Appended contents."
+												"text": "Data to append to the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1722,7 +1723,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1764,7 +1765,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 394,
+									"line": 411,
 									"character": 26
 								}
 							],
@@ -1776,12 +1777,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Removes part of the contents from an existing document in a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Removes data from an existing database entry.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.arrayPush('myCollection', 'myDocument', 'Contents to be removed from document');\n```\n"
+												"text": "\n```javascript\nconst isRemoved = await database.arrayRemove('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -1807,7 +1808,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1821,7 +1822,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Removed contents."
+												"text": "Data to remove from the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1837,7 +1838,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1879,7 +1880,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 422,
+									"line": 439,
 									"character": 21
 								}
 							],
@@ -1891,12 +1892,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Deletes a document from a collection.",
-										"returns": "An http status code (e.g., OK).\n",
+										"shortText": "Deletes a database entry from a collection.",
+										"returns": "An HTTP status code indicating whether the request was successful.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.delete('myCollection', 'myDocument');\n```\n"
+												"text": "\n```javascript\nconst isDeleted = await database.delete('myCollection', 'myDocument');\n```\n"
 											}
 										]
 									},
@@ -1922,7 +1923,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1965,7 +1966,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 134,
+									"line": 137,
 									"character": 18
 								}
 							],
@@ -2073,7 +2074,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 244,
+									"line": 248,
 									"character": 21
 								}
 							],
@@ -2085,7 +2086,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Searches a collection for the documents whose names are included in an array of document names.",
+										"shortText": "Gets the specified database entries.",
 										"returns": "Data requested from the collection.\n",
 										"tags": [
 											{
@@ -2128,7 +2129,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Array of one or more document names"
+												"text": "Array of one or more entry names to retrieve."
 											},
 											"type": {
 												"type": "array",
@@ -2176,7 +2177,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 274,
+									"line": 279,
 									"character": 26
 								}
 							],
@@ -2193,7 +2194,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.getAllWhere<'myClass'>('myCollection', 'myField', 'myOperator, ['mySearchValue1', mySearchValue2]);\n```\n"
+												"text": "\n```javascript\nconst myData = await database.getAllWhere<'myClass'>('myCollection',\n 'myField', '==', ['mySearchValue1', 'mySearchValue2']);\n```\n"
 											}
 										]
 									},
@@ -2245,7 +2246,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "An operator such as '=', '<>', '>', etc."
+												"text": "Operator to use for the search."
 											},
 											"type": {
 												"type": "reference",
@@ -2260,7 +2261,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "An array of one or more search values."
+												"text": "Array of one or more search values."
 											},
 											"type": {
 												"type": "array",
@@ -2308,7 +2309,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 157,
+									"line": 160,
 									"character": 29
 								}
 							],
@@ -2366,7 +2367,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 213,
+									"line": 217,
 									"character": 23
 								}
 							],
@@ -2383,7 +2384,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.getWhere<'myClass'>('myCollection', 'myField', 'myOperator, 'mySearchValue');\n```\n"
+												"text": "\n```javascript\nconst myData = await database.getWhere<'myClass'>('myCollection',\n 'myField', 'myOperator, 'mySearchValue');\n```\n"
 											}
 										]
 									},
@@ -2421,7 +2422,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Name of a field in the collection."
+												"text": "Name of the field to search."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2435,7 +2436,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "An operator such as '=', '<>', '>', etc."
+												"text": "Operator to use for the search."
 											},
 											"type": {
 												"type": "reference",
@@ -2492,7 +2493,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 182,
+									"line": 185,
 									"character": 21
 								}
 							],
@@ -2606,7 +2607,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 304,
+									"line": 312,
 									"character": 18
 								}
 							],
@@ -2618,12 +2619,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Inserts a new document into a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Adds an entry to a database collection.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');\n```\n"
+												"text": "\n```javascript\nconst myData = await database.set('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -2649,7 +2650,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2663,7 +2664,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document contents."
+												"text": "Data for the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2679,7 +2680,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2721,7 +2722,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 334,
+									"line": 345,
 									"character": 21
 								}
 							],
@@ -2733,12 +2734,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces the contents of an existing document in a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Replaces the contents of an existing entry in a collection.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');\n```\n"
+												"text": "\n```javascript\nconst myData = await database.update('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -2764,7 +2765,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2778,7 +2779,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "New contents."
+												"text": "New data."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2794,7 +2795,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2845,7 +2846,7 @@
 					"sources": [
 						{
 							"fileName": "backend/database/index.ts",
-							"line": 95,
+							"line": 98,
 							"character": 21
 						}
 					],
@@ -2892,7 +2893,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 364,
+									"line": 378,
 									"character": 24
 								}
 							],
@@ -2904,12 +2905,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Appends contents to an existing document in a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Appends data to an existing database entry.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.arrayPush('myCollection', 'myDocument', 'Contents appended to end of document');\n```\n"
+												"text": "\n```javascript\nconst isAdded = await database.arrayPush('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -2935,7 +2936,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2949,7 +2950,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Appended contents."
+												"text": "Data to append to the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -2965,7 +2966,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3017,7 +3018,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 394,
+									"line": 411,
 									"character": 26
 								}
 							],
@@ -3029,12 +3030,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Removes part of the contents from an existing document in a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Removes data from an existing database entry.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.arrayPush('myCollection', 'myDocument', 'Contents to be removed from document');\n```\n"
+												"text": "\n```javascript\nconst isRemoved = await database.arrayRemove('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -3060,7 +3061,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3074,7 +3075,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Removed contents."
+												"text": "Data to remove from the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3090,7 +3091,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3142,7 +3143,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 422,
+									"line": 439,
 									"character": 21
 								}
 							],
@@ -3154,12 +3155,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Deletes a document from a collection.",
-										"returns": "An http status code (e.g., OK).\n",
+										"shortText": "Deletes a database entry from a collection.",
+										"returns": "An HTTP status code indicating whether the request was successful.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.delete('myCollection', 'myDocument');\n```\n"
+												"text": "\n```javascript\nconst isDeleted = await database.delete('myCollection', 'myDocument');\n```\n"
 											}
 										]
 									},
@@ -3185,7 +3186,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3238,7 +3239,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 134,
+									"line": 137,
 									"character": 18
 								}
 							],
@@ -3356,7 +3357,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 244,
+									"line": 248,
 									"character": 21
 								}
 							],
@@ -3368,7 +3369,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Searches a collection for the documents whose names are included in an array of document names.",
+										"shortText": "Gets the specified database entries.",
 										"returns": "Data requested from the collection.\n",
 										"tags": [
 											{
@@ -3411,7 +3412,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Array of one or more document names"
+												"text": "Array of one or more entry names to retrieve."
 											},
 											"type": {
 												"type": "array",
@@ -3469,7 +3470,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 274,
+									"line": 279,
 									"character": 26
 								}
 							],
@@ -3486,7 +3487,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.getAllWhere<'myClass'>('myCollection', 'myField', 'myOperator, ['mySearchValue1', mySearchValue2]);\n```\n"
+												"text": "\n```javascript\nconst myData = await database.getAllWhere<'myClass'>('myCollection',\n 'myField', '==', ['mySearchValue1', 'mySearchValue2']);\n```\n"
 											}
 										]
 									},
@@ -3538,7 +3539,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "An operator such as '=', '<>', '>', etc."
+												"text": "Operator to use for the search."
 											},
 											"type": {
 												"type": "reference",
@@ -3553,7 +3554,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "An array of one or more search values."
+												"text": "Array of one or more search values."
 											},
 											"type": {
 												"type": "array",
@@ -3611,7 +3612,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 157,
+									"line": 160,
 									"character": 29
 								}
 							],
@@ -3679,7 +3680,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 213,
+									"line": 217,
 									"character": 23
 								}
 							],
@@ -3696,7 +3697,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.getWhere<'myClass'>('myCollection', 'myField', 'myOperator, 'mySearchValue');\n```\n"
+												"text": "\n```javascript\nconst myData = await database.getWhere<'myClass'>('myCollection',\n 'myField', 'myOperator, 'mySearchValue');\n```\n"
 											}
 										]
 									},
@@ -3734,7 +3735,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Name of a field in the collection."
+												"text": "Name of the field to search."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3748,7 +3749,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "An operator such as '=', '<>', '>', etc."
+												"text": "Operator to use for the search."
 											},
 											"type": {
 												"type": "reference",
@@ -3815,7 +3816,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 182,
+									"line": 185,
 									"character": 21
 								}
 							],
@@ -3939,7 +3940,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 304,
+									"line": 312,
 									"character": 18
 								}
 							],
@@ -3951,12 +3952,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Inserts a new document into a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Adds an entry to a database collection.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');\n```\n"
+												"text": "\n```javascript\nconst myData = await database.set('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -3982,7 +3983,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3996,7 +3997,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document contents."
+												"text": "Data for the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -4012,7 +4013,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -4064,7 +4065,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 334,
+									"line": 345,
 									"character": 21
 								}
 							],
@@ -4076,12 +4077,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces the contents of an existing document in a collection.",
-										"returns": "An http status code (e.g., OK), or the updated document if returnDoc was specified as true.\n",
+										"shortText": "Replaces the contents of an existing entry in a collection.",
+										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');\n```\n"
+												"text": "\n```javascript\nconst myData = await database.update('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
 											}
 										]
 									},
@@ -4107,7 +4108,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Document name."
+												"text": "Name of the entry."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -4121,7 +4122,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "New contents."
+												"text": "New data."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -4137,7 +4138,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Return the updated doc as a response."
+												"text": "Whether to return the updated entry as a response."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -4191,7 +4192,7 @@
 					"sources": [
 						{
 							"fileName": "backend/database/index.ts",
-							"line": 436,
+							"line": 453,
 							"character": 26
 						}
 					],
@@ -13946,7 +13947,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/serviceMap/index.ts",
-									"line": 8,
+									"line": 9,
 									"character": 17
 								}
 							],
@@ -13968,7 +13969,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/serviceMap/index.ts",
-									"line": 22,
+									"line": 23,
 									"character": 15
 								}
 							],
@@ -14040,7 +14041,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/serviceMap/index.ts",
-							"line": 6,
+							"line": 7,
 							"character": 23
 						}
 					]
@@ -14051,10 +14052,13 @@
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {},
+					"comment": {
+						"shortText": "Key-value pairs of services and endpoints."
+					},
 					"sources": [
 						{
 							"fileName": "frontend/serviceMap/index.ts",
-							"line": 1,
+							"line": 2,
 							"character": 20
 						}
 					],
@@ -14069,7 +14073,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/serviceMap/index.ts",
-									"line": 1,
+									"line": 2,
 									"character": 22
 								}
 							],
@@ -14110,7 +14114,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/serviceMap/index.ts",
-							"line": 42,
+							"line": 43,
 							"character": 23
 						}
 					],
