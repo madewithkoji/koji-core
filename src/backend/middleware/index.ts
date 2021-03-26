@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import deepmerge from 'deepmerge';
 
+/** Configuration data for the Koji. */
 export interface KojiConfig {
   /** Instructions for setting up the services in a development/editor environment. */
   develop?: any;
@@ -25,13 +26,20 @@ const decodeObject = (obj: any): any => {
 };
 
 /**
- * Executes middleware, making koji-specific data available on the res.locals property.
+ * Executes an [[http://expressjs.com/en/guide/using-middleware.html | Express middleware]], making Koji-specific data available on the `res.locals` property.
  *
  * @param kojiConfig Configuration data for the Koji.
  *
  * @example
  * ```
+ * const app = express();
  * app.use(Koji.middleware(require('koji.json'));
+ *
+ * app.get('/data', (req, res, next) => {
+ *   // Backend constructor
+ *   const database = new KojiBackend.Database({ res });
+ *   ...
+ * };
  * ```
  */
 export function middleware(kojiConfig: KojiConfig = {}) {

@@ -51,6 +51,8 @@ export class IAP extends Base {
   private rootHeaders: Object;
 
   /**
+   * Instantiates the IAP class.
+   *
    * @param   config
    *
    * @example

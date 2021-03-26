@@ -90,6 +90,8 @@ export class Dispatch extends Base {
   private ws: Sockette | null = null;
 
   /**
+   * Instantiates the Dispatch class.
+   *
    * @param   config
    *
    * @example

@@ -100,6 +100,8 @@ export class Database extends Base {
   private rootHeaders: Object;
 
   /**
+   * Instantiates the Database class.
+   *
    * @param   config
    *
    * @example

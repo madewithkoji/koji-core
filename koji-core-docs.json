@@ -141,11 +141,11 @@
 													"kindString": "Call signature",
 													"flags": {},
 													"comment": {
-														"shortText": "Executes middleware, making koji-specific data available on the res.locals property.",
+														"shortText": "Executes an [[http://expressjs.com/en/guide/using-middleware.html | Express middleware]], making Koji-specific data available on the `res.locals` property.",
 														"tags": [
 															{
 																"tag": "example",
-																"text": "\n```\napp.use(Koji.middleware(require('koji.json'));\n```\n"
+																"text": "\n```\nconst app = express();\napp.use(Koji.middleware(require('koji.json'));\n\napp.get('/data', (req, res, next) => {\n  // Backend constructor\n  const database = new KojiBackend.Database({ res });\n  ...\n};\n```\n"
 															}
 														]
 													},
@@ -1587,6 +1587,7 @@
 									"kindString": "Constructor signature",
 									"flags": {},
 									"comment": {
+										"shortText": "Instantiates the Database class.",
 										"tags": [
 											{
 												"tag": "example",
@@ -1650,7 +1651,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 378,
+									"line": 380,
 									"character": 24
 								}
 							],
@@ -1765,7 +1766,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 411,
+									"line": 413,
 									"character": 26
 								}
 							],
@@ -1880,7 +1881,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 439,
+									"line": 441,
 									"character": 21
 								}
 							],
@@ -1966,7 +1967,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 137,
+									"line": 139,
 									"character": 18
 								}
 							],
@@ -2074,7 +2075,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 248,
+									"line": 250,
 									"character": 21
 								}
 							],
@@ -2177,7 +2178,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 279,
+									"line": 281,
 									"character": 26
 								}
 							],
@@ -2309,7 +2310,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 160,
+									"line": 162,
 									"character": 29
 								}
 							],
@@ -2367,7 +2368,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 217,
+									"line": 219,
 									"character": 23
 								}
 							],
@@ -2493,7 +2494,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 185,
+									"line": 187,
 									"character": 21
 								}
 							],
@@ -2607,7 +2608,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 312,
+									"line": 314,
 									"character": 18
 								}
 							],
@@ -2722,7 +2723,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 345,
+									"line": 347,
 									"character": 21
 								}
 							],
@@ -2893,7 +2894,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 378,
+									"line": 380,
 									"character": 24
 								}
 							],
@@ -3018,7 +3019,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 411,
+									"line": 413,
 									"character": 26
 								}
 							],
@@ -3143,7 +3144,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 439,
+									"line": 441,
 									"character": 21
 								}
 							],
@@ -3239,7 +3240,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 137,
+									"line": 139,
 									"character": 18
 								}
 							],
@@ -3357,7 +3358,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 248,
+									"line": 250,
 									"character": 21
 								}
 							],
@@ -3470,7 +3471,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 279,
+									"line": 281,
 									"character": 26
 								}
 							],
@@ -3612,7 +3613,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 160,
+									"line": 162,
 									"character": 29
 								}
 							],
@@ -3680,7 +3681,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 217,
+									"line": 219,
 									"character": 23
 								}
 							],
@@ -3816,7 +3817,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 185,
+									"line": 187,
 									"character": 21
 								}
 							],
@@ -3940,7 +3941,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 312,
+									"line": 314,
 									"character": 18
 								}
 							],
@@ -4065,7 +4066,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 345,
+									"line": 347,
 									"character": 21
 								}
 							],
@@ -4192,7 +4193,7 @@
 					"sources": [
 						{
 							"fileName": "backend/database/index.ts",
-							"line": 453,
+							"line": 455,
 							"character": 26
 						}
 					],
@@ -4374,6 +4375,7 @@
 									"kindString": "Constructor signature",
 									"flags": {},
 									"comment": {
+										"shortText": "Instantiates the Dispatch class.",
 										"tags": [
 											{
 												"tag": "example",
@@ -4427,7 +4429,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 136,
+									"line": 138,
 									"character": 22
 								}
 							],
@@ -4486,7 +4488,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 366,
+									"line": 368,
 									"character": 19
 								}
 							],
@@ -4524,7 +4526,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 332,
+									"line": 334,
 									"character": 18
 								}
 							],
@@ -4640,7 +4642,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 314,
+									"line": 316,
 									"character": 17
 								}
 							],
@@ -4694,7 +4696,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 114,
+									"line": 116,
 									"character": 19
 								}
 							],
@@ -4743,7 +4745,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 275,
+									"line": 277,
 									"character": 11
 								}
 							],
@@ -4813,7 +4815,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 299,
+									"line": 301,
 									"character": 20
 								}
 							],
@@ -5500,6 +5502,7 @@
 									"kindString": "Constructor signature",
 									"flags": {},
 									"comment": {
+										"shortText": "Instantiates the IAP class.",
 										"tags": [
 											{
 												"tag": "example",
@@ -5553,7 +5556,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 185,
+									"line": 187,
 									"character": 26
 								}
 							],
@@ -5624,7 +5627,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 120,
+									"line": 122,
 									"character": 33
 								}
 							],
@@ -5696,7 +5699,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 86,
+									"line": 88,
 									"character": 40
 								}
 							],
@@ -5780,7 +5783,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 138,
+									"line": 140,
 									"character": 35
 								}
 							],
@@ -5845,7 +5848,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 159,
+									"line": 161,
 									"character": 28
 								}
 							],
@@ -6015,7 +6018,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 185,
+									"line": 187,
 									"character": 26
 								}
 							],
@@ -6096,7 +6099,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 120,
+									"line": 122,
 									"character": 33
 								}
 							],
@@ -6178,7 +6181,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 86,
+									"line": 88,
 									"character": 40
 								}
 							],
@@ -6272,7 +6275,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 138,
+									"line": 140,
 									"character": 35
 								}
 							],
@@ -6347,7 +6350,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 159,
+									"line": 161,
 									"character": 28
 								}
 							],
@@ -6483,7 +6486,7 @@
 					"sources": [
 						{
 							"fileName": "backend/iap/index.ts",
-							"line": 192,
+							"line": 194,
 							"character": 21
 						}
 					],
@@ -6934,7 +6937,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Implements an Identity class for backend authentication of your Koji."
+						"shortText": "Manages authentication and authorization on the backend of your Koji template."
 					},
 					"children": [
 						{
@@ -6951,6 +6954,7 @@
 									"kindString": "Constructor signature",
 									"flags": {},
 									"comment": {
+										"shortText": "Instantiates the Identity class.",
 										"tags": [
 											{
 												"tag": "example",
@@ -7014,7 +7018,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 116,
+									"line": 134,
 									"character": 38
 								}
 							],
@@ -7026,12 +7030,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Sends a notification to the owner",
-										"returns": "Data object.\n",
+										"shortText": " Sends a notification to the Koji account of the user who created the Koji.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nidentity.pushNotificationToUser(id, notification);\n```\n"
+												"text": "\n```javascript\nawait identity.pushNotificationToOwner({\n icon: '❓',\n appName: 'Ask me anything',\n message: 'Someone asked you a question! Respond now',\n ref: '?context=admin',\n});\n```\n"
 											}
 										]
 									},
@@ -7043,7 +7046,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Notification to send to owner."
+												"text": "Notification to send to the owner.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -7086,7 +7089,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 91,
+									"line": 105,
 									"character": 37
 								}
 							],
@@ -7098,12 +7101,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Sends a notification to a user",
-										"returns": "Data object.\n",
+										"shortText": "Sends a notification to the Koji account of a user who interacted with the Koji.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nidentity.pushNotificationToUser(id, notification);\n```\n"
+												"text": "\n```javascript\nconst user = identity.resolveUserFromToken(token);\n\nawait identity.pushNotificationToUser(user.id, {\n icon: '❓',\n appName: 'Ask me anything',\n message: 'Your custom video is ready! View now',\n ref: '?dynamic-receipt=buyer',\n});\n```\n"
 											}
 										]
 									},
@@ -7115,7 +7117,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "User id."
+												"text": "User’s unique ID for this Koji. To get the user's ID, see [[resolveUserFromToken]]."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -7129,7 +7131,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Notification to send to user."
+												"text": "Notification to send to the user.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -7172,7 +7174,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 141,
+									"line": 162,
 									"character": 35
 								}
 							],
@@ -7184,12 +7186,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets user by token",
-										"returns": "User.\n",
+										"shortText": "Gets the user's information for this Koji.",
+										"returns": "Object containing information about the user.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst user = identity.resolveUserFromToken(token);\n```\n"
+												"text": "\n```javascript\n// Get the user token (generated using the frontend identity module)\nconst token = req.headers.authorization;\n\nconst user = identity.resolveUserFromToken(token);\n```\n"
 											}
 										]
 									},
@@ -7201,7 +7203,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "User token."
+												"text": "Short-lived token for the current user’s session, which is generated with the frontend identity module. See [[getToken]]."
 											},
 											"type": {
 												"type": "union",
@@ -7254,7 +7256,7 @@
 					"sources": [
 						{
 							"fileName": "backend/identity/index.ts",
-							"line": 54,
+							"line": 60,
 							"character": 21
 						}
 					],
@@ -7273,7 +7275,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Defines a notification to send to a user’s Koji account. Send notifications with [[pushNotificationToOwner]], for the user who created the Koji, or [[pushNotificationToUser]], for a user who interacts with the Koji and has granted the appropriate authorization."
+						"shortText": "Defines a notification to send to a user’s Koji account.\nSend notifications with [[pushNotificationToOwner]], for the user who created the Koji, or [[pushNotificationToUser]], for a user who interacts with the Koji and has granted the appropriate authorization."
 					},
 					"children": [
 						{
@@ -7288,7 +7290,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 42,
+									"line": 48,
 									"character": 9
 								}
 							],
@@ -7309,7 +7311,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 44,
+									"line": 50,
 									"character": 6
 								}
 							],
@@ -7330,7 +7332,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 46,
+									"line": 52,
 									"character": 9
 								}
 							],
@@ -7353,7 +7355,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 48,
+									"line": 54,
 									"character": 5
 								}
 							],
@@ -7387,7 +7389,7 @@
 					"sources": [
 						{
 							"fileName": "backend/identity/index.ts",
-							"line": 40,
+							"line": 46,
 							"character": 33
 						}
 					]
@@ -7399,7 +7401,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Defines an interface for a user."
+						"shortText": "Information about a user of the Koji. To retrieve a user's information, use [[resolveUserFromToken]]."
 					},
 					"children": [
 						{
@@ -7408,10 +7410,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Object containing custom information about the user."
+							},
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 29,
+									"line": 31,
 									"character": 12
 								}
 							],
@@ -7464,10 +7469,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Date the user's information was created or updated on this Koji."
+							},
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 30,
+									"line": 33,
 									"character": 13
 								}
 							],
@@ -7491,10 +7499,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Object containing information about capabilities that the user has authorized this Koji to use."
+							},
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 31,
+									"line": 35,
 									"character": 8
 								}
 							],
@@ -7523,7 +7534,7 @@
 													"sources": [
 														{
 															"fileName": "backend/identity/index.ts",
-															"line": 32,
+															"line": 36,
 															"character": 28
 														}
 													],
@@ -7553,10 +7564,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "User’s unique ID for this Koji."
+							},
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 28,
+									"line": 29,
 									"character": 4
 								}
 							],
@@ -7580,10 +7594,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "User’s role for this Koji – the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`)."
+							},
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 34,
+									"line": 39,
 									"character": 6
 								}
 							],
@@ -7681,6 +7698,9 @@
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
+					"comment": {
+						"shortText": "Configuration data for the Koji."
+					},
 					"children": [
 						{
 							"id": 416,
@@ -7696,7 +7716,7 @@
 							"sources": [
 								{
 									"fileName": "backend/middleware/index.ts",
-									"line": 10,
+									"line": 11,
 									"character": 18
 								}
 							],
@@ -7719,7 +7739,7 @@
 							"sources": [
 								{
 									"fileName": "backend/middleware/index.ts",
-									"line": 8,
+									"line": 9,
 									"character": 8
 								}
 							],
@@ -7742,7 +7762,7 @@
 							"sources": [
 								{
 									"fileName": "backend/middleware/index.ts",
-									"line": 6,
+									"line": 7,
 									"character": 9
 								}
 							],
@@ -7765,7 +7785,7 @@
 							"sources": [
 								{
 									"fileName": "backend/middleware/index.ts",
-									"line": 10,
+									"line": 11,
 									"character": 11
 								}
 							],
@@ -7790,7 +7810,7 @@
 					"sources": [
 						{
 							"fileName": "backend/middleware/index.ts",
-							"line": 4,
+							"line": 5,
 							"character": 27
 						}
 					]
@@ -7804,7 +7824,7 @@
 					"sources": [
 						{
 							"fileName": "backend/middleware/index.ts",
-							"line": 37,
+							"line": 45,
 							"character": 26
 						}
 					],
@@ -7816,11 +7836,11 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Executes middleware, making koji-specific data available on the res.locals property.",
+								"shortText": "Executes an [[http://expressjs.com/en/guide/using-middleware.html | Express middleware]], making Koji-specific data available on the `res.locals` property.",
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\n```\napp.use(Koji.middleware(require('koji.json'));\n```\n"
+										"text": "\n```\nconst app = express();\napp.use(Koji.middleware(require('koji.json'));\n\napp.get('/data', (req, res, next) => {\n  // Backend constructor\n  const database = new KojiBackend.Database({ res });\n  ...\n};\n```\n"
 									}
 								]
 							},
@@ -7994,7 +8014,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Implements a class for handling secret values in your Koji."
+						"shortText": "Handles sensitive data used in your Koji template."
 					},
 					"children": [
 						{
@@ -8011,6 +8031,7 @@
 									"kindString": "Constructor signature",
 									"flags": {},
 									"comment": {
+										"shortText": "Instantiates the Secret class.",
 										"tags": [
 											{
 												"tag": "example",
@@ -8074,7 +8095,7 @@
 							"sources": [
 								{
 									"fileName": "backend/secret/index.ts",
-									"line": 84,
+									"line": 87,
 									"character": 32
 								}
 							],
@@ -8086,8 +8107,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Creates a signed URL.",
-										"returns": "URL for resource.\n",
+										"shortText": "Generates a signed URL for securely serving a file, without exposing the permanent URI.\nThis method provides additional security against sharing or rehosting of protected content.",
+										"returns": "Signed URL for the resource.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -8103,7 +8124,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Path to resource. If the resource is a Koji CDN-hosted image, you can also pass in transforms via query parameters."
+												"text": "Full URL of the resource. If the resource is an image hosted on the  Koji CDN, you can pass in query parameters to transform it. For example, resize or crop the image."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -8119,7 +8140,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "Expiration in seconds"
+												"text": "Amount of time for which the signed URL remains valid, in seconds. If undefined, signed videos expire after 1 hour, and any other resource expires after 5 minutes."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -8161,7 +8182,7 @@
 							"sources": [
 								{
 									"fileName": "backend/secret/index.ts",
-									"line": 52,
+									"line": 54,
 									"character": 27
 								}
 							],
@@ -8173,8 +8194,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets the value for a secret key.",
-										"returns": "Key value.\n",
+										"shortText": "Resolves sensitive data that was [[encryptValue | stored as an encrypted value]].",
+										"returns": "Decrypted value.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -8199,7 +8220,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Path for secret key"
+												"text": "Path where the encrypted value is stored."
 											},
 											"type": {
 												"type": "intrinsic",

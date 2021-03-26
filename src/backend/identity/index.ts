@@ -22,20 +22,26 @@ export enum UserRole {
 }
 
 /**
- * Defines an interface for a user.
+ * Information about a user of the Koji. To retrieve a user's information, use [[resolveUserFromToken]].
  */
 export interface User {
+  /** User’s unique ID for this Koji. */
   id: string | null;
+  /** Object containing custom information about the user. */
   attributes: { [index: string]: any } | null;
+  /** Date the user's information was created or updated on this Koji. */
   dateCreated: string | null;
+  /** Object containing information about capabilities that the user has authorized this Koji to use. */
   grants: {
     pushNotificationsEnabled: boolean;
   } | null;
+  /** User’s role for this Koji – the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`). */
   role: UserRole | null;
 }
 
 /**
- * Defines a notification to send to a user’s Koji account. Send notifications with [[pushNotificationToOwner]], for the user who created the Koji, or [[pushNotificationToUser]], for a user who interacts with the Koji and has granted the appropriate authorization.
+ * Defines a notification to send to a user’s Koji account.
+ * Send notifications with [[pushNotificationToOwner]], for the user who created the Koji, or [[pushNotificationToUser]], for a user who interacts with the Koji and has granted the appropriate authorization.
  */
 export interface PushNotification {
   /** Headline for the message. For example, the name of the Koji that generated the notification. */
@@ -49,13 +55,15 @@ export interface PushNotification {
 }
 
 /**
- * Implements an Identity class for backend authentication of your Koji.
+ * Manages authentication and authorization on the backend of your Koji template.
  */
 export class Identity extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
   /**
+   * Instantiates the Identity class.
+   *
    * @param   config
    *
    * @example
@@ -76,15 +84,21 @@ export class Identity extends Base {
   }
 
   /**
-   * Sends a notification to a user
+   * Sends a notification to the Koji account of a user who interacted with the Koji.
    *
-   * @param     userId            User id.
-   * @param     notification      Notification to send to user.
-   * @return                      Data object.
+   * @param     userId            User’s unique ID for this Koji. To get the user's ID, see [[resolveUserFromToken]].
+   * @param     notification      Notification to send to the user.
    *
    * @example
    * ```javascript
-   * identity.pushNotificationToUser(id, notification);
+   * const user = identity.resolveUserFromToken(token);
+   *
+   * await identity.pushNotificationToUser(user.id, {
+   *  icon: '❓',
+   *  appName: 'Ask me anything',
+   *  message: 'Your custom video is ready! View now',
+   *  ref: '?dynamic-receipt=buyer',
+   * });
    * ```
    */
   @server
@@ -102,14 +116,18 @@ export class Identity extends Base {
   }
 
   /**
-   * Sends a notification to the owner
+   *  Sends a notification to the Koji account of the user who created the Koji.
    *
-   * @param     notification      Notification to send to owner.
-   * @return                      Data object.
+   * @param     notification      Notification to send to the owner.
    *
    * @example
    * ```javascript
-   * identity.pushNotificationToUser(id, notification);
+   * await identity.pushNotificationToOwner({
+   *  icon: '❓',
+   *  appName: 'Ask me anything',
+   *  message: 'Someone asked you a question! Respond now',
+   *  ref: '?context=admin',
+   * });
    * ```
    */
   @server
@@ -127,13 +145,16 @@ export class Identity extends Base {
   }
 
   /**
-   * Gets user by token
+   * Gets the user's information for this Koji.
    *
-   * @param     token      User token.
-   * @return               User.
+   * @param     token      Short-lived token for the current user’s session, which is generated with the frontend identity module. See [[getToken]].
+   * @return               Object containing information about the user.
    *
    * @example
    * ```javascript
+   * // Get the user token (generated using the frontend identity module)
+   * const token = req.headers.authorization;
+   *
    * const user = identity.resolveUserFromToken(token);
    * ```
    */

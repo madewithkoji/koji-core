@@ -11,13 +11,15 @@ enum SecretRoutes {
 }
 
 /**
- * Implements a class for handling secret values in your Koji.
+ * Handles sensitive data used in your Koji template.
  */
 export class Secret extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
   /**
+   * Instantiates the Secret class.
+   *
    * @param   config
    *
    * @example
@@ -38,10 +40,10 @@ export class Secret extends Base {
   }
 
   /**
-   * Gets the value for a secret key.
+   * Resolves sensitive data that was [[encryptValue | stored as an encrypted value]].
    *
-   * @param   keyPath  Path for secret key
-   * @return           Key value.
+   * @param   keyPath  Path where the encrypted value is stored.
+   * @return           Decrypted value.
    *
    * @example
    * ```javascript
@@ -66,11 +68,12 @@ export class Secret extends Base {
   }
 
   /**
-   * Creates a signed URL.
+   * Generates a signed URL for securely serving a file, without exposing the permanent URI.
+   * This method provides additional security against sharing or rehosting of protected content.
    *
-   * @param   resource        Path to resource. If the resource is a Koji CDN-hosted image, you can also pass in transforms via query parameters.
-   * @param   expireSeconds   Expiration in seconds
-   * @return                  URL for resource.
+   * @param   resource        Full URL of the resource. If the resource is an image hosted on the  Koji CDN, you can pass in query parameters to transform it. For example, resize or crop the image.
+   * @param   expireSeconds   Amount of time for which the signed URL remains valid, in seconds. If undefined, signed videos expire after 1 hour, and any other resource expires after 5 minutes.
+   * @return                  Signed URL for the resource.
    *
    * @example
    * ```javascript
