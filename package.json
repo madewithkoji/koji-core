@@ -1,7 +1,7 @@
 {
   "name": "@withkoji/core",
-  "version": "1.1.0",
-  "description": "Easily access core pieces of Koij's platform features",
+  "version": "1.2.0",
+  "description": "Easily access core pieces of Koji's platform features",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist --source-maps --extensions '.ts'",
