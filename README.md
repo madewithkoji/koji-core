@@ -17,17 +17,33 @@ Install the package in the frontend and backend services of your Koji project.
 npm install --save @withkoji/core
 ```
 
-## Documentation
-
-Package documentation is available [here](https://madewithkoji.github.io/koji-core/).
-
-## Migration
-
-If you are migrating a project from the React/Express Scaffold, you may find these [frontend](guides/ScaffoldMigrationGuideFrontend.md) and [backend](guides/ScaffoldMigrationGuideBackend.md) guides helpful.
-
 ## Basic use
 
+The @withkoji/core package provides a set of modules that are specific to client and server behaviors.
+
 ### Frontend
+
+Import the package in your frontend code.
+
+```
+import Koji from '@withkoji/core';
+```
+
+Initialize the package with your configuration data.
+
+```
+// Initialize
+Koji.config(require('././koji.json'));
+
+// render
+render();
+```
+
+Indicate that the application is ready to start receiving events.
+
+```
+Koji.ready();
+```
 
 Enable the user to upload an image from the frontend of the Koji.
 
@@ -43,7 +59,14 @@ const captureImage = async () => {
 
 ### Backend
 
-Use the Koji database on the backend of the Koji, and use middleware to scope operations per remix.
+Import the package in your backend code.
+
+```
+import { KojiBackend } from '@withkoji/core';
+```
+
+Initialize the package with your configuration data, and use `KojiBackend.middleware` to scope operations per remix.
+Add routes for backend operations (for example, use a Koji database).
 
 ```
 import { KojiBackend } from '@withkoji/core';
@@ -51,6 +74,10 @@ import cors from 'cors';
 import express from 'express';
 import bodyParser from 'body-parser';
 
+// Import our configuration
+import kojiConfig from '../../koji.json';
+
+// Init
 const app = express();
 
 // Enable cors for preflight
@@ -66,8 +93,17 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 // Use Koji's middleware to handle scoping across your template's remixes
-app.use(KojiBackend.middleware);
+app.use(KojiBackend.middleware(kojiConfig));
 
+// Disable caching
+app.use((req, res, next) => {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next();
+});
+
+// Add routes here - for example:
 app.get('/data', (req, res, next) => {
   const database = new KojiBackend.Database({ res });
 
@@ -79,16 +115,21 @@ app.get('/data', (req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+// Start server
+app.listen(process.env.PORT || 3333, null, async (err) => {
+  if (err) {
+    console.log(err.message);
+  }
+  console.log('[koji] backend started');
 });
 ```
 
 ## Related resources
 
-- [What is remixing?](https://developer.withkoji.com/docs/getting-started/instant-remixing)
-- [Developing your first Koji template](https://developer.withkoji.com/docs/getting-started/start-guide-1)
-- [Koji homepage](http://withkoji.com/)
+* [Package documentation](https://developer.withkoji.com/reference/packages/core/withkoji-koji-core)
+* [Tutorial: Koji quick start](https://developer.withkoji.com/tutorials/getting-started/quick-start)
+* [Migrating to the Koji core package](https://developer.withkoji.com/docs/getting-started/migrate-koji-core)
+* [Koji homepage](http://withkoji.com/)
 
 ## Contributions and questions
 
