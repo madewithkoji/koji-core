@@ -126,7 +126,7 @@ app.listen(process.env.PORT || 3333, null, async (err) => {
 
 ## Related resources
 
-* [Package documentation](https://developer.withkoji.com/reference/packages/core/withkoji-koji-core)
+* [Package documentation](https://developer.withkoji.com/reference/core/withkoji-koji-core)
 * [Tutorial: Koji quick start](https://developer.withkoji.com/tutorials/getting-started/quick-start)
 * [Migrating to the Koji core package](https://developer.withkoji.com/docs/getting-started/migrate-koji-core)
 * [Koji homepage](http://withkoji.com/)
