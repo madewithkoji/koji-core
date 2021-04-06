@@ -14,7 +14,7 @@ interface DispatchConfigurationInput {
   shardName?: string | null;
   /** Total clients to allow on a shard before it is full. When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
   maxConnectionsPerShard: number;
-  /** Short-lived token that identifies the client, so the server and other connected clients can send it secure messages. If the token is not included, you can [[identify | identify the client]] after it is connected. */
+  /** Short-lived user token that identifies the client, so the server and other connected clients can send it secure messages. If the user token is not included, you can [[identify | identify the client]] after it is connected. */
   authorization?: string;
 }
 
@@ -305,12 +305,12 @@ export class Dispatch extends Base {
   /**
    * Identifies a connected client, which enables the server and other connected clients to send it secure messages.
    *
-   * @param     authToken     Short-lived token for the connected client. To get a token, use [[Identity.getToken]].
+   * @param     authToken     Short-lived user token for the connected client. To get a user token, use [[Identity.getToken]].
    *
    * @example
    * ```javascript
-   * const tokenInfo = await identity.getToken();
-   * dispatch.identify(tokenInfo.token);
+   * const authToken = await identity.getToken();
+   * dispatch.identify(authToken.token);
    * ```
    */
   public identify(authToken: string) {

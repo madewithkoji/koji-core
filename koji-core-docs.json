@@ -1179,7 +1179,7 @@
 							"flags": {},
 							"comment": {
 								"shortText": "Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet\nbeen provided.",
-								"text": "One of the following error conditions:\nThe auth token has expired or missing.\nThe auth token used in the request is invalid.\n"
+								"text": "One of the following error conditions:\nThe user token has expired or is missing.\nThe user token used in the request is invalid.\n"
 							},
 							"sources": [
 								{
@@ -1677,7 +1677,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 380,
+									"line": 383,
 									"character": 24
 								}
 							],
@@ -1792,7 +1792,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 413,
+									"line": 416,
 									"character": 26
 								}
 							],
@@ -1907,7 +1907,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 441,
+									"line": 444,
 									"character": 21
 								}
 							],
@@ -2749,7 +2749,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 347,
+									"line": 350,
 									"character": 21
 								}
 							],
@@ -2761,7 +2761,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces the contents of an existing entry in a collection.",
+										"shortText": "Updates the specified data for an entry in the database collection.",
+										"text": "<p class=\"note\">This method updates only the values that are specified in `documentBody`. If other values exist in the entry, they are not changed.\nIf no existing entry matches the `documentName`, a new entry is created with the specified `documentName` and `documentBody`.</p>\n",
 										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
@@ -2920,7 +2921,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 380,
+									"line": 383,
 									"character": 24
 								}
 							],
@@ -3045,7 +3046,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 413,
+									"line": 416,
 									"character": 26
 								}
 							],
@@ -3170,7 +3171,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 441,
+									"line": 444,
 									"character": 21
 								}
 							],
@@ -4092,7 +4093,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 347,
+									"line": 350,
 									"character": 21
 								}
 							],
@@ -4104,7 +4105,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces the contents of an existing entry in a collection.",
+										"shortText": "Updates the specified data for an entry in the database collection.",
+										"text": "<p class=\"note\">This method updates only the values that are specified in `documentBody`. If other values exist in the entry, they are not changed.\nIf no existing entry matches the `documentName`, a new entry is created with the specified `documentName` and `documentBody`.</p>\n",
 										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
@@ -4219,7 +4221,7 @@
 					"sources": [
 						{
 							"fileName": "backend/database/index.ts",
-							"line": 455,
+							"line": 458,
 							"character": 26
 						}
 					],
@@ -4684,7 +4686,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst tokenInfo = await identity.getToken();\ndispatch.identify(tokenInfo.token);\n```\n"
+												"text": "\n```javascript\nconst authToken = await identity.getToken();\ndispatch.identify(authToken.token);\n```\n"
 											}
 										]
 									},
@@ -4696,7 +4698,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Short-lived token for the connected client. To get a token, use [[Identity.getToken]].\n"
+												"text": "Short-lived user token for the connected client. To get a user token, use [[Identity.getToken]].\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -5742,7 +5744,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst receipts = await iap.resolveReceiptsByIAPToken(token);\n```\n"
+												"text": "\n```javascript\nconst receipts = await iap.resolveReceiptsByIAPToken(iapToken);\n```\n"
 											}
 										]
 									},
@@ -6224,7 +6226,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst receipts = await iap.resolveReceiptsByIAPToken(token);\n```\n"
+												"text": "\n```javascript\nconst receipts = await iap.resolveReceiptsByIAPToken(iapToken);\n```\n"
 											}
 										]
 									},
@@ -7131,7 +7133,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst user = identity.resolveUserFromToken(token);\n\nawait identity.pushNotificationToUser(user.id, {\n icon: '❓',\n appName: 'Ask me anything',\n message: 'Your custom video is ready! View now',\n ref: '?dynamic-receipt=buyer',\n});\n```\n"
+												"text": "\n```javascript\nconst user = identity.resolveUserFromToken(userToken);\n\nawait identity.pushNotificationToUser(user.id, {\n icon: '❓',\n appName: 'Ask me anything',\n message: 'Your custom video is ready! View now',\n ref: '?dynamic-receipt=buyer',\n});\n```\n"
 											}
 										]
 									},
@@ -7217,7 +7219,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\n// Get the user token (generated using the frontend identity module)\nconst token = req.headers.authorization;\n\nconst user = identity.resolveUserFromToken(token);\n```\n"
+												"text": "\n```javascript\n// Get the user token (generated using the frontend identity module)\nconst userToken = req.headers.authorization;\n\nconst user = identity.resolveUserFromToken(userToken);\n```\n"
 											}
 										]
 									},
@@ -7229,7 +7231,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Short-lived token for the current user’s session, which is generated with the frontend identity module. See [[getToken]]."
+												"text": "Short-lived token identifying the current user, which is generated with the frontend identity module. See [[getToken]]."
 											},
 											"type": {
 												"type": "union",
@@ -10112,7 +10114,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst tokenInfo = await Koji.identity.getToken();\nKoji.dispatch.identify(tokenInfo.token);\n```\n"
+												"text": "\n```javascript\nconst { userToken, presumedRole  } = await Koji.identity.getToken();\nKoji.dispatch.identify(userToken);\n```\n"
 											}
 										]
 									},
@@ -10124,7 +10126,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Short-lived token for the connected client. To get a token, use [[Identity.getToken]].\n"
+												"text": "Short-lived user token for the connected client. To get a user token, use [[Identity.getToken]].\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -10335,7 +10337,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Broadcasts user information for the client to connected clients in the shard.",
+										"shortText": "Sets user information that is sent with the payload whenever the client dispatches an event.",
 										"tags": [
 											{
 												"tag": "example",
@@ -10528,7 +10530,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Short-lived token that identifies the client, so the server and other connected clients can send it secure messages. If the token is not included, you can [[identify | identify the client]] after it is connected."
+								"shortText": "Short-lived user token that identifies the client, so the server and other connected clients can send it secure messages. If this value is not included, you can [[identify | identify the client]] after it is connected."
 							},
 							"sources": [
 								{
@@ -11290,7 +11292,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n``` javascript\nconst IAPToken = await Koji.iap.getToken();\n```\n"
+												"text": "\n``` javascript\nconst iapToken = await Koji.iap.getToken();\n```\n"
 											}
 										]
 									},
@@ -11847,7 +11849,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst tokenInfo = await Koji.identity.getToken();\n```\n"
+												"text": "\n```javascript\nconst { userToken, presumedRole  } = await Koji.identity.getToken()\n```\n"
 											}
 										]
 									},
@@ -13472,7 +13474,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 172,
+									"line": 177,
 									"character": 15
 								}
 							],
@@ -13520,7 +13522,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 218,
+									"line": 223,
 									"character": 27
 								}
 							],
@@ -13592,7 +13594,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 190,
+									"line": 195,
 									"character": 27
 								}
 							],
@@ -13663,7 +13665,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 155,
+									"line": 160,
 									"character": 15
 								}
 							],
@@ -13711,7 +13713,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 95,
+									"line": 100,
 									"character": 12
 								}
 							],
@@ -13806,7 +13808,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 55,
+									"line": 60,
 									"character": 13
 								}
 							],
@@ -13819,10 +13821,11 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Initializes the remix data for the Koji with default values.",
+										"text": "<p class=\"note\">In most cases, you do not need to call this method manually because it is automatically called when you initialize the package with `Koji.config`.\nUse this method only if you want to use the Remix class by itself, without any other classes in the package.</p>\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nKoji.remix.init(require('../../../koji.json'));\n```\n"
+												"text": "\n```javascript\nimport { remixData } from '../../koji.json;\n\nKoji.remix.init(remixData));\n```\n"
 											}
 										]
 									},
@@ -13870,7 +13873,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 139,
+									"line": 144,
 									"character": 18
 								}
 							],
@@ -13942,7 +13945,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 115,
+									"line": 120,
 									"character": 12
 								}
 							],
@@ -13955,7 +13958,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Updates the specified values in the remix data.",
-										"text": "<p class=\"note\">This method updates only the values that are specified in `newValue`. If other values exist, they not changed. To replace all remix data, use [[overwrite]].</p>\n",
+										"text": "<p class=\"note\">This method updates only the values that are specified in `newValue`. If other values exist, they are not changed. To replace all remix data, use [[overwrite]].</p>\n",
 										"returns": "Indicates whether the values were successfully updated.\n",
 										"tags": [
 											{
@@ -14139,7 +14142,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 254,
+							"line": 259,
 							"character": 18
 						}
 					],

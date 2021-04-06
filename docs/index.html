@@ -74,20 +74,26 @@
 				<p>Install the package in the frontend and backend services of your Koji project.</p>
 				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> --</span><span style="color: #001080">save</span><span style="color: #000000"> @</span><span style="color: #001080">withkoji</span><span style="color: #000000">/</span><span style="color: #001080">core</span>
 </code></pre>
-				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
-					<h2>Documentation</h2>
-				</a>
-				<p>Package documentation is available <a href="https://madewithkoji.github.io/koji-core/">here</a>.</p>
-				<a href="#migration" id="migration" style="color: inherit; text-decoration: none;">
-					<h2>Migration</h2>
-				</a>
-				<p>If you are migrating a project from the React/Express Scaffold, you may find these <a href="guides/ScaffoldMigrationGuideFrontend.md">frontend</a> and <a href="guides/ScaffoldMigrationGuideBackend.md">backend</a> guides helpful.</p>
 				<a href="#basic-use" id="basic-use" style="color: inherit; text-decoration: none;">
 					<h2>Basic use</h2>
 				</a>
+				<p>The @withkoji/core package provides a set of modules that are specific to client and server behaviors.</p>
 				<a href="#frontend" id="frontend" style="color: inherit; text-decoration: none;">
 					<h3>Frontend</h3>
 				</a>
+				<p>Import the package in your frontend code.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+</code></pre>
+				<p>Initialize the package with your configuration data.</p>
+				<pre><code><span style="color: #008000">// Initialize</span>
+<span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #795E26">config</span><span style="color: #000000">(</span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;././koji.json&#039;</span><span style="color: #000000">));</span>
+
+<span style="color: #008000">// render</span>
+<span style="color: #795E26">render</span><span style="color: #000000">();</span>
+</code></pre>
+				<p>Indicate that the application is ready to start receiving events.</p>
+				<pre><code><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #795E26">ready</span><span style="color: #000000">();</span>
+</code></pre>
 				<p>Enable the user to upload an image from the frontend of the Koji.</p>
 				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 
@@ -100,12 +106,20 @@
 				<a href="#backend" id="backend" style="color: inherit; text-decoration: none;">
 					<h3>Backend</h3>
 				</a>
-				<p>Use the Koji database on the backend of the Koji, and use middleware to scope operations per remix.</p>
+				<p>Import the package in your backend code.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+</code></pre>
+				<p>Initialize the package with your configuration data, and use <code>KojiBackend.middleware</code> to scope operations per remix.
+				Add routes for backend operations (for example, use a Koji database).</p>
 				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">cors</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;cors&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">express</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;express&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bodyParser</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;body-parser&#039;</span><span style="color: #000000">;</span>
 
+<span style="color: #008000">// Import our configuration</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">kojiConfig</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;../../koji.json&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #008000">// Init</span>
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">app</span><span style="color: #000000"> = </span><span style="color: #795E26">express</span><span style="color: #000000">();</span>
 
 <span style="color: #008000">// Enable cors for preflight</span>
@@ -121,8 +135,17 @@
 <span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">bodyParser</span><span style="color: #000000">.</span><span style="color: #795E26">json</span><span style="color: #000000">());</span>
 
 <span style="color: #008000">// Use Koji&#039;s middleware to handle scoping across your template&#039;s remixes</span>
-<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">KojiBackend</span><span style="color: #000000">.</span><span style="color: #001080">middleware</span><span style="color: #000000">);</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">KojiBackend</span><span style="color: #000000">.</span><span style="color: #795E26">middleware</span><span style="color: #000000">(</span><span style="color: #001080">kojiConfig</span><span style="color: #000000">));</span>
 
+<span style="color: #008000">// Disable caching</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">((</span><span style="color: #001080">req</span><span style="color: #000000">, </span><span style="color: #001080">res</span><span style="color: #000000">, </span><span style="color: #001080">next</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">res</span><span style="color: #000000">.</span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Cache-Control&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;private, no-cache, no-store, must-revalidate&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #001080">res</span><span style="color: #000000">.</span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Expires&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;-1&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #001080">res</span><span style="color: #000000">.</span><span style="color: #795E26">header</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;Pragma&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;no-cache&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #795E26">next</span><span style="color: #000000">();</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// Add routes here - for example:</span>
 <span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/data&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">req</span><span style="color: #000000">, </span><span style="color: #001080">res</span><span style="color: #000000">, </span><span style="color: #001080">next</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">database</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">Database</span><span style="color: #000000">({ </span><span style="color: #001080">res</span><span style="color: #000000"> });</span>
 
@@ -134,16 +157,21 @@
 <span style="color: #000000">  });</span>
 <span style="color: #000000">});</span>
 
-<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">listen</span><span style="color: #000000">(</span><span style="color: #0070C1">PORT</span><span style="color: #000000">, () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">`Server is listening on port </span><span style="color: #0000FF">${</span><span style="color: #0070C1">PORT</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">);</span>
+<span style="color: #008000">// Start server</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">listen</span><span style="color: #000000">(</span><span style="color: #001080">process</span><span style="color: #000000">.</span><span style="color: #001080">env</span><span style="color: #000000">.</span><span style="color: #0070C1">PORT</span><span style="color: #000000"> || </span><span style="color: #098658">3333</span><span style="color: #000000">, </span><span style="color: #0000FF">null</span><span style="color: #000000">, </span><span style="color: #0000FF">async</span><span style="color: #000000"> (</span><span style="color: #001080">err</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">err</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">.</span><span style="color: #001080">message</span><span style="color: #000000">);</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;[koji] backend started&#039;</span><span style="color: #000000">);</span>
 <span style="color: #000000">});</span>
 </code></pre>
 				<a href="#related-resources" id="related-resources" style="color: inherit; text-decoration: none;">
 					<h2>Related resources</h2>
 				</a>
 				<ul>
-					<li><a href="https://developer.withkoji.com/docs/getting-started/instant-remixing">What is remixing?</a></li>
-					<li><a href="https://developer.withkoji.com/docs/getting-started/start-guide-1">Developing your first Koji template</a></li>
+					<li><a href="https://developer.withkoji.com/reference/core/withkoji-koji-core">Package documentation</a></li>
+					<li><a href="https://developer.withkoji.com/tutorials/getting-started/quick-start">Tutorial: Koji quick start</a></li>
+					<li><a href="https://developer.withkoji.com/docs/getting-started/migrate-koji-core">Migrating to the Koji core package</a></li>
 					<li><a href="http://withkoji.com/">Koji homepage</a></li>
 				</ul>
 				<a href="#contributions-and-questions" id="contributions-and-questions" style="color: inherit; text-decoration: none;">

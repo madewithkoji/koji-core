@@ -35,7 +35,7 @@ export class IAP extends KojiBridge {
    *
    * @example
    * ``` javascript
-   * const IAPToken = await Koji.iap.getToken();
+   * const iapToken = await Koji.iap.getToken();
    * ```
    */
   @client

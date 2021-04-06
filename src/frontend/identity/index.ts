@@ -34,7 +34,7 @@ export class Identity extends KojiBridge {
    *
    * @example
    * ```javascript
-   * const tokenInfo = await Koji.identity.getToken();
+   * const { userToken, presumedRole  } = await Koji.identity.getToken()
    * ```
    */
   @client

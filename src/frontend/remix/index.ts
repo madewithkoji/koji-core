@@ -44,11 +44,16 @@ export class Remix extends KojiBridge {
   /**
    * Initializes the remix data for the Koji with default values.
    *
+   * <p class="note">In most cases, you do not need to call this method manually because it is automatically called when you initialize the package with `Koji.config`.
+   * Use this method only if you want to use the Remix class by itself, without any other classes in the package.</p>
+   *
    * @param   remixData    Object containing the default values for your Koji.
    *
    * @example
    * ```javascript
-   * Koji.remix.init(require('../../../koji.json'));
+   * import { remixData } from '../../koji.json;
+   *
+   * Koji.remix.init(remixData));
    * ```
    */
   @client
@@ -101,7 +106,7 @@ export class Remix extends KojiBridge {
   /**
    * Updates the specified values in the remix data.
    *
-   * <p class="note">This method updates only the values that are specified in `newValue`. If other values exist, they not changed. To replace all remix data, use [[overwrite]].</p>
+   * <p class="note">This method updates only the values that are specified in `newValue`. If other values exist, they are not changed. To replace all remix data, use [[overwrite]].</p>
    *
    * @param   newValue      Key-value pairs to update in the remix data.
    * @return                Indicates whether the values were successfully updated.

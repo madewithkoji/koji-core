@@ -91,7 +91,7 @@ export class Identity extends Base {
    *
    * @example
    * ```javascript
-   * const user = identity.resolveUserFromToken(token);
+   * const user = identity.resolveUserFromToken(userToken);
    *
    * await identity.pushNotificationToUser(user.id, {
    *  icon: '❓',
@@ -147,15 +147,15 @@ export class Identity extends Base {
   /**
    * Gets the user's information for this Koji.
    *
-   * @param     token      Short-lived token for the current user’s session, which is generated with the frontend identity module. See [[getToken]].
+   * @param     token      Short-lived token identifying the current user, which is generated with the frontend identity module. See [[getToken]].
    * @return               Object containing information about the user.
    *
    * @example
    * ```javascript
    * // Get the user token (generated using the frontend identity module)
-   * const token = req.headers.authorization;
+   * const userToken = req.headers.authorization;
    *
-   * const user = identity.resolveUserFromToken(token);
+   * const user = identity.resolveUserFromToken(userToken);
    * ```
    */
   @server

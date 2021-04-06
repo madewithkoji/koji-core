@@ -81,7 +81,7 @@ export class IAP extends Base {
    *
    * @example
    * ```javascript
-   * const receipts = await iap.resolveReceiptsByIAPToken(token);
+   * const receipts = await iap.resolveReceiptsByIAPToken(iapToken);
    * ```
    */
   @server

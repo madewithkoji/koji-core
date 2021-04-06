@@ -13,7 +13,7 @@ export interface DispatchConfigurationInput {
   shardName?: string | null;
   /** Total clients to allow on a shard before it is full. When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
   maxConnectionsPerShard?: number;
-  /** Short-lived token that identifies the client, so the server and other connected clients can send it secure messages. If the token is not included, you can [[identify | identify the client]] after it is connected. */
+  /** Short-lived user token that identifies the client, so the server and other connected clients can send it secure messages. If this value is not included, you can [[identify | identify the client]] after it is connected. */
   authorization?: string;
 }
 
@@ -288,7 +288,7 @@ export class Dispatch {
   }
 
   /**
-   * Broadcasts user information for the client to connected clients in the shard.
+   * Sets user information that is sent with the payload whenever the client dispatches an event.
    *
    * @param     userInfo      Data for the user information to set.
    *
@@ -304,12 +304,12 @@ export class Dispatch {
   /**
    * Identifies a connected client, which enables the server and other connected clients to send it secure messages.
    *
-   * @param     authToken     Short-lived token for the connected client. To get a token, use [[Identity.getToken]].
+   * @param     authToken     Short-lived user token for the connected client. To get a user token, use [[Identity.getToken]].
    *
    * @example
    * ```javascript
-   * const tokenInfo = await Koji.identity.getToken();
-   * Koji.dispatch.identify(tokenInfo.token);
+   * const { userToken, presumedRole  } = await Koji.identity.getToken();
+   * Koji.dispatch.identify(userToken);
    * ```
    */
   public identify(authToken: string) {
