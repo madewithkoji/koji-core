@@ -15,7 +15,6 @@ export interface IdentityResult {
   token: UserToken;
   presumedRole: 'admin'|'user'|'unknown';
   presumedAttributes: {
-    pushNotificationsEnabled: boolean;
     username?: string;
     profilePicture?: string;
   }
