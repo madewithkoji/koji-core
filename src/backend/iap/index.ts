@@ -7,7 +7,7 @@ import { IAPToken } from '../../types';
  * API routes for iap methods.
  */
 export enum IapRoutes {
-  GET_PRODUCT_BY_SKU = '/v1/iap/provider/getProductBySku',
+  GET_PRODUCT_BY_SKU = '/v1/iap/consumer/getProductBySku',
   RESOLVE_RECEIPTS = '/v1/iap/consumer/resolveReceipts',
   RESOLVE_RECEIPT_BY_ID = '/v1/iap/consumer/resolveReceiptById',
   RESOLVE_RECEIPTS_BY_SKU = '/v1/iap/consumer/resolveReceiptsBySku',
@@ -158,7 +158,7 @@ export class IAP extends Base {
    * ```
    */
   public async loadProduct(sku: string) {
-    const { data: { product } } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?appId=${this.projectId}&sku=${sku}`, { headers: this.rootHeaders });
+    const { data: { product } } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?sku=${sku}`, { headers: this.rootHeaders });
 
     return product;
   }
