@@ -47,7 +47,8 @@ export class IAP extends KojiBridge {
   /**
    * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.
    *
-   * @param  sku             Identifier for the product to purchase.
+   * @param  sku              Identifier for the product to purchase.
+   * @param  customAttributes Optional key/value pairs to associate with the receipt, that can be referenced or updated at a later date.
    *
    * @example
    * ``` javascript
@@ -55,13 +56,18 @@ export class IAP extends KojiBridge {
    * ```
    */
   @client
-  public async startPurchase(sku: string, purchaseOptions: PurchaseOptions = {}): Promise<Purchase> {
+  public async startPurchase(
+    sku: string,
+    purchaseOptions: PurchaseOptions = {},
+    customAttributes: {[index: string]: any} = {},
+  ): Promise<Purchase> {
     const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: '@@koji/iap/promptPurchase',
         data: {
           sku,
           purchaseOptions,
+          customAttributes,
         },
       },
       'KojiIap.PurchaseFinished',
