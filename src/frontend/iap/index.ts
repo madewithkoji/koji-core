@@ -58,6 +58,8 @@ export class IAP extends KojiBridge {
    * @param  purchaseOptions   Optional information to add to the transaction receipt.
    * @param  customAttributes  Optional key-value pairs to associate with the receipt. These attribute values can be referenced or updated at a later date.
    *
+   * @return                   Results of the in-app purchase transaction.
+   *
    * @example
    * ``` javascript
    * const purchase = await Koji.iap.startPurchase(sku);

@@ -11,6 +11,7 @@ export interface UploadOptions {
   type: 'image'|'video'|'audio';
   /** Options for uploaded video. */
   videoOptions?: {
+    /** Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and saved as an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback. */
     hls: boolean;
   };
 }
@@ -24,7 +25,7 @@ export class Upload extends KojiBridge {
    *
    * @param   options     Request options for the file upload.
    *
-   * @return              Unique URL for accessing the file on images.koji-cdn.com or objects.koji-cdn.com, depending on the type of file.
+   * @return              Unique URL for accessing the file on `images.koji-cdn.com` or `objects.koji-cdn.com`, depending on the type of file.
    *
    * @example
    * ```javascript

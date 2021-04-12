@@ -11344,7 +11344,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/iap/index.ts",
-									"line": 70,
+									"line": 72,
 									"character": 28
 								}
 							],
@@ -11357,6 +11357,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.",
+										"returns": "Results of the in-app purchase transaction.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -11704,7 +11705,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/iap/index.ts",
-							"line": 95,
+							"line": 97,
 							"character": 16
 						}
 					],
@@ -20878,7 +20879,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 40,
+									"line": 41,
 									"character": 25
 								}
 							],
@@ -20891,7 +20892,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Uploads a file to your project’s CDN. You can use this method to upload media created or captured by the user as part of the template experience. For example, recording a video or drawing on a canvas.",
-										"returns": "Unique URL for accessing the file on images.koji-cdn.com or objects.koji-cdn.com, depending on the type of file.\n",
+										"returns": "Unique URL for accessing the file on `images.koji-cdn.com` or `objects.koji-cdn.com`, depending on the type of file.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -20958,7 +20959,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/upload/index.ts",
-							"line": 21,
+							"line": 22,
 							"character": 19
 						}
 					],
@@ -21075,10 +21076,13 @@
 													"kind": 1024,
 													"kindString": "Property",
 													"flags": {},
+													"comment": {
+														"shortText": "Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and saved as an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback."
+													},
 													"sources": [
 														{
 															"fileName": "frontend/ui/upload/index.ts",
-															"line": 14,
+															"line": 15,
 															"character": 7
 														}
 													],
@@ -21133,7 +21137,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/upload/index.ts",
-							"line": 57,
+							"line": 58,
 							"character": 19
 						}
 					],
