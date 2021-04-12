@@ -308,7 +308,7 @@ export class Dispatch {
    *
    * @example
    * ```javascript
-   * const { userToken, presumedRole  } = await Koji.identity.getToken();
+   * const { userToken, presumedRole, presumedAttributes  } = await Koji.identity.getToken();
    * Koji.dispatch.identify(userToken);
    * ```
    */

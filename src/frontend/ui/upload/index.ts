@@ -2,25 +2,29 @@ import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
 
 /**
- * Defines a request that the platform upload a file on behalf of the template
+ * Request options for a [[uploadFile | file upload]].
  */
 export interface UploadOptions {
-  /** File to upload */
+  /** File to upload. */
   file: File;
-  /** The type of file to upload (used to determine if something like transcoding is required) */
+  /** Media type of the file, which is used to determine whether transcoding or other processing is required. */
   type: 'image'|'video'|'audio';
-  /** Options for uploaded video */
+  /** Options for uploaded video. */
   videoOptions?: {
     hls: boolean;
   };
 }
 
 /**
- * Presents dialog boxes to users on the frontend of your Koji.
+ * Uploads files from the frontend of your Koji directly to your project's CDN.
  */
 export class Upload extends KojiBridge {
   /**
-   * Use Koji to upload a file on behalf of the template. This can be useful for media created or captured by the user as part of the template experience (e.g., recording a video, or drawing on a canvas)
+   * Uploads a file to your project’s CDN. You can use this method to upload media created or captured by the user as part of the template experience. For example, recording a video or drawing on a canvas.
+   *
+   * @param   options     Request options for the file upload.
+   *
+   * @return              Unique URL for accessing the file on images.koji-cdn.com or objects.koji-cdn.com, depending on the type of file.
    *
    * @example
    * ```javascript
