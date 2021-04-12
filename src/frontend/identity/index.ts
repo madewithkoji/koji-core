@@ -21,6 +21,13 @@ export interface IdentityResult {
   * Admin actions must still be secured on the backend by resolving the user’s role.
   */
   presumedRole: 'admin'|'user'|'unknown';
+  /** Additional user attributes, which are returned if the user has granted username authorization via [[requestGrants]]. */
+  presumedAttributes: {
+    /** Koji username for the user. */
+    username?: string;
+    /** Koji avatar for the user. */
+    profilePicture?: string;
+  }
 }
 
 /**
@@ -34,12 +41,16 @@ export class Identity extends KojiBridge {
    *
    * @example
    * ```javascript
-   * const { userToken, presumedRole  } = await Koji.identity.getToken()
+   * const { userToken, presumedRole, presumedAttributes  } = await Koji.identity.getToken()
    * ```
    */
   @client
   public async getToken(): Promise<IdentityResult> {
-    const { userToken, presumedRole } = await this.sendMessageAndAwaitResponse({
+    const {
+      userToken,
+      presumedRole,
+      presumedAttributes,
+    } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/auth/getToken',
       data: {
         grants: [],
@@ -50,6 +61,7 @@ export class Identity extends KojiBridge {
     return {
       token: userToken,
       presumedRole,
+      presumedAttributes,
     };
   }
 
