@@ -168,6 +168,7 @@ For any questions, reach out to the developer community or the `@Koji Team` on o
 - [x] Implement single instance to prevent race conditions/multiple sources of truth
 - [x] Implement TypeScript best practices
 - [x] Implement development tooling
+- [ ] Support https://unpkg.com/
 - [ ] Improve TypeDoc implementation
 - [ ] Improve test coverage
 - [ ] Reduce bundle size
