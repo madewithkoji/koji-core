@@ -100,6 +100,31 @@ export class Database extends Base {
   private rootHeaders: Object;
 
   /**
+   * Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].
+   *
+   * @example
+   * ```javascript
+   *
+   * // Increment a value (using a positive integer)
+   * const updatedDoc = await database.update('collection', 'document', {
+   *   'myValue': KojiBackend.Database.valueTypes.increment(1),
+   * }, true);
+   *
+   * // Decrement a value (using a negative integer)
+   * const updatedDoc = await database.update('collection', 'document', {
+   *   'myValue': KojiBackend.Database.valueTypes.increment(-1),
+   * }, true);
+
+   * ```
+   */
+  public static valueTypes = {
+    increment: (number: number) => ({
+      _updateType: 'increment',
+      value: number,
+    }),
+  };
+
+  /**
    * Instantiates the Database class.
    *
    * @param   config
