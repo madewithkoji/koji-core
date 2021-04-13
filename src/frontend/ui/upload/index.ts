@@ -13,6 +13,8 @@ export interface UploadOptions {
   videoOptions?: {
     /** Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and saved as an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback. */
     hls: boolean;
+    /** Video files constructed from getUserMedia MediaStreams will not contain correct duration headers, and need to be remuxed by Koji before they are delivered. */
+    remux: boolean;
   };
 }
 
