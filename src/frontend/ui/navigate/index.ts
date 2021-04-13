@@ -79,13 +79,29 @@ export class Navigate extends KojiBridge {
   }
 
   /**
-   * Programmatically open the Koji's share sheet/dialog.
+   * Programmatically open the Koji's share sheet/dialog. If you do not pass any arguments, the share prompt will load for the URL of the current Koji. Pass a URL, or a relative URL, to open a share prompt for a different URL or for a deep link into your Koji.
+   *
+   * @param url An optional URL to use instead of the current Koji.
+   * @example
+   * ```javascript
+   * Koji.ui.navigate.share();
+   * ```
+   * @example
+   * ```javascript
+   * Koji.ui.navigate.share('https://withkoji.com/@sean');
+   * ```
+   * @example
+   * ```javascript
+   * Koji.ui.navigate.share('?key=value');
+   * ```
    */
   @client
-  public openShareDialog(): void {
+  public openShareDialog(url?: string): void {
     this.sendMessage({
       kojiEventName: 'Koji.Share',
-      data: {},
+      data: {
+        url,
+      },
     });
   }
 }

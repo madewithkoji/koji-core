@@ -12,6 +12,8 @@ export interface UploadOptions {
   /** Options for uploaded video */
   videoOptions?: {
     hls: boolean;
+    /** Video files constructed from getUserMedia MediaStreams will not contain correct duration headers, and need to be remuxed by Koji before they are delivered. */
+    remux: boolean;
   };
 }
 
