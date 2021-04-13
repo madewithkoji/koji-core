@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "Core library for developing remixable Koji templates",
   "main": "dist/index.js",
   "scripts": {
