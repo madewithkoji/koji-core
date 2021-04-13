@@ -115,7 +115,7 @@ export class Navigate extends KojiBridge {
   }
 
   /**
-   * Opens the sharing dialog box. By default, the share prompt loads for the URL of the current Koji. Specify a full or a relative URL to open a share prompt for a different URL or for a deep link into your Koji.
+   * Opens the sharing dialog box. By default, the dialog box shares the URL of the current Koji. Specify a full or a relative URL to open a dialog box for sharing a different URL or for a deep link into your Koji.
    *
    * @param url URL to use instead of the current Koji.
    *
