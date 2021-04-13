@@ -289,20 +289,6 @@ export class Dispatch extends Base {
   }
 
   /**
-   * Broadcasts user information for the client to connected clients in the shard.
-   *
-   * @param     userInfo     Data for the user information to set.
-   *
-   * @example
-   * ```javascript
-   * dispatch.setUserInfo({ avatar: userAvatar });
-   * ```
-   */
-  public setUserInfo(userInfo: { [index: string]: any }) {
-    this.emitEvent(PlatformEvents.SET_USER_INFO, userInfo);
-  }
-
-  /**
    * Identifies a connected client, which enables the server and other connected clients to send it secure messages.
    *
    * @param     authToken     Short-lived user token for the connected client. To get a user token, use [[Identity.getToken]].

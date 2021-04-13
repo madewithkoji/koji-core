@@ -186,6 +186,9 @@ export class Dispatch {
   private handleMessage({ data }: { data: string }, resolve: Function) {
     const { eventName, latencyMs, payload } = JSON.parse(data || '{}');
 
+    // On an explicit connection event, we update the local state
+    // and short-circuit to prevent it from passing to registered
+    // event handlers.
     if (eventName === PlatformEvents.CONNECTED) {
       this.initialConnection = true;
       this.isConnected = true;
@@ -279,6 +282,32 @@ export class Dispatch {
     this.eventHandlers.push({
       id: handlerId,
       eventName,
+      callback,
+    });
+
+    return () => {
+      this.eventHandlers = this.eventHandlers.filter(({ id }) => id !== handlerId);
+    };
+  }
+
+  /**
+   * Sets a listener for a change in connected clients (can be a new client, or an client updated via [[setUserInfo]]), and invokes a callback function when the event is dispatched over the shard.
+   *
+   * @param     callback      Function to invoke when the event is fired.
+   *
+   * @return                  Function to unsubscribe from the event listener.
+   *
+   * @example
+   * ```javascript
+   * unsubscribeEvent = Koji.dispatch.onConnectedClientsChanged(callbackFunction);
+   * ```
+   */
+  public onConnectClientsChanged(callback: MessageHandlerCallback): Function {
+    const handlerId = uuidv4();
+
+    this.eventHandlers.push({
+      id: handlerId,
+      eventName: PlatformEvents.CONNECTED_CLIENTS_CHANGED,
       callback,
     });
 
