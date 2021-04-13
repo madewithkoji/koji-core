@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Easily access core pieces of Koji's platform features",
   "main": "dist/index.js",
   "scripts": {
