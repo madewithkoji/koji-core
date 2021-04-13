@@ -16,7 +16,7 @@ export interface VerboseCapture {
   /** Capture method type (for example, `color` or `file`). */
   captureType: CaptureType;
   /** Value captured from the user. */
-  result?: CaptureResult;
+  result?: string | number | null;
   /** Metadata associated with the captured result */
   resultMetadata?: ExtendedMediaResult | ExtendedLinkResult | null;
 }

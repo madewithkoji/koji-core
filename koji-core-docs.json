@@ -19604,11 +19604,6 @@
 									{
 										"type": "intrinsic",
 										"name": "number"
-									},
-									{
-										"type": "reference",
-										"id": 820,
-										"name": "VerboseCapture"
 									}
 								]
 							}
