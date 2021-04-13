@@ -13,7 +13,7 @@ interface DispatchConfigurationInput {
   /** Name of the dispatch shard to use. If not specified, the client is added to a shard automatically. */
   shardName?: string | null;
   /** Total clients to allow on a shard before it is full. When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
-  maxConnectionsPerShard: number;
+  maxConnectionsPerShard?: number;
   /** Short-lived user token that identifies the client, so the server and other connected clients can send it secure messages. If the user token is not included, you can [[identify | identify the client]] after it is connected. */
   authorization?: string;
 }
@@ -135,7 +135,7 @@ export class Dispatch extends Base {
    * });
    * ```
    */
-  public async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
+  public async connect(config: DispatchConfigurationInput = {}): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
@@ -144,9 +144,9 @@ export class Dispatch extends Base {
       const options: DispatchOptions = {
         projectId: this.projectId,
         projectToken: this.projectToken,
-        shardName,
-        maxConnectionsPerShard,
-        authorization,
+        shardName: config.shardName,
+        maxConnectionsPerShard: config.maxConnectionsPerShard || 100,
+        authorization: config.authorization,
       };
 
       const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
@@ -158,7 +158,7 @@ export class Dispatch extends Base {
 
       const url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
 
-      this.authToken = authorization;
+      this.authToken = config.authorization;
 
       // Create a socket connection to the dispatch server
       this.ws = new Sockette(url, {
