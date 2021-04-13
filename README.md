@@ -124,6 +124,31 @@ app.listen(process.env.PORT || 3333, null, async (err) => {
 });
 ```
 
+## Documentation
+
+You can generate TypeDocs locally for offline reference. To do so, simply run `npm run doc` and open the resulting `docs` folder in your favorite html viewer/browser.
+
+You can generate the underlying JSON content by running `npm run json-doc`. This will output a `koji-core-docs.json` file that you can bring into your favorite parser/static site generator as a data source.
+
+## Developing
+
+If you would like to test or develop new features for the package, there are a few steps that will get you up and running quickly. Note: These steps assume you're already using the `@withkoji/core` package, installed via npm.
+
+1. Clone this repo locally
+2. In the package's root folder, run `npm install` to install the required dev dependencies
+3. Start the build watcher by running `npm run watch` in the package's root folder
+4. (Optional) Start the declarations watcher by running `npm run watch-declarations` in the package's root folder
+5. In your consumer project, remove the existing installation: `npm remove @withkoji/core`
+6. In your consumer project, install the local package, referencing the folder where you cloned the repo: `npm install ~/YourComputer/koji-core`
+7. If everything went well, your consumer project should now be referencing your local installation
+
+Notes:
+
+- If your consumer project offers hot reloading, you should see updates made to the package recompiled by the watcher and injected into your project automatically
+- If your consumer project does not offer hot reloading (e.g., express app), you'll need to quit the process and restart to get any watched changes to the package
+- If you run the declarations watcher, you should also get real-time updates in your IDE for types and documentation. In some instances, you may need to refresh/reload your IDE's view in order to clear any cached values
+- Because the `dist` folder is not bundled into the repo, you may need to run a build or include it in a commit if you are testing an installation via github.
+
 ## Related resources
 
 * [Package documentation](https://developer.withkoji.com/reference/core/withkoji-koji-core)
