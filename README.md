@@ -161,3 +161,14 @@ Notes:
 See the [contributions page](https://developer.withkoji.com/docs/about/contribute-koji-developers) on the developer site for info on how to make contributions to Koji repositories and developer documentation.
 
 For any questions, reach out to the developer community or the `@Koji Team` on our [Discord server](https://discord.gg/9egkTWf4ec).
+
+## Roadmap
+
+- [x] Convert existing packages (koji-vcc, koji-database, etc.) to a single package
+- [x] Implement single instance to prevent race conditions/multiple sources of truth
+- [x] Implement TypeScript best practices
+- [x] Implement development tooling
+- [ ] Improve TypeDoc implementation
+- [ ] Improve test coverage
+- [ ] Reduce bundle size
+- [ ] Auto-magical e2e testing in the debugger
