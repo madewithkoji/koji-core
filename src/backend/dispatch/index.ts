@@ -289,7 +289,7 @@ export class Dispatch extends Base {
   /**
    * Identifies a connected client, which enables the server and other connected clients to send it secure messages.
    *
-   * @param     authToken     Short-lived user token for the connected client. To get a user token, use [[Identity.getToken]].
+   * @param     authToken     Short-lived user token for the connected client. To get a user token, use {@doclink core-frontend-identity#getToken | Identity.getToken}.
    *
    * @example
    * ```javascript

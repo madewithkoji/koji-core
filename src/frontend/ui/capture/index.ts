@@ -377,7 +377,7 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select a value from a custom control. To build a custom control, use the [[https://developer.withkoji.com/reference/packages/customvcc/withkoji-custom-vcc-sdk | @withkoji/custom-vcc-sdk package]].
+   * Prompts the user to select a value from a custom control. To build a custom control, use the {@doclink withkoji-custom-vcc-sdk | @withkoji/custom-vcc-sdk package}.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the value captured by the custom control.

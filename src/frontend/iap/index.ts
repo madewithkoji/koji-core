@@ -3,12 +3,12 @@ import { client } from '../@decorators/client';
 import { IAPToken } from '../../types';
 
 /**
- * Optional information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase.
+ * Optional information to add to a {@doclink core-backend-iap#IapReceipt | transaction receipt} for a given in-app purchase.
  */
 export interface PurchaseOptions {
   /** Amount of the purchase. */
   amount?: number;
-  /** Custom message associated with the purchase. This value is stored as a custom attribute on the [[IapReceipt | transaction receipt]]. */
+  /** Custom message associated with the purchase. This value is stored as a custom attribute on the transaction receipt. */
   customMessage?: string;
 }
 
@@ -56,7 +56,7 @@ export class IAP extends KojiBridge {
    *
    * @param  sku               Identifier for the product to purchase.
    * @param  purchaseOptions   Optional information to add to the transaction receipt.
-   * @param  customAttributes  Optional key-value pairs to associate with the receipt. These attribute values can be referenced or updated at a later date.
+   * @param  customAttributes  Optional key-value pairs to add to the receipt. These attribute values can be referenced or updated by resolving receipts on the backend of the Koji.
    *
    * @return                   Results of the in-app purchase transaction.
    *
@@ -65,7 +65,7 @@ export class IAP extends KojiBridge {
    * const purchase = await Koji.iap.startPurchase(sku);
    *
    * // with optional parameters
-   * const purchase = await Koji.iap.startPurchase(sku, { customMessage: 'Your power up has been added' }, { isConsumed: false });
+   * const purchase = await Koji.iap.startPurchase(sku, { customMessage: 'Your credit is now available' }, { isConsumed: false });
    * ```
    */
   @client

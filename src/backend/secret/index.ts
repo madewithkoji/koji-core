@@ -40,7 +40,7 @@ export class Secret extends Base {
   }
 
   /**
-   * Resolves sensitive data that was [[encryptValue | stored as an encrypted value]].
+   * Resolves sensitive data that was {@doclink core-frontend-remix#encryptValue | stored as an encrypted value}.
    *
    * @param   keyPath  Path where the encrypted value is stored.
    * @return           Decrypted value.

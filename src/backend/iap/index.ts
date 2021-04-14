@@ -103,6 +103,7 @@ export class IAP extends Base {
   /**
    * Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.
    * For example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.
+   * Or, capture product options, such as color or size, to display to the seller in the admin page.
    *
    * @param     receiptId     Unique identifier for the receipt.
    * @return                  Object for the specified receipt.
@@ -145,7 +146,7 @@ export class IAP extends Base {
 
   /**
    * Updates the custom attributes for a specified receipt.
-   * For example, if a user purchases a "power up" and then uses it in a game, you can update the receipt to indicate that the product has been consumed and is not available for future sessions.
+   * For example, if a user purchases a credit toward a product on the Koji and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.
    *
    * @param     receiptId             Unique identifier for the receipt.
    * @param     attributes            Object of key-value paired attributes to store with the receipt.
@@ -155,7 +156,7 @@ export class IAP extends Base {
    *
    * @example
    * ```javascript
-   * iap.updateReceipt(id, { consumed: true }, 'You have successfully redeemed your purchase.');
+   * iap.updateReceipt(id, { consumed: true }, 'You have successfully redeemed your credit.');
    * ```
    */
   public async updateReceipt(receiptId: string, attributes: { [index: string]: any }, notificationMessage?: string): Promise<any> {

@@ -93,7 +93,7 @@ export enum DatabaseHttpStatusCode {
  * Implements a Koji database for the backend of your Koji.
  *
  * A Koji database is a key-value store that is included with each project on Koji.
- * For more information, see the [[https://developer.withkoji.com/docs/develop/koji-database | Koji database developer guide]].
+ * For more information, see the {@doclink koji-database | Koji database developer guide}.
  */
 export class Database extends Base {
   private rootPath: string;
@@ -104,7 +104,6 @@ export class Database extends Base {
    *
    * @example
    * ```javascript
-   *
    * // Increment a value (using a positive integer)
    * const updatedDoc = await database.update('collection', 'document', {
    *   'myValue': KojiBackend.Database.valueTypes.increment(1),
@@ -114,7 +113,6 @@ export class Database extends Base {
    * const updatedDoc = await database.update('collection', 'document', {
    *   'myValue': KojiBackend.Database.valueTypes.increment(-1),
    * }, true);
-
    * ```
    */
   public static valueTypes = {
@@ -205,7 +203,7 @@ export class Database extends Base {
    *
    * @example
    * ```javascript
-   * const myData = await database.search<'myClass'>('myCollection', 'myField', 'mySearchValue');
+   * const myData = await database.search('myCollection', 'myField', 'mySearchValue');
    * ```
    */
   @server
@@ -236,7 +234,7 @@ export class Database extends Base {
    *
    * @example
    * ```javascript
-   * const myData = await database.getWhere<'myClass'>('myCollection',
+   * const myData = await database.getWhere('myCollection',
    *  'myField', 'myOperator, 'mySearchValue');
    * ```
    */
@@ -268,7 +266,7 @@ export class Database extends Base {
    *
    * @example
    * ```javascript
-   * const myData = await database.getAll<'myClass'>('myCollection', ['doc1', 'doc2']);
+   * const myData = await database.getAll('myCollection', ['doc1', 'doc2']);
    * ```
    */
   @server
@@ -298,7 +296,7 @@ export class Database extends Base {
    *
    * @example
    * ```javascript
-   * const myData = await database.getAllWhere<'myClass'>('myCollection',
+   * const myData = await database.getAllWhere('myCollection',
    *  'myField', '==', ['mySearchValue1', 'mySearchValue2']);
    * ```
    */
@@ -352,7 +350,7 @@ export class Database extends Base {
   }
 
   /**
-   * Updates the specified data for an entry in the database collection.
+   * Updates the specified data for an entry in the database collection. To increment numeric values with a single update request, you can use [[valueTypes | valueTypes.increment]].
    *
    * <p class="note">This method updates only the values that are specified in `documentBody`. If other values exist in the entry, they are not changed.
    * If no existing entry matches the `documentName`, a new entry is created with the specified `documentName` and `documentBody`.</p>

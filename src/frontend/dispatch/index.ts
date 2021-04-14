@@ -47,24 +47,27 @@ export interface MessageHandler {
   callback: MessageHandlerCallback | ConnectedClientsChangedHandlerCallback;
 }
 
+/**
+ * Information about a client that is connected to a shard.
+ */
 export interface ConnectedClient {
-  /** Unique id identifying the client */
+  /** Unique identifier for the client. */
   clientId: string;
-  /** Timestamp of the client's most recent ping (network activity) */
+  /** Timestamp of the client's most recent ping (network activity). */
   lastPing: number;
 }
 
 export type ConnectedClientsChangedHandlerCallback =
 /**
- * Function to handle a dispatch event. Invoked by a new or updated client connection
+ * Function to handle a dispatch event for a new or updated client connection. Invoked by the [[onConnectedClientsChanged]] listener.
  *
- * @param payload   Array of connected clients
+ * @param connectedClients   Array of information about the connected clients in the shard.
  */
 (connectedClients: ConnectedClient[]) => void;
 
 export type MessageHandlerCallback =
 /**
- * Function to handle a dispatch event. Invoked by the [[Dispatch.on | on]] listener.
+ * Function to handle a dispatch event. Invoked by the [[on]] listener.
  *
  * @param payload   Data payload sent with the fired event.
  * @param metadata  Object containing additional information about the event, including the message latency in milliseconds.
@@ -82,7 +85,7 @@ export interface ShardInfo {
 }
 
 /**
- * Connection details for a client. Returned when the client [[Dispatch.connect | connects to a dispatch shard]].
+ * Connection details for a client. Returned when the client [[connect | connects to a dispatch shard]].
  */
 export interface ConnectionInfo {
   /** ID of the connected client. */
@@ -306,7 +309,8 @@ export class Dispatch {
   }
 
   /**
-   * Sets a listener for a change in connected clients (can be a new client, or an client updated via [[setUserInfo]]), and invokes a callback function when the event is dispatched over the shard.
+   * Sets a listener for changes to connected clients, and invokes a callback function when the event is dispatched over the shard.
+   * A change occurs whenever any client connects, disconnects, or updates their user information with [[setUserInfo]].
    *
    * @param     callback      Function to invoke when the event is fired.
    *
@@ -340,9 +344,9 @@ export class Dispatch {
   }
 
   /**
-   * Sets user info that will be available in the [[onConnectedClientsChanged]] listener.
+   * Sets user information that is available in the [[onConnectedClientsChanged]] listener.
    *
-   * @param     userInfo      Data for the user information to set.
+   * @param     userInfo      Data to set for the client's user information.
    *
    * @example
    * ```javascript
@@ -356,7 +360,7 @@ export class Dispatch {
   /**
    * Identifies a connected client, which enables the server and other connected clients to send it secure messages.
    *
-   * @param     authToken     Short-lived user token for the connected client. To get a user token, use [[Identity.getToken]].
+   * @param     authToken     Short-lived user token for the connected client. To get a user token, use {@doclink core-frontend-identity#getToken | Identity.getToken}.
    *
    * @example
    * ```javascript

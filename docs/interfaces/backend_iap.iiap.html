@@ -114,7 +114,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -125,7 +125,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -143,7 +143,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#loadproduct">loadProduct</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/iap/index.ts#L187">backend/iap/index.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L188">backend/iap/index.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -183,13 +183,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptbyid">resolveReceiptById</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/iap/index.ts#L122">backend/iap/index.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L123">backend/iap/index.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.
-									For example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.</p>
+										For example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.
+									Or, capture product options, such as color or size, to display to the seller in the admin page.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
@@ -229,7 +230,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbyiaptoken">resolveReceiptsByIAPToken</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/iap/index.ts#L88">backend/iap/index.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L88">backend/iap/index.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -268,7 +269,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbysku">resolveReceiptsBySku</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/iap/index.ts#L140">backend/iap/index.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L141">backend/iap/index.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,17 +308,17 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#updatereceipt">updateReceipt</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/iap/index.ts#L161">backend/iap/index.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L162">backend/iap/index.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Updates the custom attributes for a specified receipt.
-									For example, if a user purchases a &quot;power up&quot; and then uses it in a game, you can update the receipt to indicate that the product has been consumed and is not available for future sessions.</p>
+									For example, if a user purchases a credit toward a product on the Koji and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">updateReceipt</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, { </span><span style="color: #001080">consumed:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }, </span><span style="color: #A31515">&#039;You have successfully redeemed your purchase.&#039;</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">updateReceipt</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, { </span><span style="color: #001080">consumed:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }, </span><span style="color: #A31515">&#039;You have successfully redeemed your credit.&#039;</span><span style="color: #000000">);</span>
 </code></pre>
 									</dd>
 								</dl>
