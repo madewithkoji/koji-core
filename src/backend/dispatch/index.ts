@@ -9,10 +9,10 @@ unsafeGlobal.WebSocket = require('isomorphic-ws');
 /**
  * Configuration options for a new connection.
  */
-interface DispatchConfigurationInput {
+export interface DispatchConfigurationInput {
   /** Name of the dispatch shard to use. If not specified, the client is added to a shard automatically. */
   shardName?: string | null;
-  /** Total clients to allow on a shard before it is full. When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
+  /** Total clients to allow on a shard before it is full (defaults to 100). When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
   maxConnectionsPerShard?: number;
   /** Short-lived user token that identifies the client, so the server and other connected clients can send it secure messages. If the user token is not included, you can [[identify | identify the client]] after it is connected. */
   authorization?: string;
@@ -121,11 +121,9 @@ export class Dispatch extends Base {
   /**
    * Connects a client to a dispatch shard.
    *
-   * @param     shardName     Name of the shard.
-   * @param     maxConnectionsPerShard   Maximum connections per Shard (defaults to 100).
-   * @param     authorization Authorization credentials.
+   * @param config    Configuration options for the connection.
    *
-   * @return                   Connection details, including the client ID and shard name.
+   * @return          Connection details, including the client ID and shard name.
    *
    * @example
    * ```javascript

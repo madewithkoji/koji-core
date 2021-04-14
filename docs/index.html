@@ -165,6 +165,31 @@
 <span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;[koji] backend started&#039;</span><span style="color: #000000">);</span>
 <span style="color: #000000">});</span>
 </code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>You can generate TypeDocs locally for offline reference. To do so, simply run <code>npm run doc</code> and open the resulting <code>docs</code> folder in your favorite html viewer/browser.</p>
+				<p>You can generate the underlying JSON content by running <code>npm run json-doc</code>. This will output a <code>koji-core-docs.json</code> file that you can bring into your favorite parser/static site generator as a data source.</p>
+				<a href="#developing" id="developing" style="color: inherit; text-decoration: none;">
+					<h2>Developing</h2>
+				</a>
+				<p>If you would like to test or develop new features for the package, there are a few steps that will get you up and running quickly. Note: These steps assume you&#39;re already using the <code>@withkoji/core</code> package, installed via npm.</p>
+				<ol>
+					<li>Clone this repo locally</li>
+					<li>In the package&#39;s root folder, run <code>npm install</code> to install the required dev dependencies</li>
+					<li>Start the build watcher by running <code>npm run watch</code> in the package&#39;s root folder</li>
+					<li>(Optional) Start the declarations watcher by running <code>npm run watch-declarations</code> in the package&#39;s root folder</li>
+					<li>In your consumer project, remove the existing installation: <code>npm remove @withkoji/core</code></li>
+					<li>In your consumer project, install the local package, referencing the folder where you cloned the repo: <code>npm install ~/YourComputer/koji-core</code></li>
+					<li>If everything went well, your consumer project should now be referencing your local installation</li>
+				</ol>
+				<p>Notes:</p>
+				<ul>
+					<li>If your consumer project offers hot reloading, you should see updates made to the package recompiled by the watcher and injected into your project automatically</li>
+					<li>If your consumer project does not offer hot reloading (e.g., express app), you&#39;ll need to quit the process and restart to get any watched changes to the package</li>
+					<li>If you run the declarations watcher, you should also get real-time updates in your IDE for types and documentation. In some instances, you may need to refresh/reload your IDE&#39;s view in order to clear any cached values</li>
+					<li>Because the <code>dist</code> folder is not bundled into the repo, you may need to run a build or include it in a commit if you are testing an installation via github.</li>
+				</ul>
 				<a href="#related-resources" id="related-resources" style="color: inherit; text-decoration: none;">
 					<h2>Related resources</h2>
 				</a>
@@ -179,6 +204,20 @@
 				</a>
 				<p>See the <a href="https://developer.withkoji.com/docs/about/contribute-koji-developers">contributions page</a> on the developer site for info on how to make contributions to Koji repositories and developer documentation.</p>
 				<p>For any questions, reach out to the developer community or the <code>@Koji Team</code> on our <a href="https://discord.gg/9egkTWf4ec">Discord server</a>.</p>
+				<a href="#roadmap" id="roadmap" style="color: inherit; text-decoration: none;">
+					<h2>Roadmap</h2>
+				</a>
+				<ul>
+					<li><input checked="" disabled="" type="checkbox"> Convert existing packages (koji-vcc, koji-database, etc.) to a single package</li>
+					<li><input checked="" disabled="" type="checkbox"> Implement single instance to prevent race conditions/multiple sources of truth</li>
+					<li><input checked="" disabled="" type="checkbox"> Implement TypeScript best practices</li>
+					<li><input checked="" disabled="" type="checkbox"> Implement development tooling</li>
+					<li><input disabled="" type="checkbox"> Support <a href="https://unpkg.com/">https://unpkg.com/</a></li>
+					<li><input disabled="" type="checkbox"> Improve TypeDoc implementation</li>
+					<li><input disabled="" type="checkbox"> Improve test coverage</li>
+					<li><input disabled="" type="checkbox"> Reduce bundle size</li>
+					<li><input disabled="" type="checkbox"> Auto-magical e2e testing in the debugger</li>
+				</ul>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

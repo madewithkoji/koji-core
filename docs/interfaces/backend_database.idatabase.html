@@ -120,7 +120,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -131,7 +131,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -149,19 +149,25 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#arraypush">arrayPush</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L408">backend/database/index.ts:408</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L414">backend/database/index.ts:414</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Appends data to an existing database entry.</p>
+									<p>Adds data onto arrays in an existing database entry.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">isAdded</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">arrayPush</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, {</span>
-<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData1&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue1&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000"> </span><span style="color: #A31515">&#039;myData2&#039;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myValue2&#039;</span>
-<span style="color: #000000">});</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">doc</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">database</span><span style="color: #000000">.</span><span style="color: #795E26">arrayPush</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myCollection&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;myDocument&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000"> </span><span style="color: #001080">array1:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;newValue1&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #001080">array2:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;newValue2&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">}, </span><span style="color: #0000FF">true</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// Updated document after arrayPush</span>
+<span style="color: #001080">doc</span><span style="color: #000000"> = {</span>
+<span style="color: #000000"> </span><span style="color: #001080">array1:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;existingValue1&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;newValue1&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000"> </span><span style="color: #001080">array2:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;existingValue2&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;newValue2&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">}</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -183,7 +189,7 @@
 								<li>
 									<h5>documentBody: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Data to append to the entry.</p>
+										<p>Key-value pairs of arrays and the entries to add to them.</p>
 									</div>
 								</li>
 								<li>
@@ -209,7 +215,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#arrayremove">arrayRemove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L441">backend/database/index.ts:441</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L447">backend/database/index.ts:447</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +275,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L469">backend/database/index.ts:469</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L475">backend/database/index.ts:475</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -314,7 +320,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L164">backend/database/index.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L164">backend/database/index.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -369,7 +375,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getall">getAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L275">backend/database/index.ts:275</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L275">backend/database/index.ts:275</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -423,7 +429,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getallwhere">getAllWhere</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L306">backend/database/index.ts:306</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L306">backend/database/index.ts:306</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -491,7 +497,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getcollections">getCollections</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L187">backend/database/index.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L187">backend/database/index.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -521,7 +527,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#getwhere">getWhere</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L244">backend/database/index.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L244">backend/database/index.ts:244</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -589,7 +595,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#search">search</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L212">backend/database/index.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L212">backend/database/index.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -650,7 +656,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L339">backend/database/index.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L339">backend/database/index.ts:339</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -710,7 +716,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_database.database.html">Database</a>.<a href="../classes/backend_database.database.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/07d0c18/src/backend/database/index.ts#L375">backend/database/index.ts:375</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fd51fc7/src/backend/database/index.ts#L375">backend/database/index.ts:375</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
