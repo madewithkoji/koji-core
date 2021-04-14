@@ -44,8 +44,23 @@ export enum PlatformEvents {
 export interface MessageHandler {
   id: string;
   eventName: string;
-  callback: MessageHandlerCallback;
+  callback: MessageHandlerCallback | ConnectedClientsChangedHandlerCallback;
 }
+
+export interface ConnectedClient {
+  /** Unique id identifying the client */
+  clientId: string;
+  /** Timestamp of the client's most recent ping (network activity) */
+  lastPing: number;
+}
+
+export type ConnectedClientsChangedHandlerCallback =
+/**
+ * Function to handle a dispatch event. Invoked by a new or updated client connection
+ *
+ * @param payload   Array of connected clients
+ */
+(connectedClients: ConnectedClient[]) => void;
 
 export type MessageHandlerCallback =
 /**
@@ -302,13 +317,21 @@ export class Dispatch {
    * unsubscribeEvent = Koji.dispatch.onConnectedClientsChanged(callbackFunction);
    * ```
    */
-  public onConnectClientsChanged(callback: MessageHandlerCallback): Function {
+  public onConnectedClientsChanged(callback: ConnectedClientsChangedHandlerCallback): Function {
     const handlerId = uuidv4();
+
+    // Map the object of connected clients to an array, keyed by clientId
+    function mapConnectedClients(connectedClientsObj: any) {
+      return Object.keys(connectedClientsObj).map((key) => ({
+        clientId: key,
+        ...[connectedClientsObj[key]][0],
+      }));
+    }
 
     this.eventHandlers.push({
       id: handlerId,
       eventName: PlatformEvents.CONNECTED_CLIENTS_CHANGED,
-      callback,
+      callback: (payload: any) => callback(mapConnectedClients(payload.connectedClients)),
     });
 
     return () => {
@@ -317,7 +340,7 @@ export class Dispatch {
   }
 
   /**
-   * Sets user information that is sent with the payload whenever the client dispatches an event.
+   * Sets user info that will be available in the [[onConnectedClientsChanged]] listener.
    *
    * @param     userInfo      Data for the user information to set.
    *
