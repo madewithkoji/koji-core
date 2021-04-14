@@ -124,30 +124,15 @@ app.listen(process.env.PORT || 3333, null, async (err) => {
 });
 ```
 
-## Documentation
+## Generating documentation locally
 
-You can generate TypeDocs locally for offline reference. To do so, simply run `npm run doc` and open the resulting `docs` folder in your favorite html viewer/browser.
+This package uses TypeDoc comments for documentation.
+The latest version of the documentation is available online at the [Koji developer site](https://developer.withkoji.com/reference/core/withkoji-koji-core).
+However, you can also generate the package documentation locally for offline reference.
 
-You can generate the underlying JSON content by running `npm run json-doc`. This will output a `koji-core-docs.json` file that you can bring into your favorite parser/static site generator as a data source.
+- To generate an HTML version of the documentation, run `npm run doc` and open the resulting `docs` folder in your favorite HTML viewer or browser.
 
-## Developing
-
-If you would like to test or develop new features for the package, there are a few steps that will get you up and running quickly. Note: These steps assume you're already using the `@withkoji/core` package, installed via npm.
-
-1. Clone this repo locally
-2. In the package's root folder, run `npm install` to install the required dev dependencies
-3. Start the build watcher by running `npm run watch` in the package's root folder
-4. (Optional) Start the declarations watcher by running `npm run watch-declarations` in the package's root folder
-5. In your consumer project, remove the existing installation: `npm remove @withkoji/core`
-6. In your consumer project, install the local package, referencing the folder where you cloned the repo: `npm install ~/YourComputer/koji-core`
-7. If everything went well, your consumer project should now be referencing your local installation
-
-Notes:
-
-- If your consumer project offers hot reloading, you should see updates made to the package recompiled by the watcher and injected into your project automatically
-- If your consumer project does not offer hot reloading (e.g., express app), you'll need to quit the process and restart to get any watched changes to the package
-- If you run the declarations watcher, you should also get real-time updates in your IDE for types and documentation. In some instances, you may need to refresh/reload your IDE's view in order to clear any cached values
-- Because the `dist` folder is not bundled into the repo, you may need to run a build or include it in a commit if you are testing an installation via github.
+- To generate the underlying JSON content for the documentation, run `npm run json-doc`. This command will output a `koji-core-docs.json` file that you can use as a data source for your favorite parser or static site generator.
 
 ## Related resources
 
@@ -158,11 +143,36 @@ Notes:
 
 ## Contributions and questions
 
-See the [contributions page](https://developer.withkoji.com/docs/about/contribute-koji-developers) on the developer site for info on how to make contributions to Koji repositories and developer documentation.
+See the [contributions page](https://developer.withkoji.com/docs/about/contribute-koji-developers) on the developer site for general info on how to make contributions to Koji repositories and developer documentation.
 
 For any questions, reach out to the developer community or the `@Koji Team` on our [Discord server](https://discord.gg/9egkTWf4ec).
 
-## Roadmap
+### Developing for the Koji Core package
+
+If you would like to test or develop new features for the package, here are a few steps that will get you up and running quickly.
+
+**Note:** These steps assume you're already using the `@withkoji/core` package, installed via npm.
+
+1. Clone this repository to your local machine.
+2. In the package's root folder, run `npm install` to install the required dev dependencies.
+3. Start the build watcher by running `npm run watch` in the package's root folder.
+4. (Optional) Start the declarations watcher by running `npm run watch-declarations` in the package's root folder.
+5. In your consumer project, remove the existing installation: `npm remove @withkoji/core`.
+6. In your consumer project, install the local package by referencing the folder where you cloned the repo. For example: `npm install ~/YourComputer/koji-core`.
+
+ If everything went well, your consumer project should now be referencing your local installation.
+
+**Notes:**
+
+- If your consumer project offers hot reloading, you should see updates made to the package recompiled by the watcher and injected into your project automatically.
+
+- If your consumer project does not offer hot reloading (for example, an Express app), you'll need to quit the process and restart to get any watched changes to the package.
+
+- If you run the declarations watcher, you should also get real-time updates in your IDE for types and documentation. In some instances, you may need to refresh or reload your IDE's view to clear any cached values.
+
+- Because the `dist` folder is not bundled into the repo, you may need to run a build or include it in a commit if you are testing an installation via Github.
+
+### Roadmap
 
 - [x] Convert existing packages (koji-vcc, koji-database, etc.) to a single package
 - [x] Implement single instance to prevent race conditions/multiple sources of truth
