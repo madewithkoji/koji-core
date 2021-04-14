@@ -388,20 +388,26 @@ export class Database extends Base {
   }
 
   /**
-   * Appends data to an existing database entry.
+   * Adds data onto arrays in an existing database entry.
    *
    * @param     collection          Name of the collection.
    * @param     documentName        Name of the entry.
-   * @param     documentBody        Data to append to the entry.
+   * @param     documentBody        Key-value pairs of arrays and the entries to add to them.
    * @param     returnDoc           Whether to return the updated entry as a response.
    * @return                        An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.
    *
    * @example
    * ```javascript
-   * const isAdded = await database.arrayPush('myCollection', 'myDocument', {
-   *  'myData1': 'myValue1',
-   *  'myData2': 'myValue2'
-   * });
+   * const doc = await database.arrayPush('myCollection', 'myDocument', {
+   *  array1: 'newValue1',
+   *  array2: 'newValue2',
+   * }, true);
+   *
+   * // Updated document after arrayPush
+   * doc = {
+   *  array1: ['existingValue1', 'newValue1'],
+   *  array2: ['existingValue2', 'newValue2'],
+   * }
    * ```
    */
   @server

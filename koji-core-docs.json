@@ -1811,7 +1811,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 408,
+									"line": 414,
 									"character": 24
 								}
 							],
@@ -1823,12 +1823,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Appends data to an existing database entry.",
+										"shortText": "Adds data onto arrays in an existing database entry.",
 										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst isAdded = await database.arrayPush('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
+												"text": "\n```javascript\nconst doc = await database.arrayPush('myCollection', 'myDocument', {\n array1: 'newValue1',\n array2: 'newValue2',\n}, true);\n\n// Updated document after arrayPush\ndoc = {\n array1: ['existingValue1', 'newValue1'],\n array2: ['existingValue2', 'newValue2'],\n}\n```\n"
 											}
 										]
 									},
@@ -1868,7 +1868,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Data to append to the entry."
+												"text": "Key-value pairs of arrays and the entries to add to them."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -1926,7 +1926,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 441,
+									"line": 447,
 									"character": 26
 								}
 							],
@@ -2041,7 +2041,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 469,
+									"line": 475,
 									"character": 21
 								}
 							],
@@ -3062,7 +3062,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 408,
+									"line": 414,
 									"character": 24
 								}
 							],
@@ -3074,12 +3074,12 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Appends data to an existing database entry.",
+										"shortText": "Adds data onto arrays in an existing database entry.",
 										"returns": "An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst isAdded = await database.arrayPush('myCollection', 'myDocument', {\n 'myData1': 'myValue1',\n 'myData2': 'myValue2'\n});\n```\n"
+												"text": "\n```javascript\nconst doc = await database.arrayPush('myCollection', 'myDocument', {\n array1: 'newValue1',\n array2: 'newValue2',\n}, true);\n\n// Updated document after arrayPush\ndoc = {\n array1: ['existingValue1', 'newValue1'],\n array2: ['existingValue2', 'newValue2'],\n}\n```\n"
 											}
 										]
 									},
@@ -3119,7 +3119,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Data to append to the entry."
+												"text": "Key-value pairs of arrays and the entries to add to them."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -3187,7 +3187,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 441,
+									"line": 447,
 									"character": 26
 								}
 							],
@@ -3312,7 +3312,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 469,
+									"line": 475,
 									"character": 21
 								}
 							],
@@ -4362,7 +4362,7 @@
 					"sources": [
 						{
 							"fileName": "backend/database/index.ts",
-							"line": 483,
+							"line": 489,
 							"character": 26
 						}
 					],
@@ -15220,7 +15220,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 298,
+									"line": 299,
 									"character": 7
 								}
 							],
@@ -15385,7 +15385,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 355,
+									"line": 356,
 									"character": 7
 								}
 							],
@@ -15558,7 +15558,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 390,
+									"line": 391,
 									"character": 8
 								}
 							],
@@ -15721,7 +15721,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 432,
+									"line": 433,
 									"character": 6
 								}
 							],
@@ -15886,7 +15886,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 490,
+									"line": 491,
 									"character": 7
 								}
 							],
@@ -16051,7 +16051,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 548,
+									"line": 549,
 									"character": 6
 								}
 							],
@@ -16228,11 +16228,11 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Prompts the user to select an image, file, audio, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.",
-										"returns": "Value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata, or the [[VerboseCapture]] object, if `verbose` is `true`.\n",
+										"returns": "Value of the media capture, which is either the URL to the media as a string or the [[VerboseCapture]] object, if `verbose` is `true`.\n",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst media = await Koji.ui.capture.media();\n\n// Limit to image or video, hide asset packs,\n// return an object with extended metadata, transcode videos for HLS\nconst media = await Koji.ui.capture.media({\n   acceptOnly: [image, video],\n   hideExtensions: true,\n   returnType: 'extended',\n   videoOptions: { hls: true }\n }, true);\n```\n"
+												"text": "\n```javascript\nconst media = await Koji.ui.capture.media();\n\n// Limit to image or video, hide asset packs,\n// return an object with extended metadata, transcode videos for HLS\nconst media = await Koji.ui.capture.media({\n   acceptOnly: ['image', 'video'],\n   hideExtensions: true,\n   videoOptions: { hls: true }\n }, true);\n```\n"
 											}
 										]
 									},
@@ -16892,7 +16892,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 220,
+							"line": 221,
 							"character": 20
 						}
 					],
@@ -16928,7 +16928,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 200,
+									"line": 201,
 									"character": 16
 								}
 							],
@@ -16959,7 +16959,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 198,
+							"line": 199,
 							"character": 36
 						}
 					]
@@ -18217,7 +18217,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 139,
+									"line": 140,
 									"character": 22
 								}
 							],
@@ -18243,10 +18243,13 @@
 							"flags": {
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "Template store ID of a Koji template. Include this value to enable the user to create a new Koji from the link control."
+							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 137,
+									"line": 138,
 									"character": 16
 								}
 							],
@@ -18307,7 +18310,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 208,
+									"line": 209,
 									"character": 12
 								}
 							],
@@ -18343,7 +18346,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 210,
+									"line": 211,
 									"character": 16
 								}
 							],
@@ -18375,7 +18378,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 214,
+									"line": 215,
 									"character": 14
 								}
 							],
@@ -18408,7 +18411,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 212,
+									"line": 213,
 									"character": 14
 								}
 							],
@@ -18443,7 +18446,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 206,
+							"line": 207,
 							"character": 36
 						}
 					]
@@ -18602,7 +18605,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 153,
+									"line": 154,
 									"character": 14
 								}
 							],
@@ -18634,7 +18637,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 149,
+									"line": 150,
 									"character": 5
 								}
 							],
@@ -18666,7 +18669,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 147,
+									"line": 148,
 									"character": 5
 								}
 							],
@@ -18698,7 +18701,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 151,
+									"line": 152,
 									"character": 6
 								}
 							],
@@ -18732,7 +18735,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 145,
+							"line": 146,
 							"character": 36
 						}
 					]
@@ -18761,7 +18764,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 175,
+									"line": 176,
 									"character": 14
 								}
 							],
@@ -18793,7 +18796,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 173,
+									"line": 174,
 									"character": 9
 								}
 							],
@@ -18829,7 +18832,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 171,
+									"line": 172,
 									"character": 13
 								}
 							],
@@ -18862,7 +18865,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 169,
+							"line": 170,
 							"character": 37
 						}
 					]
@@ -18891,7 +18894,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 190,
+									"line": 191,
 									"character": 15
 								}
 							],
@@ -18923,7 +18926,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 192,
+									"line": 193,
 									"character": 16
 								}
 							],
@@ -18955,7 +18958,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 188,
+									"line": 189,
 									"character": 5
 								}
 							],
@@ -18988,7 +18991,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 186,
+							"line": 187,
 							"character": 36
 						}
 					]
@@ -19000,7 +19003,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Metadata for a [[link]] capture when the return type is set to `extended`."
+						"shortText": "Extended metadata for a [[link]] capture."
 					},
 					"children": [
 						{
@@ -19204,7 +19207,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Metadata for a [[media]] capture when the return type is set to `extended`."
+						"shortText": "Extended metadata for a [[media]] capture."
 					},
 					"children": [
 						{
@@ -19580,7 +19583,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 163,
+									"line": 164,
 									"character": 7
 								}
 							],
@@ -19601,7 +19604,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 161,
+									"line": 162,
 									"character": 7
 								}
 							],
@@ -19624,7 +19627,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 159,
+							"line": 160,
 							"character": 29
 						}
 					]
@@ -19732,7 +19735,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Metadata associated with the captured result"
+								"shortText": "Metadata associated with the captured result."
 							},
 							"sources": [
 								{
@@ -19798,7 +19801,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 181,
+							"line": 182,
 							"character": 34
 						}
 					],

@@ -17,7 +17,7 @@ export interface VerboseCapture {
   captureType: CaptureType;
   /** Value captured from the user. */
   result?: string | number | null;
-  /** Metadata associated with the captured result */
+  /** Metadata associated with the captured result. */
   resultMetadata?: ExtendedMediaResult | ExtendedLinkResult | null;
 }
 
@@ -49,7 +49,7 @@ export enum CaptureType {
 }
 
 /**
- * Metadata for a [[media]] capture when the return type is set to `extended`.
+ * Extended metadata for a [[media]] capture.
  */
 export interface ExtendedMediaResult {
   /** URL of the selected media file. */
@@ -78,7 +78,7 @@ export interface ExtendedMediaResult {
 }
 
 /**
- * Metadata for a [[link]] capture when the return type is set to `extended`.
+ * Extended metadata for a [[link]] capture.
  */
 export interface ExtendedLinkResult {
   /** Full URL of the selected Koji or pasted link resource. */
@@ -134,6 +134,7 @@ export interface CaptureFileOptions {}
  * Configuration options for a [[link]] capture.
  */
 export interface CaptureLinkOptions {
+  /** Template store ID of a Koji template. Include this value to enable the user to create a new Koji from the link control. */
   kojiTemplateId?: string;
   /** Whether to prevent users from pasting an external link. If `true`, users can select only one of their Kojis. */
   disableExternalLinks?: boolean;
@@ -571,7 +572,7 @@ export class Capture extends KojiBridge {
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture.
-   * @return          Value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata, or the [[VerboseCapture]] object, if `verbose` is `true`.
+   * @return          Value of the media capture, which is either the URL to the media as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
@@ -580,9 +581,8 @@ export class Capture extends KojiBridge {
    * // Limit to image or video, hide asset packs,
    * // return an object with extended metadata, transcode videos for HLS
    * const media = await Koji.ui.capture.media({
-   *    acceptOnly: [image, video],
+   *    acceptOnly: ['image', 'video'],
    *    hideExtensions: true,
-   *    returnType: 'extended',
    *    videoOptions: { hls: true }
    *  }, true);
    * ```
