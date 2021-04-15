@@ -11,9 +11,19 @@ export interface UploadOptions {
   type: 'image'|'video'|'audio';
   /** Options for uploaded video */
   videoOptions?: {
-    hls: boolean;
+    hls?: boolean;
     /** Video files constructed from getUserMedia MediaStreams will not contain correct duration headers, and need to be remuxed by Koji before they are delivered. */
-    remux: boolean;
+    remux?: boolean;
+    /** If remuxing, specify an optional constraint for cropping. If not set, the video will not be cropped. */
+    remuxPreset?: {
+      aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
+      sizePolicy: 'fill'|'fit',
+    };
+    /** Apply a watermak to the uploaded image. Only available with HLS */
+    watermark?: {
+      /** Specify the type of the watermark. creatorProfileUrl watermarks the image with koji.to/@creatorUsername */
+      type: 'creatorProfileUrl',
+    };
   };
 }
 
