@@ -44,6 +44,63 @@ export interface IapReceipt {
   datePurchased: Date;
 }
 
+export interface UserArtifact {
+  /** Unique identifier for the user. */
+  id: string;
+  /** The user's profile url. */
+  href: string;
+
+  /** The user's username (if access was granted). */
+  username: string;
+  /** The user's display name (if access was granted). */
+  displayName: string;
+  /** The user's profile picture (if access was granted). */
+  profilePicture: string | null;
+  /** Whether the user is verified. */
+  isVerified: boolean;
+}
+
+export interface IapProduct {
+  /** Unique identifier for this version of the product. */
+  id: string;
+  /** Name of the Koji template from which the product was purchased. */
+  appId: string;
+  /** Koji user name of the template publisher. */
+  ownerUserId: string;
+
+  /** Purchase price of the product. Defined in the entitlements file of the template. */
+  price: number;
+  /** Indicator of whether a purchase price is defined for the product. Defined in the entitlements file of the template. */
+  priceIsUnset: boolean;
+
+  /** Indicator of whether a product can be purchased more than once. Defined in the entitlements file of the template. */
+  isConsumable: boolean;
+  dynamicReceipt: boolean;
+  captureOnPurchase: boolean;
+  captureExpiryPeriod: number;
+
+  /** Description displayed when the user was prompted to purchase the product. Defined in the entitlements file of the template. */
+  name: string;
+  /** Identifier of the purchased product. Defined in the entitlements file of the template. */
+  sku: string;
+  /** Date the product was registered or updated, which happens when the template is published. */
+  dateCreated: Date;
+  /** Indicator of whether the product is still available for purchase. */
+  isActive: boolean;
+
+  /** Type of user information collected for order fulfillment. Defined in the entitlements file of the template. */
+  fulfillment?: 'email'|'phone'|'address';
+  /** Total number of times the product can be sold (inventory threshold). Defined in the entitlements file of the template. */
+  quantity?: number;
+  /** Remaining number of times the product can be sold. Calculated based on the total inventory defined in the entitlements file, less the number of purchases. */
+  numAvailable?: number;
+
+  /** Object that represents the template publisher ("seller"). */
+  owner?: UserArtifact;
+  /** Array of [[IapReceipt]] objects representing purchases of the product. */
+  purchases?: IapReceipt[];
+}
+
 /**
  * Manages in-app purchases on the backend of your Koji template.
  */
@@ -177,10 +234,10 @@ export class IAP extends Base {
   /**
    * Captures a pending transaction.
    *
-   * <p class="note">If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke `captureTransaction`.
+   * NOTE: If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke `captureTransaction`.
    * Funds are not available in the seller's account until the transaction is captured.
    * If you do not capture the transaction before the `captureExpiryPeriod`, the transaction is automatically reversed and the buyer is refunded.
-   * This period can be specified in the product definition from 0 to 7 days (default is 0).</p>
+   * This period can be specified in the product definition from 0 to 7 days (default is 0).
    *
    * @param receiptId Unique identifier for the transaction receipt.
    *
@@ -212,7 +269,7 @@ export class IAP extends Base {
    * const product = await iap.loadProduct(sku);
    * ```
    */
-  public async loadProduct(sku: string) {
+  public async loadProduct(sku: string): Promise<IapProduct> {
     const { data: { product } } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?sku=${sku}`, { headers: this.rootHeaders });
 
     return product;
