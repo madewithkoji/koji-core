@@ -113,7 +113,7 @@ export class Dispatch extends Base {
    * const shardInfo = await dispatch.info();
    * ```
    */
-  public async info(): Promise<ShardInfo[]> {
+  public async info(): Promise<ShardInfo> {
     const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
     return (data || [])[0];
   }
