@@ -12,6 +12,16 @@ export type AuthGrantCapability =
   'username';
 
 /**
+ * User attributes that are determined via a client-side api call.
+ */
+export interface PresumedAttributes {
+  /** Koji username for the user. */
+  username?: string;
+  /** Koji avatar for the user. */
+  profilePicture?: string;
+}
+
+/**
  * Identity information for the current user of the Koji.
  */
 export interface IdentityResult {
@@ -22,12 +32,7 @@ export interface IdentityResult {
   */
   presumedRole: 'admin'|'user'|'unknown';
   /** Additional user attributes, which are returned if the user has granted username authorization via [[requestGrants]]. */
-  presumedAttributes: {
-    /** Koji username for the user. */
-    username?: string;
-    /** Koji avatar for the user. */
-    profilePicture?: string;
-  }
+  presumedAttributes: PresumedAttributes;
 }
 
 /**

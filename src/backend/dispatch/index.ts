@@ -49,6 +49,13 @@ export interface MessageHandler {
   callback: MessageHandlerCallback;
 }
 
+/**
+ * Additional data attached to a dispatch message.
+ */
+export interface DispatchMessageMetadata {
+  latencyMs: number;
+}
+
 export type MessageHandlerCallback =
 /**
  * Function to handle a dispatch event. Invoked by the [[on]] listener.
@@ -56,7 +63,7 @@ export type MessageHandlerCallback =
  * @param payload   Data payload sent with the fired event.
  * @param metadata  Object containing additional information about the event, including the message latency in milliseconds.
  */
-(payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
+(payload: { [index: string]: any }, metadata: DispatchMessageMetadata) => void;
 
 /**
  * Information about a dispatch shard.
