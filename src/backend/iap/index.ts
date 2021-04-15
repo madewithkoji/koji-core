@@ -154,8 +154,8 @@ export class IAP extends Base {
    * `captureOnPurchase` key set to `false`, the transaction will be held in a
    * pending stage until you manually invoke `captureTransaction`. If you do not
    * invoke `captureTransaction` before the `captureExpiryPeriod` (which can
-   * also be defined in your product's definition in koji.json -- from 1 to 7
-   * days, with a default of 7), the transaction will automatically be reversed
+   * also be defined in your product's definition in koji.json -- from 0 to 7
+   * days, with a default of 0), the transaction will automatically be reversed
    * and the buyer will be refunded. The funds will not be available in the
    * seller's account until the transaction is captured.
    *
@@ -183,16 +183,14 @@ export class IAP extends Base {
    * iap.captureTransaction(receiptId);
    * ```
    */
-  public async captureTransaction(receiptId: string): Promise<any> {
-    const { data } = await axios.post(
+  public async captureTransaction(receiptId: string): Promise<void> {
+    await axios.post(
       `${this.rootPath}${IapRoutes.CAPTURE_TRANSACTION}`,
       {
         receiptId,
       },
       { headers: this.rootHeaders },
     );
-
-    return data;
   }
 
   /**
