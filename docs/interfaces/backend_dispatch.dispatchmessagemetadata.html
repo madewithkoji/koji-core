@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ShardInfo | @withkoji/core</title>
+	<title>DispatchMessageMetadata | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/backend_dispatch.html">backend/dispatch</a>
 				</li>
 				<li>
-					<a href="backend_dispatch.shardinfo.html">ShardInfo</a>
+					<a href="backend_dispatch.dispatchmessagemetadata.html">DispatchMessageMetadata</a>
 				</li>
 			</ul>
-			<h1>Interface ShardInfo</h1>
+			<h1>Interface DispatchMessageMetadata</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Information about a dispatch shard.</p>
+						<p>Additional data attached to a dispatch message.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ShardInfo</span>
+						<span class="target">DispatchMessageMetadata</span>
 					</li>
 				</ul>
 			</section>
@@ -90,8 +90,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="backend_dispatch.shardinfo.html#numconnectedclients" class="tsd-kind-icon">num<wbr>Connected<wbr>Clients</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="backend_dispatch.shardinfo.html#shardname" class="tsd-kind-icon">shard<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="backend_dispatch.dispatchmessagemetadata.html#latencyms" class="tsd-kind-icon">latency<wbr>Ms</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,34 +99,14 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="numconnectedclients" class="tsd-anchor"></a>
-					<h3>num<wbr>Connected<wbr>Clients</h3>
-					<div class="tsd-signature tsd-kind-icon">num<wbr>Connected<wbr>Clients<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="latencyms" class="tsd-anchor"></a>
+					<h3>latency<wbr>Ms</h3>
+					<div class="tsd-signature tsd-kind-icon">latency<wbr>Ms<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/38e1ecd/src/backend/dispatch/index.ts#L75">backend/dispatch/index.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/38e1ecd/src/backend/dispatch/index.ts#L56">backend/dispatch/index.ts:56</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Number of clients currently connected to the dispatch shard.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="shardname" class="tsd-anchor"></a>
-					<h3>shard<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">shard<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/38e1ecd/src/backend/dispatch/index.ts#L73">backend/dispatch/index.ts:73</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Name of the dispatch shard.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -156,27 +135,24 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="backend_dispatch.dispatchconfigurationinput.html" class="tsd-kind-icon">Dispatch<wbr>Configuration<wbr>Input</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="backend_dispatch.dispatchmessagemetadata.html" class="tsd-kind-icon">Dispatch<wbr>Message<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="backend_dispatch.messagehandler.html" class="tsd-kind-icon">Message<wbr>Handler</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="backend_dispatch.shardinfo.html" class="tsd-kind-icon">Shard<wbr>Info</a>
+						<a href="backend_dispatch.dispatchmessagemetadata.html" class="tsd-kind-icon">Dispatch<wbr>Message<wbr>Metadata</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="backend_dispatch.shardinfo.html#numconnectedclients" class="tsd-kind-icon">num<wbr>Connected<wbr>Clients</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="backend_dispatch.shardinfo.html#shardname" class="tsd-kind-icon">shard<wbr>Name</a>
+								<a href="backend_dispatch.dispatchmessagemetadata.html#latencyms" class="tsd-kind-icon">latency<wbr>Ms</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="backend_dispatch.messagehandler.html" class="tsd-kind-icon">Message<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="backend_dispatch.shardinfo.html" class="tsd-kind-icon">Shard<wbr>Info</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/backend_dispatch.html#messagehandlercallback" class="tsd-kind-icon">Message<wbr>Handler<wbr>Callback</a>
 					</li>
