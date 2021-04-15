@@ -12,6 +12,7 @@ export enum IapRoutes {
   RESOLVE_RECEIPT_BY_ID = '/v1/iap/consumer/resolveReceiptById',
   RESOLVE_RECEIPTS_BY_SKU = '/v1/iap/consumer/resolveReceiptsBySku',
   UPDATE_RECEIPT = '/v1/iap/consumer/updateReceiptAttributes',
+  CAPTURE_TRANSACTION = '/v1/iap/consumer/captureTransaction',
 }
 
 /**
@@ -171,6 +172,52 @@ export class IAP extends Base {
     );
 
     return data;
+  }
+
+  /**
+   * Asychronously capture a transaction.
+   *
+   * If your IAP product is defined in koji.json with the optional
+   * `captureOnPurchase` key set to `false`, the transaction will be held in a
+   * pending stage until you manually invoke `captureTransaction`. If you do not
+   * invoke `captureTransaction` before the `captureExpiryPeriod` (which can
+   * also be defined in your product's definition in koji.json -- from 0 to 7
+   * days, with a default of 0), the transaction will automatically be reversed
+   * and the buyer will be refunded. The funds will not be available in the
+   * seller's account until the transaction is captured.
+   *
+   * @param receiptId Receipt ID
+   *
+   * @example
+   * koji.json:
+   * ```json
+   * "InAppPurchases": {
+   *   "enabled": true,
+   *   "products": [
+   *     {
+   *       "sku": "video_request",
+   *       "name": "Video Request",
+   *       "isConsumable": true,
+   *       "captureOnPurchase": false,
+   *       "price": "{{remixData.price}}"
+   *     }
+   *   ]
+   * }
+   *
+   * Frontend creates transaction normally.
+   *
+   * Backend:
+   * iap.captureTransaction(receiptId);
+   * ```
+   */
+  public async captureTransaction(receiptId: string): Promise<void> {
+    await axios.post(
+      `${this.rootPath}${IapRoutes.CAPTURE_TRANSACTION}`,
+      {
+        receiptId,
+      },
+      { headers: this.rootHeaders },
+    );
   }
 
   /**
