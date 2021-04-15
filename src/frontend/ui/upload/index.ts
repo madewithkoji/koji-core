@@ -13,16 +13,16 @@ export interface UploadOptions {
   videoOptions?: {
     /** Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and saved as an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback. */
     hls?: boolean;
-    /** Remuxes video files constructed from getUserMedia MediaStreams. Use this feature to ensure these types of files contain correct duration headers before they are delivered. */
+    /** Remuxes video files constructed from getUserMedia MediaStreams, which ensures these files contain correct duration headers before they are delivered. */
     remux?: boolean;
-    /** If remuxing, specify an optional constraint for cropping. If not set, the video will not be cropped. */
+    /** Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped. */
     remuxPreset?: {
       aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
       sizePolicy: 'fill'|'fit',
     };
-    /** Apply a watermak to the uploaded image. Only available with HLS */
+    /** Applies a watermark to the uploaded image. Available only with HLS transcoding. */
     watermark?: {
-      /** Specify the type of the watermark. creatorProfileUrl watermarks the image with koji.to/@creatorUsername */
+      /** Type of the watermark. `creatorProfileUrl` watermarks the image with `koji.to/@creatorUsername`. */
       type: 'creatorProfileUrl',
     };
   };

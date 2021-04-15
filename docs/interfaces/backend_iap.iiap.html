@@ -95,6 +95,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#capturetransaction" class="tsd-kind-icon">capture<wbr>Transaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#loadproduct" class="tsd-kind-icon">load<wbr>Product</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptbyid" class="tsd-kind-icon">resolve<wbr>Receipt<wbr>ById</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptsbyiaptoken" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>ByIAPToken</a></li>
@@ -114,7 +115,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -125,13 +126,55 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="capturetransaction" class="tsd-anchor"></a>
+					<h3>capture<wbr>Transaction</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">capture<wbr>Transaction<span class="tsd-signature-symbol">(</span>receiptId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#capturetransaction">captureTransaction</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/iap/index.ts#L193">backend/iap/index.ts:193</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Captures a pending transaction.</p>
+								</div>
+								<p class="note">If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke `captureTransaction`.
+									Funds are not available in the seller's account until the transaction is captured.
+									If you do not capture the transaction before the `captureExpiryPeriod`, the transaction is automatically reversed and the buyer is refunded.
+								This period can be specified in the product definition from 0 to 7 days (default is 0).</p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">captureTransaction</span><span style="color: #000000">(</span><span style="color: #001080">receiptId</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Unique identifier for the transaction receipt.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="loadproduct" class="tsd-anchor"></a>
 					<h3>load<wbr>Product</h3>
@@ -143,7 +186,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#loadproduct">loadProduct</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L188">backend/iap/index.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/iap/index.ts#L215">backend/iap/index.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -183,7 +226,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptbyid">resolveReceiptById</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L123">backend/iap/index.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/iap/index.ts#L124">backend/iap/index.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -230,7 +273,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbyiaptoken">resolveReceiptsByIAPToken</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L88">backend/iap/index.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/iap/index.ts#L89">backend/iap/index.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +312,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbysku">resolveReceiptsBySku</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L141">backend/iap/index.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/iap/index.ts#L142">backend/iap/index.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -308,7 +351,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#updatereceipt">updateReceipt</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/9f39a10/src/backend/iap/index.ts#L162">backend/iap/index.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/e157a0d/src/backend/iap/index.ts#L163">backend/iap/index.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -385,6 +428,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-protected">
 								<a href="backend_iap.iiap.html#projecttoken" class="tsd-kind-icon">project<wbr>Token</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="backend_iap.iiap.html#capturetransaction" class="tsd-kind-icon">capture<wbr>Transaction</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="backend_iap.iiap.html#loadproduct" class="tsd-kind-icon">load<wbr>Product</a>

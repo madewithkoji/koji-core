@@ -175,38 +175,18 @@ export class IAP extends Base {
   }
 
   /**
-   * Asychronously capture a transaction.
+   * Captures a pending transaction.
    *
-   * If your IAP product is defined in koji.json with the optional
-   * `captureOnPurchase` key set to `false`, the transaction will be held in a
-   * pending stage until you manually invoke `captureTransaction`. If you do not
-   * invoke `captureTransaction` before the `captureExpiryPeriod` (which can
-   * also be defined in your product's definition in koji.json -- from 0 to 7
-   * days, with a default of 0), the transaction will automatically be reversed
-   * and the buyer will be refunded. The funds will not be available in the
-   * seller's account until the transaction is captured.
+   * <p class="note">If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke `captureTransaction`.
+   * Funds are not available in the seller's account until the transaction is captured.
+   * If you do not capture the transaction before the `captureExpiryPeriod`, the transaction is automatically reversed and the buyer is refunded.
+   * This period can be specified in the product definition from 0 to 7 days (default is 0).</p>
    *
-   * @param receiptId Receipt ID
+   * @param receiptId Unique identifier for the transaction receipt.
    *
    * @example
-   * koji.json:
-   * ```json
-   * "InAppPurchases": {
-   *   "enabled": true,
-   *   "products": [
-   *     {
-   *       "sku": "video_request",
-   *       "name": "Video Request",
-   *       "isConsumable": true,
-   *       "captureOnPurchase": false,
-   *       "price": "{{remixData.price}}"
-   *     }
-   *   ]
-   * }
    *
-   * Frontend creates transaction normally.
-   *
-   * Backend:
+   * ```javascript
    * iap.captureTransaction(receiptId);
    * ```
    */
