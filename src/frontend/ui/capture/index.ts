@@ -178,6 +178,18 @@ export interface CaptureVideoOptions {
   estimatePoses?: boolean;
   /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium videos). */
   hideExtensions?: boolean;
+  /** Video files constructed from getUserMedia MediaStreams will not contain correct duration headers, and need to be remuxed by Koji before they are delivered. */
+  remux?: boolean;
+  /** If remuxing, specify an optional constraint for cropping. If not set, the video will not be cropped. */
+  remuxPreset?: {
+    aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
+    sizePolicy: 'fill'|'fit',
+  };
+  /** Apply a watermak to the uploaded image. Only available with HLS */
+  watermark?: {
+    /** Specify the type of the watermark. creatorProfileUrl watermarks the image with koji.to/@creatorUsername */
+    type: 'creatorProfileUrl',
+  };
 }
 
 export interface CaptureAudioOptions {
