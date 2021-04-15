@@ -8,7 +8,7 @@ export interface FastlyOptions {
    *
    * For more information, see the [[https://developer.fastly.com/reference/io/auto | Fastly auto reference]].
    *
-   * <p class="note">Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.</p>
+   * NOTE: Although the WebP format produces images at a higher compression ratio with a lower loss of quality, it is not supported in all browsers.
    */
   auto?: 'webp';
   /**

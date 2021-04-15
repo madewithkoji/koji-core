@@ -352,8 +352,8 @@ export class Database extends Base {
   /**
    * Updates the specified data for an entry in the database collection. To increment numeric values with a single update request, you can use [[valueTypes | valueTypes.increment]].
    *
-   * <p class="note">This method updates only the values that are specified in `documentBody`. If other values exist in the entry, they are not changed.
-   * If no existing entry matches the `documentName`, a new entry is created with the specified `documentName` and `documentBody`.</p>
+   * NOTE: This method updates only the values that are specified in `documentBody`. If other values exist in the entry, they are not changed.
+   * If no existing entry matches the `documentName`, a new entry is created with the specified `documentName` and `documentBody`.
    *
    * @param     collection          Name of the collection.
    * @param     documentName        Name of the entry.

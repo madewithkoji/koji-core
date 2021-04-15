@@ -78,8 +78,8 @@ export class Navigate extends KojiBridge {
   /**
    * Opens the Koji in the editing experience.
    *
-   * <p class="note"> Check that the current user is an admin before calling this method.
-   * Otherwise, the user will not be authorized to edit the Koji.</p>
+   * NOTE: Check that the current user is an admin before calling this method.
+   * Otherwise, the user will not be authorized to edit the Koji.
    *
    * @example
    * ```html
