@@ -42,12 +42,12 @@ export class Secret extends Base {
   /**
    * Resolves sensitive data that was {@doclink core-frontend-remix#encryptValue | stored as an encrypted value}.
    *
-   * @param   keyPath  Path where the encrypted value is stored.
+   * @param   keyPath  Encrypted value.
    * @return           Decrypted value.
    *
    * @example
    * ```javascript
-   * const keyValue = await secret.resolveValue<string>(SecretRoutes.KEYSTORE_GET + "/mySecretKey");
+   * const decryptedValue = await secret.resolveValue(encryptedValue);
    * ```
    */
   @server

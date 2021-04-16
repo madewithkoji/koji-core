@@ -9243,7 +9243,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst keyValue = await secret.resolveValue<string>(SecretRoutes.KEYSTORE_GET + \"/mySecretKey\");\n```\n"
+												"text": "\n```javascript\nconst decryptedValue = await secret.resolveValue(encryptedValue);\n```\n"
 											}
 										]
 									},
@@ -9264,7 +9264,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Path where the encrypted value is stored."
+												"text": "Encrypted value."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -15008,7 +15008,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.",
-										"returns": "Path where the encrypted value is stored. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.\n",
+										"returns": "Encrypted value. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.\n",
 										"tags": [
 											{
 												"tag": "example",

@@ -184,7 +184,7 @@ export class Remix extends KojiBridge {
    * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
    *
    * @param   rawValue       Value to encrypt.
-   * @return                 Path where the encrypted value is stored. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.
+   * @return                 Encrypted value. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.
    *
    * @example
    * ```javascript
