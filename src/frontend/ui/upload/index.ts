@@ -3,9 +3,9 @@ import { client } from '../../@decorators/client';
 
 /** Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped. */
 export interface RemuxPreset {
-  /** The desired aspect ratio */
+  /** Desired aspect ratio. */
   aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
-  /** How the video will be cropped */
+  /** How the image will be constrained within the provided size. */
   sizePolicy: 'fill'|'fit',
 }
 
