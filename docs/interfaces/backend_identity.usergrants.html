@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PresentAlertOptions | @withkoji/core</title>
+	<title>UserGrants | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@withkoji/core</a>
 				</li>
 				<li>
-					<a href="../modules/frontend_ui_present.html">frontend/ui/present</a>
+					<a href="../modules/backend_identity.html">backend/identity</a>
 				</li>
 				<li>
-					<a href="frontend_ui_present.presentalertoptions.html">PresentAlertOptions</a>
+					<a href="backend_identity.usergrants.html">UserGrants</a>
 				</li>
 			</ul>
-			<h1>Interface PresentAlertOptions</h1>
+			<h1>Interface UserGrants</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Defines an alert dialog box to show a user.</p>
+						<p>Object containing information about capabilities that the user has authorized this Koji to use.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PresentAlertOptions</span>
+						<span class="target">UserGrants</span>
 					</li>
 				</ul>
 			</section>
@@ -90,8 +90,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_present.presentalertoptions.html#message" class="tsd-kind-icon">message</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_present.presentalertoptions.html#title" class="tsd-kind-icon">title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="backend_identity.usergrants.html#pushnotificationsenabled" class="tsd-kind-icon">push<wbr>Notifications<wbr>Enabled</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,32 +99,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="pushnotificationsenabled" class="tsd-anchor"></a>
+					<h3>push<wbr>Notifications<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">push<wbr>Notifications<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/90c3dc6/src/frontend/ui/present/index.ts#L25">frontend/ui/present/index.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/90c3dc6/src/backend/identity/index.ts#L18">backend/identity/index.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Information to display to the user.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="title" class="tsd-anchor"></a>
-					<h3>title</h3>
-					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/90c3dc6/src/frontend/ui/present/index.ts#L23">frontend/ui/present/index.ts:23</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Title for the dialog box.</p>
+							<p>Whether the user has granted push notification access.</p>
 						</div>
 					</div>
 				</section>
@@ -138,36 +122,36 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/frontend_ui_present.html">frontend/ui/present</a>
+						<a href="../modules/backend_identity.html">backend/identity</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/backend_identity.authroutes.html" class="tsd-kind-icon">Auth<wbr>Routes</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/frontend_ui_present.present.html" class="tsd-kind-icon">Present</a>
+						<a href="../classes/backend_identity.identity.html" class="tsd-kind-icon">Identity</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="backend_identity.pushnotification.html" class="tsd-kind-icon">Push<wbr>Notification</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="backend_identity.user.html" class="tsd-kind-icon">User</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_ui_present.presentalertoptions.html" class="tsd-kind-icon">Present<wbr>Alert<wbr>Options</a>
+						<a href="backend_identity.usergrants.html" class="tsd-kind-icon">User<wbr>Grants</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_present.presentalertoptions.html#message" class="tsd-kind-icon">message</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_ui_present.presentalertoptions.html#title" class="tsd-kind-icon">title</a>
+								<a href="backend_identity.usergrants.html#pushnotificationsenabled" class="tsd-kind-icon">push<wbr>Notifications<wbr>Enabled</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_ui_present.presentconfirmationoptions.html" class="tsd-kind-icon">Present<wbr>Confirmation<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/frontend_ui_present.html#present-1" class="tsd-kind-icon">present</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
