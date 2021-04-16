@@ -40,7 +40,7 @@ export interface IapReceipt {
     credit: string;
     debit: string;
   };
-  /** Date of the purchase */
+  /** Date of the purchase. */
   datePurchased: Date;
 }
 

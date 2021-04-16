@@ -7292,7 +7292,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Date of the purchase"
+								"shortText": "Date of the purchase."
 							},
 							"sources": [
 								{
