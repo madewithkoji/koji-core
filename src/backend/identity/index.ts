@@ -12,6 +12,12 @@ export enum AuthRoutes {
   PUSH_NOTIFICATION = '/v1/apps/auth/consumer/pushNotification',
 }
 
+/** Object containing information about capabilities that the user has authorized this Koji to use. */
+export interface UserGrants {
+  /** Whether the user has granted push notification access. */
+  pushNotificationsEnabled: boolean;
+}
+
 /**
  * Information about a user of the Koji. To retrieve a user's information, use [[resolveUserFromToken]].
  */
@@ -23,9 +29,7 @@ export interface User {
   /** Date the user's information was created or updated on this Koji. */
   dateCreated: string | null;
   /** Object containing information about capabilities that the user has authorized this Koji to use. */
-  grants: {
-    pushNotificationsEnabled: boolean;
-  } | null;
+  grants: UserGrants | null;
   /** User’s role for this Koji – the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`). */
   role: 'admin' | 'user' | 'unknown' | null;
 }

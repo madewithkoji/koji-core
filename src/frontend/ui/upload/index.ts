@@ -1,19 +1,6 @@
 import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
-
-/** Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped. */
-export interface RemuxPreset {
-  /** Desired aspect ratio. */
-  aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
-  /** How the image will be constrained within the provided size. */
-  sizePolicy: 'fill'|'fit',
-}
-
-/** Applies a watermark to the uploaded image. Available only with HLS transcoding. */
-export interface Watermark {
-  /** Type of the watermark. `creatorProfileUrl` watermarks the image with `koji.to/@creatorUsername`. */
-  type: 'creatorProfileUrl',
-}
+import { RemuxPreset, Watermark } from '../../../types';
 
 /** Options for uploaded videos. */
 export interface VideoOptions {

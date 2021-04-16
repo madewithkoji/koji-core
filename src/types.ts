@@ -1,3 +1,17 @@
+/** Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped. */
+export interface RemuxPreset {
+  /** Desired aspect ratio. */
+  aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
+  /** How the image will be constrained within the provided size. */
+  sizePolicy: 'fill'|'fit',
+}
+
+/** Applies a watermark to the uploaded image. Available only with HLS transcoding. */
+export interface Watermark {
+  /** Type of the watermark. `creatorProfileUrl` watermarks the image with `koji.to/@creatorUsername`. */
+  type: 'creatorProfileUrl',
+}
+
 export type UserToken = string | null;
 
 export type IAPToken = string | null;
@@ -55,7 +69,7 @@ export interface FastlyOptions {
    *
    * The value starts with the desired width and height of the final image.
    * The rest of the value determines the position of the cropped region within the existing image.
-   * For example: `150,100,x50,y50`	crops the image to 150px by 100px and selects the starting sub region x coordinate to be 50px and the y coordinate to be 50px. `16:9`	crops the image to an aspect ratio of 16:9.
+   * For example: `150,100,x50,y50` crops the image to 150px by 100px and selects the starting sub region x coordinate to be 50px and the y coordinate to be 50px. `16:9` crops the image to an aspect ratio of 16:9.
    *
    * For more information, see the [[https://developer.fastly.com/reference/io/crop | Fastly crop reference]].
    */
@@ -162,7 +176,7 @@ export interface FastlyOptions {
    *
    * The value can be specified in pixels or percent.
    * For example: `25,50,75,100` trims the top edge 25px, right edge 50px, bottom edge 75px, and left edge 100px.
-   * `0.25`	trims all edges by 25 percent.
+   * `0.25` trims all edges by 25 percent.
    *
    * For more information, see the [[https://developer.fastly.com/reference/io/trim | Fastly trim reference]].
    */
