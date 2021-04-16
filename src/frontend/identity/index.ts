@@ -12,7 +12,7 @@ export type AuthGrantCapability =
   'username';
 
 /**
- * User attributes that are determined via a client-side api call.
+ * User attributes that are determined via a client-side API call.
  */
 export interface PresumedAttributes {
   /** Koji username for the user. */

@@ -53,6 +53,7 @@ export interface MessageHandler {
  * Additional data attached to a dispatch message.
  */
 export interface DispatchMessageMetadata {
+  /** Message latency in milliseconds. */
   latencyMs: number;
 }
 

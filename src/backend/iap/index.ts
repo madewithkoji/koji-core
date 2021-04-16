@@ -44,10 +44,13 @@ export interface IapReceipt {
   datePurchased: Date;
 }
 
+/**
+ * Information about a Koji user.
+ */
 export interface UserArtifact {
   /** Unique identifier for the user. */
   id: string;
-  /** The user's profile url. */
+  /** The user's profile URL. */
   href: string;
 
   /** The user's username (if access was granted). */
@@ -60,42 +63,50 @@ export interface UserArtifact {
   isVerified: boolean;
 }
 
+/**
+ * Specific product for purchase.
+ * Products are defined in the entitlements file of the template and registered or updated when the project is deployed.
+ * Use [[loadProduct]] to retrieve the properties associated with a product’s SKU.
+ */
 export interface IapProduct {
   /** Unique identifier for this version of the product. */
   id: string;
-  /** Name of the Koji template from which the product was purchased. */
+  /** Name of the Koji from which the product was purchased. */
   appId: string;
-  /** Koji user name of the template publisher. */
+  /** Koji user name of the Koji creator. */
   ownerUserId: string;
 
-  /** Purchase price of the product. Defined in the entitlements file of the template. */
+  /** Purchase price of the product. Defined in the entitlements file. */
   price: number;
-  /** Indicator of whether a purchase price is defined for the product. Defined in the entitlements file of the template. */
+  /** Indicator of whether a purchase price is defined for the product. Defined in the entitlements file. */
   priceIsUnset: boolean;
 
-  /** Indicator of whether a product can be purchased more than once. Defined in the entitlements file of the template. */
+  /** Indicator of whether a product can be purchased more than once. Defined in the entitlements file. */
   isConsumable: boolean;
+  /**  Whether the transaction receipt can display routes in the Koji. Defined in the entitlements file. If enabled, a query parameter is appended to the URL when the buyer or seller views the receipt. For example, `dynamic-receipt=buyer` or `dynamic-receipt=seller`. */
   dynamicReceipt: boolean;
+  /** Whether to capture transactions immediately. If set to false, transactions are held in a pending state until they are manually captured with [[captureTransaction]]. */
   captureOnPurchase: boolean;
+  /** Period within which a pending transaction must be captured before it is reversed, from 0 to 7 days. Default is 0. */
   captureExpiryPeriod: number;
 
-  /** Description displayed when the user was prompted to purchase the product. Defined in the entitlements file of the template. */
+  /** Description displayed when the user was prompted to purchase the product. Defined in the entitlements file. */
   name: string;
-  /** Identifier of the purchased product. Defined in the entitlements file of the template. */
+  /** Identifier of the purchased product. Defined in the entitlements file. */
   sku: string;
-  /** Date the product was registered or updated, which happens when the template is published. */
+  /** Date the product was registered or updated, which happens when the template is deployed. */
   dateCreated: Date;
   /** Indicator of whether the product is still available for purchase. */
   isActive: boolean;
 
-  /** Type of user information collected for order fulfillment. Defined in the entitlements file of the template. */
+  /** Type of user information collected for order fulfillment. Defined in the entitlements file. */
   fulfillment?: 'email'|'phone'|'address';
-  /** Total number of times the product can be sold (inventory threshold). Defined in the entitlements file of the template. */
+  /** Total number of times the product can be sold (inventory threshold). Defined in the entitlements file. */
   quantity?: number;
   /** Remaining number of times the product can be sold. Calculated based on the total inventory defined in the entitlements file, less the number of purchases. */
   numAvailable?: number;
 
-  /** Object that represents the template publisher ("seller"). */
+  /** Object that represents the Koji creator ("seller"). */
   owner?: UserArtifact;
   /** Array of [[IapReceipt]] objects representing purchases of the product. */
   purchases?: IapReceipt[];

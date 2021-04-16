@@ -4598,7 +4598,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 143,
+									"line": 144,
 									"character": 22
 								}
 							],
@@ -4662,7 +4662,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 359,
+									"line": 360,
 									"character": 19
 								}
 							],
@@ -4700,7 +4700,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 325,
+									"line": 326,
 									"character": 18
 								}
 							],
@@ -4816,7 +4816,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 307,
+									"line": 308,
 									"character": 17
 								}
 							],
@@ -4870,7 +4870,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 123,
+									"line": 124,
 									"character": 19
 								}
 							],
@@ -4916,7 +4916,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 282,
+									"line": 283,
 									"character": 11
 								}
 							],
@@ -5000,7 +5000,7 @@
 					"sources": [
 						{
 							"fileName": "backend/dispatch/index.ts",
-							"line": 91,
+							"line": 92,
 							"character": 21
 						}
 					],
@@ -5036,7 +5036,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 83,
+									"line": 84,
 									"character": 10
 								}
 							],
@@ -5066,7 +5066,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 85,
+									"line": 86,
 									"character": 11
 								}
 							],
@@ -5089,7 +5089,7 @@
 					"sources": [
 						{
 							"fileName": "backend/dispatch/index.ts",
-							"line": 81,
+							"line": 82,
 							"character": 31
 						}
 					]
@@ -5240,10 +5240,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Message latency in milliseconds."
+							},
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 56,
+									"line": 57,
 									"character": 11
 								}
 							],
@@ -5377,7 +5380,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 75,
+									"line": 76,
 									"character": 21
 								}
 							],
@@ -5398,7 +5401,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 73,
+									"line": 74,
 									"character": 11
 								}
 							],
@@ -5421,7 +5424,7 @@
 					"sources": [
 						{
 							"fileName": "backend/dispatch/index.ts",
-							"line": 71,
+							"line": 72,
 							"character": 26
 						}
 					]
@@ -5435,7 +5438,7 @@
 					"sources": [
 						{
 							"fileName": "backend/dispatch/index.ts",
-							"line": 59,
+							"line": 60,
 							"character": 34
 						}
 					],
@@ -5453,7 +5456,7 @@
 							"sources": [
 								{
 									"fileName": "backend/dispatch/index.ts",
-									"line": 59,
+									"line": 60,
 									"character": 36
 								}
 							],
@@ -5488,7 +5491,7 @@
 													"sources": [
 														{
 															"fileName": "backend/dispatch/index.ts",
-															"line": 66,
+															"line": 67,
 															"character": 9
 														}
 													],
@@ -5794,7 +5797,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 250,
+									"line": 261,
 									"character": 33
 								}
 							],
@@ -5855,7 +5858,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 272,
+									"line": 283,
 									"character": 26
 								}
 							],
@@ -5927,7 +5930,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 181,
+									"line": 192,
 									"character": 33
 								}
 							],
@@ -5999,7 +6002,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 146,
+									"line": 157,
 									"character": 40
 								}
 							],
@@ -6083,7 +6086,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 199,
+									"line": 210,
 									"character": 35
 								}
 							],
@@ -6148,7 +6151,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 220,
+									"line": 231,
 									"character": 28
 								}
 							],
@@ -6282,7 +6285,7 @@
 					"sources": [
 						{
 							"fileName": "backend/iap/index.ts",
-							"line": 107,
+							"line": 118,
 							"character": 16
 						}
 					],
@@ -6319,7 +6322,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 250,
+									"line": 261,
 									"character": 33
 								}
 							],
@@ -6390,7 +6393,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 272,
+									"line": 283,
 									"character": 26
 								}
 							],
@@ -6472,7 +6475,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 181,
+									"line": 192,
 									"character": 33
 								}
 							],
@@ -6554,7 +6557,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 146,
+									"line": 157,
 									"character": 40
 								}
 							],
@@ -6648,7 +6651,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 199,
+									"line": 210,
 									"character": 35
 								}
 							],
@@ -6723,7 +6726,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 220,
+									"line": 231,
 									"character": 28
 								}
 							],
@@ -6860,7 +6863,7 @@
 					"sources": [
 						{
 							"fileName": "backend/iap/index.ts",
-							"line": 279,
+							"line": 290,
 							"character": 21
 						}
 					],
@@ -6878,6 +6881,9 @@
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
+					"comment": {
+						"shortText": "Specific product for purchase.\nProducts are defined in the entitlements file of the template and registered or updated when the project is deployed.\nUse [[loadProduct]] to retrieve the properties associated with a product’s SKU."
+					},
 					"children": [
 						{
 							"id": 309,
@@ -6886,12 +6892,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Name of the Koji template from which the product was purchased."
+								"shortText": "Name of the Koji from which the product was purchased."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 67,
+									"line": 75,
 									"character": 7
 								}
 							],
@@ -6906,10 +6912,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Period within which a pending transaction must be captured before it is reversed, from 0 to 7 days. Default is 0."
+							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 80,
+									"line": 91,
 									"character": 21
 								}
 							],
@@ -6924,10 +6933,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Whether to capture transactions immediately. If set to false, transactions are held in a pending state until they are manually captured with [[captureTransaction]]."
+							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 79,
+									"line": 89,
 									"character": 19
 								}
 							],
@@ -6943,12 +6955,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Date the product was registered or updated, which happens when the template is published."
+								"shortText": "Date the product was registered or updated, which happens when the template is deployed."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 87,
+									"line": 98,
 									"character": 13
 								}
 							],
@@ -6963,10 +6975,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"comment": {
+								"shortText": "Whether the transaction receipt can display routes in the Koji. Defined in the entitlements file. If enabled, a query parameter is appended to the URL when the buyer or seller views the receipt. For example, `dynamic-receipt=buyer` or `dynamic-receipt=seller`."
+							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 78,
+									"line": 87,
 									"character": 16
 								}
 							],
@@ -6984,12 +6999,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Type of user information collected for order fulfillment. Defined in the entitlements file of the template."
+								"shortText": "Type of user information collected for order fulfillment. Defined in the entitlements file."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 92,
+									"line": 103,
 									"character": 13
 								}
 							],
@@ -7027,7 +7042,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 65,
+									"line": 73,
 									"character": 4
 								}
 							],
@@ -7048,7 +7063,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 89,
+									"line": 100,
 									"character": 10
 								}
 							],
@@ -7064,12 +7079,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Indicator of whether a product can be purchased more than once. Defined in the entitlements file of the template."
+								"shortText": "Indicator of whether a product can be purchased more than once. Defined in the entitlements file."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 77,
+									"line": 85,
 									"character": 14
 								}
 							],
@@ -7085,12 +7100,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Description displayed when the user was prompted to purchase the product. Defined in the entitlements file of the template."
+								"shortText": "Description displayed when the user was prompted to purchase the product. Defined in the entitlements file."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 83,
+									"line": 94,
 									"character": 6
 								}
 							],
@@ -7113,7 +7128,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 96,
+									"line": 107,
 									"character": 14
 								}
 							],
@@ -7140,12 +7155,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Object that represents the template publisher (\"seller\")."
+								"shortText": "Object that represents the Koji creator (\"seller\")."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 99,
+									"line": 110,
 									"character": 7
 								}
 							],
@@ -7171,12 +7186,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Koji user name of the template publisher."
+								"shortText": "Koji user name of the Koji creator."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 69,
+									"line": 77,
 									"character": 13
 								}
 							],
@@ -7192,12 +7207,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Purchase price of the product. Defined in the entitlements file of the template."
+								"shortText": "Purchase price of the product. Defined in the entitlements file."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 72,
+									"line": 80,
 									"character": 7
 								}
 							],
@@ -7213,12 +7228,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Indicator of whether a purchase price is defined for the product. Defined in the entitlements file of the template."
+								"shortText": "Indicator of whether a purchase price is defined for the product. Defined in the entitlements file."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 74,
+									"line": 82,
 									"character": 14
 								}
 							],
@@ -7241,7 +7256,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 101,
+									"line": 112,
 									"character": 11
 								}
 							],
@@ -7272,12 +7287,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Total number of times the product can be sold (inventory threshold). Defined in the entitlements file of the template."
+								"shortText": "Total number of times the product can be sold (inventory threshold). Defined in the entitlements file."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 94,
+									"line": 105,
 									"character": 10
 								}
 							],
@@ -7302,12 +7317,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Identifier of the purchased product. Defined in the entitlements file of the template."
+								"shortText": "Identifier of the purchased product. Defined in the entitlements file."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 85,
+									"line": 96,
 									"character": 5
 								}
 							],
@@ -7346,7 +7361,7 @@
 					"sources": [
 						{
 							"fileName": "backend/iap/index.ts",
-							"line": 63,
+							"line": 71,
 							"character": 27
 						}
 					]
@@ -7599,6 +7614,9 @@
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
+					"comment": {
+						"shortText": "Information about a Koji user."
+					},
 					"children": [
 						{
 							"id": 304,
@@ -7612,7 +7630,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 56,
+									"line": 59,
 									"character": 13
 								}
 							],
@@ -7628,12 +7646,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "The user's profile url."
+								"shortText": "The user's profile URL."
 							},
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 51,
+									"line": 54,
 									"character": 6
 								}
 							],
@@ -7654,7 +7672,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 49,
+									"line": 52,
 									"character": 4
 								}
 							],
@@ -7675,7 +7693,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 60,
+									"line": 63,
 									"character": 12
 								}
 							],
@@ -7696,7 +7714,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 58,
+									"line": 61,
 									"character": 16
 								}
 							],
@@ -7726,7 +7744,7 @@
 							"sources": [
 								{
 									"fileName": "backend/iap/index.ts",
-									"line": 54,
+									"line": 57,
 									"character": 10
 								}
 							],
@@ -7753,7 +7771,7 @@
 					"sources": [
 						{
 							"fileName": "backend/iap/index.ts",
-							"line": 47,
+							"line": 50,
 							"character": 29
 						}
 					]
@@ -13367,7 +13385,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "User attributes that are determined via a client-side api call."
+						"shortText": "User attributes that are determined via a client-side API call."
 					},
 					"children": [
 						{
