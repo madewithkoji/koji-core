@@ -1666,28 +1666,12 @@
 								"isStatic": true
 							},
 							"comment": {
-								"shortText": "Provides atomic operations as static methods that can be used with database requests.",
-								"tags": [
-									{
-										"tag": "param",
-										"text": "Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].",
-										"param": "increment"
-									},
-									{
-										"tag": "param",
-										"text": "Amount to increment or decrement the value.\n",
-										"param": "increment.number"
-									},
-									{
-										"tag": "example",
-										"text": "\n```javascript\n// Increment a value (using a positive integer)\nconst updatedDoc = await database.update('collection', 'document', {\n  'myValue': KojiBackend.Database.valueTypes.increment(1),\n}, true);\n\n// Decrement a value (using a negative integer)\nconst updatedDoc = await database.update('collection', 'document', {\n  'myValue': KojiBackend.Database.valueTypes.increment(-1),\n}, true);\n```\n"
-									}
-								]
+								"shortText": "Provides atomic operations as static methods that can be used with database requests."
 							},
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 121,
+									"line": 105,
 									"character": 26
 								}
 							],
@@ -1721,6 +1705,15 @@
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
+															"comment": {
+																"shortText": "Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].",
+																"tags": [
+																	{
+																		"tag": "example",
+																		"text": "\n```javascript\n// Increment a value (using a positive integer)\nconst updatedDoc = await database.update('collection', 'document', {\n  'myValue': KojiBackend.Database.valueTypes.increment(1),\n}, true);\n\n// Decrement a value (using a negative integer)\nconst updatedDoc = await database.update('collection', 'document', {\n  'myValue': KojiBackend.Database.valueTypes.increment(-1),\n}, true);\n```\n"
+																	}
+																]
+															},
 															"parameters": [
 																{
 																	"id": 66,
@@ -1728,6 +1721,9 @@
 																	"kind": 32768,
 																	"kindString": "Parameter",
 																	"flags": {},
+																	"comment": {
+																		"text": "Amount to increment or decrement the value."
+																	},
 																	"type": {
 																		"type": "intrinsic",
 																		"name": "number"
