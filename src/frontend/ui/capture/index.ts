@@ -48,6 +48,26 @@ export enum CaptureType {
   VIDEO = 'video',
 }
 
+/** Metadata for a video file. */
+export interface VideoMetadata {
+  /** URL for the video thumbnail. */
+  thumbnailUrl: string;
+}
+
+/** Metadata for an audio file. */
+export interface AudioMetadata {
+  /** Duration in seconds for an audio file. */
+  durationSeconds: number;
+}
+
+/** Metadata for an image file. */
+export interface ImageMetadata {
+  /** Natural width of the image in pixels. */
+  naturalWidth: number;
+  /** Natural height of the image in pixels. */
+  naturalHeight: number;
+}
+
 /**
  * Extended metadata for a [[media]] capture.
  */
@@ -59,22 +79,11 @@ export interface ExtendedMediaResult {
   /** Size in bytes of the media file. */
   sizeBytes?: string;
   /** Metadata for a video file. */
-  videoMetadata?: {
-    /** URL for the video thumbnail. */
-    thumbnailUrl: string;
-  };
+  videoMetadata?: VideoMetadata;
   /** Metadata for an audio file. */
-  audioMetadata?: {
-    /** Duration in seconds for an audio file. */
-    durationSeconds: number;
-  };
+  audioMetadata?: AudioMetadata;
   /** Metadata for an image file. */
-  imageMetadata?: {
-    /** Natural width of the image in pixels. */
-    naturalWidth: number;
-    /** Natural height of the image in pixels. */
-    naturalHeight: number;
-  };
+  imageMetadata?: ImageMetadata;
 }
 
 /**

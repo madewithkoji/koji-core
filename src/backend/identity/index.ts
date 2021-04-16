@@ -13,15 +13,6 @@ export enum AuthRoutes {
 }
 
 /**
- * Possible values for a user's role within a Koji.
- */
-export enum UserRole {
-  ADMIN = 'admin',
-  UNKNOWN = 'unknown',
-  USER = 'user',
-}
-
-/**
  * Information about a user of the Koji. To retrieve a user's information, use [[resolveUserFromToken]].
  */
 export interface User {
@@ -36,7 +27,7 @@ export interface User {
     pushNotificationsEnabled: boolean;
   } | null;
   /** User’s role for this Koji – the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`). */
-  role: UserRole | null;
+  role: 'admin' | 'user' | 'unknown' | null;
 }
 
 /**
