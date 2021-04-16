@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>backend/base | @withkoji/core</title>
+	<title>RemuxPreset | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,75 +55,79 @@
 					<a href="../modules.html">@withkoji/core</a>
 				</li>
 				<li>
-					<a href="backend_base.html">backend/base</a>
+					<a href="../modules/frontend_ui_upload.html">frontend/ui/upload</a>
+				</li>
+				<li>
+					<a href="frontend_ui_upload.remuxpreset.html">RemuxPreset</a>
 				</li>
 			</ul>
-			<h1>Module backend/base</h1>
+			<h1>Interface RemuxPreset</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">RemuxPreset</span>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/backend_base.base.html" class="tsd-kind-icon">Base</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_base.backendconfiguration.html" class="tsd-kind-icon">Backend<wbr>Configuration</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-kind-icon">Backend<wbr>Configuration<wbr>Input</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_base.idatabase.html" class="tsd-kind-icon">IDatabase</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="backend_base.html#generateconfig" class="tsd-kind-icon">generate<wbr>Config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_upload.remuxpreset.html#aspectratio" class="tsd-kind-icon">aspect<wbr>Ratio</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_upload.remuxpreset.html#sizepolicy" class="tsd-kind-icon">size<wbr>Policy</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="generateconfig" class="tsd-anchor"></a>
-					<h3>generate<wbr>Config</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">generate<wbr>Config<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfigurationInput</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/backend_base.backendconfiguration.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfiguration</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b435587/src/backend/base/index.ts#L30">backend/base/index.ts:30</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Generates an extensible configuration for the Koji&#39;s backend services.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>config: <a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfigurationInput</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Configuration information for the Koji.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/backend_base.backendconfiguration.html" class="tsd-signature-type" data-tsd-kind="Interface">BackendConfiguration</a></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="aspectratio" class="tsd-anchor"></a>
+					<h3>aspect<wbr>Ratio</h3>
+					<div class="tsd-signature tsd-kind-icon">aspect<wbr>Ratio<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;16:9&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;9:16&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;4:5&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;1:1&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;passthrough&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b435587/src/frontend/ui/upload/index.ts#L7">frontend/ui/upload/index.ts:7</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The desired aspect ratio</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sizepolicy" class="tsd-anchor"></a>
+					<h3>size<wbr>Policy</h3>
+					<div class="tsd-signature tsd-kind-icon">size<wbr>Policy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;fill&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;fit&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/b435587/src/frontend/ui/upload/index.ts#L9">frontend/ui/upload/index.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>How the video will be cropped</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -134,26 +138,41 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="backend_base.html">backend/base</a>
+						<a href="../modules/frontend_ui_upload.html">frontend/ui/upload</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/backend_base.base.html" class="tsd-kind-icon">Base</a>
+						<a href="../classes/frontend_ui_upload.upload.html" class="tsd-kind-icon">Upload</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_upload.remuxpreset.html" class="tsd-kind-icon">Remux<wbr>Preset</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_upload.remuxpreset.html#aspectratio" class="tsd-kind-icon">aspect<wbr>Ratio</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_ui_upload.remuxpreset.html#sizepolicy" class="tsd-kind-icon">size<wbr>Policy</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_upload.uploadoptions.html" class="tsd-kind-icon">Upload<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/backend_base.backendconfiguration.html" class="tsd-kind-icon">Backend<wbr>Configuration</a>
+						<a href="frontend_ui_upload.videooptions.html" class="tsd-kind-icon">Video<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/backend_base.backendconfigurationinput.html" class="tsd-kind-icon">Backend<wbr>Configuration<wbr>Input</a>
+						<a href="frontend_ui_upload.watermark.html" class="tsd-kind-icon">Watermark</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/backend_base.idatabase.html" class="tsd-kind-icon">IDatabase</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="backend_base.html#generateconfig" class="tsd-kind-icon">generate<wbr>Config</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/frontend_ui_upload.html#upload-1" class="tsd-kind-icon">upload</a>
 					</li>
 				</ul>
 			</nav>
@@ -172,6 +191,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>

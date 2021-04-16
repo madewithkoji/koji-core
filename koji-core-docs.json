@@ -22356,7 +22356,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 55,
+									"line": 61,
 									"character": 25
 								}
 							],
@@ -22436,7 +22436,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/upload/index.ts",
-							"line": 36,
+							"line": 42,
 							"character": 19
 						}
 					],
@@ -22445,6 +22445,107 @@
 							"type": "reference",
 							"id": 730,
 							"name": "KojiBridge"
+						}
+					]
+				},
+				{
+					"id": 1201,
+					"name": "RemuxPreset",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"shortText": "Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped."
+					},
+					"children": [
+						{
+							"id": 1202,
+							"name": "aspectRatio",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "The desired aspect ratio"
+							},
+							"sources": [
+								{
+									"fileName": "frontend/ui/upload/index.ts",
+									"line": 7,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "literal",
+										"value": "16:9"
+									},
+									{
+										"type": "literal",
+										"value": "9:16"
+									},
+									{
+										"type": "literal",
+										"value": "4:5"
+									},
+									{
+										"type": "literal",
+										"value": "1:1"
+									},
+									{
+										"type": "literal",
+										"value": "passthrough"
+									}
+								]
+							}
+						},
+						{
+							"id": 1203,
+							"name": "sizePolicy",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "How the video will be cropped"
+							},
+							"sources": [
+								{
+									"fileName": "frontend/ui/upload/index.ts",
+									"line": 9,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "literal",
+										"value": "fill"
+									},
+									{
+										"type": "literal",
+										"value": "fit"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								1202,
+								1203
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "frontend/ui/upload/index.ts",
+							"line": 5,
+							"character": 28
 						}
 					]
 				},
@@ -22470,7 +22571,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 26,
+									"line": 32,
 									"character": 6
 								}
 							],
@@ -22491,7 +22592,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 28,
+									"line": 34,
 									"character": 6
 								}
 							],
@@ -22527,7 +22628,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 30,
+									"line": 36,
 									"character": 14
 								}
 							],
@@ -22540,7 +22641,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1201,
+										"id": 1206,
 										"name": "VideoOptions"
 									}
 								]
@@ -22561,20 +22662,20 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/upload/index.ts",
-							"line": 24,
+							"line": 30,
 							"character": 30
 						}
 					]
 				},
 				{
-					"id": 1201,
+					"id": 1206,
 					"name": "VideoOptions",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 1202,
+							"id": 1207,
 							"name": "hls",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22587,7 +22688,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 6,
+									"line": 20,
 									"character": 5
 								}
 							],
@@ -22606,7 +22707,7 @@
 							}
 						},
 						{
-							"id": 1203,
+							"id": 1208,
 							"name": "remux",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22619,7 +22720,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 8,
+									"line": 22,
 									"character": 7
 								}
 							],
@@ -22638,20 +22739,17 @@
 							}
 						},
 						{
-							"id": 1204,
+							"id": 1209,
 							"name": "remuxPreset",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
-							"comment": {
-								"shortText": "Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped."
-							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 10,
+									"line": 23,
 									"character": 13
 								}
 							],
@@ -22663,111 +22761,25 @@
 										"name": "undefined"
 									},
 									{
-										"type": "reflection",
-										"declaration": {
-											"id": 1205,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"children": [
-												{
-													"id": 1206,
-													"name": "aspectRatio",
-													"kind": 1024,
-													"kindString": "Property",
-													"flags": {},
-													"sources": [
-														{
-															"fileName": "frontend/ui/upload/index.ts",
-															"line": 11,
-															"character": 15
-														}
-													],
-													"type": {
-														"type": "union",
-														"types": [
-															{
-																"type": "literal",
-																"value": "16:9"
-															},
-															{
-																"type": "literal",
-																"value": "9:16"
-															},
-															{
-																"type": "literal",
-																"value": "4:5"
-															},
-															{
-																"type": "literal",
-																"value": "1:1"
-															},
-															{
-																"type": "literal",
-																"value": "passthrough"
-															}
-														]
-													}
-												},
-												{
-													"id": 1207,
-													"name": "sizePolicy",
-													"kind": 1024,
-													"kindString": "Property",
-													"flags": {},
-													"sources": [
-														{
-															"fileName": "frontend/ui/upload/index.ts",
-															"line": 12,
-															"character": 14
-														}
-													],
-													"type": {
-														"type": "union",
-														"types": [
-															{
-																"type": "literal",
-																"value": "fill"
-															},
-															{
-																"type": "literal",
-																"value": "fit"
-															}
-														]
-													}
-												}
-											],
-											"groups": [
-												{
-													"title": "Properties",
-													"kind": 1024,
-													"children": [
-														1206,
-														1207
-													]
-												}
-											]
-										}
+										"type": "reference",
+										"id": 1201,
+										"name": "RemuxPreset"
 									}
 								]
 							}
 						},
 						{
-							"id": 1208,
+							"id": 1210,
 							"name": "watermark",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isOptional": true
 							},
-							"comment": {
-								"shortText": "Applies a watermark to the uploaded image. Available only with HLS transcoding."
-							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/upload/index.ts",
-									"line": 15,
+									"line": 24,
 									"character": 11
 								}
 							],
@@ -22779,46 +22791,9 @@
 										"name": "undefined"
 									},
 									{
-										"type": "reflection",
-										"declaration": {
-											"id": 1209,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"children": [
-												{
-													"id": 1210,
-													"name": "type",
-													"kind": 1024,
-													"kindString": "Property",
-													"flags": {},
-													"comment": {
-														"shortText": "Type of the watermark. `creatorProfileUrl` watermarks the image with `koji.to/@creatorUsername`."
-													},
-													"sources": [
-														{
-															"fileName": "frontend/ui/upload/index.ts",
-															"line": 17,
-															"character": 8
-														}
-													],
-													"type": {
-														"type": "literal",
-														"value": "creatorProfileUrl"
-													}
-												}
-											],
-											"groups": [
-												{
-													"title": "Properties",
-													"kind": 1024,
-													"children": [
-														1210
-													]
-												}
-											]
-										}
+										"type": "reference",
+										"id": 1204,
+										"name": "Watermark"
 									}
 								]
 							}
@@ -22829,18 +22804,67 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1202,
-								1203,
-								1204,
-								1208
+								1207,
+								1208,
+								1209,
+								1210
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "frontend/ui/upload/index.ts",
-							"line": 4,
+							"line": 18,
 							"character": 29
+						}
+					]
+				},
+				{
+					"id": 1204,
+					"name": "Watermark",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"shortText": "Applies a watermark to the uploaded image. Available only with HLS transcoding."
+					},
+					"children": [
+						{
+							"id": 1205,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Type of the watermark. `creatorProfileUrl` watermarks the image with `koji.to/@creatorUsername`."
+							},
+							"sources": [
+								{
+									"fileName": "frontend/ui/upload/index.ts",
+									"line": 15,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "literal",
+								"value": "creatorProfileUrl"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								1205
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "frontend/ui/upload/index.ts",
+							"line": 13,
+							"character": 26
 						}
 					]
 				},
@@ -22855,7 +22879,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/upload/index.ts",
-							"line": 72,
+							"line": 78,
 							"character": 19
 						}
 					],
@@ -22879,8 +22903,10 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
+						1201,
 						1211,
-						1201
+						1206,
+						1204
 					]
 				},
 				{
