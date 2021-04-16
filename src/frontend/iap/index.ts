@@ -52,7 +52,7 @@ export class IAP extends KojiBridge {
   }
 
   /**
-   * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.
+   * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the project is deployed.
    *
    * NOTE: If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke {@doclink core-backend-iap#captureTransaction | Iap.captureTransaction} on the backend of your Koji.
    * Funds are not available in the seller's account until the transaction is captured.

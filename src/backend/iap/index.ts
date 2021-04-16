@@ -198,7 +198,7 @@ export class IAP extends Base {
   /**
    * Gets all receipts for a specified product, which can be used to aggregate sales data.
    *
-   * @param     sku     Identifier for the product. Products are defined in the entitlements file and registered or updated when the template is published.
+   * @param     sku     Identifier for the product. Products are defined in the entitlements file and registered or updated when the project is deployed.
    * @return            Array of receipts for the specified product.
    *
    * @example
