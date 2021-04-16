@@ -100,7 +100,10 @@ export class Database extends Base {
   private rootHeaders: Object;
 
   /**
-   * Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].
+   * Provides atomic operations as static methods that can be used with database requests.
+   *
+   * @param increment         Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].
+   * @param increment.number  Amount to increment or decrement the value.
    *
    * @example
    * ```javascript

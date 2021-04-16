@@ -1666,8 +1666,18 @@
 								"isStatic": true
 							},
 							"comment": {
-								"shortText": "Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].",
+								"shortText": "Provides atomic operations as static methods that can be used with database requests.",
 								"tags": [
+									{
+										"tag": "param",
+										"text": "Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].",
+										"param": "increment"
+									},
+									{
+										"tag": "param",
+										"text": "Amount to increment or decrement the value.\n",
+										"param": "increment.number"
+									},
 									{
 										"tag": "example",
 										"text": "\n```javascript\n// Increment a value (using a positive integer)\nconst updatedDoc = await database.update('collection', 'document', {\n  'myValue': KojiBackend.Database.valueTypes.increment(1),\n}, true);\n\n// Decrement a value (using a negative integer)\nconst updatedDoc = await database.update('collection', 'document', {\n  'myValue': KojiBackend.Database.valueTypes.increment(-1),\n}, true);\n```\n"
@@ -1677,7 +1687,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 118,
+									"line": 121,
 									"character": 26
 								}
 							],
@@ -1811,7 +1821,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 412,
+									"line": 415,
 									"character": 24
 								}
 							],
@@ -1926,7 +1936,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 445,
+									"line": 448,
 									"character": 26
 								}
 							],
@@ -2041,7 +2051,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 473,
+									"line": 476,
 									"character": 21
 								}
 							],
@@ -2127,7 +2137,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 162,
+									"line": 165,
 									"character": 18
 								}
 							],
@@ -2235,7 +2245,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 273,
+									"line": 276,
 									"character": 21
 								}
 							],
@@ -2338,7 +2348,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 304,
+									"line": 307,
 									"character": 26
 								}
 							],
@@ -2470,7 +2480,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 185,
+									"line": 188,
 									"character": 29
 								}
 							],
@@ -2528,7 +2538,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 242,
+									"line": 245,
 									"character": 23
 								}
 							],
@@ -2654,7 +2664,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 210,
+									"line": 213,
 									"character": 21
 								}
 							],
@@ -2768,7 +2778,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 337,
+									"line": 340,
 									"character": 18
 								}
 							],
@@ -2883,7 +2893,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 373,
+									"line": 376,
 									"character": 21
 								}
 							],
@@ -3062,7 +3072,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 412,
+									"line": 415,
 									"character": 24
 								}
 							],
@@ -3187,7 +3197,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 445,
+									"line": 448,
 									"character": 26
 								}
 							],
@@ -3312,7 +3322,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 473,
+									"line": 476,
 									"character": 21
 								}
 							],
@@ -3408,7 +3418,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 162,
+									"line": 165,
 									"character": 18
 								}
 							],
@@ -3526,7 +3536,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 273,
+									"line": 276,
 									"character": 21
 								}
 							],
@@ -3639,7 +3649,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 304,
+									"line": 307,
 									"character": 26
 								}
 							],
@@ -3781,7 +3791,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 185,
+									"line": 188,
 									"character": 29
 								}
 							],
@@ -3849,7 +3859,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 242,
+									"line": 245,
 									"character": 23
 								}
 							],
@@ -3985,7 +3995,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 210,
+									"line": 213,
 									"character": 21
 								}
 							],
@@ -4109,7 +4119,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 337,
+									"line": 340,
 									"character": 18
 								}
 							],
@@ -4234,7 +4244,7 @@
 							"sources": [
 								{
 									"fileName": "backend/database/index.ts",
-									"line": 373,
+									"line": 376,
 									"character": 21
 								}
 							],
@@ -4362,7 +4372,7 @@
 					"sources": [
 						{
 							"fileName": "backend/database/index.ts",
-							"line": 487,
+							"line": 490,
 							"character": 26
 						}
 					],
