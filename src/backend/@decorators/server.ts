@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /**
  * Verifies that server-side methods are used only in backend services of the Koji.
+ *
  * @param   target      Class to which the method belongs.
  * @param   propertyKey Method name.
  * @param   descriptor  Method's behavior (which can be mutated inside this function).

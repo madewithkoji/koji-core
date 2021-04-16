@@ -85,6 +85,8 @@
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_dispatch.connectioninfo.html" class="tsd-kind-icon">Connection<wbr>Info</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_dispatch.dispatchconfigurationinput.html" class="tsd-kind-icon">Dispatch<wbr>Configuration<wbr>Input</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_dispatch.dispatchmessagemetadata.html" class="tsd-kind-icon">Dispatch<wbr>Message<wbr>Metadata</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_dispatch.messagehandler.html" class="tsd-kind-icon">Message<wbr>Handler</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/backend_dispatch.shardinfo.html" class="tsd-kind-icon">Shard<wbr>Info</a></li>
 							</ul>
@@ -103,30 +105,33 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="messagehandlercallback" class="tsd-anchor"></a>
 					<h3>Message<wbr>Handler<wbr>Callback</h3>
-					<div class="tsd-signature tsd-kind-icon">Message<wbr>Handler<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>latencyMs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<div class="tsd-signature tsd-kind-icon">Message<wbr>Handler<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span>, metadata<span class="tsd-signature-symbol">: </span><a href="../interfaces/backend_dispatch.dispatchmessagemetadata.html" class="tsd-signature-type" data-tsd-kind="Interface">DispatchMessageMetadata</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/dispatch/index.ts#L52">backend/dispatch/index.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/dispatch/index.ts#L60">backend/dispatch/index.ts:60</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Implements the callback function for the MessageHandler interface.</p>
-						</div>
-					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span>, metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>latencyMs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>payload<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span>, metadata<span class="tsd-signature-symbol">: </span><a href="../interfaces/backend_dispatch.dispatchmessagemetadata.html" class="tsd-signature-type" data-tsd-kind="Interface">DispatchMessageMetadata</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
+										<div class="tsd-comment tsd-typography">
+											<div class="lead">
+												<p>Function to handle a dispatch event. Invoked by the <a href="../classes/backend_dispatch.dispatch.html#on">on</a> listener.</p>
+											</div>
+										</div>
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
 												<h5>payload: <span class="tsd-signature-symbol">{}</span></h5>
+												<div class="tsd-comment tsd-typography">
+													<p>Data payload sent with the fired event.</p>
+												</div>
 												<ul class="tsd-parameters">
 													<li class="tsd-parameter-index-signature">
 														<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
@@ -134,12 +139,10 @@
 												</ul>
 											</li>
 											<li>
-												<h5>metadata: <span class="tsd-signature-symbol">{ </span>latencyMs<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></h5>
-												<ul class="tsd-parameters">
-													<li class="tsd-parameter">
-														<h5><span class="tsd-flag ts-flagOptional">Optional</span> latency<wbr>Ms<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span></h5>
-													</li>
-												</ul>
+												<h5>metadata: <a href="../interfaces/backend_dispatch.dispatchmessagemetadata.html" class="tsd-signature-type" data-tsd-kind="Interface">DispatchMessageMetadata</a></h5>
+												<div class="tsd-comment tsd-typography">
+													<p>Object containing additional information about the event, including the message latency in milliseconds.</p>
+												</div>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -172,6 +175,12 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/backend_dispatch.connectioninfo.html" class="tsd-kind-icon">Connection<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/backend_dispatch.dispatchconfigurationinput.html" class="tsd-kind-icon">Dispatch<wbr>Configuration<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/backend_dispatch.dispatchmessagemetadata.html" class="tsd-kind-icon">Dispatch<wbr>Message<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/backend_dispatch.messagehandler.html" class="tsd-kind-icon">Message<wbr>Handler</a>

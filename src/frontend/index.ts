@@ -10,7 +10,7 @@ import { client } from './@decorators/client';
 import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
 
 /**
- * Defines the configuration data for the Koji.
+ * Configuration data for the Koji.
  */
 export interface KojiConfig {
   /** Instructions for setting up the services in a development/editor environment. */
@@ -63,7 +63,9 @@ export class Koji {
   }
 
   /**
-   * Initializes this package for use with configuration data from the `koji.json` file. This method sets up the services, remix values, development environment, and deployment instructions for your Koji. It also performs some basic structural checks.
+   * Initializes this package for use with configuration data from the `koji.json` file. This method sets up the services, remix values, development environment, and deployment instructions for your Koji template. It also performs some basic structural checks.
+   *
+   * NOTE: A template should initialize the package one time, before any data in the application is rendered.
    *
    * @param kojiConfig Configuration data for the Koji.
    *
@@ -236,9 +238,11 @@ export class Koji {
   /**
    * Indicates that the Koji is ready to start receiving events.
    *
+   * NOTE: You must call this function after initializing the package and subscribing to remix state changes, but before advancing to the preview with `Koji.remix.finish`.
+   * 
    * @example
    * ```javascript
-   * Koji.ready
+   * Koji.ready();
    * ```
    */
   @client

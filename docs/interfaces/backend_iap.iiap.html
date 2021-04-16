@@ -95,6 +95,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#capturetransaction" class="tsd-kind-icon">capture<wbr>Transaction</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#loadproduct" class="tsd-kind-icon">load<wbr>Product</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptbyid" class="tsd-kind-icon">resolve<wbr>Receipt<wbr>ById</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="backend_iap.iiap.html#resolvereceiptsbyiaptoken" class="tsd-kind-icon">resolve<wbr>Receipts<wbr>ByIAPToken</a></li>
@@ -114,7 +115,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projectid">projectId</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/base/index.ts#L59">backend/base/index.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -125,7 +126,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#projecttoken">projectToken</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/base/index.ts#L60">backend/base/index.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -133,26 +134,69 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="capturetransaction" class="tsd-anchor"></a>
+					<h3>capture<wbr>Transaction</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">capture<wbr>Transaction<span class="tsd-signature-symbol">(</span>receiptId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#capturetransaction">captureTransaction</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/iap/index.ts#L261">backend/iap/index.ts:261</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Captures a pending transaction.</p>
+								</div>
+								<p>NOTE: If your IAP product is defined with the <code>captureOnPurchase</code> key set to <code>false</code>, the transaction is held in a pending state until you manually invoke <code>captureTransaction</code>.
+									Funds are not available in the seller&#39;s account until the transaction is captured.
+									If you do not capture the transaction before the <code>captureExpiryPeriod</code>, the transaction is automatically reversed and the buyer is refunded.
+								This period can be specified in the product definition from 0 to 7 days (default is 0).</p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">captureTransaction</span><span style="color: #000000">(</span><span style="color: #001080">receiptId</span><span style="color: #000000">);</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Unique identifier for the transaction receipt.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="loadproduct" class="tsd-anchor"></a>
 					<h3>load<wbr>Product</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">load<wbr>Product<span class="tsd-signature-symbol">(</span>sku<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Product<span class="tsd-signature-symbol">(</span>sku<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapproduct.html" class="tsd-signature-type" data-tsd-kind="Interface">IapProduct</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#loadproduct">loadProduct</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/iap/index.ts#L160">backend/iap/index.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/iap/index.ts#L283">backend/iap/index.ts:283</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Load product by sku.</p>
+									<p>Gets the properties of a specified product, which enables the template to leverage dynamic product information.
+									For example, you can check the stock for a product with limited quantity (via the <code>numAvailable</code> property), and indicate the number of remaining items.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">loadProduct</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">product</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">loadProduct</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -162,12 +206,12 @@
 								<li>
 									<h5>sku: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Product sku.</p>
+										<p>Identifier for the product.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Data object.</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapproduct.html" class="tsd-signature-type" data-tsd-kind="Interface">IapProduct</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Properties of the specified product.</p>
 						</li>
 					</ul>
 				</section>
@@ -182,16 +226,24 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptbyid">resolveReceiptById</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/iap/index.ts#L98">backend/iap/index.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/iap/index.ts#L192">backend/iap/index.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get receipts by receipt id</p>
+									<p>Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.
+										For example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.
+									Or, capture product options, such as color or size, to display to the seller in the admin page.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipt</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptById</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipt</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptById</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// Use custom attributes for a video response</span>
+<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">setState</span><span style="color: #000000">({</span>
+<span style="color: #000000"> </span><span style="color: #001080">instructions:</span><span style="color: #000000"> </span><span style="color: #001080">receipt</span><span style="color: #000000">.</span><span style="color: #001080">attributes</span><span style="color: #000000">.</span><span style="color: #001080">message</span><span style="color: #000000">,</span>
+<span style="color: #000000"> </span><span style="color: #001080">video:</span><span style="color: #000000"> </span><span style="color: #001080">receipt</span><span style="color: #000000">.</span><span style="color: #001080">attributes</span><span style="color: #000000">.</span><span style="color: #001080">video</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -201,12 +253,12 @@
 								<li>
 									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Receipt id.</p>
+										<p>Unique identifier for the receipt.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of receipts.</p>
+							<p>Object for the specified receipt.</p>
 						</li>
 					</ul>
 				</section>
@@ -221,16 +273,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbyiaptoken">resolveReceiptsByIAPToken</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/iap/index.ts#L71">backend/iap/index.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/iap/index.ts#L157">backend/iap/index.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get receipts by user token</p>
+									<p>Gets all receipts for the current user, which can be used to validate purchases for specific products.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptsByUserToken</span><span style="color: #000000">(</span><span style="color: #001080">token</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptsByIAPToken</span><span style="color: #000000">(</span><span style="color: #001080">iapToken</span><span style="color: #000000">);</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -239,10 +291,13 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>iapToken: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Short-lived IAP token for the current user.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of receipts.</p>
+							<p>Array of receipts for the user&#39;s purchases.</p>
 						</li>
 					</ul>
 				</section>
@@ -257,16 +312,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#resolvereceiptsbysku">resolveReceiptsBySku</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/iap/index.ts#L116">backend/iap/index.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/iap/index.ts#L210">backend/iap/index.ts:210</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get receipts for a product by sku</p>
+									<p>Gets all receipts for a specified product, which can be used to aggregate sales data.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptById</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">receipts</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">resolveReceiptBySku</span><span style="color: #000000">(</span><span style="color: #001080">sku</span><span style="color: #000000">);</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -276,12 +331,12 @@
 								<li>
 									<h5>sku: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Product sku.</p>
+										<p>Identifier for the product. Products are defined in the entitlements file and registered or updated when the project is deployed.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="backend_iap.iapreceipt.html" class="tsd-signature-type" data-tsd-kind="Interface">IapReceipt</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of receipts that include the product.</p>
+							<p>Array of receipts for the specified product.</p>
 						</li>
 					</ul>
 				</section>
@@ -296,16 +351,17 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="../classes/backend_iap.iap.html">IAP</a>.<a href="../classes/backend_iap.iap.html#updatereceipt">updateReceipt</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/iap/index.ts#L135">backend/iap/index.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/iap/index.ts#L231">backend/iap/index.ts:231</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Update receipt</p>
+									<p>Updates the custom attributes for a specified receipt.
+									For example, if a user purchases a credit toward a product on the Koji and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">updateReceipt</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, { </span><span style="color: #001080">consumed:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }, </span><span style="color: #A31515">&#039;You have successfully redeemed your purchase.&#039;</span><span style="color: #000000">);</span>
+									<dd><pre><code class="language-javascript"><span style="color: #001080">iap</span><span style="color: #000000">.</span><span style="color: #795E26">updateReceipt</span><span style="color: #000000">(</span><span style="color: #001080">id</span><span style="color: #000000">, { </span><span style="color: #001080">consumed:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }, </span><span style="color: #A31515">&#039;You have successfully redeemed your credit.&#039;</span><span style="color: #000000">);</span>
 </code></pre>
 									</dd>
 								</dl>
@@ -315,7 +371,7 @@
 								<li>
 									<h5>receiptId: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Receipt id.</p>
+										<p>Unique identifier for the receipt.</p>
 									</div>
 								</li>
 								<li>
@@ -332,12 +388,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> notificationMessage: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional notification message.</p>
+										<p>Custom message to sent the user when the receipt is updated (up to 80 characters). If undefined, the message will read: <code>Your receipt for PRODUCT_NAME was updated.</code></p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Data object.</p>
+							<p>Confirmation of the update, if the request was successful, or an error message, if not.</p>
 						</li>
 					</ul>
 				</section>
@@ -374,6 +430,9 @@
 								<a href="backend_iap.iiap.html#projecttoken" class="tsd-kind-icon">project<wbr>Token</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="backend_iap.iiap.html#capturetransaction" class="tsd-kind-icon">capture<wbr>Transaction</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="backend_iap.iiap.html#loadproduct" class="tsd-kind-icon">load<wbr>Product</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
@@ -393,7 +452,13 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="backend_iap.iapproduct.html" class="tsd-kind-icon">Iap<wbr>Product</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="backend_iap.iapreceipt.html" class="tsd-kind-icon">Iap<wbr>Receipt</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="backend_iap.userartifact.html" class="tsd-kind-icon">User<wbr>Artifact</a>
 					</li>
 				</ul>
 			</nav>

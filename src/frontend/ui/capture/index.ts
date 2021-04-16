@@ -1,8 +1,12 @@
 import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
-import { FastlyOptions } from '../../../types';
+import { FastlyOptions, RemuxPreset, Watermark } from '../../../types';
 
+/**
+ * Result of a user input capture.
+ */
 export type CaptureResult = string | number | null | VerboseCapture;
+
 /**
  * Extended result of a user input capture.
  */
@@ -12,8 +16,8 @@ export interface VerboseCapture {
   /** Capture method type (for example, `color` or `file`). */
   captureType: CaptureType;
   /** Value captured from the user. */
-  result?: CaptureResult;
-  /** Metadata associated with the captured result */
+  result?: string | number | null;
+  /** Metadata associated with the captured result. */
   resultMetadata?: ExtendedMediaResult | ExtendedLinkResult | null;
 }
 
@@ -44,9 +48,28 @@ export enum CaptureType {
   VIDEO = 'video',
 }
 
+/** Metadata for a video file. */
+export interface VideoMetadata {
+  /** URL for the video thumbnail. */
+  thumbnailUrl: string;
+}
+
+/** Metadata for an audio file. */
+export interface AudioMetadata {
+  /** Duration in seconds for an audio file. */
+  durationSeconds: number;
+}
+
+/** Metadata for an image file. */
+export interface ImageMetadata {
+  /** Natural width of the image in pixels. */
+  naturalWidth: number;
+  /** Natural height of the image in pixels. */
+  naturalHeight: number;
+}
+
 /**
- * Metadata when the capture option for a media capture request's return type
- * is set to `extended`.
+ * Extended metadata for a [[media]] capture.
  */
 export interface ExtendedMediaResult {
   /** URL of the selected media file. */
@@ -56,46 +79,40 @@ export interface ExtendedMediaResult {
   /** Size in bytes of the media file. */
   sizeBytes?: string;
   /** Metadata for a video file. */
-  videoMetadata?: {
-    /** URL for the video thumbnail. */
-    thumbnailUrl: string;
-  };
+  videoMetadata?: VideoMetadata;
   /** Metadata for an audio file. */
-  audioMetadata?: {
-    /** Duration in seconds for an audio file. */
-    durationSeconds: number;
-  };
+  audioMetadata?: AudioMetadata;
   /** Metadata for an image file. */
-  imageMetadata?: {
-    /** Natural width of the image in pixels. */
-    naturalWidth: number;
-    /** Natural height of the image in pixels. */
-    naturalHeight: number;
-  };
+  imageMetadata?: ImageMetadata;
 }
 
 /**
- * Metadata when the capture option for the return type for a link capture
- * request is set to `extended`
+ * Extended metadata for a [[link]] capture.
  */
 export interface ExtendedLinkResult {
+  /** Full URL of the selected Koji or pasted link resource. */
   url: string;
+  /** Sharing metadata title (`og:title`) of the content at the URL, if available. */
   title: string | null;
+  /** Sharing metadata description (`og:description`) of the content at the URL, if available. */
   description: string | null;
+  /** Sharing metadata image (`og:image`) of the content at the URL, if available. */
   thumbnailUrl: string | null;
+  /** If the resource is a Koji, the Koji’s name, if available. */
   sourceName: string | null;
+  /** If the resource is a Koji, the URL of the Koji’s thumbnail image, if available. */
   sourceThumbnailUrl: string | null;
 }
 
 /**
- * Configuration options for a [[custom-vcc]] capture.
+ * Configuration options for a [[custom]] capture.
  */
 export interface CaptureCustomOptions {
-  /** The short name for the custom vcc */
+  /** Short name for the custom control. */
   name?: string;
-  /** A url where the custom vcc is being hosted */
+  /** URL where the custom control is hosted. */
   url?: string;
-  /** Type options specific to the custom vcc */
+  /** Type options specific to the custom control. */
   typeOptions?: any;
 }
 
@@ -105,7 +122,7 @@ export interface CaptureCustomOptions {
 export interface CaptureColorOptions {
   /** Indicates whether to support transparency (`false`, by default). */
   allowAlpha?: boolean;
-  /** A default value to provide to the color capture tool */
+  /** Default value for the color capture control. */
   initialValue?: string;
 }
 
@@ -126,7 +143,9 @@ export interface CaptureFileOptions {}
  * Configuration options for a [[link]] capture.
  */
 export interface CaptureLinkOptions {
+  /** Template store ID of a Koji template. Include this value to enable the user to create a new Koji from the link control. */
   kojiTemplateId?: string;
+  /** Whether to prevent users from pasting an external link. If `true`, users can select only one of their Kojis. */
   disableExternalLinks?: boolean;
 }
 
@@ -140,7 +159,7 @@ export interface CaptureRangeOptions {
   max?: number;
   /** Default increment/step size. Default is `1`. */
   step?: number;
-  /** A default value to provide to the range capture tool */
+  /** Default value for the range capture control. */
   initialValue?: number;
 }
 
@@ -162,15 +181,18 @@ export interface CaptureSelectOptions {
   placeholder?: string;
   /** List of predefined options. */
   options?: SelectOption[];
-  /** A default value to provide to the range capture tool */
+  /** Default value for the select capture control. */
   initialValue?: string;
 }
 
 /**
- * Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media file type.
+ * Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media type.
  */
 export type CaptureMediaAcceptOnly = 'image' | 'video' | 'audio' | 'file';
 
+/**
+ * Configuration options for a [[video]] capture.
+ */
 export interface CaptureVideoOptions {
   /** Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and return an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback. */
   hls?: boolean;
@@ -178,25 +200,25 @@ export interface CaptureVideoOptions {
   estimatePoses?: boolean;
   /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium videos). */
   hideExtensions?: boolean;
-  /** Video files constructed from getUserMedia MediaStreams will not contain correct duration headers, and need to be remuxed by Koji before they are delivered. */
+  /** Remuxes video files constructed from getUserMedia MediaStreams, which ensures these files contain correct duration headers before they are delivered. */
   remux?: boolean;
-  /** If remuxing, specify an optional constraint for cropping. If not set, the video will not be cropped. */
-  remuxPreset?: {
-    aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
-    sizePolicy: 'fill'|'fit',
-  };
-  /** Apply a watermak to the uploaded image. Only available with HLS */
-  watermark?: {
-    /** Specify the type of the watermark. creatorProfileUrl watermarks the image with koji.to/@creatorUsername */
-    type: 'creatorProfileUrl',
-  };
+  /** Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped. */
+  remuxPreset?: RemuxPreset;
+  /** Applies a watermark to the uploaded image. Available only with HLS transcoding. */
+  watermark?: Watermark;
 }
 
+/**
+ * Configuration options for an [[audio]] capture.
+ */
 export interface CaptureAudioOptions {
   /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium audios). */
   hideExtensions?: boolean;
 }
 
+/**
+ * Configuration options for a [[media]] capture.
+ */
 export interface CaptureMediaOptions {
   /** Specifies the types of media files to allow. If empty or not specified, any type of file is allowed. */
   acceptOnly?: CaptureMediaAcceptOnly[];
@@ -213,8 +235,9 @@ export interface CaptureMediaOptions {
  */
 export class Capture extends KojiBridge {
   /**
-   * Map capture data to a verbose result
-   * @param data The capture data returned by the platform
+   * Map capture data to a verbose result.
+   *
+   * @param data Capture data returned by the platform.
    */
   private pickVerboseResultFromMessage(data: CaptureMessage<any>): VerboseCapture {
     if (data.status !== CaptureStatus.SUCCEEDED) {
@@ -246,8 +269,9 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Map any non-successful capture data to a null return
-   * @param data The capture data returned by the platform
+   * Map any non-successful capture data to a null return.
+   *
+   * @param data Capture data returned by the platform.
    */
   private pickResultFromMessage(data: CaptureMessage<any>): CaptureResult {
     if (data.status !== CaptureStatus.SUCCEEDED) {
@@ -258,8 +282,9 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Map `initialValue` to `value`, the key where the platform expects to see the initialValue in a postMessage
-   * @param options The initial capture options passed by the user
+   * Map `initialValue` to `value`, the key where the platform expects to see the initialValue in a postMessage.
+   *
+   * @param options Initial capture options passed by the user.
    */
   private transformInitialValueOptions(options: any): any {
     const { initialValue, ...transformedOptions } = options;
@@ -367,10 +392,10 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select a value from a Custom VCC.
+   * Prompts the user to select a value from a custom control. To build a custom control, use the {@doclink withkoji-custom-vcc-sdk | @withkoji/custom-vcc-sdk package}.
    *
    * @param   options
-   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the value captured by the Custom VCC.
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the value captured by the custom control.
    * @return          Color code as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
@@ -521,18 +546,19 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to create a new Koji or select an existing Koji, either from the user’s profile or from a URL.
+   * Prompts the user to paste an external URL, create a new Koji from a template, or select an existing
+   * Koji from their profile.
    *
    * @param   options
-   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the Koji as a string.
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL as a string.
    *
-   * @return          URL to the Koji as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
+   * @return          URL as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    * @example
    * ```javascript
-   * const koji = await Koji.ui.capture.koji();
+   * const link = await Koji.ui.capture.link();
    *
    * // Return an object
-   * const koji = await Koji.ui.capture.koji({}, true);
+   * const link = await Koji.ui.capture.link({}, true);
    * ```
    */
   link(options: CaptureLinkOptions, verbose: true): Promise<VerboseCapture>;
@@ -560,15 +586,20 @@ export class Capture extends KojiBridge {
    * Prompts the user to select an image, file, audio, or video by selecting from the available asset packs, by uploading a file, or by entering a URL. Use this method to allow the user to select from more than one type of media with a single control. For example, allow the user to select an image or a video. You can limit the types of media to allow and configure options for each allowed type.
    *
    * @param   options
-   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture, which is either the URL to the media as a string or an object with the URL and additional metadata.
-   * @return          [description]
+   * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns only the value of the media capture.
+   * @return          Value of the media capture, which is either the URL to the media as a string or the [[VerboseCapture]] object, if `verbose` is `true`.
    *
    * @example
    * ```javascript
    * const media = await Koji.ui.capture.media();
    *
-   * // Limit to image or video, hide asset packs, return an object with extended metadata, transcode videos for HLS
-   * const media = await Koji.ui.capture.media({ acceptOnly: [image,video], hideExtensions: true, returnType: 'extended', videoOptions: { hls: true } }, true);
+   * // Limit to image or video, hide asset packs,
+   * // return an object with extended metadata, transcode videos for HLS
+   * const media = await Koji.ui.capture.media({
+   *    acceptOnly: ['image', 'video'],
+   *    hideExtensions: true,
+   *    videoOptions: { hls: true }
+   *  }, true);
    * ```
    */
   media(options: CaptureMediaOptions, verbose: true): Promise<VerboseCapture>;
@@ -612,7 +643,8 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to select a numeric value within a certain range. You can configure the minimum value, maximum value, and default increment.
+   * Prompts the user to select a numeric value within a certain range.
+   * You can configure the minimum value, maximum value, and default increment, as well as an initial value for the control.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the numeric value as a string.

@@ -2,33 +2,40 @@ import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
 import { IAPToken } from '../../types';
 
-/** Custom information to add to a [[IapReceipt | transaction receipt]] for a given in-app purchase. */
+/**
+ * Optional information to add to a {@doclink core-backend-iap#IapReceipt | transaction receipt} for a given in-app purchase.
+ */
 export interface PurchaseOptions {
   /** Amount of the purchase. */
   amount?: number;
-  /** Custom message associated with the purchase. This value is stored as a custom attribute on the [[IapReceipt | transaction receipt]]. */
+  /** Custom message associated with the purchase. This value is stored as a custom attribute on the transaction receipt. */
   customMessage?: string;
 }
 
-/** Results of an in-app purchase transaction. */
+/**
+ * Results of an in-app purchase transaction.
+ */
 export interface Purchase {
   /** Indicates whether the purchase was successful. */
   success: boolean;
-  /** Temporary token for the current user’s session. See [[getToken]]. */
+  /** Short-lived IAP token for the current user. See [[getToken]]. */
   iapToken: IAPToken;
   /** Unique identifier for the receipt, if the purchase was successful, or `undefined`, if not. */
   receiptId?: string;
 }
+
 /**
  * Manages in-app purchase transactions on the frontend of your Koji.
  */
 export class IAP extends KojiBridge {
   /**
-   * Generates an IAP Token (used to resolve receipts in the backend)
+   * Generates an IAP token for the current user that can be used to resolve receipts on the backend.
+   *
+   * @return    Short-lived IAP token for the current user.
    *
    * @example
    * ``` javascript
-   * const IAPToken = await Koji.iap.getToken();
+   * const iapToken = await Koji.iap.getToken();
    * ```
    */
   @client
@@ -45,14 +52,25 @@ export class IAP extends KojiBridge {
   }
 
   /**
-   * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the Koji is published.
+   * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the project is deployed.
    *
-   * @param  sku              Identifier for the product to purchase.
-   * @param  customAttributes Optional key/value pairs to associate with the receipt, that can be referenced or updated at a later date.
+   * NOTE: If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke {@doclink core-backend-iap#captureTransaction | Iap.captureTransaction} on the backend of your Koji.
+   * Funds are not available in the seller's account until the transaction is captured.
+   * If you do not capture the transaction before the `captureExpiryPeriod`, the transaction is automatically reversed and the buyer is refunded.
+   * This period can be specified in the product definition from 0 to 7 days (default is 0).
+   *
+   * @param  sku               Identifier for the product to purchase.
+   * @param  purchaseOptions   Optional information to add to the transaction receipt.
+   * @param  customAttributes  Optional key-value pairs to add to the receipt. These attribute values can be referenced or updated by resolving receipts on the backend of the Koji.
+   *
+   * @return                   Results of the in-app purchase transaction.
    *
    * @example
    * ``` javascript
-   * Koji.iap.startPurchase(sku, purchaseOptions);
+   * const purchase = await Koji.iap.startPurchase(sku);
+   *
+   * // with optional parameters
+   * const purchase = await Koji.iap.startPurchase(sku, { customMessage: 'Your credit is now available' }, { isConsumed: false });
    * ```
    */
   @client

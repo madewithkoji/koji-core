@@ -9,6 +9,7 @@ declare global {
     KOJI_OVERRIDES: any;
   }
 }
+
 /** Communicates changes to remix data. */
 export interface ValueChanged {
   /** Path of the changed value. */
@@ -43,11 +44,16 @@ export class Remix extends KojiBridge {
   /**
    * Initializes the remix data for the Koji with default values.
    *
-   * @param   kojiConfig    Object containing the default values for your Koji.
+   * NOTE: In most cases, you do not need to call this method manually because it is automatically called when you initialize the package with `Koji.config`.
+   * Use this method only if you want to use the Remix class by itself, without any other classes in the package.
+   *
+   * @param   remixData    Object containing the default values for your Koji.
    *
    * @example
    * ```javascript
-   * Koji.remix.init(require('../../../koji.json'));
+   * import { remixData } from '../../koji.json;
+   *
+   * Koji.remix.init(remixData));
    * ```
    */
   @client
@@ -73,8 +79,8 @@ export class Remix extends KojiBridge {
   /**
    * Gets the remix data for the Koji.
    *
-   * @param   path [path]   An array of keys to target a specific value in the object.
-   * @param   defaultValue [defaultValue]   A value to return if no value exists at the targeted path.
+   * @param   path   Array of keys to target a specific value in the object.
+   * @param   defaultValue   Value to return if no value exists at the targeted path.
    * @return  Object containing the current remix data.
    *
    * @example
@@ -100,7 +106,7 @@ export class Remix extends KojiBridge {
   /**
    * Updates the specified values in the remix data.
    *
-   * <p class="note">This method updates only the values that are specified in `newValue`. If other values exist, they not changed. To replace all remix data, use [[overwrite]].</p>
+   * NOTE: This method updates only the values that are specified in `newValue`. If other values exist, they are not changed. To replace all remix data, use [[overwrite]].
    *
    * @param   newValue      Key-value pairs to update in the remix data.
    * @return                Indicates whether the values were successfully updated.
@@ -123,7 +129,8 @@ export class Remix extends KojiBridge {
   /**
    * Replaces all remix data with the specified object.
    *
-   * <p class="note">This method overwrites all existing values in the remix data. To update specific values only, use [[set]].</p>
+   * NOTE: This method overwrites all existing values in the remix data.
+   * To update specific values only, use [[set]].
    *
    * @param   newValues Object containing the new remix data for the Koji.
    * @return            Indicates whether the remix data was successfully replaced.
@@ -143,8 +150,10 @@ export class Remix extends KojiBridge {
    * Advances the Koji from remix to preview.
    *
    * @example
-   * ```javascript
-   * <button onClick={() => Koji.remix.finish()}>Next</button>
+   * ```html
+   * <button onClick={() => Koji.remix.finish()}>
+   *  Next
+   * </button>
    * ```
    */
   @client
@@ -157,11 +166,11 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Cancels the remix experience and navigates the user back to where they were before they started remixing. If the user has made changes, they will be prompted by the Koji platform to confirm this action.
+   * Cancels the remix experience and returns the user to where they were before they started remixing. If the user has made changes, they are prompted to confirm this action.
    *
    * @example
    * ```javascript
-   * Koji.remix.cancel()
+   * Koji.remix.cancel();
    * ```
    */
   @client
@@ -175,7 +184,7 @@ export class Remix extends KojiBridge {
    * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
    *
    * @param   rawValue       Value to encrypt.
-   * @return                 Path where the encrypted value is stored. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to [[resolveValue | resolve the value]] on the backend, for other users.
+   * @return                 Encrypted value. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.
    *
    * @example
    * ```javascript
@@ -200,7 +209,7 @@ export class Remix extends KojiBridge {
   /**
    * Retrieves sensitive data that was [[encryptValue | stored as an encrypted value]].
    *
-   * <p class="note">Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use [[resolveValue]] on the backend.</p>
+   * NOTE: Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.
    *
    * @param   encryptedValue Path where the encrypted value is stored.
    * @return                 Decrypted value.
@@ -228,7 +237,7 @@ export class Remix extends KojiBridge {
   /**
    * Sends an event to update the preview with the current remix data.
    *
-   * @return  [description]
+   * @return
    */
   private async sendValues() {
     const data: ValueChanged = await this.sendMessageAndAwaitResponse(

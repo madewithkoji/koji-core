@@ -7,11 +7,14 @@ const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
 
 /**
- * Defines a DispatchConfigurationInput interface.
+ * Configuration options for a new connection.
  */
-interface DispatchConfigurationInput {
+export interface DispatchConfigurationInput {
+  /** Name of the dispatch shard to use. If not specified, the client is added to a shard automatically. */
   shardName?: string | null;
-  maxConnectionsPerShard: number;
+  /** Total clients to allow on a shard before it is full (defaults to 100). When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
+  maxConnectionsPerShard?: number;
+  /** Short-lived user token that identifies the client, so the server and other connected clients can send it secure messages. If the user token is not included, you can [[identify | identify the client]] after it is connected. */
   authorization?: string;
 }
 
@@ -47,23 +50,39 @@ export interface MessageHandler {
 }
 
 /**
- * Implements the callback function for the MessageHandler interface.
+ * Additional data attached to a dispatch message.
  */
-export type MessageHandlerCallback = (payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
+export interface DispatchMessageMetadata {
+  /** Message latency in milliseconds. */
+  latencyMs: number;
+}
+
+export type MessageHandlerCallback =
+/**
+ * Function to handle a dispatch event. Invoked by the [[on]] listener.
+ *
+ * @param payload   Data payload sent with the fired event.
+ * @param metadata  Object containing additional information about the event, including the message latency in milliseconds.
+ */
+(payload: { [index: string]: any }, metadata: DispatchMessageMetadata) => void;
 
 /**
- * Defines a ShardInfo interface.
+ * Information about a dispatch shard.
  */
 export interface ShardInfo {
+  /** Name of the dispatch shard. */
   shardName: string;
+  /** Number of clients currently connected to the dispatch shard. */
   numConnectedClients: number;
 }
 
 /**
- * Defines a ConnectionInfo interface.
+ * Connection details for a client. Returned when the client [[connect | connects to a dispatch shard]].
  */
 export interface ConnectionInfo {
+  /** ID of the connected client. */
   clientId?: string;
+  /** Name of the dispatch shard that the client is connected to. */
   shardName: string;
 }
 
@@ -72,7 +91,6 @@ export interface ConnectionInfo {
  */
 export class Dispatch extends Base {
   private authToken?: string;
-
   private initialConnection: boolean = false;
   private isConnected: boolean = false;
   private eventHandlers: MessageHandler[] = [];
@@ -80,6 +98,8 @@ export class Dispatch extends Base {
   private ws: Sockette | null = null;
 
   /**
+   * Instantiates the Dispatch class.
+   *
    * @param   config
    *
    * @example
@@ -92,35 +112,36 @@ export class Dispatch extends Base {
   }
 
   /**
-   * Gets shard info for the current project.
+   * Gets information about the active dispatch shards.
    *
-   * @return                   Shard info in the form of an array.
+   * @return        Array of objects containing information about the dispatch shards.
    *
    * @example
    * ```javascript
-   * const myInfo = await dispatch.info('myCollection');
+   * const shardInfo = await dispatch.info();
    * ```
    */
-  public async info(): Promise<ShardInfo[]> {
+  public async info(): Promise<ShardInfo> {
     const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
     return (data || [])[0];
   }
 
   /**
-   * Creates a shard connection.
+   * Connects a client to a dispatch shard.
    *
-   * @param     shardName     Name of the shard.
-   * @param     maxConnectionsPerShard   Maximum connections per Shard (defaults to 100).
-   * @param     authorization Authorization credentials.
+   * @param config    Configuration options for the connection.
    *
-   * @return                   ConnectionInfo object.
+   * @return          Connection details, including the client ID and shard name.
    *
    * @example
    * ```javascript
-   * const myInfo = await dispatch.connect('myShard', 100, authorization);
+   * const myInfo = await dispatch.connect({
+   *  maxConnectionsPerShard: '25',
+   *  authorization: token
+   * });
    * ```
    */
-  private async connect({ shardName, maxConnectionsPerShard = 100, authorization }: DispatchConfigurationInput): Promise<ConnectionInfo> {
+  public async connect(config: DispatchConfigurationInput = {}): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
@@ -129,9 +150,9 @@ export class Dispatch extends Base {
       const options: DispatchOptions = {
         projectId: this.projectId,
         projectToken: this.projectToken,
-        shardName,
-        maxConnectionsPerShard,
-        authorization,
+        shardName: config.shardName,
+        maxConnectionsPerShard: config.maxConnectionsPerShard || 100,
+        authorization: config.authorization,
       };
 
       const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
@@ -143,7 +164,7 @@ export class Dispatch extends Base {
 
       const url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
 
-      this.authToken = authorization;
+      this.authToken = config.authorization;
 
       // Create a socket connection to the dispatch server
       this.ws = new Sockette(url, {
@@ -162,9 +183,9 @@ export class Dispatch extends Base {
    * Handles a message event.
    *
    * @param     data        JSON object containing eventName, latencyMS, and payload.
-   * @param     eventName   PlatformEvents enum value
-   * @param     latencyMS   Latency in milliseconds
-   * @param     payload     Client object
+   * @param     eventName   PlatformEvents enum value.
+   * @param     latencyMS   Latency in milliseconds.
+   * @param     payload     Client object.
    *
    * @example
    * ```javascript
@@ -247,14 +268,16 @@ export class Dispatch extends Base {
   }
 
   /**
-   * Assigns a callback function to an event.
+   * Sets a listener for a specific event, and invokes a callback function when the event is dispatched over the shard.
    *
-   * @param     eventName     Name of event.
-   * @param     callback      Callback function.
+   * @param     eventName     Name of the event to subscribe to.
+   * @param     callback      Function to invoke when the event is fired.
+   *
+   * @return                  Function to unsubscribe from the event listener.
    *
    * @example
    * ```javascript
-   * dispatch.on('eventName', callbackFunction);
+   * unsubscribeEvent = dispatch.on('eventName', callbackFunction);
    * ```
    */
   public on(eventName: string, callback: MessageHandlerCallback): Function {
@@ -272,27 +295,14 @@ export class Dispatch extends Base {
   }
 
   /**
-   * Emit SET_USER_INFO event.
+   * Identifies a connected client, which enables the server and other connected clients to send it secure messages.
    *
-   * @param     userInfo     Object containing an array of user info.
-   *
-   * @example
-   * ```javascript
-   * dispatch.setUserInfo({['user info']});
-   * ```
-   */
-  public setUserInfo(userInfo: { [index: string]: any }) {
-    this.emitEvent(PlatformEvents.SET_USER_INFO, userInfo);
-  }
-
-  /**
-   * Emit IDENTIFY event.
-   *
-   * @param     authToken     Authorization token.
+   * @param     authToken     Short-lived user token for the connected client. To get a user token, use {@doclink core-frontend-identity#getToken | Identity.getToken}.
    *
    * @example
    * ```javascript
-   * dispatch.identify(token);
+   * const authToken = await identity.getToken();
+   * dispatch.identify(authToken.token);
    * ```
    */
   public identify(authToken: string) {
@@ -302,15 +312,15 @@ export class Dispatch extends Base {
   }
 
   /**
-   * Emit event.
+   * Emits the named event to the specified recipients or to all clients.
    *
-   * @param     eventName     Name of event.
-   * @param     payload       Object of key-value paired data to send as a message payload.
-   * @param     recipients    One or more event recipients.
+   * @param     eventName     Name of the event.
+   * @param     payload       Object of key-value pair data to send as a message payload.
+   * @param     recipients    List of clients to receive the event. If this parameter is not included, the event is sent to all clients on the current shard.
    *
    * @example
    * ```javascript
-   * dispatch.emitEvent('click', [id:1]);
+   * dispatch.emitEvent('myEvent', myDataPayload);
    * ```
    */
   public emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
@@ -340,7 +350,7 @@ export class Dispatch extends Base {
   }
 
   /**
-   * Close connection.
+   * Disconnects the client from the dispatch shard.
    *
    * @example
    * ```javascript

@@ -96,16 +96,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/backend/middleware/index.ts#L37">backend/middleware/index.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/backend/middleware/index.ts#L45">backend/middleware/index.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Executes middleware, making koji-specific data available on the res.locals property.</p>
+									<p>Executes an <a href="http://expressjs.com/en/guide/using-middleware.html" class="external">Express middleware</a>, making Koji-specific data available on the <code>res.locals</code> property.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code><span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #795E26">middleware</span><span style="color: #000000">(</span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;koji.json&#039;</span><span style="color: #000000">));</span>
+									<dd><pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">app</span><span style="color: #000000"> = </span><span style="color: #795E26">express</span><span style="color: #000000">();</span>
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">use</span><span style="color: #000000">(</span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #795E26">middleware</span><span style="color: #000000">(</span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;koji.json&#039;</span><span style="color: #000000">));</span>
+
+<span style="color: #001080">app</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;/data&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">req</span><span style="color: #000000">, </span><span style="color: #001080">res</span><span style="color: #000000">, </span><span style="color: #001080">next</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// Backend constructor</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">database</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">KojiBackend</span><span style="color: #000000">.</span><span style="color: #267F99">Database</span><span style="color: #000000">({ </span><span style="color: #001080">res</span><span style="color: #000000"> });</span>
+<span style="color: #000000">  ...</span>
+<span style="color: #000000">};</span>
 </code></pre>
 									</dd>
 								</dl>

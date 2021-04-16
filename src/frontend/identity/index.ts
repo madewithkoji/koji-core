@@ -11,13 +11,28 @@ export type AuthGrantCapability =
   /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
   'username';
 
+/**
+ * User attributes that are determined via a client-side API call.
+ */
+export interface PresumedAttributes {
+  /** Koji username for the user. */
+  username?: string;
+  /** Koji avatar for the user. */
+  profilePicture?: string;
+}
+
+/**
+ * Identity information for the current user of the Koji.
+ */
 export interface IdentityResult {
+  /** Short-lived token to identify the user. */
   token: UserToken;
+  /** Presumed role of the current user as the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`).
+  * Admin actions must still be secured on the backend by resolving the user’s role.
+  */
   presumedRole: 'admin'|'user'|'unknown';
-  presumedAttributes: {
-    username?: string;
-    profilePicture?: string;
-  }
+  /** Additional user attributes, which are returned if the user has granted username authorization via [[requestGrants]]. */
+  presumedAttributes: PresumedAttributes;
 }
 
 /**
@@ -27,9 +42,11 @@ export class Identity extends KojiBridge {
   /**
    * Gets a token identifying the current user.
    *
+   * @return    Identity information for the current user of the Koji.
+   *
    * @example
    * ```javascript
-   * const token = await Koji.identity.getToken();
+   * const { userToken, presumedRole, presumedAttributes  } = await Koji.identity.getToken()
    * ```
    */
   @client
@@ -78,9 +95,10 @@ export class Identity extends KojiBridge {
   /**
    * Requests the specified authorization grants from the user for the Koji.
    *
-   * @param   grants           List of authorization grants to request from the user.
-   * @param   usageDescription Custom message to display when requesting the grant.
-   * @return
+   * @param   grants            List of authorization grants to request from the user.
+   * @param   usageDescription  Custom message to display when requesting the grant.
+   *
+   * @return                    Indicates whether authorization for the capabilities was successfully obtained from the user.
    *
    * @example
    * ```javascript

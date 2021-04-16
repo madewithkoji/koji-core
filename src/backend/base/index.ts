@@ -8,7 +8,7 @@ export interface BackendConfigurationInput {
   projectId?: string;
   /** Secret key for the Koji. Will override data passed through `res`. */
   projectToken?: string;
-  /** Express response object. Used in conjunction with middleware to scope environment variables for instant remixes of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]] */
+  /** Express response object. Used in conjunction with middleware to scope environment variables for instant remixes of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]. */
   res?: Response;
 }
 

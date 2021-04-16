@@ -63,8 +63,8 @@ export enum DatabaseHttpStatusCode {
    * been provided.
    *
    * One of the following error conditions:
-   * The auth token has expired or missing.
-   * The auth token used in the request is invalid.
+   * The user token has expired or is missing.
+   * The user token used in the request is invalid.
    */
   UNAUTHORIZED = 401,
 
@@ -91,12 +91,17 @@ export enum DatabaseHttpStatusCode {
 
 /**
  * Implements a Koji database for the backend of your Koji.
+ *
+ * A Koji database is a key-value store that is included with each project on Koji.
+ * For more information, see the {@doclink koji-database | Koji database developer guide}.
  */
 export class Database extends Base {
   private rootPath: string;
   private rootHeaders: Object;
 
   /**
+   * Instantiates the Database class.
+   *
    * @param   config
    *
    * @example
@@ -175,7 +180,7 @@ export class Database extends Base {
    *
    * @example
    * ```javascript
-   * const myData = await database.search<'myClass'>('myCollection', 'myField', 'mySearchValue');
+   * const myData = await database.search('myCollection', 'myField', 'mySearchValue');
    * ```
    */
   @server
@@ -199,14 +204,15 @@ export class Database extends Base {
    *
    * @typeParam T                       Data from a Koji database collection.
    * @param     collection              Name of the collection.
-   * @param     predicateKey            Name of a field in the collection.
-   * @param     predicateOperation      An operator such as '=', '<>', '>', etc.
+   * @param     predicateKey            Name of the field to search.
+   * @param     predicateOperation      Operator to use for the search.
    * @param     predicateValue          Search value.
    * @return                            Data requested from the collection.
    *
    * @example
    * ```javascript
-   * const myData = await database.getWhere<'myClass'>('myCollection', 'myField', 'myOperator, 'mySearchValue');
+   * const myData = await database.getWhere('myCollection',
+   *  'myField', 'myOperator, 'mySearchValue');
    * ```
    */
   @server
@@ -228,16 +234,16 @@ export class Database extends Base {
   }
 
   /**
-   * Searches a collection for the documents whose names are included in an array of document names.
+   * Gets the specified database entries.
    *
    * @typeParam T                   Data from a Koji database collection.
    * @param     collection          Name of the collection.
-   * @param     documentNames       Array of one or more document names
+   * @param     documentNames       Array of one or more entry names to retrieve.
    * @return                        Data requested from the collection.
    *
    * @example
    * ```javascript
-   * const myData = await database.getAll<'myClass'>('myCollection', ['doc1', 'doc2']);
+   * const myData = await database.getAll('myCollection', ['doc1', 'doc2']);
    * ```
    */
   @server
@@ -261,13 +267,14 @@ export class Database extends Base {
    * @typeParam T                       Data from a Koji database collection.
    * @param     collection              Name of the collection.
    * @param     predicateKey            Name of a field in the collection.
-   * @param     predicateOperation      An operator such as '=', '<>', '>', etc.
-   * @param     predicateValues         An array of one or more search values.
+   * @param     predicateOperation      Operator to use for the search.
+   * @param     predicateValues         Array of one or more search values.
    * @return                            Data requested from the collection.
    *
    * @example
    * ```javascript
-   * const myData = await database.getAllWhere<'myClass'>('myCollection', 'myField', 'myOperator, ['mySearchValue1', mySearchValue2]);
+   * const myData = await database.getAllWhere('myCollection',
+   *  'myField', '==', ['mySearchValue1', 'mySearchValue2']);
    * ```
    */
   @server
@@ -287,17 +294,20 @@ export class Database extends Base {
   }
 
   /**
-   * Inserts a new document into a collection.
+   * Adds an entry to a database collection.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        Document name.
-   * @param     documentBody        Document contents.
-   * @param     returnDoc           Return the updated doc as a response.
-   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
+   * @param     documentName        Name of the entry.
+   * @param     documentBody        Data for the entry.
+   * @param     returnDoc           Whether to return the updated entry as a response.
+   * @return                        An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.
    *
    * @example
    * ```javascript
-   * const myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');
+   * const myData = await database.set('myCollection', 'myDocument', {
+   *  'myData1': 'myValue1',
+   *  'myData2': 'myValue2'
+   * });
    * ```
    */
   @server
@@ -317,17 +327,23 @@ export class Database extends Base {
   }
 
   /**
-   * Replaces the contents of an existing document in a collection.
+   * Updates the specified data for an entry in the database collection.
+   *
+   * NOTE: This method updates only the values that are specified in `documentBody`. If other values exist in the entry, they are not changed.
+   * If no existing entry matches the `documentName`, a new entry is created with the specified `documentName` and `documentBody`.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        Document name.
-   * @param     documentBody        New contents.
-   * @param     returnDoc           Return the updated doc as a response.
-   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
+   * @param     documentName        Name of the entry.
+   * @param     documentBody        New data.
+   * @param     returnDoc           Whether to return the updated entry as a response.
+   * @return                        An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.
    *
    * @example
    * ```javascript
-   * const myData = await database.set('myCollection', 'myDocument', 'Some contents for the document');
+   * const myData = await database.update('myCollection', 'myDocument', {
+   *  'myData1': 'myValue1',
+   *  'myData2': 'myValue2'
+   * });
    * ```
    */
   @server
@@ -347,17 +363,26 @@ export class Database extends Base {
   }
 
   /**
-   * Appends contents to an existing document in a collection.
+   * Adds data onto arrays in an existing database entry.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        Document name.
-   * @param     documentBody        Appended contents.
-   * @param     returnDoc           Return the updated doc as a response.
-   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
+   * @param     documentName        Name of the entry.
+   * @param     documentBody        Key-value pairs of arrays and the entries to add to them.
+   * @param     returnDoc           Whether to return the updated entry as a response.
+   * @return                        An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.
    *
    * @example
    * ```javascript
-   * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents appended to end of document');
+   * const doc = await database.arrayPush('myCollection', 'myDocument', {
+   *  array1: 'newValue1',
+   *  array2: 'newValue2',
+   * }, true);
+   *
+   * // Updated document after arrayPush
+   * doc = {
+   *  array1: ['existingValue1', 'newValue1'],
+   *  array2: ['existingValue2', 'newValue2'],
+   * }
    * ```
    */
   @server
@@ -377,17 +402,20 @@ export class Database extends Base {
   }
 
   /**
-   * Removes part of the contents from an existing document in a collection.
+   * Removes data from an existing database entry.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        Document name.
-   * @param     documentBody        Removed contents.
-   * @param     returnDoc           Return the updated doc as a response.
-   * @return                        An http status code (e.g., OK), or the updated document if returnDoc was specified as true.
+   * @param     documentName        Name of the entry.
+   * @param     documentBody        Data to remove from the entry.
+   * @param     returnDoc           Whether to return the updated entry as a response.
+   * @return                        An HTTP status code indicating whether the request was successful, or the updated entry if `returnDoc` was set to `true`.
    *
    * @example
    * ```javascript
-   * const myData = await database.arrayPush('myCollection', 'myDocument', 'Contents to be removed from document');
+   * const isRemoved = await database.arrayRemove('myCollection', 'myDocument', {
+   *  'myData1': 'myValue1',
+   *  'myData2': 'myValue2'
+   * });
    * ```
    */
   @server
@@ -407,15 +435,15 @@ export class Database extends Base {
   }
 
   /**
-   * Deletes a document from a collection.
+   * Deletes a database entry from a collection.
    *
    * @param     collection          Name of the collection.
-   * @param     documentName        Document name.
-   * @return                        An http status code (e.g., OK).
+   * @param     documentName        Name of the entry.
+   * @return                        An HTTP status code indicating whether the request was successful.
    *
    * @example
    * ```javascript
-   * const myData = await database.delete('myCollection', 'myDocument');
+   * const isDeleted = await database.delete('myCollection', 'myDocument');
    * ```
    */
   @server

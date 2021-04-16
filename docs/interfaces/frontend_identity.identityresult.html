@@ -68,6 +68,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Identity information for the current user of the Koji.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -83,6 +90,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_identity.identityresult.html#presumedattributes" class="tsd-kind-icon">presumed<wbr>Attributes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_identity.identityresult.html#presumedrole" class="tsd-kind-icon">presumed<wbr>Role</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_identity.identityresult.html#token" class="tsd-kind-icon">token</a></li>
 							</ul>
@@ -93,14 +101,35 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="presumedattributes" class="tsd-anchor"></a>
+					<h3>presumed<wbr>Attributes</h3>
+					<div class="tsd-signature tsd-kind-icon">presumed<wbr>Attributes<span class="tsd-signature-symbol">:</span> <a href="frontend_identity.presumedattributes.html" class="tsd-signature-type" data-tsd-kind="Interface">PresumedAttributes</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/frontend/identity/index.ts#L35">frontend/identity/index.ts:35</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Additional user attributes, which are returned if the user has granted username authorization via <a href="../classes/frontend_identity.identity.html#requestgrants">requestGrants</a>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="presumedrole" class="tsd-anchor"></a>
 					<h3>presumed<wbr>Role</h3>
 					<div class="tsd-signature tsd-kind-icon">presumed<wbr>Role<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;admin&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;user&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;unknown&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/identity/index.ts#L16">frontend/identity/index.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/frontend/identity/index.ts#L33">frontend/identity/index.ts:33</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Presumed role of the current user as the owner/creator (<code>admin</code>), not the owner (<code>user</code>), or not logged in (<code>unknown</code>).
+							Admin actions must still be secured on the backend by resolving the user’s role.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="token" class="tsd-anchor"></a>
@@ -108,9 +137,14 @@
 					<div class="tsd-signature tsd-kind-icon">token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/4b1d5b0/src/frontend/identity/index.ts#L15">frontend/identity/index.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/fb8e556/src/frontend/identity/index.ts#L29">frontend/identity/index.ts:29</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Short-lived token to identify the user.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -136,6 +170,9 @@
 						<a href="frontend_identity.identityresult.html" class="tsd-kind-icon">Identity<wbr>Result</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend_identity.identityresult.html#presumedattributes" class="tsd-kind-icon">presumed<wbr>Attributes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="frontend_identity.identityresult.html#presumedrole" class="tsd-kind-icon">presumed<wbr>Role</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -145,6 +182,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_identity.presumedattributes.html" class="tsd-kind-icon">Presumed<wbr>Attributes</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/frontend_identity.html#authgrantcapability" class="tsd-kind-icon">Auth<wbr>Grant<wbr>Capability</a>
 					</li>
