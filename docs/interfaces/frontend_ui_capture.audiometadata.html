@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ConnectedClient | @withkoji/core</title>
+	<title>AudioMetadata | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@withkoji/core</a>
 				</li>
 				<li>
-					<a href="../modules/frontend_dispatch.html">frontend/dispatch</a>
+					<a href="../modules/frontend_ui_capture.html">frontend/ui/capture</a>
 				</li>
 				<li>
-					<a href="frontend_dispatch.connectedclient.html">ConnectedClient</a>
+					<a href="frontend_ui_capture.audiometadata.html">AudioMetadata</a>
 				</li>
 			</ul>
-			<h1>Interface ConnectedClient</h1>
+			<h1>Interface AudioMetadata</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Information about a client that is connected to a shard.</p>
+						<p>Metadata for an audio file.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +79,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ConnectedClient</span>
+						<span class="target">AudioMetadata</span>
 					</li>
 				</ul>
 			</section>
@@ -90,8 +90,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_dispatch.connectedclient.html#clientid" class="tsd-kind-icon">client<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_dispatch.connectedclient.html#lastping" class="tsd-kind-icon">last<wbr>Ping</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend_ui_capture.audiometadata.html#durationseconds" class="tsd-kind-icon">duration<wbr>Seconds</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,32 +99,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="clientid" class="tsd-anchor"></a>
-					<h3>client<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">client<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="durationseconds" class="tsd-anchor"></a>
+					<h3>duration<wbr>Seconds</h3>
+					<div class="tsd-signature tsd-kind-icon">duration<wbr>Seconds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ffbfdca/src/frontend/dispatch/index.ts#L55">frontend/dispatch/index.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ffbfdca/src/frontend/ui/capture/index.ts#L60">frontend/ui/capture/index.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Unique identifier for the client.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="lastping" class="tsd-anchor"></a>
-					<h3>last<wbr>Ping</h3>
-					<div class="tsd-signature tsd-kind-icon">last<wbr>Ping<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ffbfdca/src/frontend/dispatch/index.ts#L57">frontend/dispatch/index.ts:57</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Timestamp of the client&#39;s most recent ping (network activity).</p>
+							<p>Duration in seconds for an audio file.</p>
 						</div>
 					</div>
 				</section>
@@ -138,56 +122,92 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/frontend_dispatch.html">frontend/dispatch</a>
+						<a href="../modules/frontend_ui_capture.html">frontend/ui/capture</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/frontend_dispatch.platformevents.html" class="tsd-kind-icon">Platform<wbr>Events</a>
+						<a href="../enums/frontend_ui_capture.capturestatus.html" class="tsd-kind-icon">Capture<wbr>Status</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/frontend_ui_capture.capturetype.html" class="tsd-kind-icon">Capture<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/frontend_dispatch.dispatch.html" class="tsd-kind-icon">Dispatch</a>
+						<a href="../classes/frontend_ui_capture.capture.html" class="tsd-kind-icon">Capture</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_dispatch.connectedclient.html" class="tsd-kind-icon">Connected<wbr>Client</a>
+						<a href="frontend_ui_capture.audiometadata.html" class="tsd-kind-icon">Audio<wbr>Metadata</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_dispatch.connectedclient.html#clientid" class="tsd-kind-icon">client<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="frontend_dispatch.connectedclient.html#lastping" class="tsd-kind-icon">last<wbr>Ping</a>
+								<a href="frontend_ui_capture.audiometadata.html#durationseconds" class="tsd-kind-icon">duration<wbr>Seconds</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_dispatch.connectioninfo.html" class="tsd-kind-icon">Connection<wbr>Info</a>
+						<a href="frontend_ui_capture.captureaudiooptions.html" class="tsd-kind-icon">Capture<wbr>Audio<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_dispatch.dispatchconfigurationinput.html" class="tsd-kind-icon">Dispatch<wbr>Configuration<wbr>Input</a>
+						<a href="frontend_ui_capture.capturecoloroptions.html" class="tsd-kind-icon">Capture<wbr>Color<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_dispatch.dispatchoptions.html" class="tsd-kind-icon">Dispatch<wbr>Options</a>
+						<a href="frontend_ui_capture.capturecustomoptions.html" class="tsd-kind-icon">Capture<wbr>Custom<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_dispatch.messagehandler.html" class="tsd-kind-icon">Message<wbr>Handler</a>
+						<a href="frontend_ui_capture.capturefileoptions.html" class="tsd-kind-icon">Capture<wbr>File<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="frontend_dispatch.shardinfo.html" class="tsd-kind-icon">Shard<wbr>Info</a>
+						<a href="frontend_ui_capture.captureimageoptions.html" class="tsd-kind-icon">Capture<wbr>Image<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.capturelinkoptions.html" class="tsd-kind-icon">Capture<wbr>Link<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.capturemediaoptions.html" class="tsd-kind-icon">Capture<wbr>Media<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="frontend_ui_capture.capturemessage.html" class="tsd-kind-icon">Capture<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.capturerangeoptions.html" class="tsd-kind-icon">Capture<wbr>Range<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.captureselectoptions.html" class="tsd-kind-icon">Capture<wbr>Select<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.capturevideooptions.html" class="tsd-kind-icon">Capture<wbr>Video<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.extendedlinkresult.html" class="tsd-kind-icon">Extended<wbr>Link<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.extendedmediaresult.html" class="tsd-kind-icon">Extended<wbr>Media<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.imagemetadata.html" class="tsd-kind-icon">Image<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.selectoption.html" class="tsd-kind-icon">Select<wbr>Option</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.verbosecapture.html" class="tsd-kind-icon">Verbose<wbr>Capture</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend_ui_capture.videometadata.html" class="tsd-kind-icon">Video<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/frontend_dispatch.html#connectedclientschangedhandlercallback" class="tsd-kind-icon">Connected<wbr>Clients<wbr>Changed<wbr>Handler<wbr>Callback</a>
+						<a href="../modules/frontend_ui_capture.html#capturemediaacceptonly" class="tsd-kind-icon">Capture<wbr>Media<wbr>Accept<wbr>Only</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/frontend_dispatch.html#messagehandlercallback" class="tsd-kind-icon">Message<wbr>Handler<wbr>Callback</a>
+						<a href="../modules/frontend_ui_capture.html#captureresult" class="tsd-kind-icon">Capture<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/frontend_dispatch.html#dispatch-1" class="tsd-kind-icon">dispatch</a>
+						<a href="../modules/frontend_ui_capture.html#capture-1" class="tsd-kind-icon">capture</a>
 					</li>
 				</ul>
 			</nav>
