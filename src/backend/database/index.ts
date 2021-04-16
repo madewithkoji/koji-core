@@ -100,32 +100,6 @@ export class Database extends Base {
   private rootHeaders: Object;
 
   /**
-   * Provides atomic operations as static methods that can be used with database requests.
-   */
-  public static valueTypes = {
-    /** Increments a numeric value by a specified amount. You can use this method to increment numeric values in the database with a single request. See [[update]].
-    *
-    * @param    number    Amount to increment or decrement the value.
-    * @example
-    * ```javascript
-    * // Increment a value (using a positive integer)
-    * const updatedDoc = await database.update('collection', 'document', {
-    *   'myValue': KojiBackend.Database.valueTypes.increment(1),
-    * }, true);
-    *
-    * // Decrement a value (using a negative integer)
-    * const updatedDoc = await database.update('collection', 'document', {
-    *   'myValue': KojiBackend.Database.valueTypes.increment(-1),
-    * }, true);
-    * ```
-    */
-    increment: (number: number) => ({
-      _updateType: 'increment',
-      value: number,
-    }),
-  };
-
-  /**
    * Instantiates the Database class.
    *
    * @param   config
@@ -353,7 +327,7 @@ export class Database extends Base {
   }
 
   /**
-   * Updates the specified data for an entry in the database collection. To increment numeric values with a single update request, you can use [[valueTypes | valueTypes.increment]].
+   * Updates the specified data for an entry in the database collection.
    *
    * NOTE: This method updates only the values that are specified in `documentBody`. If other values exist in the entry, they are not changed.
    * If no existing entry matches the `documentName`, a new entry is created with the specified `documentName` and `documentBody`.
