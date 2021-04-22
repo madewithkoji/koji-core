@@ -193,7 +193,11 @@ export class IAP extends Base {
    */
   @server
   public async resolveReceiptById(receiptId: string): Promise<IapReceipt> {
-    const { data: { receipt } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, { receiptId }, { headers: this.rootHeaders });
+    const { data: { receipt } } = await axios.post(
+      `${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`,
+      { receiptId },
+      { headers: this.rootHeaders },
+    );
 
     return receipt;
   }
@@ -211,7 +215,11 @@ export class IAP extends Base {
    */
   @server
   public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
-    const { data: { receipts } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, { sku }, { headers: this.rootHeaders });
+    const { data: { receipts } } = await axios.post(
+      `${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`,
+      { sku },
+      { headers: this.rootHeaders },
+    );
 
     return receipts;
   }
@@ -231,7 +239,11 @@ export class IAP extends Base {
    * iap.updateReceipt(id, { consumed: true }, 'You have successfully redeemed your credit.');
    * ```
    */
-  public async updateReceipt(receiptId: string, attributes: { [index: string]: any }, notificationMessage?: string): Promise<any> {
+  public async updateReceipt(
+    receiptId: string,
+    attributes: { [index: string]: any },
+    notificationMessage?: string,
+  ): Promise<any> {
     const { data } = await axios.post(
       `${this.rootPath}${IapRoutes.UPDATE_RECEIPT}`,
       {
@@ -305,7 +317,10 @@ export class IAP extends Base {
    * ```
    */
   public async loadProduct(sku: string): Promise<IapProduct> {
-    const { data: { product } } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?sku=${sku}`, { headers: this.rootHeaders });
+    const { data: { product } } = await axios.get(
+      `${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?sku=${sku}`,
+      { headers: this.rootHeaders },
+    );
 
     return product;
   }
