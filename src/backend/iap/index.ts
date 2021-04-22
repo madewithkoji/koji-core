@@ -13,6 +13,7 @@ export enum IapRoutes {
   RESOLVE_RECEIPTS_BY_SKU = '/v1/iap/consumer/resolveReceiptsBySku',
   UPDATE_RECEIPT = '/v1/iap/consumer/updateReceiptAttributes',
   CAPTURE_TRANSACTION = '/v1/iap/consumer/captureTransaction',
+  REFUND_TRANSACTION = '/v1/iap/consumer/refundTransaction',
 }
 
 /**
@@ -261,6 +262,27 @@ export class IAP extends Base {
   public async captureTransaction(receiptId: string): Promise<void> {
     await axios.post(
       `${this.rootPath}${IapRoutes.CAPTURE_TRANSACTION}`,
+      {
+        receiptId,
+      },
+      { headers: this.rootHeaders },
+    );
+  }
+
+  /**
+   * Programmatically refund a transaction by its receipt ID. Only unsettled
+   * transactions can be refunded.
+   *
+   * @param receiptId Receipt ID
+   *
+   * @example
+   * ```javascript
+   * iap.refundTransaction(receiptId);
+   * ```
+   */
+  public async refundTransaction(receiptId: string): Promise<void> {
+    await axios.post(
+      `${this.rootPath}${IapRoutes.REFUND_TRANSACTION}`,
       {
         receiptId,
       },
