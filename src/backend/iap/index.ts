@@ -43,6 +43,8 @@ export interface IapReceipt {
   };
   /** Date of the purchase. */
   datePurchased: Date;
+  /** If the transaction has been refunded, either manually or due to capture expiry, this key contains the date of that refund. */
+  dateRefunded?: Date;
 }
 
 /**
