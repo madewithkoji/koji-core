@@ -25,6 +25,8 @@ export interface PresentAlertOptions {
   message: string;
 }
 
+export type SystemAlertType = 'success'|'sent'|'reported';
+
 /**
  * Presents dialog boxes to users on the frontend of your Koji.
  */
@@ -83,6 +85,25 @@ export class Present extends KojiBridge {
         data: {
           title: options.title,
           message: options.message,
+        },
+      },
+    );
+  }
+
+  /**
+   * Present a system alert (icon + label). System alerts appear for 1200ms and
+   * then dismiss, allowing for an easy way to communicate state changes to a
+   * user.
+   *
+   * @param type The type of system alert to display.
+   */
+  @client
+  public systemAlert(type: SystemAlertType) {
+    this.sendMessage(
+      {
+        kojiEventName: 'Koji.ShowSystemAlert',
+        data: {
+          type,
         },
       },
     );
