@@ -80,6 +80,8 @@ export class PlayerState extends KojiBridge {
   public hasFocus: boolean = false;
   /** Presentation style of the Koji. */
   public presentationStyle: PlayerPresentationStyle = 'fullscreen';
+  /** Whether the player chrome is visible */
+  public isChromeVisible: boolean = false;
 
   public constructor() {
     super();
@@ -109,6 +111,10 @@ export class PlayerState extends KojiBridge {
 
     // Set the initial value based on the feed hash
     this.hasFocus = !window.location.hash.includes('#koji-feed-key=');
+
+    if (this.presentationStyle === 'fullscreen') {
+      this.isChromeVisible = true;
+    }
   }
 
   /**
@@ -155,6 +161,34 @@ export class PlayerState extends KojiBridge {
     return this.execCallbackOnMessage(() => {
       callback();
     }, 'KojiFeed.Pause');
+  }
+
+  /**
+   * Hide any platform chrome, like the Koji button or the current user's
+   * notification/profile icon. Incorrectly controlling player chrome can result
+   * in a disorienting user experience, so this functionality should be used
+   * judiciously. Koji chrome must be displayed on all Root screens in a
+   * template, and can be hidden if a user navigates to a deeper screen inside
+   * the template.
+   */
+  @client
+  public hideChrome() {
+    this.sendMessage({
+      kojiEventName: 'Koji.Player.HideChrome',
+      data: {},
+    });
+    this.isChromeVisible = false;
+  }
+
+  /**
+   * If platform chrome has been hidden, restore it.
+   */
+  public showChrome() {
+    this.sendMessage({
+      kojiEventName: 'Koji.Player.ShowChrome',
+      data: {},
+    });
+    this.isChromeVisible = true;
   }
 
   /**

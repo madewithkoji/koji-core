@@ -13,6 +13,7 @@ export enum IapRoutes {
   RESOLVE_RECEIPTS_BY_SKU = '/v1/iap/consumer/resolveReceiptsBySku',
   UPDATE_RECEIPT = '/v1/iap/consumer/updateReceiptAttributes',
   CAPTURE_TRANSACTION = '/v1/iap/consumer/captureTransaction',
+  REFUND_TRANSACTION = '/v1/iap/consumer/refundTransaction',
 }
 
 /**
@@ -42,6 +43,8 @@ export interface IapReceipt {
   };
   /** Date of the purchase. */
   datePurchased: Date;
+  /** If the transaction has been refunded, either manually or due to capture expiry, this key contains the date of that refund. */
+  dateRefunded?: Date;
 }
 
 /**
@@ -190,7 +193,11 @@ export class IAP extends Base {
    */
   @server
   public async resolveReceiptById(receiptId: string): Promise<IapReceipt> {
-    const { data: { receipt } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`, { receiptId }, { headers: this.rootHeaders });
+    const { data: { receipt } } = await axios.post(
+      `${this.rootPath}${IapRoutes.RESOLVE_RECEIPT_BY_ID}`,
+      { receiptId },
+      { headers: this.rootHeaders },
+    );
 
     return receipt;
   }
@@ -208,7 +215,11 @@ export class IAP extends Base {
    */
   @server
   public async resolveReceiptsBySku(sku: string): Promise<IapReceipt[]> {
-    const { data: { receipts } } = await axios.post(`${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`, { sku }, { headers: this.rootHeaders });
+    const { data: { receipts } } = await axios.post(
+      `${this.rootPath}${IapRoutes.RESOLVE_RECEIPTS_BY_SKU}`,
+      { sku },
+      { headers: this.rootHeaders },
+    );
 
     return receipts;
   }
@@ -228,7 +239,11 @@ export class IAP extends Base {
    * iap.updateReceipt(id, { consumed: true }, 'You have successfully redeemed your credit.');
    * ```
    */
-  public async updateReceipt(receiptId: string, attributes: { [index: string]: any }, notificationMessage?: string): Promise<any> {
+  public async updateReceipt(
+    receiptId: string,
+    attributes: { [index: string]: any },
+    notificationMessage?: string,
+  ): Promise<any> {
     const { data } = await axios.post(
       `${this.rootPath}${IapRoutes.UPDATE_RECEIPT}`,
       {
@@ -269,6 +284,27 @@ export class IAP extends Base {
   }
 
   /**
+   * Programmatically refund a transaction by its receipt ID. Only unsettled
+   * transactions can be refunded.
+   *
+   * @param receiptId Receipt ID
+   *
+   * @example
+   * ```javascript
+   * iap.refundTransaction(receiptId);
+   * ```
+   */
+  public async refundTransaction(receiptId: string): Promise<void> {
+    await axios.post(
+      `${this.rootPath}${IapRoutes.REFUND_TRANSACTION}`,
+      {
+        receiptId,
+      },
+      { headers: this.rootHeaders },
+    );
+  }
+
+  /**
    * Gets the properties of a specified product, which enables the template to leverage dynamic product information.
    * For example, you can check the stock for a product with limited quantity (via the `numAvailable` property), and indicate the number of remaining items.
    *
@@ -281,7 +317,10 @@ export class IAP extends Base {
    * ```
    */
   public async loadProduct(sku: string): Promise<IapProduct> {
-    const { data: { product } } = await axios.get(`${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?sku=${sku}`, { headers: this.rootHeaders });
+    const { data: { product } } = await axios.get(
+      `${this.rootPath}${IapRoutes.GET_PRODUCT_BY_SKU}?sku=${sku}`,
+      { headers: this.rootHeaders },
+    );
 
     return product;
   }
