@@ -229,7 +229,7 @@ export class Koji {
             }
           }
         } catch (err) {
-          console.log(err);
+          // console.log(err);
         }
       }
     });
@@ -239,7 +239,7 @@ export class Koji {
    * Indicates that the Koji is ready to start receiving events.
    *
    * NOTE: You must call this function after initializing the package and subscribing to remix state changes, but before advancing to the preview with `Koji.remix.finish`.
-   * 
+   *
    * @example
    * ```javascript
    * Koji.ready();
