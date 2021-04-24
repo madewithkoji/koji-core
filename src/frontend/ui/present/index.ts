@@ -25,7 +25,7 @@ export interface PresentAlertOptions {
   message: string;
 }
 
-export type SystemAlertType = 'success'|'sent'|'reported';
+export type SystemAlertType = 'success'|'sent'|'reported'|'rejected';
 
 /**
  * Presents dialog boxes to users on the frontend of your Koji.
