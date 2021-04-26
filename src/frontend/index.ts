@@ -15,10 +15,16 @@ import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
 export interface KojiConfig {
   /** Instructions for setting up the services in a development/editor environment. */
   develop?: any;
+
   /** Instructions for deploying the services to production. */
   deploy?: any;
+
+  /** Provided metadata about the project and its creator. */
+  metadata?: any;
+
   /** Default values for the customizable remix data. */
   remixData?: any;
+
   /** Placeholder values for new remixes. */
   '@@initialTransform'?: any;
 }
@@ -34,21 +40,46 @@ export type Services = { [key: string]: string | undefined };
 export interface KojiConfigOptions {
   /** Unique identifier for the Koji. */
   projectId?: string;
+
   /** Defines services for the Koji. */
   services: Services;
+
+  /** Metadata overrides */
+  metadata?: KojiMetadata;
 }
+
+/**
+ * Metadata about the project, provided by the platform.
+ */
+export interface KojiMetadata {
+  /** Unique identifier for the Koji. */
+  projectId: string;
+
+  /** The creator's username. */
+  creatorUsername: string;
+
+  /** A URL reference to the creator's current profile picture. */
+  creatorProfilePicture: string;
+}
+
 /**
  * Provides frontend methods for your Koji.
  */
 export class Koji {
   /** Indicates that the Koji.ready() call has been made. */
   public isReady: boolean;
+
   /** Indicates that the Koji.config() call has been made. */
   public configInitialized: boolean = false;
+
   /** The configured service endpoints. */
   public services: Services = {};
+
   /** The project's id. */
   public projectId?: string;
+
+  /** Provided metadata about the project */
+  public metadata?: KojiMetadata;
 
   public analytics: Analytics = analytics;
   public dispatch: Dispatch = dispatch;
@@ -74,58 +105,100 @@ export class Koji {
    * Koji.config(require('koji.json'));
    * ```
    */
-  public config(kojiConfig: KojiConfig = {}, kojiConfigOptions: KojiConfigOptions = { services: {} }): void {
+  public config(
+    kojiConfig: KojiConfig = {},
+    kojiConfigOptions: KojiConfigOptions = {
+      services: {},
+    },
+  ): void {
     if (this.configInitialized) {
       throw new Error('You are trying to run `Koji.config()` more than one time. This could cause unexpected behavior in your project.');
     }
 
     // Deconstruct the user's config
-    const { develop = {}, deploy = {}, remixData = {} } = kojiConfig;
+    const {
+      develop = {},
+      deploy = {},
+      remixData = {},
+    } = kojiConfig;
 
     // Check for the project id
-    this.setProjectId(kojiConfigOptions.projectId);
+    this.resolveMetadata(
+      kojiConfigOptions.projectId,
+      kojiConfigOptions.metadata,
+    );
 
     // Set up and sanity check services
-    this.setUpServices(develop, deploy, kojiConfigOptions.services);
+    this.resolveServices(develop, deploy, kojiConfigOptions.services);
 
     // Initialize remix data
     this.remix.init(remixData);
   }
 
-  private setProjectId(explicitProjectId?: string) {
+  private resolveMetadata(
+    explicitProjectId?: string,
+    metadata?: KojiMetadata,
+  ) {
     let projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
+    let creatorUsername = process.env.KOJI_CREATOR_USERNAME;
+    let creatorProfilePicture = process.env.KOJI_CREATOR_PROFILE_PICTURE;
+
+    if (metadata) {
+      creatorUsername = metadata.creatorUsername;
+      creatorProfilePicture = metadata.creatorProfilePicture;
+    }
 
     // Even if the value is overwritten by an override, it should still
     // be defined at this point.
-    if (!projectId) throw new Error('Unable to find project id.');
+    if (!projectId) {
+      throw new Error('Unable to find project id.');
+    }
 
     // Handle overrides
     if (window.KOJI_OVERRIDES) {
-      const { overrides = {} } = window.KOJI_OVERRIDES;
-      if (overrides && overrides.metadata && overrides.metadata.projectId) {
+      const {
+        overrides = {},
+      } = window.KOJI_OVERRIDES;
+
+      if (overrides && overrides.metadata) {
         projectId = overrides.metadata.projectId;
+        creatorUsername = overrides.metadata.creatorUsername;
+        creatorProfilePicture = overrides.metadata.creatorProfilePicture;
       }
     }
 
     // Set local projectId
     this.projectId = projectId;
 
+    // Set the metadata
+    this.metadata = {
+      projectId: projectId || '',
+      creatorUsername: creatorUsername || '',
+      creatorProfilePicture: creatorProfilePicture || '',
+    };
+
     // Init dispatch
     this.dispatch?.setProjectId(projectId as string);
   }
 
-  private setUpServices(develop: Object, deploy: Object, services: Services) {
+  private resolveServices(develop: Object, deploy: Object, services: Services) {
     const developServices = Object.keys(develop);
     const deployServices = Object.keys(deploy);
 
     // Require at least one deploy service to be defined
-    if (deployServices.length === 0) throw new Error('Your configuration does not include any services for deployment');
+    if (deployServices.length === 0) {
+      throw new Error('Your configuration does not include any services for deployment');
+    }
 
     // Require at least one develop service to be defined
-    if (developServices.length === 0) throw new Error('Your configuration does not include any services for development');
+    if (developServices.length === 0) {
+      throw new Error('Your configuration does not include any services for development');
+    }
 
     // Require the develop and deploy services to match
-    if (!equalsIgnoreOrder(deployServices, developServices)) throw new Error('Your develop and deploy services do not match');
+    if (!equalsIgnoreOrder(deployServices, developServices)) {
+      throw new Error('Your develop and deploy services do not match');
+    }
 
     // Create the base service map and look for env vars we know to exist
     const baseServiceMap: Services = {};
@@ -142,7 +215,9 @@ export class Koji {
 
     // Require a value for each service
     Object.keys(baseServiceMap).forEach((serviceName) => {
-      if (!baseServiceMap[serviceName]) throw new Error(`Unable to find a value for the ${serviceName} service. If your value is not available at \`process.env.KOJI_SERVICE_URL_${serviceName}\`, you may need to pass it explicitly using the second, kojiConfigOptions parameter when calling Koji.config`);
+      if (!baseServiceMap[serviceName]) {
+        throw new Error(`Unable to find a value for the ${serviceName} service. If your value is not available at \`process.env.KOJI_SERVICE_URL_${serviceName}\`, you may need to pass it explicitly using the second, kojiConfigOptions parameter when calling Koji.config`);
+      }
     });
 
     // Handle overrides
@@ -181,7 +256,10 @@ export class Koji {
           //
         }
       },
-      { capture: true, passive: true },
+      {
+        capture: true,
+        passive: true,
+      },
     );
   }
 
@@ -208,7 +286,9 @@ export class Koji {
       if (data._type === 'Koji.ContextPassthrough.Down') {
         try {
           const destinationOrigin = data._path[0];
-          const frame: HTMLIFrameElement | undefined = Array.from(document.getElementsByTagName('iframe')).find(({ src }) => src.startsWith(destinationOrigin));
+          const frame: HTMLIFrameElement | undefined = Array
+            .from(document.getElementsByTagName('iframe'))
+            .find(({ src }) => src.startsWith(destinationOrigin));
 
           if (frame && frame.contentWindow) {
             if (data._path.length === 0) {
