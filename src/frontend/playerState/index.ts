@@ -167,8 +167,8 @@ export class PlayerState extends KojiBridge {
    * Hides any Koji platform chrome, such as the Koji button or the user's profile icon.
    * To restore the platform chrome, use [[showChrome]].
    *
-   * NOTE: Incorrectly controlling player chrome can result in a disorienting user experience, so use this functionality judiciously.
-   * The Koji platform chrome must be displayed on all root screens in a template, and can be hidden if a user navigates to a deeper screen.
+   * NOTE: Incorrectly controlling the player chrome can result in a disorienting user experience, so use this functionality judiciously.
+   * The player chrome must be displayed on all root screens in a template, and can be hidden if a user navigates to a deeper screen.
    * The player chrome is hidden by default when the Koji's `presentationStyle` is `popover`.
    *
    * @example
