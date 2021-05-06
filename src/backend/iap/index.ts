@@ -43,7 +43,7 @@ export interface IapReceipt {
   };
   /** Date of the purchase. */
   datePurchased: Date;
-  /** Date of the refund, if the transaction has been refunded. Refunds can occur either manually or due to capture expiry for a pending transaction. */
+  /** Date of the refund, if the transaction has been refunded. Refunds can occur either manually or due to capture expiry of a pending transaction. */
   dateRefunded?: Date;
 }
 

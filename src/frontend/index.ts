@@ -49,7 +49,8 @@ export interface KojiConfigOptions {
 }
 
 /**
- * Metadata about the project that is provided by the platform.
+ * Metadata about the project and creator.
+ * This information is provided by the platform but can be overridden when the Koji is initialized.
  */
 export interface KojiMetadata {
   /** Unique identifier for the Koji. */

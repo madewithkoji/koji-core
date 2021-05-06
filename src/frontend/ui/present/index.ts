@@ -31,7 +31,7 @@ export interface PresentAlertOptions {
 export type SystemAlertType = 'success'|'sent'|'reported'|'rejected';
 
 /**
- * Presents dialog boxes to users on the frontend of your Koji.
+ * Presents dialog boxes and system alerts to users on the frontend of your Koji.
  */
 export class Present extends KojiBridge {
   /**
@@ -99,6 +99,7 @@ export class Present extends KojiBridge {
   /**
    * Presents a system alert (icon and label).
    * System alerts are displayed for 1200ms and then dismissed automatically, allowing for an easy way to communicate state changes to a user.
+   * For dialog boxes that show messages and require user interaction, use [[alert]] or [[confirmation]].
    *
    * @param type Type of system alert to display.
    *
