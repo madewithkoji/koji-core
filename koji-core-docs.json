@@ -21731,7 +21731,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/navigate/index.ts",
-									"line": 140,
+									"line": 143,
 									"character": 24
 								}
 							],
@@ -21743,7 +21743,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Opens the sharing dialog box. By default, the dialog box shares the URL of the current Koji. Specify a full or a relative URL to open a dialog box for sharing a different URL or for a deep link into your Koji.",
+										"shortText": "Opens the sharing dialog box. By default, the dialog box shares the URL of the current Koji.\nSpecify a full or a relative URL to open a dialog box for sharing a different URL or for a deep link into your Koji.",
+										"text": "NOTE: If you use this method to share a deep link in your Koji, a `koji.to` short URL is automatically created for it.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -21952,7 +21953,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/navigate/index.ts",
-							"line": 150,
+							"line": 153,
 							"character": 21
 						}
 					],
