@@ -25,6 +25,9 @@ export interface PresentAlertOptions {
   message: string;
 }
 
+/**
+ * Type of a system alert – `success` (check mark), `sent` (message sent icon), `rejected` (alert icon), and `reported` (alert icon).
+ */
 export type SystemAlertType = 'success'|'sent'|'reported'|'rejected';
 
 /**
@@ -32,9 +35,9 @@ export type SystemAlertType = 'success'|'sent'|'reported'|'rejected';
  */
 export class Present extends KojiBridge {
   /**
-   * Presents a confirmation dialog box to a user. Use this method for messages that require a decision from the user, such as to ask whether to proceed with an action. For messages that do not require a decision, use [[alert]].
+   * Presents a confirmation dialog box to a user. Use this method for messages that require a decision from the user, such as to ask whether to proceed with an action. For messages that do not require a decision, use [[alert]] or [[systemAlert]].
    *
-   * @param   options
+   * @param   options Confirmation dialog box to display.
    * @return          Whether the user confirmed (`true`) or cancelled (`false`) the action.
    *
    * @example
@@ -66,7 +69,10 @@ export class Present extends KojiBridge {
   }
 
   /**
-   * Presents an alert dialog box to the user. Use this method for messages that do not require any response from the user, other than an acknowledgement. For messages that require a decision, use [[confirmation]].
+   * Presents an alert dialog box to the user.
+   * Use this method for messages that require only an acknowledgement from the user.
+   * For messages that require a decision, use [[confirmation]].
+   * For simple alerts that are dismissed automatically after a delay, without user interaction or a message, use [[systemAlert]].
    *
    * @param   options
    *
@@ -91,11 +97,15 @@ export class Present extends KojiBridge {
   }
 
   /**
-   * Present a system alert (icon + label). System alerts appear for 1200ms and
-   * then dismiss, allowing for an easy way to communicate state changes to a
-   * user.
+   * Presents a system alert (icon and label).
+   * System alerts are displayed for 1200ms and then dismissed automatically, allowing for an easy way to communicate state changes to a user.
    *
-   * @param type The type of system alert to display.
+   * @param type Type of system alert to display.
+   *
+   * @example
+   * ```javascript
+   * Koji.ui.present.systemAlert('success');
+   * ```
    */
   @client
   public systemAlert(type: SystemAlertType) {

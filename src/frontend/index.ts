@@ -19,7 +19,7 @@ export interface KojiConfig {
   /** Instructions for deploying the services to production. */
   deploy?: any;
 
-  /** Provided metadata about the project and its creator. */
+  /** Metadata about the project and creator. */
   metadata?: any;
 
   /** Default values for the customizable remix data. */
@@ -44,21 +44,21 @@ export interface KojiConfigOptions {
   /** Defines services for the Koji. */
   services: Services;
 
-  /** Metadata overrides */
+  /** Overrides for the platform-provided metadata. */
   metadata?: KojiMetadata;
 }
 
 /**
- * Metadata about the project, provided by the platform.
+ * Metadata about the project that is provided by the platform.
  */
 export interface KojiMetadata {
   /** Unique identifier for the Koji. */
   projectId: string;
 
-  /** The creator's username. */
+  /** Creator's username. */
   creatorUsername: string;
 
-  /** A URL reference to the creator's current profile picture. */
+  /** URL reference to the creator's current profile picture. */
   creatorProfilePicture: string;
 }
 
@@ -78,7 +78,7 @@ export class Koji {
   /** The project's id. */
   public projectId?: string;
 
-  /** Provided metadata about the project */
+  /** Metadata about the project and creator. */
   public metadata?: KojiMetadata;
 
   public analytics: Analytics = analytics;
