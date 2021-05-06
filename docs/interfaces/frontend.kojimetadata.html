@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RemuxPreset | @withkoji/core</title>
+	<title>KojiMetadata | @withkoji/core</title>
 	<meta name="description" content="Documentation for @withkoji/core">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@withkoji/core</a>
 				</li>
 				<li>
-					<a href="../modules/types.html">types</a>
+					<a href="../modules/frontend.html">frontend</a>
 				</li>
 				<li>
-					<a href="types.remuxpreset.html">RemuxPreset</a>
+					<a href="frontend.kojimetadata.html">KojiMetadata</a>
 				</li>
 			</ul>
-			<h1>Interface RemuxPreset</h1>
+			<h1>Interface KojiMetadata</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped.</p>
+						<p>Metadata about the project and creator.
+						This information is provided by the platform but can be overridden when the Koji is initialized.</p>
 					</div>
 				</div>
 			</section>
@@ -79,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">RemuxPreset</span>
+						<span class="target">KojiMetadata</span>
 					</li>
 				</ul>
 			</section>
@@ -90,8 +91,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="types.remuxpreset.html#aspectratio" class="tsd-kind-icon">aspect<wbr>Ratio</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="types.remuxpreset.html#sizepolicy" class="tsd-kind-icon">size<wbr>Policy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend.kojimetadata.html#creatorprofilepicture" class="tsd-kind-icon">creator<wbr>Profile<wbr>Picture</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend.kojimetadata.html#creatorusername" class="tsd-kind-icon">creator<wbr>Username</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="frontend.kojimetadata.html#projectid" class="tsd-kind-icon">project<wbr>Id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,32 +102,47 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="aspectratio" class="tsd-anchor"></a>
-					<h3>aspect<wbr>Ratio</h3>
-					<div class="tsd-signature tsd-kind-icon">aspect<wbr>Ratio<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;16:9&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;9:16&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;4:5&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;1:1&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;passthrough&quot;</span></div>
+					<a name="creatorprofilepicture" class="tsd-anchor"></a>
+					<h3>creator<wbr>Profile<wbr>Picture</h3>
+					<div class="tsd-signature tsd-kind-icon">creator<wbr>Profile<wbr>Picture<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/0f56107/src/types.ts#L4">types.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/0f56107/src/frontend/index.ts#L63">frontend/index.ts:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Desired aspect ratio.</p>
+							<p>URL reference to the creator&#39;s current profile picture.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="sizepolicy" class="tsd-anchor"></a>
-					<h3>size<wbr>Policy</h3>
-					<div class="tsd-signature tsd-kind-icon">size<wbr>Policy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;fill&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;fit&quot;</span></div>
+					<a name="creatorusername" class="tsd-anchor"></a>
+					<h3>creator<wbr>Username</h3>
+					<div class="tsd-signature tsd-kind-icon">creator<wbr>Username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/0f56107/src/types.ts#L6">types.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/0f56107/src/frontend/index.ts#L60">frontend/index.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>How the image will be constrained within the provided size.</p>
+							<p>Creator&#39;s username.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="projectid" class="tsd-anchor"></a>
+					<h3>project<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">project<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/0f56107/src/frontend/index.ts#L57">frontend/index.ts:57</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Unique identifier for the Koji.</p>
 						</div>
 					</div>
 				</section>
@@ -138,38 +155,44 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/types.html">types</a>
+						<a href="../modules/frontend.html">frontend</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="../classes/frontend.koji.html" class="tsd-kind-icon">Koji</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.fastlyoptions.html" class="tsd-kind-icon">Fastly<wbr>Options</a>
+						<a href="frontend.kojiconfig.html" class="tsd-kind-icon">Koji<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="frontend.kojiconfigoptions.html" class="tsd-kind-icon">Koji<wbr>Config<wbr>Options</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.remuxpreset.html" class="tsd-kind-icon">Remux<wbr>Preset</a>
+						<a href="frontend.kojimetadata.html" class="tsd-kind-icon">Koji<wbr>Metadata</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="types.remuxpreset.html#aspectratio" class="tsd-kind-icon">aspect<wbr>Ratio</a>
+								<a href="frontend.kojimetadata.html#creatorprofilepicture" class="tsd-kind-icon">creator<wbr>Profile<wbr>Picture</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="types.remuxpreset.html#sizepolicy" class="tsd-kind-icon">size<wbr>Policy</a>
+								<a href="frontend.kojimetadata.html#creatorusername" class="tsd-kind-icon">creator<wbr>Username</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="frontend.kojimetadata.html#projectid" class="tsd-kind-icon">project<wbr>Id</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="types.watermark.html" class="tsd-kind-icon">Watermark</a>
-					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/types.html#iaptoken" class="tsd-kind-icon">IAPToken</a>
+						<a href="../modules/frontend.html#services" class="tsd-kind-icon">Services</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/types.html#usertoken" class="tsd-kind-icon">User<wbr>Token</a>
+					<li class=" tsd-kind-property tsd-parent-kind-module">
+						<a href="../modules/frontend.html#default" class="tsd-kind-icon">default</a>
 					</li>
 				</ul>
 			</nav>
