@@ -141,7 +141,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#execcallbackonmessage">execCallbackOnMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ab1bb91/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/59081e7/src/frontend/kojiBridge/index.ts#L28">frontend/kojiBridge/index.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -191,7 +191,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessage">sendMessage</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ab1bb91/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/59081e7/src/frontend/kojiBridge/index.ts#L47">frontend/kojiBridge/index.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -218,7 +218,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="frontend_kojibridge.kojibridge.html">KojiBridge</a>.<a href="frontend_kojibridge.kojibridge.html#sendmessageandawaitresponse">sendMessageAndAwaitResponse</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ab1bb91/src/frontend/kojiBridge/index.ts#L59">frontend/kojiBridge/index.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/59081e7/src/frontend/kojiBridge/index.ts#L59">frontend/kojiBridge/index.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -247,14 +247,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/ab1bb91/src/frontend/ui/upload/index.ts#L55">frontend/ui/upload/index.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/madewithkoji/koji-core/blob/59081e7/src/frontend/ui/upload/index.ts#L58">frontend/ui/upload/index.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Uploads a file to your project’s CDN. You can use this method to upload media created or captured by the user as part of the template experience.
+									<p>Uploads a file to your project’s CDN.
+										Use this method to provide a custom upload experience or to upload media created or captured by the user as part of the template experience.
 									For example, recording a video or drawing on a canvas.</p>
 								</div>
+								<p>To use the standard platform control for uploading files, use {@doclink core-frontend-ui-capture#file | Capture.file }.</p>
 								<p>NOTE: To use this method for uploading a file collected by a file input, you must extract the blob and reconstruct the file.
 								Browser sandboxing will not allow the native file to be transferred.</p>
 								<dl class="tsd-comment-tags">

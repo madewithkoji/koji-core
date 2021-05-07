@@ -82,20 +82,20 @@
 					<h3>Frontend</h3>
 				</a>
 				<p>Import the package in your frontend code.</p>
-				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 </code></pre>
 				<p>Initialize the package with your configuration data.</p>
-				<pre><code><span style="color: #008000">// Initialize</span>
+				<pre><code class="language-js"><span style="color: #008000">// Initialize</span>
 <span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #795E26">config</span><span style="color: #000000">(</span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;././koji.json&#039;</span><span style="color: #000000">));</span>
 
 <span style="color: #008000">// render</span>
 <span style="color: #795E26">render</span><span style="color: #000000">();</span>
 </code></pre>
 				<p>Indicate that the application is ready to start receiving events.</p>
-				<pre><code><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #795E26">ready</span><span style="color: #000000">();</span>
+				<pre><code class="language-js"><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #795E26">ready</span><span style="color: #000000">();</span>
 </code></pre>
 				<p>Enable the user to upload an image from the frontend of the Koji.</p>
-				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">captureImage</span><span style="color: #000000"> = </span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">imageURL</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">Koji</span><span style="color: #000000">.</span><span style="color: #001080">ui</span><span style="color: #000000">.</span><span style="color: #001080">capture</span><span style="color: #000000">.</span><span style="color: #795E26">image</span><span style="color: #000000">();</span>
@@ -107,11 +107,11 @@
 					<h3>Backend</h3>
 				</a>
 				<p>Import the package in your backend code.</p>
-				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 </code></pre>
 				<p>Initialize the package with your configuration data, and use <code>KojiBackend.middleware</code> to scope operations per remix.
 				Add routes for backend operations (for example, use a Koji database).</p>
-				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
+				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">KojiBackend</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@withkoji/core&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">cors</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;cors&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">express</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;express&#039;</span><span style="color: #000000">;</span>
 <span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">bodyParser</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;body-parser&#039;</span><span style="color: #000000">;</span>
