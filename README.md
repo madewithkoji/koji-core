@@ -25,13 +25,13 @@ The @withkoji/core package provides a set of modules that are specific to client
 
 Import the package in your frontend code.
 
-```
+```js
 import Koji from '@withkoji/core';
 ```
 
 Initialize the package with your configuration data.
 
-```
+```js
 // Initialize
 Koji.config(require('././koji.json'));
 
@@ -41,13 +41,13 @@ render();
 
 Indicate that the application is ready to start receiving events.
 
-```
+```js
 Koji.ready();
 ```
 
 Enable the user to upload an image from the frontend of the Koji.
 
-```
+```js
 import Koji from '@withkoji/core';
 
 const captureImage = async () => {
@@ -61,14 +61,14 @@ const captureImage = async () => {
 
 Import the package in your backend code.
 
-```
+```js
 import { KojiBackend } from '@withkoji/core';
 ```
 
 Initialize the package with your configuration data, and use `KojiBackend.middleware` to scope operations per remix.
 Add routes for backend operations (for example, use a Koji database).
 
-```
+```js
 import { KojiBackend } from '@withkoji/core';
 import cors from 'cors';
 import express from 'express';
