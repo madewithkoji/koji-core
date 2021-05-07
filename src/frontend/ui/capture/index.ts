@@ -429,9 +429,14 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to upload a file of any type. Use this method to allow the user to upload raw files in their original format. For example, to capture high-resolution images for download rather than for display in a browser.
+   * Prompts the user to upload a file of any type.
+   * Use this method to allow the user to upload raw files in their original format.
+   * For example, to capture high-resolution images for download rather than for display in a browser.
    *
-   * To apply automatic transcoding and transformations for specific file types, use the associated method. See [[image]], [[video]], [[audio]], or [[media]].
+   * To apply automatic transcoding and transformations for specific file types, use the associated method.
+   * See [[image]], [[video]], [[audio]], or [[media]].
+   * 
+   * To provide a custom upload experience or to upload media created or captured by the user as part of the template experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
