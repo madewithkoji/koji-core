@@ -17143,7 +17143,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Prompts the user to upload a file of any type.\nUse this method to allow the user to upload raw files in their original format.\nFor example, to capture high-resolution images for download rather than for display in a browser.",
-										"text": "To apply automatic transcoding and transformations for specific file types, use the associated method.\nSee [[image]], [[video]], [[audio]], or [[media]].\n\nTo provide a custom upload experience or to upload media created or captured by the user as part of the template experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.\n",
+										"text": "To apply automatic transcoding and transformations for specific file types, use the associated method.\nSee [[image]], [[video]], [[audio]], or [[media]].\n\nTo provide a custom upload experience or to upload media created or captured during the template experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.\n",
 										"returns": "URL to the file as a string or the [[VerboseCapture]] object, if `verbose` is `true`.\n",
 										"tags": [
 											{
@@ -22685,8 +22685,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Uploads a file to your project’s CDN.\nUse this method to provide a custom upload experience or to upload media created or captured by the user as part of the template experience.\nFor example, recording a video or drawing on a canvas.",
-										"text": "To use the standard platform control for uploading files, use {@doclink core-frontend-ui-capture#file | Capture.file }.\n\nNOTE: To use this method for uploading a file collected by a file input, you must extract the blob and reconstruct the file.\nBrowser sandboxing will not allow the native file to be transferred.\n",
+										"shortText": "Uploads a file to your project’s CDN.\nUse this method to provide a custom upload experience or to upload media created or captured during the template experience.\nFor example, recording a video or drawing on a canvas.",
+										"text": "To upload files with the standard platform control, use {@doclink core-frontend-ui-capture#file | Capture.file }.\n\nNOTE: To use this method for uploading a file collected by a file input, you must extract the blob and reconstruct the file.\nBrowser sandboxing will not allow the native file to be transferred.\n",
 										"returns": "Unique URL for accessing the file on `images.koji-cdn.com` or `objects.koji-cdn.com`, depending on the type of file.\n",
 										"tags": [
 											{

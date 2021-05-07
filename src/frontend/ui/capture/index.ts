@@ -435,8 +435,8 @@ export class Capture extends KojiBridge {
    *
    * To apply automatic transcoding and transformations for specific file types, use the associated method.
    * See [[image]], [[video]], [[audio]], or [[media]].
-   * 
-   * To provide a custom upload experience or to upload media created or captured by the user as part of the template experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.
+   *
+   * To provide a custom upload experience or to upload media created or captured during the template experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
