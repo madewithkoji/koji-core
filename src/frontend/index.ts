@@ -92,16 +92,6 @@ export class Koji {
 
   constructor() {
     this.isReady = false;
-
-    // Pull the `koji-feed-key` off the URL fragment, if it exists, and save it
-    // to the window so we can grab it if the URL changes due to navigation
-    // events.
-    if (!window.KOJI_FEED_KEY) {
-      const feedKey = window.location.hash.replace('#koji-feed-key=', '');
-      if (feedKey) {
-        window.KOJI_FEED_KEY = feedKey;
-      }
-    }
   }
 
   /**
@@ -124,6 +114,16 @@ export class Koji {
   ): void {
     if (this.configInitialized) {
       throw new Error('You are trying to run `Koji.config()` more than one time. This could cause unexpected behavior in your project.');
+    }
+
+    // Pull the `koji-feed-key` off the URL fragment, if it exists, and save it
+    // to the window so we can grab it if the URL changes due to navigation
+    // events.
+    if (!window.KOJI_FEED_KEY) {
+      const feedKey = window.location.hash.replace('#koji-feed-key=', '');
+      if (feedKey) {
+        window.KOJI_FEED_KEY = feedKey;
+      }
     }
 
     // Deconstruct the user's config
