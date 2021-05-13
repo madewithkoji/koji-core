@@ -110,7 +110,7 @@ export class PlayerState extends KojiBridge {
     }
 
     // Set the initial value based on the feed hash
-    this.hasFocus = !window.location.hash.includes('#koji-feed-key=');
+    this.hasFocus = !window.KOJI_FEED_KEY;
 
     if (this.presentationStyle === 'fullscreen') {
       this.isChromeVisible = true;

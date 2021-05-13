@@ -92,6 +92,16 @@ export class Koji {
 
   constructor() {
     this.isReady = false;
+
+    // Pull the `koji-feed-key` off the URL fragment, if it exists, and save it
+    // to the window so we can grab it if the URL changes due to navigation
+    // events.
+    if (!window.KOJI_FEED_KEY) {
+      const feedKey = window.location.hash.replace('#koji-feed-key=', '');
+      if (feedKey) {
+        window.KOJI_FEED_KEY = feedKey;
+      }
+    }
   }
 
   /**
@@ -247,7 +257,7 @@ export class Koji {
           window.parent.postMessage(
             {
               _type: 'Koji.ClickEvent',
-              _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
+              _feedKey: window.KOJI_FEED_KEY,
               x: clientX,
               y: clientY,
             },
@@ -345,7 +355,7 @@ export class Koji {
     window.parent.postMessage(
       {
         _type: 'KojiPreview.Ready',
-        _feedKey: window.location.hash.replace('#koji-feed-key=', ''),
+        _feedKey: window.KOJI_FEED_KEY,
       },
       '*',
     );
