@@ -80,7 +80,7 @@ export class PlayerState extends KojiBridge {
   public hasFocus: boolean = false;
   /** Presentation style of the Koji. */
   public presentationStyle: PlayerPresentationStyle = 'fullscreen';
-  /** Whether the player chrome is visible */
+  /** Whether the player chrome (Koji platform buttons and navigation) is visible. */
   public isChromeVisible: boolean = false;
 
   public constructor() {
@@ -164,12 +164,17 @@ export class PlayerState extends KojiBridge {
   }
 
   /**
-   * Hide any platform chrome, like the Koji button or the current user's
-   * notification/profile icon. Incorrectly controlling player chrome can result
-   * in a disorienting user experience, so this functionality should be used
-   * judiciously. Koji chrome must be displayed on all Root screens in a
-   * template, and can be hidden if a user navigates to a deeper screen inside
-   * the template.
+   * Hides any Koji platform chrome, such as the Koji button or the user's profile icon.
+   * To restore the platform chrome, use [[showChrome]].
+   *
+   * NOTE: Incorrectly controlling the player chrome can result in a disorienting user experience, so use this functionality judiciously.
+   * The player chrome must be displayed on all root screens in a template, and can be hidden if a user navigates to a deeper screen.
+   * The player chrome is hidden by default when the Koji's `presentationStyle` is `popover`.
+   *
+   * @example
+   * ```javascript
+   * Koji.playerState.hideChrome();
+   * ```
    */
   @client
   public hideChrome() {
@@ -181,7 +186,12 @@ export class PlayerState extends KojiBridge {
   }
 
   /**
-   * If platform chrome has been hidden, restore it.
+   * Restores the Koji platform chrome, if it has been hidden with [[hideChrome]].
+   *
+   * @example
+   * ```javascript
+   * Koji.playerState.showChrome();
+   * ```
    */
   public showChrome() {
     this.sendMessage({

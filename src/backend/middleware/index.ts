@@ -1,17 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import deepmerge from 'deepmerge';
 
-/** Configuration data for the Koji. */
-export interface KojiConfig {
-  /** Instructions for setting up the services in a development/editor environment. */
-  develop?: any;
-  /** Instructions for deploying the services to production. */
-  deploy?: any;
-  /** Default values for the customizable remix data. */
-  remixData?: any;
-  /** Placeholder values for new remixes. */
-  '@@initialTransform'?: any;
-}
+import { KojiConfig } from '../../frontend';
 
 // ToDo: Make this non-mutating
 const decodeObject = (obj: any): any => {
@@ -33,13 +23,13 @@ const decodeObject = (obj: any): any => {
  * @example
  * ```
  * const app = express();
- * app.use(Koji.middleware(require('koji.json'));
+ * app.use(Koji.middleware(require('koji.json')));
  *
  * app.get('/data', (req, res, next) => {
  *   // Backend constructor
  *   const database = new KojiBackend.Database({ res });
  *   ...
- * };
+ * });
  * ```
  */
 export function middleware(kojiConfig: KojiConfig = {}) {

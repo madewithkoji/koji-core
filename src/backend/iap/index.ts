@@ -43,7 +43,7 @@ export interface IapReceipt {
   };
   /** Date of the purchase. */
   datePurchased: Date;
-  /** If the transaction has been refunded, either manually or due to capture expiry, this key contains the date of that refund. */
+  /** Date of the refund, if the transaction has been refunded. Refunds can occur either manually or due to capture expiry of a pending transaction. */
   dateRefunded?: Date;
 }
 
@@ -284,10 +284,11 @@ export class IAP extends Base {
   }
 
   /**
-   * Programmatically refund a transaction by its receipt ID. Only unsettled
-   * transactions can be refunded.
+   * Refunds a transaction.
    *
-   * @param receiptId Receipt ID
+   * NOTE: Only unsettled transactions can be refunded.
+   *
+   * @param receiptId Unique identifier for the transaction receipt.
    *
    * @example
    * ```javascript

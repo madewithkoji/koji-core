@@ -31,7 +31,14 @@ export interface UploadOptions {
  */
 export class Upload extends KojiBridge {
   /**
-   * Uploads a file to your project’s CDN. You can use this method to upload media created or captured by the user as part of the template experience. For example, recording a video or drawing on a canvas. Note that if you intend to use this method to upload a file collected by a file input, you must extract the blob and reconstruct the file, as browser sandboxing will not allow the native File to be transferred.
+   * Uploads a file to your project’s CDN.
+   * Use this method to provide a custom upload experience or to upload media created or captured during the template experience.
+   * For example, recording a video or drawing on a canvas.
+   *
+   * To upload files with the standard platform control, use {@doclink core-frontend-ui-capture#file | Capture.file }.
+   *
+   * NOTE: To use this method for uploading a file collected by a file input, you must extract the blob and reconstruct the file.
+   * Browser sandboxing will not allow the native file to be transferred.
    *
    * @param   options     Request options for the file upload.
    *

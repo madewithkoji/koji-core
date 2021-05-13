@@ -14,19 +14,19 @@ import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
  */
 export interface KojiConfig {
   /** Instructions for setting up the services in a development/editor environment. */
-  develop?: any;
+  develop?: {[index: string]: any};
 
   /** Instructions for deploying the services to production. */
-  deploy?: any;
+  deploy?: {[index: string]: any};
 
-  /** Provided metadata about the project and its creator. */
-  metadata?: any;
+  /** Metadata about the project and creator. */
+  metadata?: KojiMetadata;
 
   /** Default values for the customizable remix data. */
-  remixData?: any;
+  remixData?: {[index: string]: any};
 
   /** Placeholder values for new remixes. */
-  '@@initialTransform'?: any;
+  '@@initialTransform'?: {[index: string]: any};
 }
 
 /**
@@ -44,21 +44,22 @@ export interface KojiConfigOptions {
   /** Defines services for the Koji. */
   services: Services;
 
-  /** Metadata overrides */
+  /** Overrides for the platform-provided metadata. */
   metadata?: KojiMetadata;
 }
 
 /**
- * Metadata about the project, provided by the platform.
+ * Metadata about the project and creator.
+ * This information is provided by the platform but can be overridden when the Koji is initialized.
  */
 export interface KojiMetadata {
   /** Unique identifier for the Koji. */
   projectId: string;
 
-  /** The creator's username. */
+  /** Creator's username. */
   creatorUsername: string;
 
-  /** A URL reference to the creator's current profile picture. */
+  /** URL reference to the creator's current profile picture. */
   creatorProfilePicture: string;
 }
 
@@ -78,7 +79,7 @@ export class Koji {
   /** The project's id. */
   public projectId?: string;
 
-  /** Provided metadata about the project */
+  /** Metadata about the project and creator. */
   public metadata?: KojiMetadata;
 
   public analytics: Analytics = analytics;
@@ -91,16 +92,6 @@ export class Koji {
 
   constructor() {
     this.isReady = false;
-
-    // Pull the `koji-feed-key` off the URL fragment, if it exists, and save it
-    // to the window so we can grab it if the URL changes due to navigation
-    // events.
-    if (!window.KOJI_FEED_KEY) {
-      const feedKey = window.location.hash.replace('#koji-feed-key=', '');
-      if (feedKey) {
-        window.KOJI_FEED_KEY = feedKey;
-      }
-    }
   }
 
   /**
@@ -123,6 +114,16 @@ export class Koji {
   ): void {
     if (this.configInitialized) {
       throw new Error('You are trying to run `Koji.config()` more than one time. This could cause unexpected behavior in your project.');
+    }
+
+    // Pull the `koji-feed-key` off the URL fragment, if it exists, and save it
+    // to the window so we can grab it if the URL changes due to navigation
+    // events.
+    if (!window.KOJI_FEED_KEY) {
+      const feedKey = window.location.hash.replace('#koji-feed-key=', '');
+      if (feedKey) {
+        window.KOJI_FEED_KEY = feedKey;
+      }
     }
 
     // Deconstruct the user's config
