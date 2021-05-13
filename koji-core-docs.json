@@ -13014,7 +13014,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Amount of the purchase."
+								"shortText": "Amount of the purchase, in cents."
 							},
 							"sources": [
 								{
