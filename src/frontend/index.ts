@@ -14,19 +14,19 @@ import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
  */
 export interface KojiConfig {
   /** Instructions for setting up the services in a development/editor environment. */
-  develop?: any;
+  develop?: {[index: string]: any};
 
   /** Instructions for deploying the services to production. */
-  deploy?: any;
+  deploy?: {[index: string]: any};
 
   /** Metadata about the project and creator. */
-  metadata?: any;
+  metadata?: KojiMetadata;
 
   /** Default values for the customizable remix data. */
-  remixData?: any;
+  remixData?: {[index: string]: any};
 
   /** Placeholder values for new remixes. */
-  '@@initialTransform'?: any;
+  '@@initialTransform'?: {[index: string]: any};
 }
 
 /**
