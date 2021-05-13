@@ -23,13 +23,13 @@ const decodeObject = (obj: any): any => {
  * @example
  * ```
  * const app = express();
- * app.use(Koji.middleware(require('koji.json'));
+ * app.use(Koji.middleware(require('koji.json')));
  *
  * app.get('/data', (req, res, next) => {
  *   // Backend constructor
  *   const database = new KojiBackend.Database({ res });
  *   ...
- * };
+ * });
  * ```
  */
 export function middleware(kojiConfig: KojiConfig = {}) {
