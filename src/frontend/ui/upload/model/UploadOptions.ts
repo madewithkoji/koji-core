@@ -3,7 +3,6 @@ import { VideoOptions } from './VideoOptions';
 /**
  * Request options for a [[uploadFile | file upload]].
  */
-
 export interface UploadOptions {
   /** File to upload. */
   file: File;

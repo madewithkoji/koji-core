@@ -4,12 +4,11 @@ import { RemuxPreset, Watermark } from '../../upload/model/VideoOptions';
 /**
  * Result of a user input capture.
  */
-
 export type CaptureResult = string | number | null | VerboseCapture;
+
 /**
  * Extended result of a user input capture.
  */
-
 export interface VerboseCapture {
   /** Whether the user completed the selection (`succeeded`) or exited the control without selecting a value (`cancelled`). */
   captureStatus: CaptureStatus;
@@ -28,14 +27,14 @@ export interface CaptureMessage<T> {
   status: CaptureStatus;
   type: CaptureType;
 }
-/** Whether the user completed the selection (`succeeded`) or exited the control without selecting a value (`cancelled`). */
 
+/** Whether the user completed the selection (`succeeded`) or exited the control without selecting a value (`cancelled`). */
 export enum CaptureStatus {
   SUCCEEDED = 'succeeded',
   CANCELLED = 'cancelled',
 }
-/** Capture method types. */
 
+/** Capture method types. */
 export enum CaptureType {
   COLOR = 'color',
   FILE = 'file',
@@ -47,30 +46,30 @@ export enum CaptureType {
   SOUND = 'audio',
   VIDEO = 'video',
 }
-/** Metadata for a video file. */
 
+/** Metadata for a video file. */
 export interface VideoMetadata {
   /** URL for the video thumbnail. */
   thumbnailUrl: string;
 }
-/** Metadata for an audio file. */
 
+/** Metadata for an audio file. */
 export interface AudioMetadata {
   /** Duration in seconds for an audio file. */
   durationSeconds: number;
 }
-/** Metadata for an image file. */
 
+/** Metadata for an image file. */
 export interface ImageMetadata {
   /** Natural width of the image in pixels. */
   naturalWidth: number;
   /** Natural height of the image in pixels. */
   naturalHeight: number;
 }
+
 /**
  * Extended metadata for a [[media]] capture.
  */
-
 export interface ExtendedMediaResult {
   /** URL of the selected media file. */
   url?: string;
@@ -85,10 +84,10 @@ export interface ExtendedMediaResult {
   /** Metadata for an image file. */
   imageMetadata?: ImageMetadata;
 }
+
 /**
  * Extended metadata for a [[link]] capture.
  */
-
 export interface ExtendedLinkResult {
   /** Full URL of the selected Koji or pasted link resource. */
   url: string;
@@ -103,10 +102,10 @@ export interface ExtendedLinkResult {
   /** If the resource is a Koji, the URL of the Koji’s thumbnail image, if available. */
   sourceThumbnailUrl: string | null;
 }
+
 /**
  * Configuration options for a [[custom]] capture.
  */
-
 export interface CaptureCustomOptions {
   /** Short name for the custom control. */
   name?: string;
@@ -115,43 +114,43 @@ export interface CaptureCustomOptions {
   /** Type options specific to the custom control. */
   typeOptions?: any;
 }
+
 /**
  * Configuration options for a [[color]] capture.
  */
-
 export interface CaptureColorOptions {
   /** Indicates whether to support transparency (`false`, by default). */
   allowAlpha?: boolean;
   /** Default value for the color capture control. */
   initialValue?: string;
 }
+
 /**
  * Configuration options for an [[image]] capture.
  */
-
 export interface CaptureImageOptions extends FastlyOptions {
   /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium images). */
   hideExtensions?: boolean;
 }
+
 /**
  * Configuration options for a [[file]] capture.
  */
-
 export interface CaptureFileOptions {}
+
 /**
  * Configuration options for a [[link]] capture.
  */
-
 export interface CaptureLinkOptions {
   /** Template store ID of a Koji template. Include this value to enable the user to create a new Koji from the link control. */
   kojiTemplateId?: string;
   /** Whether to prevent users from pasting an external link. If `true`, users can select only one of their Kojis. */
   disableExternalLinks?: boolean;
 }
+
 /**
  * Configuration options for a [[range]] capture.
  */
-
 export interface CaptureRangeOptions {
   /** Minimum value. Default is `0`. */
   min?: number;
@@ -162,20 +161,20 @@ export interface CaptureRangeOptions {
   /** Default value for the range capture control. */
   initialValue?: number;
 }
+
 /**
  * One of the predefined options for a [[select]] capture.
  */
-
 export interface SelectOption {
   /** Value to return if the option is selected. */
   value: string;
   /** Description of the option for users. */
   label: string;
 }
+
 /**
  * Configuration options for a [[select]] capture.
  */
-
 export interface CaptureSelectOptions {
   /** Description of the selection for users. */
   placeholder?: string;
@@ -184,15 +183,15 @@ export interface CaptureSelectOptions {
   /** Default value for the select capture control. */
   initialValue?: string;
 }
+
 /**
  * Types of files to allow for a [[media]] capture. The [[CaptureMediaOptions | configuration options]] vary by media type.
  */
-
 export type CaptureMediaAcceptOnly = 'image' | 'video' | 'audio' | 'file';
+
 /**
  * Configuration options for a [[video]] capture.
  */
-
 export interface CaptureVideoOptions {
   /** Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and return an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback. */
   hls?: boolean;
@@ -207,18 +206,18 @@ export interface CaptureVideoOptions {
   /** Applies a watermark to the uploaded image. Available only with HLS transcoding. */
   watermark?: Watermark;
 }
+
 /**
  * Configuration options for an [[audio]] capture.
  */
-
 export interface CaptureAudioOptions {
   /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium audios). */
   hideExtensions?: boolean;
 }
+
 /**
  * Configuration options for a [[media]] capture.
  */
-
 export interface CaptureMediaOptions {
   /** Specifies the types of media files to allow. If empty or not specified, any type of file is allowed. */
   acceptOnly?: CaptureMediaAcceptOnly[];
