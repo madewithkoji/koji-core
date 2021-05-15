@@ -1,5 +1,4 @@
-/** Key-value pairs of services and endpoints. */
-export type Services = { [key: string]: string; };
+import { Services } from '../../types/Services';
 
 /**
  * Manages endpoints for the services running in your Koji.
@@ -21,7 +20,9 @@ export class ServiceMap {
    * ```
    */
   public config(envMap: Services = {}): void {
-    if (Object.keys(envMap).length === 0) throw new Error('Please add some base services');
+    if (Object.keys(envMap).length === 0) {
+      throw new Error('Please add some base services');
+    }
 
     // Handle overrides
     if (window.KOJI_OVERRIDES) {

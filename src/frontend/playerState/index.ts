@@ -1,72 +1,19 @@
 import qs from 'qs';
+
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
 
-/**
- * Context in which the Koji is being viewed. A Koji can provide a distinct experience for each context.
- */
-export type PlayerStateContext = 'about' | 'admin' | 'remix' | 'sticker' | 'receipt' | 'screenshot' | 'default';
+import {
+  PlayerStateContext,
+  ReceiptType,
+  PlayerPresentationStyle,
+  FocusCallback,
+  BlurCallback,
+  IsRemixingCallback,
+} from './types';
 
-/**
- * View of the receipt for a transaction, either `buyer` or `seller`.
- */
-export type PlayerStateReceiptType = 'buyer' | 'seller';
-
-/**
- * Presentation style of the Koji, either in a modal window (`popover`) or the standard player (`fullscreen`).
- * The popover presentation style does not display the Koji button, so the Koji can use the full view.
- */
-export type PlayerPresentationStyle = 'fullscreen' | 'popover';
-
-/**
- * URL query parameters that describe the current state of the Koji player.
- */
-export interface ExpectedQueryParameters {
-  context?: PlayerStateContext;
-  'dynamic-receipt'?: PlayerStateReceiptType;
-  presentationStyle?: PlayerPresentationStyle;
-}
-
-/**
- * Type of editor, either `instant` for an instant remix or `full` for the code editor.
- */
-export type EditorType = 'instant' | 'full';
-/**
- * Distinguishes between a `new` remix and an `edit` to the user’s existing Koji.
- */
-export type EditorMode = 'edit' | 'new';
-
-/**
- * Describes the remixer's editor.
- */
-export interface EditorAttributes {
-  /** Type of editor, either `instant` for an instant remix or `full` for the code editor. */
-  type?: EditorType;
-  /** Distinguishes between a `new` remix and an `edit` to the user's existing Koji. */
-  mode?: EditorMode;
-}
-
-/**
- * Who is viewing the receipt for a transaction, either `buyer` or `seller`.
- */
-export type ReceiptType = 'seller' | 'buyer';
-
-export type IsRemixingCallback =
-  /**
-   * Function to handle changes in remix state. Invoked by the [[subscribe]] listener.
-   *
-   * @param isRemixing Indicates whether the Koji is in remixing mode.
-   * @param editorAttributes
-   */
-  (isRemixing: boolean, editorAttributes: EditorAttributes) => void;
-
-export type BlurCallback =
-/** Function to handle when the Koji leaves focus. Invoked by the [[onBlur]] listener. */
-() => void;
-
-export type FocusCallback =
-/** Function to handle when the Koji enters focus. Invoked by the [[onFocus]] listener. */
-() => void;
+import { EditorAttributes } from './model/EditorAttributes';
+import { ExpectedQueryParameters } from './model/ExpectedQueryParameters';
 
 /**
  * Manages the state of the Koji player to enable distinct experiences for different users and views.
@@ -91,7 +38,9 @@ export class PlayerState extends KojiBridge {
     if ((typeof window as any) === 'undefined') return;
 
     // Pull off any query parameters
-    const params: ExpectedQueryParameters = qs.parse(window.location.search, { ignoreQueryPrefix: true });
+    const params: ExpectedQueryParameters = qs.parse(window.location.search, {
+      ignoreQueryPrefix: true,
+    });
 
     // First, look for the screenshot context
     if (window.location.href.includes('koji-screenshot')) {
@@ -217,9 +166,18 @@ export class PlayerState extends KojiBridge {
    */
   @client
   public subscribe(callback: IsRemixingCallback): Function {
-    return this.execCallbackOnMessage(({ isRemixing, editorAttributes }: { isRemixing: boolean; editorAttributes: EditorAttributes }) => {
-      callback(isRemixing, editorAttributes);
-    }, 'KojiPreview.IsRemixing');
+    return this.execCallbackOnMessage(
+      ({
+        isRemixing,
+        editorAttributes,
+      }: {
+        isRemixing: boolean;
+        editorAttributes: EditorAttributes;
+      }) => {
+        callback(isRemixing, editorAttributes);
+      },
+      'KojiPreview.IsRemixing',
+    );
   }
 }
 

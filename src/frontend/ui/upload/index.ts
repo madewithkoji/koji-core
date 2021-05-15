@@ -1,30 +1,6 @@
 import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
-import { RemuxPreset, Watermark } from '../../../types';
-
-/** Options for uploaded videos. */
-export interface VideoOptions {
-  /** Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and saved as an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback. */
-  hls?: boolean;
-  /** Remuxes video files constructed from getUserMedia MediaStreams, which ensures these files contain correct duration headers before they are delivered. */
-  remux?: boolean;
-  /** Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped. */
-  remuxPreset?: RemuxPreset;
-  /** Applies a watermark to the uploaded image. Available only with HLS transcoding. */
-  watermark?: Watermark;
-}
-
-/**
- * Request options for a [[uploadFile | file upload]].
- */
-export interface UploadOptions {
-  /** File to upload. */
-  file: File;
-  /** Media type of the file, which is used to determine whether transcoding or other processing is required. */
-  type: 'image'|'video'|'audio';
-  /** Options for uploaded videos. */
-  videoOptions?: VideoOptions;
-}
+import { UploadOptions } from './model/UploadOptions';
 
 /**
  * Uploads files from the frontend of your Koji directly to your project's CDN.
@@ -55,7 +31,7 @@ export class Upload extends KojiBridge {
    * ```
    */
   @client
-  public async uploadFile(options: UploadOptions): Promise<string|null> {
+  public async uploadFile(options: UploadOptions): Promise<string | null> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Upload',

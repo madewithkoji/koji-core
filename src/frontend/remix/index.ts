@@ -2,25 +2,7 @@ import deepmerge from 'deepmerge';
 import { get } from '../../utils/get';
 import { client } from '../@decorators/client';
 import { KojiBridge } from '../kojiBridge';
-
-declare global {
-  interface Window {
-    /** Enables Koji's proxy server to write remix-specific values to the KOJI_OVERRIDES property. */
-    KOJI_OVERRIDES: any;
-    /** Private reference to the Koji Feed Key, which is saved in a URL fragment when the Koji first loads */
-    KOJI_FEED_KEY?: string;
-  }
-}
-
-/** Communicates changes to remix data. */
-export interface ValueChanged {
-  /** Path of the changed value. */
-  path: string[];
-  /** New value. */
-  newValue: any;
-  /** Previous value. */
-  savedValue: any;
-}
+import { ValueChanged } from './model/ValueChanged';
 
 /**
  * Manages the remixing experience for your Koji.
@@ -63,7 +45,9 @@ export class Remix extends KojiBridge {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {
-      throw new Error('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
+      throw new Error(
+        'You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.',
+      );
     }
 
     this.isInitialized = true;
@@ -120,7 +104,11 @@ export class Remix extends KojiBridge {
    */
   @client
   public set(newValue: Object): Promise<boolean> {
-    if (!this.hasReceivedReadyResponse) throw new Error('It looks like you are trying to call the `Koji.remix.set()` method before calling `Koji.ready(). This will prevent data from being stored properly.`');
+    if (!this.hasReceivedReadyResponse) {
+      throw new Error(
+        'It looks like you are trying to call the `Koji.remix.set()` method before calling `Koji.ready(). This will prevent data from being stored properly.`',
+      );
+    }
 
     this.values = deepmerge(this.values, newValue, {
       arrayMerge: (dest, source) => source,
@@ -160,7 +148,11 @@ export class Remix extends KojiBridge {
    */
   @client
   public finish() {
-    if (!this.hasReceivedReadyResponse) throw new Error('It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in a remix preview.`');
+    if (!this.hasReceivedReadyResponse) {
+      throw new Error(
+        'It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in a remix preview.`',
+      );
+    }
 
     this.sendMessage({
       kojiEventName: 'KojiPreview.Finish',

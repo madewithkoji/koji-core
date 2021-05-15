@@ -2,89 +2,18 @@ import { v4 as uuidv4 } from 'uuid';
 import Sockette from 'sockette';
 import axios from 'axios';
 import { Base, BackendConfigurationInput } from '../base';
+import {
+  MessageHandler,
+  ShardInfo,
+  DispatchConfigurationInput,
+  ConnectionInfo,
+  DispatchOptions,
+  PlatformEvents,
+} from './model';
+import { MessageHandlerCallback } from './types';
 
 const unsafeGlobal: any = global;
 unsafeGlobal.WebSocket = require('isomorphic-ws');
-
-/**
- * Configuration options for a new connection.
- */
-export interface DispatchConfigurationInput {
-  /** Name of the dispatch shard to use. If not specified, the client is added to a shard automatically. */
-  shardName?: string | null;
-  /** Total clients to allow on a shard before it is full (defaults to 100). When a shard is full, new clients are added to a new shard unless a different shard is explicitly set. */
-  maxConnectionsPerShard?: number;
-  /** Short-lived user token that identifies the client, so the server and other connected clients can send it secure messages. If the user token is not included, you can [[identify | identify the client]] after it is connected. */
-  authorization?: string;
-}
-
-/**
- * Defines a DispatchOptions interface.
- */
-interface DispatchOptions {
-  projectId: string;
-  projectToken?: string;
-  shardName?: string | null;
-  maxConnectionsPerShard?: number;
-  authorization?: string;
-  [index: string]: any;
-}
-
-/**
- * Defines constants for Koji platform events.
- */
-export enum PlatformEvents {
-  CONNECTED = '@@KOJI_DISPATCH/CONNECTED',
-  CONNECTED_CLIENTS_CHANGED = '@@KOJI_DISPATCH/CONNECTED_CLIENTS_CHANGED',
-  IDENTIFY = '@@KOJI_DISPATCH/IDENTIFY',
-  SET_USER_INFO = '@@KOJI_DISPATCH/SET_USER_INFO',
-}
-
-/**
- * Defines a MessageHandler interface.
- */
-export interface MessageHandler {
-  id: string;
-  eventName: string;
-  callback: MessageHandlerCallback;
-}
-
-/**
- * Additional data attached to a dispatch message.
- */
-export interface DispatchMessageMetadata {
-  /** Message latency in milliseconds. */
-  latencyMs: number;
-}
-
-export type MessageHandlerCallback =
-/**
- * Function to handle a dispatch event. Invoked by the [[on]] listener.
- *
- * @param payload   Data payload sent with the fired event.
- * @param metadata  Object containing additional information about the event, including the message latency in milliseconds.
- */
-(payload: { [index: string]: any }, metadata: DispatchMessageMetadata) => void;
-
-/**
- * Information about a dispatch shard.
- */
-export interface ShardInfo {
-  /** Name of the dispatch shard. */
-  shardName: string;
-  /** Number of clients currently connected to the dispatch shard. */
-  numConnectedClients: number;
-}
-
-/**
- * Connection details for a client. Returned when the client [[connect | connects to a dispatch shard]].
- */
-export interface ConnectionInfo {
-  /** ID of the connected client. */
-  clientId?: string;
-  /** Name of the dispatch shard that the client is connected to. */
-  shardName: string;
-}
 
 /**
  * Implements a real-time messaging dispatch system for the backend of your Koji.
@@ -122,7 +51,9 @@ export class Dispatch extends Base {
    * ```
    */
   public async info(): Promise<ShardInfo> {
-    const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
+    const { data } = await axios.get(
+      `https://dispatch-info.api.gokoji.com/info/${this.projectId}`,
+    );
     return (data || [])[0];
   }
 
@@ -141,7 +72,9 @@ export class Dispatch extends Base {
    * });
    * ```
    */
-  public async connect(config: DispatchConfigurationInput = {}): Promise<ConnectionInfo> {
+  public async connect(
+    config: DispatchConfigurationInput = {},
+  ): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
@@ -155,12 +88,15 @@ export class Dispatch extends Base {
         authorization: config.authorization,
       };
 
-      const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
-        if (options[cur]) {
-          acc.push(`${cur}=${encodeURIComponent(options[cur])}`);
-        }
-        return acc;
-      }, []);
+      const params: string[] = Object.keys(options).reduce(
+        (acc: string[], cur) => {
+          if (options[cur]) {
+            acc.push(`${cur}=${encodeURIComponent(options[cur])}`);
+          }
+          return acc;
+        },
+        [],
+      );
 
       const url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
 
@@ -174,7 +110,7 @@ export class Dispatch extends Base {
         onreconnect: () => this.handleReconnect(),
         onmaximum: () => this.handleMaximum(),
         onclose: () => this.handleClose(),
-        onerror: (e) => this.handleError(e),
+        onerror: () => {},
       });
     });
   }
@@ -254,20 +190,6 @@ export class Dispatch extends Base {
   }
 
   /**
-   * Prints error message to console.
-   *
-   * @param     e    Event that generated the error.
-   *
-   * @example
-   * ```javascript
-   * dispatch.handleError(e);
-   * ```
-   */
-  private handleError(e: Event) {
-    console.error('[Koji Dispatch] error', e);
-  }
-
-  /**
    * Sets a listener for a specific event, and invokes a callback function when the event is dispatched over the shard.
    *
    * @param     eventName     Name of the event to subscribe to.
@@ -290,7 +212,9 @@ export class Dispatch extends Base {
     });
 
     return () => {
-      this.eventHandlers = this.eventHandlers.filter(({ id }) => id !== handlerId);
+      this.eventHandlers = this.eventHandlers.filter(
+        ({ id }) => id !== handlerId,
+      );
     };
   }
 
@@ -323,7 +247,11 @@ export class Dispatch extends Base {
    * dispatch.emitEvent('myEvent', myDataPayload);
    * ```
    */
-  public emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
+  public emitEvent(
+    eventName: string,
+    payload: { [index: string]: any },
+    recipients?: string[],
+  ) {
     const message = JSON.stringify({
       eventName,
       payload,
@@ -332,12 +260,16 @@ export class Dispatch extends Base {
 
     // Discard a long message
     if (message.length > 128e3) {
-      throw new Error('Message is too long to be sent through Koji Dispatch. Messages must be less than 128kb');
+      throw new Error(
+        'Message is too long to be sent through Koji Dispatch. Messages must be less than 128kb',
+      );
     }
 
     // Check instantiation
     if (!this.initialConnection || !this.ws) {
-      throw new Error('Please make sure you have called and awaited `connect()` before attempting to send a message');
+      throw new Error(
+        'Please make sure you have called and awaited `connect()` before attempting to send a message',
+      );
     }
 
     // If the connection has dropped, push the message into a queue

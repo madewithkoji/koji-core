@@ -1,34 +1,8 @@
 import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
-
-/**
- * Defines a confirmation dialog box to show a user.
- */
-export interface PresentConfirmationOptions {
-  /** Title for the dialog box (`Confirm` by default). */
-  title?: string;
-  /** Question to ask the user (empty by default). */
-  message?: string;
-  /** Label for the confirm action (`Confirm` by default). */
-  confirmButtonLabel?: string;
-  /** Label for the cancel action (`Cancel` by default). */
-  cancelButtonLabel?: string;
-}
-
-/**
- * Defines an alert dialog box to show a user.
- */
-export interface PresentAlertOptions {
-  /** Title for the dialog box. */
-  title: string;
-  /** Information to display to the user. */
-  message: string;
-}
-
-/**
- * Type of a system alert – `success` (check mark), `sent` (message sent icon), `rejected` (alert icon), and `reported` (alert icon).
- */
-export type SystemAlertType = 'success'|'sent'|'reported'|'rejected';
+import { PresentConfirmationOptions } from './model/PresentConfirmationOptions';
+import { PresentAlertOptions } from './model/PresentAlertOptions';
+import { SystemAlertType } from './types/SystemAlertType';
 
 /**
  * Presents dialog boxes and system alerts to users on the frontend of your Koji.
@@ -51,7 +25,9 @@ export class Present extends KojiBridge {
    * ```
    */
   @client
-  public async confirmation(options: PresentConfirmationOptions = {}): Promise<boolean> {
+  public async confirmation(
+    options: PresentConfirmationOptions = {},
+  ): Promise<boolean> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.ConfirmPrompt',
@@ -85,15 +61,13 @@ export class Present extends KojiBridge {
    */
   @client
   public alert(options: PresentAlertOptions): void {
-    this.sendMessage(
-      {
-        kojiEventName: 'Koji.Alert',
-        data: {
-          title: options.title,
-          message: options.message,
-        },
+    this.sendMessage({
+      kojiEventName: 'Koji.Alert',
+      data: {
+        title: options.title,
+        message: options.message,
       },
-    );
+    });
   }
 
   /**
@@ -110,14 +84,12 @@ export class Present extends KojiBridge {
    */
   @client
   public systemAlert(type: SystemAlertType) {
-    this.sendMessage(
-      {
-        kojiEventName: 'Koji.ShowSystemAlert',
-        data: {
-          type,
-        },
+    this.sendMessage({
+      kojiEventName: 'Koji.ShowSystemAlert',
+      data: {
+        type,
       },
-    );
+    });
   }
 }
 

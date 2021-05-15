@@ -1,21 +1,3 @@
-/** Specifies the cropping constraints when remuxing a video. If not specified, the video will not be cropped. */
-export interface RemuxPreset {
-  /** Desired aspect ratio. */
-  aspectRatio: '16:9'|'9:16'|'4:5'|'1:1'|'passthrough',
-  /** How the image will be constrained within the provided size. */
-  sizePolicy: 'fill'|'fit',
-}
-
-/** Applies a watermark to the uploaded image. Available only with HLS transcoding. */
-export interface Watermark {
-  /** Type of the watermark. `creatorProfileUrl` watermarks the image with `koji.to/@creatorUsername`. */
-  type: 'creatorProfileUrl',
-}
-
-export type UserToken = string | null;
-
-export type IAPToken = string | null;
-
 export interface FastlyOptions {
   /**
    * Enables image optimizations based on content negotiation.
@@ -93,7 +75,17 @@ export interface FastlyOptions {
    *
    * For more information, see the [[https://developer.fastly.com/reference/io/format | Fastly format reference]].
    */
-  format?: 'gif' | 'png' | 'png8' | 'jpg' | 'pjpg' | 'bjpg' | 'webp' | 'webpll' | 'webply' | 'mp4';
+  format?:
+  | 'gif'
+  | 'png'
+  | 'png8'
+  | 'jpg'
+  | 'pjpg'
+  | 'bjpg'
+  | 'webp'
+  | 'webpll'
+  | 'webply'
+  | 'mp4';
   /**
    * Extracts the first frame from an animated image sequence.
    *
@@ -122,7 +114,20 @@ export interface FastlyOptions {
    *
    * For more information, see the [[https://developer.fastly.com/reference/io/orient | Fastly orient reference]].
    */
-  orient?: 'r' | 'l' | 'h' | 'v' | 'hv' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8';
+  orient?:
+  | 'r'
+  | 'l'
+  | 'h'
+  | 'v'
+  | 'hv'
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8';
   /**
    * Adds pixels to the edge of an image.
    *

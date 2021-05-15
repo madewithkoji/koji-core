@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import deepmerge from 'deepmerge';
 
-import { KojiConfig } from '../../frontend';
+import { KojiConfig } from '../../model/KojiConfig';
 
-// ToDo: Make this non-mutating
+// Todo: Make this non-mutating
 const decodeObject = (obj: any): any => {
   Object.keys(obj).forEach((key) => {
     if (obj[key] && typeof obj[key] === 'object') {
@@ -33,10 +33,17 @@ const decodeObject = (obj: any): any => {
  * ```
  */
 export function middleware(kojiConfig: KojiConfig = {}) {
-  return function kojiMiddleware(req: Request, res: Response, next: NextFunction) {
+  return function kojiMiddleware(
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ) {
     // Explicitly pass the project id and token that are coming in from proxied headers
-    res.locals.KOJI_PROJECT_ID = req.headers['x-trusted-koji-project-id'] || process.env.KOJI_PROJECT_ID;
-    res.locals.KOJI_PROJECT_TOKEN = req.headers['x-trusted-koji-project-token'] || process.env.KOJI_PROJECT_TOKEN;
+    res.locals.KOJI_PROJECT_ID =
+      req.headers['x-trusted-koji-project-id'] || process.env.KOJI_PROJECT_ID;
+    res.locals.KOJI_PROJECT_TOKEN =
+      req.headers['x-trusted-koji-project-token'] ||
+      process.env.KOJI_PROJECT_TOKEN;
 
     // Use the remixData from the json configuration as the base
     const { remixData = {} } = kojiConfig;
@@ -44,7 +51,8 @@ export function middleware(kojiConfig: KojiConfig = {}) {
     // Apply remix-specific overrides (equivalent of window.KOJI_OVERRIDES.overrides on the client)
     const overrides = req.headers['x-trusted-koji-overrides'];
 
-    const parsedOverrides = typeof overrides === 'string' ? JSON.parse(overrides) : {};
+    const parsedOverrides =
+      typeof overrides === 'string' ? JSON.parse(overrides) : {};
 
     // Overrides coming from the headers are URL-encoded, so we need to decode them
     // before using them

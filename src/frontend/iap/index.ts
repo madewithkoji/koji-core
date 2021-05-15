@@ -1,28 +1,8 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
-import { IAPToken } from '../../types';
-
-/**
- * Optional information to add to a {@doclink core-backend-iap#IapReceipt | transaction receipt} for a given in-app purchase.
- */
-export interface PurchaseOptions {
-  /** Amount of the purchase, in cents. */
-  amount?: number;
-  /** Custom message associated with the purchase. This value is stored as a custom attribute on the transaction receipt. */
-  customMessage?: string;
-}
-
-/**
- * Results of an in-app purchase transaction.
- */
-export interface Purchase {
-  /** Indicates whether the purchase was successful. */
-  success: boolean;
-  /** Short-lived IAP token for the current user. See [[getToken]]. */
-  iapToken: IAPToken;
-  /** Unique identifier for the receipt, if the purchase was successful, or `undefined`, if not. */
-  receiptId?: string;
-}
+import { IAPToken } from '../../types/IAPToken';
+import { Purchase } from './model/Purchase';
+import { PurchaseOptions } from './model/PurchaseOptions';
 
 /**
  * Manages in-app purchase transactions on the frontend of your Koji.
@@ -77,19 +57,20 @@ export class IAP extends KojiBridge {
   public async startPurchase(
     sku: string,
     purchaseOptions: PurchaseOptions = {},
-    customAttributes: {[index: string]: any} = {},
+    customAttributes: { [index: string]: any } = {},
   ): Promise<Purchase> {
-    const { success, userToken, receiptId } = await this.sendMessageAndAwaitResponse(
-      {
-        kojiEventName: '@@koji/iap/promptPurchase',
-        data: {
-          sku,
-          purchaseOptions,
-          customAttributes,
+    const { success, userToken, receiptId } =
+      await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: '@@koji/iap/promptPurchase',
+          data: {
+            sku,
+            purchaseOptions,
+            customAttributes,
+          },
         },
-      },
-      'KojiIap.PurchaseFinished',
-    );
+        'KojiIap.PurchaseFinished',
+      );
 
     return {
       success,

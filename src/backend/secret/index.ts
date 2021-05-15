@@ -84,7 +84,10 @@ export class Secret extends Base {
    * ```
    */
   @server
-  public async generateSignedUrl(resource: string, expireSeconds?: number): Promise<string> {
+  public async generateSignedUrl(
+    resource: string,
+    expireSeconds?: number,
+  ): Promise<string> {
     const { data } = await axios.post(
       `${this.rootPath}${SecretRoutes.CREATE_SIGNED_REQUEST}`,
       {

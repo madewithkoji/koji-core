@@ -136,7 +136,10 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async get<T>(collection: string, documentName?: string | null): Promise<T> {
+  public async get<T>(
+    collection: string,
+    documentName?: string | null,
+  ): Promise<T> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET}`,
       {
@@ -162,7 +165,11 @@ export class Database extends Base {
   public async getCollections(): Promise<string[]> {
     const {
       data: { collections = [] },
-    } = await axios.post(`${this.rootPath}${DatabaseRoutes.GET_COLLECTIONS}`, {}, { headers: this.rootHeaders });
+    } = await axios.post(
+      `${this.rootPath}${DatabaseRoutes.GET_COLLECTIONS}`,
+      {},
+      { headers: this.rootHeaders },
+    );
 
     return collections;
   }
@@ -184,7 +191,11 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async search<T>(collection: string, queryKey: string, queryValue: string): Promise<T[]> {
+  public async search<T>(
+    collection: string,
+    queryKey: string,
+    queryValue: string,
+  ): Promise<T[]> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.SEARCH}`,
       {
@@ -216,7 +227,12 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async getWhere<T>(collection: string, predicateKey: string, predicateOperation: PredicateOperator, predicateValue: string): Promise<T> {
+  public async getWhere<T>(
+    collection: string,
+    predicateKey: string,
+    predicateOperation: PredicateOperator,
+    predicateValue: string,
+  ): Promise<T> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET}`,
       {
@@ -247,7 +263,10 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async getAll<T>(collection: string, documentNames: string[]): Promise<T[]> {
+  public async getAll<T>(
+    collection: string,
+    documentNames: string[],
+  ): Promise<T[]> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET_ALL}`,
       {
@@ -278,7 +297,12 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async getAllWhere<T>(collection: string, predicateKey: string, predicateOperation: PredicateOperator, predicateValues: string[]): Promise<T[]> {
+  public async getAllWhere<T>(
+    collection: string,
+    predicateKey: string,
+    predicateOperation: PredicateOperator,
+    predicateValues: string[],
+  ): Promise<T[]> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.GET_ALL_WHERE}`,
       {
@@ -311,7 +335,12 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async set(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
+  public async set(
+    collection: string,
+    documentName: string,
+    documentBody: any,
+    returnDoc?: boolean,
+  ): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.SET}`,
       {
@@ -347,7 +376,12 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async update(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
+  public async update(
+    collection: string,
+    documentName: string,
+    documentBody: any,
+    returnDoc?: boolean,
+  ): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.UPDATE}`,
       {
@@ -386,7 +420,12 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayPush(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
+  public async arrayPush(
+    collection: string,
+    documentName: string,
+    documentBody: any,
+    returnDoc?: boolean,
+  ): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_PUSH}`,
       {
@@ -419,7 +458,12 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async arrayRemove(collection: string, documentName: string, documentBody: any, returnDoc?: boolean): Promise<DatabaseHttpStatusCode | any> {
+  public async arrayRemove(
+    collection: string,
+    documentName: string,
+    documentBody: any,
+    returnDoc?: boolean,
+  ): Promise<DatabaseHttpStatusCode | any> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.ARRAY_REMOVE}`,
       {
@@ -447,7 +491,10 @@ export class Database extends Base {
    * ```
    */
   @server
-  public async delete(collection: string, documentName: string): Promise<DatabaseHttpStatusCode> {
+  public async delete(
+    collection: string,
+    documentName: string,
+  ): Promise<DatabaseHttpStatusCode> {
     const { data } = await axios.post(
       `${this.rootPath}${DatabaseRoutes.DELETE}`,
       {

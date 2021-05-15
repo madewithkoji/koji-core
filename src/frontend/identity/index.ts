@@ -1,39 +1,8 @@
 import { KojiBridge } from '../kojiBridge';
 import { client } from '../@decorators/client';
-import { UserToken } from '../../types';
-
-/**
- * Capabilities that a user can grant the current Koji authorization to use.
- */
-export type AuthGrantCapability =
-  /** Allows the current Koji to send push notifications to the user. */
-  'push_notifications' |
-  /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
-  'username';
-
-/**
- * User attributes that are determined via a client-side API call.
- */
-export interface PresumedAttributes {
-  /** Koji username for the user. */
-  username?: string;
-  /** Koji avatar for the user. */
-  profilePicture?: string;
-}
-
-/**
- * Identity information for the current user of the Koji.
- */
-export interface IdentityResult {
-  /** Short-lived token to identify the user. */
-  token: UserToken;
-  /** Presumed role of the current user as the owner/creator (`admin`), not the owner (`user`), or not logged in (`unknown`).
-  * Admin actions must still be secured on the backend by resolving the user’s role.
-  */
-  presumedRole: 'admin'|'user'|'unknown';
-  /** Additional user attributes, which are returned if the user has granted username authorization via [[requestGrants]]. */
-  presumedAttributes: PresumedAttributes;
-}
+import { UserToken } from '../../types/UserToken';
+import { AuthGrantCapability } from './types';
+import { IdentityResult } from './model/IdentityResult';
 
 /**
  * Manages authentication and authorization on the frontend of your Koji.
@@ -51,17 +20,17 @@ export class Identity extends KojiBridge {
    */
   @client
   public async getToken(): Promise<IdentityResult> {
-    const {
-      userToken,
-      presumedRole,
-      presumedAttributes,
-    } = await this.sendMessageAndAwaitResponse({
-      kojiEventName: '@@koji/auth/getToken',
-      data: {
-        grants: [],
-        allowAnonymous: true,
-      },
-    }, 'KojiAuth.TokenCreated');
+    const { userToken, presumedRole, presumedAttributes } =
+      await this.sendMessageAndAwaitResponse(
+        {
+          kojiEventName: '@@koji/auth/getToken',
+          data: {
+            grants: [],
+            allowAnonymous: true,
+          },
+        },
+        'KojiAuth.TokenCreated',
+      );
 
     return {
       token: userToken,
@@ -81,13 +50,18 @@ export class Identity extends KojiBridge {
    * const hasGrant = await Koji.identity.checkGrants(['username', 'push_notifications']);
    * ```
    */
-  public async checkGrants(grants: AuthGrantCapability[] = []): Promise<boolean> {
-    const { hasGrants } = await this.sendMessageAndAwaitResponse({
-      kojiEventName: '@@koji/auth/checkGrant',
-      data: {
-        grants,
+  public async checkGrants(
+    grants: AuthGrantCapability[] = [],
+  ): Promise<boolean> {
+    const { hasGrants } = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: '@@koji/auth/checkGrant',
+        data: {
+          grants,
+        },
       },
-    }, 'KojiAuth.GrantsResolved');
+      'KojiAuth.GrantsResolved',
+    );
 
     return hasGrants;
   }
@@ -105,14 +79,21 @@ export class Identity extends KojiBridge {
    * const hasGrant = await Koji.identity.requestGrants(['username', 'push_notifications']);
    * ```
    */
-  public async requestGrants(grants: AuthGrantCapability[] = [], usageDescription?: string): Promise<UserToken> {
-    const { userToken } = await this.sendMessageAndAwaitResponse({
-      kojiEventName: '@@koji/auth/getToken',
-      data: {
-        grants,
-        usageDescription,
+  public async requestGrants(
+    grants: AuthGrantCapability[] = [],
+    usageDescription?: string,
+  ): Promise<UserToken> {
+    const { userToken } = await this.sendMessageAndAwaitResponse(
+      {
+        kojiEventName: '@@koji/auth/getToken',
+        data: {
+          grants,
+          usageDescription,
+        },
       },
-    }, 'KojiAuth.TokenCreated', 'KojiAuth.GrantsDenied');
+      'KojiAuth.TokenCreated',
+      'KojiAuth.GrantsDenied',
+    );
 
     return userToken;
   }

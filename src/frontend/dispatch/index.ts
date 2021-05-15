@@ -58,21 +58,21 @@ export interface ConnectedClient {
 }
 
 export type ConnectedClientsChangedHandlerCallback =
-/**
- * Function to handle a dispatch event for a new or updated client connection. Invoked by the [[onConnectedClientsChanged]] listener.
- *
- * @param connectedClients   Array of information about the connected clients in the shard.
- */
-(connectedClients: ConnectedClient[]) => void;
+  /**
+   * Function to handle a dispatch event for a new or updated client connection. Invoked by the [[onConnectedClientsChanged]] listener.
+   *
+   * @param connectedClients   Array of information about the connected clients in the shard.
+   */
+  (connectedClients: ConnectedClient[]) => void;
 
 export type MessageHandlerCallback =
-/**
- * Function to handle a dispatch event. Invoked by the [[on]] listener.
- *
- * @param payload   Data payload sent with the fired event.
- * @param metadata  Object containing additional information about the event, including the message latency in milliseconds.
- */
-(payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
+  /**
+   * Function to handle a dispatch event. Invoked by the [[on]] listener.
+   *
+   * @param payload   Data payload sent with the fired event.
+   * @param metadata  Object containing additional information about the event, including the message latency in milliseconds.
+   */
+  (payload: { [index: string]: any }, metadata: { latencyMs?: number }) => void;
 
 /**
  * Information about a dispatch shard.
@@ -118,7 +118,9 @@ export class Dispatch {
    * ```
    */
   public async info(): Promise<ShardInfo> {
-    const { data } = await axios.get(`https://dispatch-info.api.gokoji.com/info/${this.projectId}`);
+    const { data } = await axios.get(
+      `https://dispatch-info.api.gokoji.com/info/${this.projectId}`,
+    );
     return (data || [])[0];
   }
 
@@ -152,7 +154,9 @@ export class Dispatch {
    * });
    * ```
    */
-  public async connect(config: DispatchConfigurationInput = {}): Promise<ConnectionInfo> {
+  public async connect(
+    config: DispatchConfigurationInput = {},
+  ): Promise<ConnectionInfo> {
     return new Promise((resolve) => {
       if (this.ws) {
         return;
@@ -164,12 +168,15 @@ export class Dispatch {
         maxConnectionsPerShard: config.maxConnectionsPerShard || 100,
       };
 
-      const params: string[] = Object.keys(options).reduce((acc: string[], cur) => {
-        if (options[cur]) {
-          acc.push(`${cur}=${encodeURIComponent(options[cur])}`);
-        }
-        return acc;
-      }, []);
+      const params: string[] = Object.keys(options).reduce(
+        (acc: string[], cur) => {
+          if (options[cur]) {
+            acc.push(`${cur}=${encodeURIComponent(options[cur])}`);
+          }
+          return acc;
+        },
+        [],
+      );
 
       const url = `wss://dispatch.api.gokoji.com?${params.join('&')}`;
 
@@ -182,8 +189,8 @@ export class Dispatch {
         onmessage: (e) => this.handleMessage(e, resolve),
         onreconnect: () => this.handleReconnect(),
         onmaximum: () => this.handleMaximum(),
-        onclose: (e) => this.handleClose(e),
-        onerror: (e) => this.handleError(e),
+        onclose: () => this.handleClose(),
+        onerror: () => {},
       });
     });
   }
@@ -234,7 +241,6 @@ export class Dispatch {
    * ```
    */
   private handleReconnect() {
-    console.log('reconnect');
     this.isConnected = true;
     this.messageQueue = this.messageQueue.reduce((acc, cur) => {
       if (this.ws) {
@@ -262,23 +268,8 @@ export class Dispatch {
    * dispatch.handleClose();
    * ```
    */
-  private handleClose(e: Event) {
-    console.log('close', e);
+  private handleClose() {
     this.isConnected = false;
-  }
-
-  /**
-   * Prints error message to console.
-   *
-   * @param     e    Event that generated the error.
-   *
-   * @example
-   * ```javascript
-   * dispatch.handleError(e);
-   * ```
-   */
-  private handleError(e: Event) {
-    console.error('[Koji Dispatch] error', e);
   }
 
   /**
@@ -304,7 +295,9 @@ export class Dispatch {
     });
 
     return () => {
-      this.eventHandlers = this.eventHandlers.filter(({ id }) => id !== handlerId);
+      this.eventHandlers = this.eventHandlers.filter(
+        ({ id }) => id !== handlerId,
+      );
     };
   }
 
@@ -321,7 +314,9 @@ export class Dispatch {
    * unsubscribeEvent = Koji.dispatch.onConnectedClientsChanged(callbackFunction);
    * ```
    */
-  public onConnectedClientsChanged(callback: ConnectedClientsChangedHandlerCallback): Function {
+  public onConnectedClientsChanged(
+    callback: ConnectedClientsChangedHandlerCallback,
+  ): Function {
     const handlerId = uuidv4();
 
     // Map the object of connected clients to an array, keyed by clientId
@@ -335,11 +330,15 @@ export class Dispatch {
     this.eventHandlers.push({
       id: handlerId,
       eventName: PlatformEvents.CONNECTED_CLIENTS_CHANGED,
-      callback: (payload: any) => callback(mapConnectedClients(payload.connectedClients)),
+      callback: (payload: any) => (
+        callback(mapConnectedClients(payload.connectedClients))
+      ),
     });
 
     return () => {
-      this.eventHandlers = this.eventHandlers.filter(({ id }) => id !== handlerId);
+      this.eventHandlers = this.eventHandlers.filter(
+        ({ id }) => id !== handlerId,
+      );
     };
   }
 
@@ -386,7 +385,11 @@ export class Dispatch {
    * Koji.dispatch.emitEvent('myEvent', myDataPayload);
    * ```
    */
-  public emitEvent(eventName: string, payload: { [index: string]: any }, recipients?: string[]) {
+  public emitEvent(
+    eventName: string,
+    payload: { [index: string]: any },
+    recipients?: string[],
+  ) {
     const message = JSON.stringify({
       eventName,
       payload,
@@ -395,12 +398,16 @@ export class Dispatch {
 
     // Discard a long message
     if (message.length > 128e3) {
-      throw new Error('Message is too long to be sent through Koji Dispatch. Messages must be less than 128kb');
+      throw new Error(
+        'Message is too long to be sent through Koji Dispatch. Messages must be less than 128kb',
+      );
     }
 
     // Check instantiation
     if (!this.initialConnection || !this.ws) {
-      throw new Error('Please make sure you have called and awaited `connect()` before attempting to send a message');
+      throw new Error(
+        'Please make sure you have called and awaited `connect()` before attempting to send a message',
+      );
     }
 
     // If the connection has dropped, push the message into a queue

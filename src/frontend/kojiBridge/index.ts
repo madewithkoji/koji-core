@@ -14,6 +14,7 @@ interface PostMessage {
   /** Data to send with event. */
   data?: any;
 }
+
 /**
  * Enables communication between the platform and the Koji.
  */
@@ -56,14 +57,22 @@ export class KojiBridge {
     );
   }
 
-  protected sendMessageAndAwaitResponse(postMessage: PostMessage, platformMessageName: string, additionalPlatformMessageName?: string): Promise<any> {
+  protected sendMessageAndAwaitResponse(
+    postMessage: PostMessage,
+    platformMessageName: string,
+    additionalPlatformMessageName?: string,
+  ): Promise<any> {
     return new Promise((resolve, reject) => {
       const idempotencyKey = uuidv4();
 
       const messageListener = ({ data }: { data: MessageListenerData }) => {
         try {
           const { event, _idempotencyKey } = data;
-          if ((event === platformMessageName || event === additionalPlatformMessageName) && idempotencyKey === _idempotencyKey) {
+          if (
+            (event === platformMessageName ||
+              event === additionalPlatformMessageName) &&
+            idempotencyKey === _idempotencyKey
+          ) {
             window.removeEventListener('message', messageListener);
             resolve(data);
           }

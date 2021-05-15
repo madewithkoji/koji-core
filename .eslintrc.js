@@ -26,7 +26,8 @@ module.exports = {
     'class-methods-use-this': 0,
     'import/prefer-default-export': 0,
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
-    'max-len': 0,
     'no-unused-vars': 'off',
+    'operator-linebreak': 0,
+    'max-len': ['error', { ignoreComments: true, ignoreStrings: true, ignoreTemplateLiterals: true }],
   },
 };

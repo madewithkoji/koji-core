@@ -9,59 +9,10 @@ import { ui, UI } from './ui';
 import { client } from './@decorators/client';
 import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
 
-/**
- * Configuration data for the Koji.
- */
-export interface KojiConfig {
-  /** Instructions for setting up the services in a development/editor environment. */
-  develop?: {[index: string]: any};
-
-  /** Instructions for deploying the services to production. */
-  deploy?: {[index: string]: any};
-
-  /** Metadata about the project and creator. */
-  metadata?: KojiMetadata;
-
-  /** Default values for the customizable remix data. */
-  remixData?: {[index: string]: any};
-
-  /** Placeholder values for new remixes. */
-  '@@initialTransform'?: {[index: string]: any};
-}
-
-/**
- * Key-value pairs of services and endpoints.
- */
-export type Services = { [key: string]: string | undefined };
-
-/**
- * Configuration options for the Koji.
- */
-export interface KojiConfigOptions {
-  /** Unique identifier for the Koji. */
-  projectId?: string;
-
-  /** Defines services for the Koji. */
-  services: Services;
-
-  /** Overrides for the platform-provided metadata. */
-  metadata?: KojiMetadata;
-}
-
-/**
- * Metadata about the project and creator.
- * This information is provided by the platform but can be overridden when the Koji is initialized.
- */
-export interface KojiMetadata {
-  /** Unique identifier for the Koji. */
-  projectId: string;
-
-  /** Creator's username. */
-  creatorUsername: string;
-
-  /** URL reference to the creator's current profile picture. */
-  creatorProfilePicture: string;
-}
+import { KojiConfig } from '../model/KojiConfig';
+import { KojiConfigOptions } from '../model/KojiConfigOptions';
+import { KojiMetadata } from '../model/KojiMetadata';
+import { Services } from '../types/Services';
 
 /**
  * Provides frontend methods for your Koji.
@@ -113,7 +64,9 @@ export class Koji {
     },
   ): void {
     if (this.configInitialized) {
-      throw new Error('You are trying to run `Koji.config()` more than one time. This could cause unexpected behavior in your project.');
+      throw new Error(
+        'You are trying to run `Koji.config()` more than one time. This could cause unexpected behavior in your project.',
+      );
     }
 
     // Pull the `koji-feed-key` off the URL fragment, if it exists, and save it
@@ -127,11 +80,7 @@ export class Koji {
     }
 
     // Deconstruct the user's config
-    const {
-      develop = {},
-      deploy = {},
-      remixData = {},
-    } = kojiConfig;
+    const { develop = {}, deploy = {}, remixData = {} } = kojiConfig;
 
     // Check for the project id
     this.resolveMetadata(
@@ -146,10 +95,7 @@ export class Koji {
     this.remix.init(remixData);
   }
 
-  private resolveMetadata(
-    explicitProjectId?: string,
-    metadata?: KojiMetadata,
-  ) {
+  private resolveMetadata(explicitProjectId?: string, metadata?: KojiMetadata) {
     let projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
     let creatorUsername = process.env.KOJI_CREATOR_USERNAME;
     let creatorProfilePicture = process.env.KOJI_CREATOR_PROFILE_PICTURE;
@@ -167,9 +113,7 @@ export class Koji {
 
     // Handle overrides
     if (window.KOJI_OVERRIDES) {
-      const {
-        overrides = {},
-      } = window.KOJI_OVERRIDES;
+      const { overrides = {} } = window.KOJI_OVERRIDES;
 
       if (overrides && overrides.metadata) {
         projectId = overrides.metadata.projectId;
@@ -198,12 +142,16 @@ export class Koji {
 
     // Require at least one deploy service to be defined
     if (deployServices.length === 0) {
-      throw new Error('Your configuration does not include any services for deployment');
+      throw new Error(
+        'Your configuration does not include any services for deployment',
+      );
     }
 
     // Require at least one develop service to be defined
     if (developServices.length === 0) {
-      throw new Error('Your configuration does not include any services for development');
+      throw new Error(
+        'Your configuration does not include any services for development',
+      );
     }
 
     // Require the develop and deploy services to match
@@ -214,7 +162,8 @@ export class Koji {
     // Create the base service map and look for env vars we know to exist
     const baseServiceMap: Services = {};
     deployServices.forEach((serviceName) => {
-      baseServiceMap[serviceName] = process.env[`KOJI_SERVICE_URL_${serviceName}`];
+      baseServiceMap[serviceName] =
+        process.env[`KOJI_SERVICE_URL_${serviceName}`];
     });
 
     // If the user has explicitly passed in values, use those instead
@@ -227,7 +176,9 @@ export class Koji {
     // Require a value for each service
     Object.keys(baseServiceMap).forEach((serviceName) => {
       if (!baseServiceMap[serviceName]) {
-        throw new Error(`Unable to find a value for the ${serviceName} service. If your value is not available at \`process.env.KOJI_SERVICE_URL_${serviceName}\`, you may need to pass it explicitly using the second, kojiConfigOptions parameter when calling Koji.config`);
+        throw new Error(
+          `Unable to find a value for the ${serviceName} service. If your value is not available at \`process.env.KOJI_SERVICE_URL_${serviceName}\`, you may need to pass it explicitly using the second, kojiConfigOptions parameter when calling Koji.config`,
+        );
       }
     });
 
@@ -297,9 +248,9 @@ export class Koji {
       if (data._type === 'Koji.ContextPassthrough.Down') {
         try {
           const destinationOrigin = data._path[0];
-          const frame: HTMLIFrameElement | undefined = Array
-            .from(document.getElementsByTagName('iframe'))
-            .find(({ src }) => src.startsWith(destinationOrigin));
+          const frame: HTMLIFrameElement | undefined = Array.from(
+            document.getElementsByTagName('iframe'),
+          ).find(({ src }) => src.startsWith(destinationOrigin));
 
           if (frame && frame.contentWindow) {
             if (data._path.length === 0) {
@@ -339,7 +290,9 @@ export class Koji {
   @client
   public ready() {
     if (this.isReady) {
-      throw new Error('You are calling `Koji.ready()` more than one time. This could cause unexpected behavior in your project.');
+      throw new Error(
+        'You are calling `Koji.ready()` more than one time. This could cause unexpected behavior in your project.',
+      );
     }
 
     this.isReady = true;
