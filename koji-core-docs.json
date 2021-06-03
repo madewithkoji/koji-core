@@ -8196,7 +8196,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\n// Get the user token (generated using the frontend identity module)\nconst userToken = req.headers.authorization;\n\nconst user = identity.resolveUserFromToken(userToken);\n```\n"
+												"text": "\n```javascript\n// Get the user token (generated using the frontend identity module)\nconst userToken = req.headers.authorization;\n\nconst user = await identity.resolveUserFromToken(userToken);\n```\n"
 											}
 										]
 									},
