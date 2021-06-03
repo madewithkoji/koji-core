@@ -86,7 +86,7 @@ export interface IapProduct {
 
   /** Indicator of whether a product can be purchased more than once. Defined in the entitlements file. */
   isConsumable: boolean;
-  /**  Whether the transaction receipt can display routes in the Koji. Defined in the entitlements file. If enabled, a query parameter is appended to the URL when the buyer or seller views the receipt. For example, `dynamic-receipt=buyer` or `dynamic-receipt=seller`. */
+  /**  Whether the transaction receipt can display the `receipt` context of the app. If enabled, use {@doclink core-frontend-playerstate#context | Koji.playerState.context} to detect the `receipt` context, and use {@doclink core-frontend-playerstate#receiptType | Koji.playerState.receiptType} to determine whether the buyer or the seller is viewing the receipt. */
   dynamicReceipt: boolean;
   /** Whether to capture transactions immediately. If set to false, transactions are held in a pending state until they are manually captured with [[captureTransaction]]. */
   captureOnPurchase: boolean;
