@@ -5878,7 +5878,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.\nFor example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.\nOr, capture product options, such as color or size, to display to the seller in the admin page.",
+										"shortText": "Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.\nFor example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.\nOr, capture product options, such as color or size, to display to the seller in an admin view.",
 										"returns": "Object for the specified receipt.\n",
 										"tags": [
 											{
@@ -6495,7 +6495,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.\nFor example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.\nOr, capture product options, such as color or size, to display to the seller in the admin page.",
+										"shortText": "Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.\nFor example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.\nOr, capture product options, such as color or size, to display to the seller in an admin view.",
 										"returns": "Object for the specified receipt.\n",
 										"tags": [
 											{
@@ -8039,7 +8039,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nawait identity.pushNotificationToOwner({\n icon: '❓',\n appName: 'Ask me anything',\n message: 'Someone asked you a question! Respond now',\n ref: '?context=admin',\n});\n```\n"
+												"text": "\n```javascript\nawait identity.pushNotificationToOwner({\n icon: '❓',\n appName: 'Ask me anything',\n message: 'Someone asked you a question! Respond now',\n ref: '?dynamic-receipt=seller',\n});\n```\n"
 											}
 										]
 									},
@@ -14556,19 +14556,7 @@
 									},
 									{
 										"type": "literal",
-										"value": "admin"
-									},
-									{
-										"type": "literal",
-										"value": "about"
-									},
-									{
-										"type": "literal",
 										"value": "remix"
-									},
-									{
-										"type": "literal",
-										"value": "sticker"
 									},
 									{
 										"type": "literal",
@@ -14963,19 +14951,7 @@
 						"types": [
 							{
 								"type": "literal",
-								"value": "about"
-							},
-							{
-								"type": "literal",
-								"value": "admin"
-							},
-							{
-								"type": "literal",
 								"value": "remix"
-							},
-							{
-								"type": "literal",
-								"value": "sticker"
 							},
 							{
 								"type": "literal",

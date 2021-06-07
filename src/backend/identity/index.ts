@@ -121,7 +121,7 @@ export class Identity extends Base {
    *  icon: '❓',
    *  appName: 'Ask me anything',
    *  message: 'Someone asked you a question! Respond now',
-   *  ref: '?context=admin',
+   *  ref: '?dynamic-receipt=seller',
    * });
    * ```
    */

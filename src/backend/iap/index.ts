@@ -175,7 +175,7 @@ export class IAP extends Base {
   /**
    * Gets a specific transaction receipt by its ID, which can be used to facilitate fulfillment.
    * For example, use a dynamic receipt to upload a video response from the seller and then share that response with the buyer.
-   * Or, capture product options, such as color or size, to display to the seller in the admin page.
+   * Or, capture product options, such as color or size, to display to the seller in an admin view.
    *
    * @param     receiptId     Unique identifier for the receipt.
    * @return                  Object for the specified receipt.
