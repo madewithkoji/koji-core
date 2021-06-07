@@ -121,7 +121,7 @@ export class Identity extends Base {
    *  icon: '❓',
    *  appName: 'Ask me anything',
    *  message: 'Someone asked you a question! Respond now',
-   *  ref: '?context=admin',
+   *  ref: '?dynamic-receipt=seller',
    * });
    * ```
    */
@@ -150,7 +150,7 @@ export class Identity extends Base {
    * // Get the user token (generated using the frontend identity module)
    * const userToken = req.headers.authorization;
    *
-   * const user = identity.resolveUserFromToken(userToken);
+   * const user = await identity.resolveUserFromToken(userToken);
    * ```
    */
   @server

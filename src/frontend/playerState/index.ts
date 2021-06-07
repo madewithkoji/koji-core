@@ -5,7 +5,7 @@ import { client } from '../@decorators/client';
 /**
  * Context in which the Koji is being viewed. A Koji can provide a distinct experience for each context.
  */
-export type PlayerStateContext = 'about' | 'admin' | 'remix' | 'sticker' | 'receipt' | 'screenshot' | 'default';
+export type PlayerStateContext = 'remix' | 'receipt' | 'screenshot' | 'default';
 
 /**
  * View of the receipt for a transaction, either `buyer` or `seller`.
