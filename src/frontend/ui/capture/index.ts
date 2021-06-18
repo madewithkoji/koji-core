@@ -98,9 +98,9 @@ export interface ExtendedLinkResult {
   description: string | null;
   /** Sharing metadata image (`og:image`) of the content at the URL, if available. */
   thumbnailUrl: string | null;
-  /** If the resource is a Koji, the Koji’s name, if available. */
+  /** If the resource is a Koji app, the Koji’s name, if available. */
   sourceName: string | null;
-  /** If the resource is a Koji, the URL of the Koji’s thumbnail image, if available. */
+  /** If the resource is a Koji app, the URL of the Koji app’s thumbnail image, if available. */
   sourceThumbnailUrl: string | null;
 }
 
@@ -130,22 +130,24 @@ export interface CaptureColorOptions {
  * Configuration options for an [[image]] capture.
  */
 export interface CaptureImageOptions extends FastlyOptions {
-  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium images). */
+  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium images). */
   hideExtensions?: boolean;
 }
 
 /**
  * Configuration options for a [[file]] capture.
  */
-export interface CaptureFileOptions {}
+export interface CaptureFileOptions {
+  /** No options are currently available. */
+}
 
 /**
  * Configuration options for a [[link]] capture.
  */
 export interface CaptureLinkOptions {
-  /** Template store ID of a Koji template. Include this value to enable the user to create a new Koji from the link control. */
+  /** App Store ID of a Koji app. Include this value to enable the user to create a new Koji from the link control. */
   kojiTemplateId?: string;
-  /** Whether to prevent users from pasting an external link. If `true`, users can select only one of their Kojis. */
+  /** Whether to prevent users from pasting an external link. If `true`, users can select only one of their Koji apps. */
   disableExternalLinks?: boolean;
 }
 
@@ -196,7 +198,7 @@ export type CaptureMediaAcceptOnly = 'image' | 'video' | 'audio' | 'file';
 export interface CaptureVideoOptions {
   /** Enables HTTP Live Streaming (HLS) for delivery of longer content. When enabled, uploaded videos are transcoded for HLS and return an m3u8 playlist. Use this feature in conjunction with [[https://github.com/video-dev/hls.js/ | hls.js]] for controlling playback. */
   hls?: boolean;
-  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium videos). */
+  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium videos). */
   hideExtensions?: boolean;
   /** Remuxes video files constructed from getUserMedia MediaStreams, which ensures these files contain correct duration headers before they are delivered. */
   remux?: boolean;
@@ -210,7 +212,7 @@ export interface CaptureVideoOptions {
  * Configuration options for an [[audio]] capture.
  */
 export interface CaptureAudioOptions {
-  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium audios). */
+  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium audios). */
   hideExtensions?: boolean;
 }
 
@@ -220,7 +222,7 @@ export interface CaptureAudioOptions {
 export interface CaptureMediaOptions {
   /** Specifies the types of media files to allow. If empty or not specified, any type of file is allowed. */
   acceptOnly?: CaptureMediaAcceptOnly[];
-  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium media files). */
+  /** Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium media files). */
   hideExtensions?: boolean;
   /** Specifies the configuration options for video files. */
   videoOptions?: CaptureVideoOptions;
@@ -229,7 +231,7 @@ export interface CaptureMediaOptions {
 }
 
 /**
- * Captures user input on the frontend of your Koji.
+ * Captures user input on the frontend of your Koji app.
  */
 export class Capture extends KojiBridge {
   /**
@@ -429,12 +431,12 @@ export class Capture extends KojiBridge {
   /**
    * Prompts the user to upload a file of any type.
    * Use this method to allow the user to upload raw files in their original format.
-   * For example, to capture high-resolution images for download rather than for display in a browser.
+   * For example, use this to capture high-resolution images for download rather than for display in a browser.
    *
    * To apply automatic transcoding and transformations for specific file types, use the associated method.
    * See [[image]], [[video]], [[audio]], or [[media]].
    *
-   * To provide a custom upload experience or to upload media created or captured during the template experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.
+   * To provide a custom upload experience or to upload media created or captured during the app experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL to the file as a string.
@@ -549,8 +551,7 @@ export class Capture extends KojiBridge {
   }
 
   /**
-   * Prompts the user to paste an external URL, create a new Koji from a template, or select an existing
-   * Koji from their profile.
+   * Prompts the user to paste an external URL, create a new app, or select an existing app from their profile.
    *
    * @param   options
    * @param   verbose Indicates whether to return additional metadata about the capture event. If `false` or not specified, returns the URL as a string.

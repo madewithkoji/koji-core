@@ -18,7 +18,7 @@ const decodeObject = (obj: any): any => {
 /**
  * Executes an [[http://expressjs.com/en/guide/using-middleware.html | Express middleware]], making Koji-specific data available on the `res.locals` property.
  *
- * @param kojiConfig Configuration data for the Koji.
+ * @param kojiConfig Configuration data for the Koji app.
  *
  * @example
  * ```
@@ -41,7 +41,7 @@ export function middleware(kojiConfig: KojiConfig = {}) {
     // Use the remixData from the json configuration as the base
     const { remixData = {} } = kojiConfig;
 
-    // Apply remix-specific overrides (equivalent of window.KOJI_OVERRIDES.overrides on the client)
+    // Apply customization-specific overrides (equivalent of window.KOJI_OVERRIDES.overrides on the client)
     const overrides = req.headers['x-trusted-koji-overrides'];
 
     const parsedOverrides = typeof overrides === 'string' ? JSON.parse(overrides) : {};

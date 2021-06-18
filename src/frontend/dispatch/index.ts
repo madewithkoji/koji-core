@@ -95,7 +95,7 @@ export interface ConnectionInfo {
 }
 
 /**
- * Implements a dispatch system for real-time communication on the frontend of your Koji template.
+ * Implements a dispatch system for real-time communication on the frontend of your Koji app.
  */
 export class Dispatch {
   private authToken?: string;

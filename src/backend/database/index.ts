@@ -90,9 +90,9 @@ export enum DatabaseHttpStatusCode {
 }
 
 /**
- * Implements a Koji database for the backend of your Koji.
+ * Implements a Koji database for the backend of your Koji app.
  *
- * A Koji database is a key-value store that is included with each project on Koji.
+ * A Koji database is included with each Koji project and stores key-value pairs.
  * For more information, see the {@doclink koji-database | Koji database developer guide}.
  */
 export class Database extends Base {

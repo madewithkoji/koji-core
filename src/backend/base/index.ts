@@ -1,31 +1,31 @@
 import { Response } from 'express';
 
 /**
- * Configuration information for the Koji.
+ * Configuration information for the Koji app.
  */
 export interface BackendConfigurationInput {
-  /** Unique identifier for the Koji. Will override data passed through `res`. */
+  /** Unique identifier for the Koji app. Will override data passed through `res`. */
   projectId?: string;
-  /** Secret key for the Koji. Will override data passed through `res`. */
+  /** Secret key for the Koji app. Will override data passed through `res`. */
   projectToken?: string;
-  /** Express response object. Used in conjunction with middleware to scope environment variables for instant remixes of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]. */
+  /** Express response object. Used in conjunction with middleware to scope environment variables for customizations of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]. */
   res?: Response;
 }
 
 /**
- * Environment variables that serve as access credentials for the Koji's backend services.
+ * Environment variables that serve as access credentials for the Koji app's backend services.
  */
 export interface BackendConfiguration {
-  /** Unique identifier for the Koji. */
+  /** Unique identifier for the Koji app. */
   projectId: string;
-  /** Secret key for the Koji. */
+  /** Secret key for the Koji app. */
   projectToken: string;
 }
 
 /**
- * Generates an extensible configuration for the Koji's backend services.
+ * Generates an extensible configuration for the Koji app's backend services.
  *
- * @param config Configuration information for the Koji.
+ * @param config Configuration information for the Koji app.
  */
 export function generateConfig(config: BackendConfigurationInput): BackendConfiguration {
   let projectId;

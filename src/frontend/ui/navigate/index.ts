@@ -2,7 +2,7 @@ import { KojiBridge } from '../../kojiBridge';
 import { client } from '../../@decorators/client';
 
 /**
- * Provides methods for controlling navigation within your Koji template.
+ * Provides methods for controlling navigation within your Koji app.
  */
 export class Navigate extends KojiBridge {
   /**
@@ -52,14 +52,14 @@ export class Navigate extends KojiBridge {
   }
 
   /**
-   * Starts a new remix.
+   * Starts a new customization.
    *
-   * @param appId ID of the Koji project to remix. Defaults to the current Koji, if an ID is not specified.
+   * @param appId ID of the Koji project to customize. Defaults to the current Koji app if an ID is not specified.
    *
    * @example
    * ```html
    * <button type="button" onClick={() => Koji.ui.navigate.createRemix()}>
-   *   Create my own remix
+   *   Create my own customization
    * </button>
    * ```
    */
@@ -76,10 +76,10 @@ export class Navigate extends KojiBridge {
   }
 
   /**
-   * Opens the Koji in the editing experience.
+   * Opens the Koji app in editing mode.
    *
    * NOTE: Check that the current user is an admin before calling this method.
-   * Otherwise, the user will not be authorized to edit the Koji.
+   * Otherwise, the user will not be authorized to edit the Koji app.
    *
    * @example
    * ```html
@@ -97,7 +97,7 @@ export class Navigate extends KojiBridge {
   }
 
   /**
-   * Closes a Koji that is open in a modal window.
+   * Closes a Koji app that is in a modal window.
    *
    * @example
    * ```html
@@ -116,9 +116,9 @@ export class Navigate extends KojiBridge {
 
   /**
    * Opens the sharing dialog box. By default, the dialog box shares the URL of the current Koji.
-   * Specify a full or a relative URL to open a dialog box for sharing a different URL or for a deep link into your Koji.
+   * Specify a full or a relative URL to open a dialog box for sharing a different URL or for a deep link into your Koji app.
    *
-   * NOTE: If you use this method to share a deep link in your Koji, a `koji.to` short URL is automatically created for it.
+   * NOTE: If you use this method to share a deep link in your Koji app, a `koji.to` short URL is automatically created for it.
    *
    * @param url URL to use instead of the current Koji.
    *

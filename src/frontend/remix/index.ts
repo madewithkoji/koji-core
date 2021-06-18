@@ -5,14 +5,14 @@ import { KojiBridge } from '../kojiBridge';
 
 declare global {
   interface Window {
-    /** Enables Koji's proxy server to write remix-specific values to the KOJI_OVERRIDES property. */
+    /** Enables Koji's proxy server to write customized values to the KOJI_OVERRIDES property. */
     KOJI_OVERRIDES: any;
-    /** Private reference to the Koji Feed Key, which is saved in a URL fragment when the Koji first loads */
+    /** Private reference to the Koji Feed Key, which is saved in a URL fragment when the Koji app first loads. */
     KOJI_FEED_KEY?: string;
   }
 }
 
-/** Communicates changes to remix data. */
+/** Communicates changes to the customization data. */
 export interface ValueChanged {
   /** Path of the changed value. */
   path: string[];
@@ -23,7 +23,7 @@ export interface ValueChanged {
 }
 
 /**
- * Manages the remixing experience for your Koji.
+ * Manages the customization experience for your Koji app.
  */
 export class Remix extends KojiBridge {
   private values: any = {};
@@ -44,12 +44,12 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Initializes the remix data for the Koji with default values.
+   * Initializes the Koji app's customization data with default values.
    *
    * NOTE: In most cases, you do not need to call this method manually because it is automatically called when you initialize the package with `Koji.config`.
    * Use this method only if you want to use the Remix class by itself, without any other classes in the package.
    *
-   * @param   remixData    Object containing the default values for your Koji.
+   * @param   remixData    Object containing the default values for your Koji app.
    *
    * @example
    * ```javascript
@@ -63,7 +63,7 @@ export class Remix extends KojiBridge {
     if (!remixData) throw new Error('Unable to find remixData');
 
     if (this.isInitialized) {
-      throw new Error('You are trying to initialize your remix data more than one time. Note that Koji.config() will automatically call this method.');
+      throw new Error('You already initialized your configuration data. Note that Koji.config() automatically calls this method.');
     }
 
     this.isInitialized = true;
@@ -79,11 +79,11 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Gets the remix data for the Koji.
+   * Gets the customization data for the Koji app.
    *
    * @param   path   Array of keys to target a specific value in the object.
    * @param   defaultValue   Value to return if no value exists at the targeted path.
-   * @return  Object containing the current remix data.
+   * @return  Object containing the current customization data.
    *
    * @example
    * ```javascript
@@ -106,11 +106,11 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Updates the specified values in the remix data.
+   * Updates the specified values in the customization data.
    *
-   * NOTE: This method updates only the values that are specified in `newValue`. If other values exist, they are not changed. To replace all remix data, use [[overwrite]].
+   * NOTE: This method updates only the values that are specified in `newValue`. If other values exist, they are not changed. To replace all customization data, use [[overwrite]].
    *
-   * @param   newValue      Key-value pairs to update in the remix data.
+   * @param   newValue      Key-value pairs to update in the customization data.
    * @return                Indicates whether the values were successfully updated.
    *
    * @example
@@ -129,13 +129,13 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Replaces all remix data with the specified object.
+   * Replaces all customization data with the specified object.
    *
-   * NOTE: This method overwrites all existing values in the remix data.
+   * NOTE: This method overwrites all existing values in the customization data.
    * To update specific values only, use [[set]].
    *
-   * @param   newValues Object containing the new remix data for the Koji.
-   * @return            Indicates whether the remix data was successfully replaced.
+   * @param   newValues Object containing the new customization data for the Koji app.
+   * @return            Indicates whether the customization data was successfully replaced.
    *
    * @example
    * ```javascript
@@ -149,7 +149,7 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Advances the Koji from remix to preview.
+   * Advances the Koji app's mode from customization to preview.
    *
    * @example
    * ```html
@@ -160,7 +160,7 @@ export class Remix extends KojiBridge {
    */
   @client
   public finish() {
-    if (!this.hasReceivedReadyResponse) throw new Error('It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in a remix preview.`');
+    if (!this.hasReceivedReadyResponse) throw new Error('It looks like you are trying to call the `Koji.remix.finish()` method before calling `Koji.ready(). This will result in unpredictable behavior in the preview of the customized app.`');
 
     this.sendMessage({
       kojiEventName: 'KojiPreview.Finish',
@@ -168,7 +168,7 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Cancels the remix experience and returns the user to where they were before they started remixing. If the user has made changes, they are prompted to confirm this action.
+   * Cancels the customization experience and returns to where the user was before they started customization. If the user has made changes, they are prompted to confirm the cancellation.
    *
    * @example
    * ```javascript
@@ -183,7 +183,7 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.
+   * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji app is configured.
    *
    * @param   rawValue       Value to encrypt.
    * @return                 Encrypted value. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.
@@ -211,7 +211,7 @@ export class Remix extends KojiBridge {
   /**
    * Retrieves sensitive data that was [[encryptValue | stored as an encrypted value]].
    *
-   * NOTE: Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.
+   * NOTE: Only the creator who posted the Koji app in their profile can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.
    *
    * @param   encryptedValue Path where the encrypted value is stored.
    * @return                 Decrypted value.
@@ -237,7 +237,7 @@ export class Remix extends KojiBridge {
   }
 
   /**
-   * Sends an event to update the preview with the current remix data.
+   * Sends an event to update the preview with the current customization data.
    *
    * @return
    */

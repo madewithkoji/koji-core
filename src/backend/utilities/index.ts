@@ -10,7 +10,7 @@ enum UtilitiesRoutes {
 }
 
 /**
- * Provides utility methods for improving the performance and functionality of your Koji template.
+ * Provides utility methods for improving the performance and functionality of your Koji app.
  */
 export class Utilities extends Base {
   private rootPath: string;

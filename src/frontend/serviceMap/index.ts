@@ -2,14 +2,14 @@
 export type Services = { [key: string]: string; };
 
 /**
- * Manages endpoints for the services running in your Koji.
+ * Manages endpoints for the services running in your Koji app.
  */
 export class ServiceMap {
   /** Key-value pairs of services and endpoints. */
   public services: Services = {};
 
   /**
-   * Sets the environment variables for the available services in the Koji. This method automatically scopes the variables for instant remixes of the original Koji.
+   * Sets the environment variables for the available services in the Koji app. This method automatically scopes the variables for the customized version of the Koji app.
    *
    * @param   envMap Key-value pairs of services and endpoints in the original Koji.
    *

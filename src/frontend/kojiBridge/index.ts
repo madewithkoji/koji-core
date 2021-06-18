@@ -15,7 +15,7 @@ interface PostMessage {
   data?: any;
 }
 /**
- * Enables communication between the platform and the Koji.
+ * Enables communication between the platform and the Koji app.
  */
 export class KojiBridge {
   /**
@@ -42,7 +42,7 @@ export class KojiBridge {
 
   /**
    *
-   * @param   postMessage Data to be sent to the Koji.
+   * @param   postMessage Data to be sent to the Koji app.
    */
   protected sendMessage(postMessage: PostMessage): void {
     window.parent.postMessage(

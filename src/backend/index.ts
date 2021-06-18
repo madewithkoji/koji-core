@@ -7,7 +7,7 @@ import { Secret } from './secret';
 import { Utilities } from './utilities';
 
 /**
- * Provides backend methods for your Koji.
+ * Provides backend methods for your Koji app.
  */
 export const KojiBackend = {
   Database,
