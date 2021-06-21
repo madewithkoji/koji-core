@@ -31,7 +31,7 @@ export interface PresentAlertOptions {
 export type SystemAlertType = 'success'|'sent'|'reported'|'rejected';
 
 /**
- * Presents dialog boxes and system alerts to users on the frontend of your Koji.
+ * Presents dialog boxes and system alerts to users on the frontend of your Koji app.
  */
 export class Present extends KojiBridge {
   /**

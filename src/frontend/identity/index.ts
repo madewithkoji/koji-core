@@ -8,7 +8,7 @@ import { UserToken } from '../../types';
 export type AuthGrantCapability =
   /** Allows the current Koji to send push notifications to the user. */
   'push_notifications' |
-  /** Creates a unique ID for the user on the current Koji, and allows the Koji to map the user’s token to a persistent user ID in storage, such as a backend database. */
+  /** Creates a unique ID for the user on the current Koji app and allows the app to map the user’s token to a persistent user ID in storage, such as a backend database. */
   'username';
 
 /**
@@ -22,7 +22,7 @@ export interface PresumedAttributes {
 }
 
 /**
- * Identity information for the current user of the Koji.
+ * Identity information for the current user of the Koji app.
  */
 export interface IdentityResult {
   /** Short-lived token to identify the user. */
@@ -36,13 +36,13 @@ export interface IdentityResult {
 }
 
 /**
- * Manages authentication and authorization on the frontend of your Koji.
+ * Manages authentication and authorization on the frontend of your Koji app.
  */
 export class Identity extends KojiBridge {
   /**
    * Gets a token identifying the current user.
    *
-   * @return    Identity information for the current user of the Koji.
+   * @return    Identity information for the current user of the Koji app.
    *
    * @example
    * ```javascript
@@ -71,7 +71,7 @@ export class Identity extends KojiBridge {
   }
 
   /**
-   * Checks whether the user has granted authorizations to the Koji. Use this method to determine whether to request authorization for certain capabilities.
+   * Checks whether the user has granted authorizations to the Koji app. Use this method to determine whether to request authorization for certain capabilities.
    *
    * @param   grants        List of authorization grants to check for the user.
    * @return                Indicates whether the user has already granted authorization for the capabilities.
@@ -93,7 +93,7 @@ export class Identity extends KojiBridge {
   }
 
   /**
-   * Requests the specified authorization grants from the user for the Koji.
+   * Requests the specified authorization grants from the user for the Koji app.
    *
    * @param   grants            List of authorization grants to request from the user.
    * @param   usageDescription  Custom message to display when requesting the grant.

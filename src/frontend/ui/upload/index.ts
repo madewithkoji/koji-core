@@ -27,12 +27,12 @@ export interface UploadOptions {
 }
 
 /**
- * Uploads files from the frontend of your Koji directly to your project's CDN.
+ * Uploads files from the frontend of your Koji app directly to your project's CDN.
  */
 export class Upload extends KojiBridge {
   /**
    * Uploads a file to your project’s CDN.
-   * Use this method to provide a custom upload experience or to upload media created or captured during the template experience.
+   * Use this method to provide a custom upload experience or to upload media created or captured during the app experience.
    * For example, recording a video or drawing on a canvas.
    *
    * To upload files with the standard platform control, use {@doclink core-frontend-ui-capture#file | Capture.file }.

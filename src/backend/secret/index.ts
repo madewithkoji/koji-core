@@ -11,7 +11,7 @@ enum SecretRoutes {
 }
 
 /**
- * Handles sensitive data used in your Koji template.
+ * Handles sensitive data used in your Koji app.
  */
 export class Secret extends Base {
   private rootPath: string;

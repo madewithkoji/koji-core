@@ -10,7 +10,7 @@ import { client } from './@decorators/client';
 import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
 
 /**
- * Configuration data for the Koji.
+ * Configuration data for the Koji app.
  */
 export interface KojiConfig {
   /** Instructions for setting up the services in a development/editor environment. */
@@ -22,10 +22,10 @@ export interface KojiConfig {
   /** Metadata about the project and creator. */
   metadata?: KojiMetadata;
 
-  /** Default values for the customizable remix data. */
+  /** Default values for the configuration data. */
   remixData?: {[index: string]: any};
 
-  /** Placeholder values for new remixes. */
+  /** Placeholder values for new customized versions. */
   '@@initialTransform'?: {[index: string]: any};
 }
 
@@ -35,13 +35,13 @@ export interface KojiConfig {
 export type Services = { [key: string]: string | undefined };
 
 /**
- * Configuration options for the Koji.
+ * Configuration options for the Koji app.
  */
 export interface KojiConfigOptions {
-  /** Unique identifier for the Koji. */
+  /** Unique identifier for the Koji app. */
   projectId?: string;
 
-  /** Defines services for the Koji. */
+  /** Defines services for the Koji app. */
   services: Services;
 
   /** Overrides for the platform-provided metadata. */
@@ -50,10 +50,10 @@ export interface KojiConfigOptions {
 
 /**
  * Metadata about the project and creator.
- * This information is provided by the platform but can be overridden when the Koji is initialized.
+ * This information is provided by the platform but can be overridden when the Koji app is initialized.
  */
 export interface KojiMetadata {
-  /** Unique identifier for the Koji. */
+  /** Unique identifier for the Koji app. */
   projectId: string;
 
   /** Creator's username. */
@@ -64,7 +64,7 @@ export interface KojiMetadata {
 }
 
 /**
- * Provides frontend methods for your Koji.
+ * Provides frontend methods for your Koji app.
  */
 export class Koji {
   /** Indicates that the Koji.ready() call has been made. */
@@ -95,11 +95,11 @@ export class Koji {
   }
 
   /**
-   * Initializes this package for use with configuration data from the `koji.json` file. This method sets up the services, remix values, development environment, and deployment instructions for your Koji template. It also performs some basic structural checks.
+   * Initializes this package for use with configuration data from the `koji.json` file. This method sets up the services, customization values, development environment, and deployment instructions for your Koji app. It also performs some basic structural checks.
    *
-   * NOTE: A template should initialize the package one time, before any data in the application is rendered.
+   * NOTE: The app must initialize the package before any data is rendered. Initialization must be done exactly once.
    *
-   * @param kojiConfig Configuration data for the Koji.
+   * @param kojiConfig Configuration data for the Koji app.
    *
    * @example
    * ```
@@ -142,7 +142,7 @@ export class Koji {
     // Set up and sanity check services
     this.resolveServices(develop, deploy, kojiConfigOptions.services);
 
-    // Initialize remix data
+    // Initialize customization data
     this.remix.init(remixData);
   }
 
@@ -276,7 +276,7 @@ export class Koji {
 
   private addContextPassthroughListeners() {
     window.addEventListener('message', ({ data, origin }) => {
-      // Handle passthrough of messages from any Kojis inside this Koji
+      // Handle passthrough of messages from Koji apps inside this app
       if (data._type === 'Koji.ContextPassthrough.Up') {
         try {
           // Mutate the source map to add the context
@@ -327,9 +327,9 @@ export class Koji {
   }
 
   /**
-   * Indicates that the Koji is ready to start receiving events.
+   * Indicates that the Koji app is ready to start receiving events.
    *
-   * NOTE: You must call this function after initializing the package and subscribing to remix state changes, but before advancing to the preview with `Koji.remix.finish`.
+   * NOTE: You must call this function after initializing the package and subscribing to customization changes but before advancing to the preview with `Koji.remix.finish`.
    *
    * @example
    * ```javascript

@@ -68,15 +68,15 @@ export interface UserArtifact {
 
 /**
  * Specific product for purchase.
- * Products are defined in the entitlements file of the template and registered or updated when the project is deployed.
+ * Products are defined in the entitlements file of the app and are registered or updated when the project is deployed.
  * Use [[loadProduct]] to retrieve the properties associated with a product’s SKU.
  */
 export interface IapProduct {
   /** Unique identifier for this version of the product. */
   id: string;
-  /** Name of the Koji from which the product was purchased. */
+  /** Name of the Koji app from which the product was purchased. */
   appId: string;
-  /** Koji user name of the Koji creator. */
+  /** Koji username of the seller. */
   ownerUserId: string;
 
   /** Purchase price of the product. Defined in the entitlements file. */
@@ -97,7 +97,7 @@ export interface IapProduct {
   name: string;
   /** Identifier of the purchased product. Defined in the entitlements file. */
   sku: string;
-  /** Date the product was registered or updated, which happens when the template is deployed. */
+  /** Date the product was registered or updated, which happens when the app is deployed. */
   dateCreated: Date;
   /** Indicator of whether the product is still available for purchase. */
   isActive: boolean;
@@ -109,14 +109,14 @@ export interface IapProduct {
   /** Remaining number of times the product can be sold. Calculated based on the total inventory defined in the entitlements file, less the number of purchases. */
   numAvailable?: number;
 
-  /** Object that represents the Koji creator ("seller"). */
+  /** Object that represents the seller. */
   owner?: UserArtifact;
   /** Array of [[IapReceipt]] objects representing purchases of the product. */
   purchases?: IapReceipt[];
 }
 
 /**
- * Manages in-app purchases on the backend of your Koji template.
+ * Manages in-app purchases on the backend of your Koji app.
  */
 export class IAP extends Base {
   private rootPath: string;
@@ -226,7 +226,7 @@ export class IAP extends Base {
 
   /**
    * Updates the custom attributes for a specified receipt.
-   * For example, if a user purchases a credit toward a product on the Koji and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.
+   * For example, if a user purchases a credit toward a product on the Koji app and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.
    *
    * @param     receiptId             Unique identifier for the receipt.
    * @param     attributes            Object of key-value paired attributes to store with the receipt.
@@ -306,7 +306,7 @@ export class IAP extends Base {
   }
 
   /**
-   * Gets the properties of a specified product, which enables the template to leverage dynamic product information.
+   * Gets the properties of a specified product, which enables the app to leverage dynamic product information.
    * For example, you can check the stock for a product with limited quantity (via the `numAvailable` property), and indicate the number of remaining items.
    *
    * @param     sku     Identifier for the product.

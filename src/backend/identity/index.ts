@@ -19,7 +19,7 @@ export interface UserGrants {
 }
 
 /**
- * Information about a user of the Koji. To retrieve a user's information, use [[resolveUserFromToken]].
+ * Information about a user of the Koji app. To retrieve a user's information, use [[resolveUserFromToken]].
  */
 export interface User {
   /** User’s unique ID for this Koji. */
@@ -35,22 +35,23 @@ export interface User {
 }
 
 /**
- * Defines a notification to send to a user’s Koji account.
- * Send notifications with [[pushNotificationToOwner]], for the user who created the Koji, or [[pushNotificationToUser]], for a user who interacts with the Koji and has granted the appropriate authorization.
+ * Defines a notification to send to a user.
+ * Use [[pushNotificationToOwner]] to send notifications to the owner of the Koji app.
+ * Use [[pushNotificationToUser]] to send notifications to any user who interacts with the Koji app and has granted the appropriate authorization.
  */
 export interface PushNotification {
-  /** Headline for the message. For example, the name of the Koji that generated the notification. */
+  /** Headline for the message. For example, the name of the Koji app that generated the notification. */
   appName: string;
   /**  Icon to display next to the message, either the URL of an image or an emoji character. */
   icon: string;
   /** Content of the message. */
   message: string;
-  /** Query parameters to append to the Koji URL when the notification is tapped. For example, load the admin experience or a dynamic receipt from the notification. */
+  /** Query parameters to append to the Koji app's URL when the notification is tapped. For example, load the admin experience or a dynamic receipt from the notification. */
   ref?: string;
 }
 
 /**
- * Manages authentication and authorization on the backend of your Koji template.
+ * Manages authentication and authorization on the backend of your Koji app.
  */
 export class Identity extends Base {
   private rootPath: string;
@@ -79,7 +80,7 @@ export class Identity extends Base {
   }
 
   /**
-   * Sends a notification to the Koji account of a user who interacted with the Koji.
+   * Sends a notification to the user who interacted with the Koji app.
    *
    * @param     userId            User’s unique ID for this Koji. To get the user's ID, see [[resolveUserFromToken]].
    * @param     notification      Notification to send to the user.
@@ -111,7 +112,7 @@ export class Identity extends Base {
   }
 
   /**
-   *  Sends a notification to the Koji account of the user who created the Koji.
+   *  Sends a notification to the owner of the Koji app.
    *
    * @param     notification      Notification to send to the owner.
    *

@@ -25,7 +25,7 @@ export interface Purchase {
 }
 
 /**
- * Manages in-app purchase transactions on the frontend of your Koji.
+ * Manages in-app purchase transactions on the frontend of your Koji app.
  */
 export class IAP extends KojiBridge {
   /**
@@ -52,16 +52,16 @@ export class IAP extends KojiBridge {
   }
 
   /**
-   * Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the project is deployed.
+   * Prompts the user to purchase a product from the Koji app. Products are defined in the entitlements file and registered or updated when the project is deployed.
    *
-   * NOTE: If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke {@doclink core-backend-iap#captureTransaction | Iap.captureTransaction} on the backend of your Koji.
+   * NOTE: If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke {@doclink core-backend-iap#captureTransaction | Iap.captureTransaction} on the backend of your Koji app.
    * Funds are not available in the seller's account until the transaction is captured.
    * If you do not capture the transaction before the `captureExpiryPeriod`, the transaction is automatically reversed and the buyer is refunded.
    * This period can be specified in the product definition from 0 to 7 days (default is 0).
    *
    * @param  sku               Identifier for the product to purchase.
    * @param  purchaseOptions   Optional information to add to the transaction receipt.
-   * @param  customAttributes  Optional key-value pairs to add to the receipt. These attribute values can be referenced or updated by resolving receipts on the backend of the Koji.
+   * @param  customAttributes  Optional key-value pairs to add to the receipt. These attribute values can be referenced or updated by resolving receipts on the backend of the Koji app.
    *
    * @return                   Results of the in-app purchase transaction.
    *

@@ -21,7 +21,7 @@
 						"isConst": true
 					},
 					"comment": {
-						"shortText": "Provides backend methods for your Koji."
+						"shortText": "Provides backend methods for your Koji app."
 					},
 					"sources": [
 						{
@@ -172,7 +172,7 @@
 															"kindString": "Parameter",
 															"flags": {},
 															"comment": {
-																"text": "Configuration data for the Koji.\n"
+																"text": "Configuration data for the Koji app.\n"
 															},
 															"type": {
 																"type": "reference",
@@ -535,7 +535,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Verifies that server-side methods are used only in backend services of the Koji.",
+								"shortText": "Verifies that server-side methods are used only in backend services of the Koji app.",
 								"returns": "Method's behavior or an error, if the method is being invoked in a frontend environment.\n"
 							},
 							"parameters": [
@@ -718,7 +718,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Environment variables that serve as access credentials for the Koji's backend services."
+						"shortText": "Environment variables that serve as access credentials for the Koji app's backend services."
 					},
 					"children": [
 						{
@@ -728,7 +728,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Unique identifier for the Koji."
+								"shortText": "Unique identifier for the Koji app."
 							},
 							"sources": [
 								{
@@ -749,7 +749,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Secret key for the Koji."
+								"shortText": "Secret key for the Koji app."
 							},
 							"sources": [
 								{
@@ -789,7 +789,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Configuration information for the Koji."
+						"shortText": "Configuration information for the Koji app."
 					},
 					"children": [
 						{
@@ -801,7 +801,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Unique identifier for the Koji. Will override data passed through `res`."
+								"shortText": "Unique identifier for the Koji app. Will override data passed through `res`."
 							},
 							"sources": [
 								{
@@ -833,7 +833,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Secret key for the Koji. Will override data passed through `res`."
+								"shortText": "Secret key for the Koji app. Will override data passed through `res`."
 							},
 							"sources": [
 								{
@@ -865,7 +865,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Express response object. Used in conjunction with middleware to scope environment variables for instant remixes of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]."
+								"shortText": "Express response object. Used in conjunction with middleware to scope environment variables for customized versions of the original Koji app. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]."
 							},
 							"sources": [
 								{
@@ -970,7 +970,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Generates an extensible configuration for the Koji's backend services."
+								"shortText": "Generates an extensible configuration for the Koji app's backend services."
 							},
 							"parameters": [
 								{
@@ -980,7 +980,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Configuration information for the Koji.\n"
+										"text": "Configuration information for the Koji app.\n"
 									},
 									"type": {
 										"type": "reference",
@@ -1595,8 +1595,8 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Implements a Koji database for the backend of your Koji.",
-						"text": "A Koji database is a key-value store that is included with each project on Koji.\nFor more information, see the {@doclink koji-database | Koji database developer guide}.\n"
+						"shortText": "Implements a Koji database for the backend of your Koji app.",
+						"text": "A Koji database is included with each Koji project and stores key-value pairs.\nFor more information, see the {@doclink koji-database | Koji database developer guide}.\n"
 					},
 					"children": [
 						{
@@ -4386,7 +4386,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Implements a real-time messaging dispatch system for the backend of your Koji."
+						"shortText": "Implements a real-time messaging dispatch system for the backend of your Koji app."
 					},
 					"children": [
 						{
@@ -5601,7 +5601,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Manages in-app purchases on the backend of your Koji template."
+						"shortText": "Manages in-app purchases on the backend of your Koji app."
 					},
 					"children": [
 						{
@@ -5745,7 +5745,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets the properties of a specified product, which enables the template to leverage dynamic product information.\nFor example, you can check the stock for a product with limited quantity (via the `numAvailable` property), and indicate the number of remaining items.",
+										"shortText": "Gets the properties of a specified product, which enables the app to leverage dynamic product information.\nFor example, you can check the stock for a product with limited quantity (via the `numAvailable` property), and indicate the number of remaining items.",
 										"returns": "Properties of the specified product.\n",
 										"tags": [
 											{
@@ -6099,7 +6099,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Updates the custom attributes for a specified receipt.\nFor example, if a user purchases a credit toward a product on the Koji and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.",
+										"shortText": "Updates the custom attributes for a specified receipt.\nFor example, if a user purchases a credit toward a product on the Koji app and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.",
 										"returns": "Confirmation of the update, if the request was successful, or an error message, if not.\n",
 										"tags": [
 											{
@@ -6342,7 +6342,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets the properties of a specified product, which enables the template to leverage dynamic product information.\nFor example, you can check the stock for a product with limited quantity (via the `numAvailable` property), and indicate the number of remaining items.",
+										"shortText": "Gets the properties of a specified product, which enables the app to leverage dynamic product information.\nFor example, you can check the stock for a product with limited quantity (via the `numAvailable` property), and indicate the number of remaining items.",
 										"returns": "Properties of the specified product.\n",
 										"tags": [
 											{
@@ -6746,7 +6746,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Updates the custom attributes for a specified receipt.\nFor example, if a user purchases a credit toward a product on the Koji and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.",
+										"shortText": "Updates the custom attributes for a specified receipt.\nFor example, if a user purchases a credit toward a product on the Koji app and then uses it, you can update the receipt to indicate that the credit has been consumed and is not available for future sessions.",
 										"returns": "Confirmation of the update, if the request was successful, or an error message, if not.\n",
 										"tags": [
 											{
@@ -6891,7 +6891,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Specific product for purchase.\nProducts are defined in the entitlements file of the template and registered or updated when the project is deployed.\nUse [[loadProduct]] to retrieve the properties associated with a product’s SKU."
+						"shortText": "Specific product for purchase.\nProducts are defined in the entitlements file of the app and are registered or updated when the project is deployed.\nUse [[loadProduct]] to retrieve the properties associated with a product’s SKU."
 					},
 					"children": [
 						{
@@ -6901,7 +6901,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Name of the Koji from which the product was purchased."
+								"shortText": "Name of the Koji app from which the product was purchased."
 							},
 							"sources": [
 								{
@@ -6964,7 +6964,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Date the product was registered or updated, which happens when the template is deployed."
+								"shortText": "Date the product was registered or updated, which happens when the app is deployed."
 							},
 							"sources": [
 								{
@@ -7164,7 +7164,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Object that represents the Koji creator (\"seller\")."
+								"shortText": "Object that represents the seller."
 							},
 							"sources": [
 								{
@@ -7195,7 +7195,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Koji user name of the Koji creator."
+								"shortText": "Koji username of the seller."
 							},
 							"sources": [
 								{
@@ -7942,7 +7942,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Manages authentication and authorization on the backend of your Koji template."
+						"shortText": "Manages authentication and authorization on the backend of your Koji app."
 					},
 					"children": [
 						{
@@ -8023,7 +8023,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 129,
+									"line": 130,
 									"character": 38
 								}
 							],
@@ -8035,7 +8035,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": " Sends a notification to the Koji account of the user who created the Koji.",
+										"shortText": " Sends a notification to the owner of the Koji app.",
 										"tags": [
 											{
 												"tag": "example",
@@ -8094,7 +8094,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 100,
+									"line": 101,
 									"character": 37
 								}
 							],
@@ -8106,7 +8106,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Sends a notification to the Koji account of a user who interacted with the Koji.",
+										"shortText": "Sends a notification to the user who interacted with the Koji app.",
 										"tags": [
 											{
 												"tag": "example",
@@ -8179,7 +8179,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 157,
+									"line": 158,
 									"character": 35
 								}
 							],
@@ -8261,7 +8261,7 @@
 					"sources": [
 						{
 							"fileName": "backend/identity/index.ts",
-							"line": 55,
+							"line": 56,
 							"character": 21
 						}
 					],
@@ -8280,7 +8280,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Defines a notification to send to a user’s Koji account.\nSend notifications with [[pushNotificationToOwner]], for the user who created the Koji, or [[pushNotificationToUser]], for a user who interacts with the Koji and has granted the appropriate authorization."
+						"shortText": "Defines a notification to send to a user.\nUse [[pushNotificationToOwner]] to send notifications to the owner of the Koji app.\nUse [[pushNotificationToUser]] to send notifications to any user who interacts with the Koji app and has granted the appropriate authorization."
 					},
 					"children": [
 						{
@@ -8290,12 +8290,12 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Headline for the message. For example, the name of the Koji that generated the notification."
+								"shortText": "Headline for the message. For example, the name of the Koji app that generated the notification."
 							},
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 43,
+									"line": 44,
 									"character": 9
 								}
 							],
@@ -8316,7 +8316,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 45,
+									"line": 46,
 									"character": 6
 								}
 							],
@@ -8337,7 +8337,7 @@
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 47,
+									"line": 48,
 									"character": 9
 								}
 							],
@@ -8355,12 +8355,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Query parameters to append to the Koji URL when the notification is tapped. For example, load the admin experience or a dynamic receipt from the notification."
+								"shortText": "Query parameters to append to the Koji app's URL when the notification is tapped. For example, load the admin experience or a dynamic receipt from the notification."
 							},
 							"sources": [
 								{
 									"fileName": "backend/identity/index.ts",
-									"line": 49,
+									"line": 50,
 									"character": 5
 								}
 							],
@@ -8394,7 +8394,7 @@
 					"sources": [
 						{
 							"fileName": "backend/identity/index.ts",
-							"line": 41,
+							"line": 42,
 							"character": 33
 						}
 					]
@@ -8406,7 +8406,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Information about a user of the Koji. To retrieve a user's information, use [[resolveUserFromToken]]."
+						"shortText": "Information about a user of the Koji app. To retrieve a user's information, use [[resolveUserFromToken]]."
 					},
 					"children": [
 						{
@@ -8746,7 +8746,7 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "Configuration data for the Koji.\n"
+										"text": "Configuration data for the Koji app.\n"
 									},
 									"type": {
 										"type": "reference",
@@ -8901,7 +8901,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Handles sensitive data used in your Koji template."
+						"shortText": "Handles sensitive data used in your Koji app."
 					},
 					"children": [
 						{
@@ -9193,7 +9193,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Provides utility methods for improving the performance and functionality of your Koji template."
+						"shortText": "Provides utility methods for improving the performance and functionality of your Koji app."
 					},
 					"children": [
 						{
@@ -9387,7 +9387,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Provides frontend methods for your Koji."
+						"shortText": "Provides frontend methods for your Koji app."
 					},
 					"children": [
 						{
@@ -9727,8 +9727,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Initializes this package for use with configuration data from the `koji.json` file. This method sets up the services, remix values, development environment, and deployment instructions for your Koji template. It also performs some basic structural checks.",
-										"text": "NOTE: A template should initialize the package one time, before any data in the application is rendered.\n",
+										"shortText": "Initializes this package for use with configuration data from the `koji.json` file. This method sets up the services, customization values, development environment, and deployment instructions for your Koji app. It also performs some basic structural checks.",
+										"text": "NOTE: The app must initialize the package before any data is rendered. Initialization must be done exactly once.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -9744,7 +9744,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Configuration data for the Koji.\n"
+												"text": "Configuration data for the Koji app.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -9807,8 +9807,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Indicates that the Koji is ready to start receiving events.",
-										"text": "NOTE: You must call this function after initializing the package and subscribing to remix state changes, but before advancing to the preview with `Koji.remix.finish`.\n",
+										"shortText": "Indicates that the Koji app is ready to start receiving events.",
+										"text": "NOTE: You must call this function after initializing the package and subscribing to customization changes but before advancing to the preview with `Koji.remix.finish`.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -9874,7 +9874,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Configuration data for the Koji."
+						"shortText": "Configuration data for the Koji app."
 					},
 					"children": [
 						{
@@ -9886,7 +9886,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Placeholder values for new remixes."
+								"shortText": "Placeholder values for new customized versions."
 							},
 							"sources": [
 								{
@@ -10102,7 +10102,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Default values for the customizable remix data."
+								"shortText": "Default values for the configuration data."
 							},
 							"sources": [
 								{
@@ -10183,7 +10183,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Configuration options for the Koji."
+						"shortText": "Configuration options for the Koji app."
 					},
 					"children": [
 						{
@@ -10228,7 +10228,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Unique identifier for the Koji."
+								"shortText": "Unique identifier for the Koji app."
 							},
 							"sources": [
 								{
@@ -10258,7 +10258,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Defines services for the Koji."
+								"shortText": "Defines services for the Koji app."
 							},
 							"sources": [
 								{
@@ -10300,7 +10300,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Metadata about the project and creator.\nThis information is provided by the platform but can be overridden when the Koji is initialized."
+						"shortText": "Metadata about the project and creator.\nThis information is provided by the platform but can be overridden when the Koji app is initialized."
 					},
 					"children": [
 						{
@@ -10352,7 +10352,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Unique identifier for the Koji."
+								"shortText": "Unique identifier for the Koji app."
 							},
 							"sources": [
 								{
@@ -10670,7 +10670,7 @@
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Verifies that client-side methods are used only in frontend services of the Koji.",
+								"shortText": "Verifies that client-side methods are used only in frontend services of the Koji app.",
 								"returns": "Method's behavior or an error, if the method is being invoked in a node/backend environment.\n"
 							},
 							"parameters": [
@@ -10756,8 +10756,8 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Enables you to track custom events in your Koji templates.\nFor example, track `onClick` events for the links and buttons in a Koji.",
-						"text": "To view the analytics data for a published Koji, click the **Koji** button and click **Analytics**.\nYou will see data for the custom events along with a standard set of built-in metrics, which are calculated from the Koji’s access logs.\n\nTIP: Analytics data is processed at frequent intervals throughout the day. If you are testing the custom events in a published template and you don’t see results at first, wait 10 minutes to account for data processing latency, and then check again.\n"
+						"shortText": "Enables you to track custom events in your Koji apps.\nFor example, track `onClick` events for the links and buttons in a Koji app.",
+						"text": "To view the analytics data for a published Koji app, view the published app, click the **App** link, and then **Open Analytics**.\nYou will see data for the custom events along with a standard set of built-in metrics, which are calculated from the app’s access logs.\n\nTIP: Analytics data is processed at frequent intervals throughout the day. If you are testing the custom events in a published app and you don’t see results at first, wait 10 minutes to account for data processing latency, and then check again.\n"
 					},
 					"children": [
 						{
@@ -11068,7 +11068,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Implements a dispatch system for real-time communication on the frontend of your Koji template."
+						"shortText": "Implements a dispatch system for real-time communication on the frontend of your Koji app."
 					},
 					"children": [
 						{
@@ -12650,7 +12650,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Manages in-app purchase transactions on the frontend of your Koji."
+						"shortText": "Manages in-app purchase transactions on the frontend of your Koji app."
 					},
 					"children": [
 						{
@@ -12781,8 +12781,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Prompts the user to purchase a product from the Koji. Products are defined in the entitlements file and registered or updated when the project is deployed.",
-										"text": "NOTE: If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke {@doclink core-backend-iap#captureTransaction | Iap.captureTransaction} on the backend of your Koji.\nFunds are not available in the seller's account until the transaction is captured.\nIf you do not capture the transaction before the `captureExpiryPeriod`, the transaction is automatically reversed and the buyer is refunded.\nThis period can be specified in the product definition from 0 to 7 days (default is 0).\n",
+										"shortText": "Prompts the user to purchase a product from the Koji app. Products are defined in the entitlements file and registered or updated when the project is deployed.",
+										"text": "NOTE: If your IAP product is defined with the `captureOnPurchase` key set to `false`, the transaction is held in a pending state until you manually invoke {@doclink core-backend-iap#captureTransaction | Iap.captureTransaction} on the backend of your Koji app.\nFunds are not available in the seller's account until the transaction is captured.\nIf you do not capture the transaction before the `captureExpiryPeriod`, the transaction is automatically reversed and the buyer is refunded.\nThis period can be specified in the product definition from 0 to 7 days (default is 0).\n",
 										"returns": "Results of the in-app purchase transaction.\n",
 										"tags": [
 											{
@@ -12829,7 +12829,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Optional key-value pairs to add to the receipt. These attribute values can be referenced or updated by resolving receipts on the backend of the Koji.\n"
+												"text": "Optional key-value pairs to add to the receipt. These attribute values can be referenced or updated by resolving receipts on the backend of the Koji app.\n"
 											},
 											"type": {
 												"type": "reflection",
@@ -13189,7 +13189,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Manages authentication and authorization on the frontend of your Koji."
+						"shortText": "Manages authentication and authorization on the frontend of your Koji app."
 					},
 					"children": [
 						{
@@ -13246,7 +13246,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Checks whether the user has granted authorizations to the Koji. Use this method to determine whether to request authorization for certain capabilities.",
+										"shortText": "Checks whether the user has granted authorizations to the Koji app. Use this method to determine whether to request authorization for certain capabilities.",
 										"returns": "Indicates whether the user has already granted authorization for the capabilities.\n",
 										"tags": [
 											{
@@ -13323,7 +13323,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Gets a token identifying the current user.",
-										"returns": "Identity information for the current user of the Koji.\n",
+										"returns": "Identity information for the current user of the Koji app.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -13368,7 +13368,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Requests the specified authorization grants from the user for the Koji.",
+										"shortText": "Requests the specified authorization grants from the user for the Koji app.",
 										"returns": "Indicates whether authorization for the capabilities was successfully obtained from the user.\n",
 										"tags": [
 											{
@@ -13477,7 +13477,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Identity information for the current user of the Koji."
+						"shortText": "Identity information for the current user of the Koji app."
 					},
 					"children": [
 						{
@@ -13799,7 +13799,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Enables communication between the platform and the Koji."
+						"shortText": "Enables communication between the platform and the Koji app."
 					},
 					"children": [
 						{
@@ -13963,7 +13963,7 @@
 								"isPublic": true
 							},
 							"comment": {
-								"shortText": "Context of the Koji."
+								"shortText": "Context of the Koji app."
 							},
 							"sources": [
 								{
@@ -13988,7 +13988,7 @@
 								"isPublic": true
 							},
 							"comment": {
-								"shortText": "Focus state of the Koji."
+								"shortText": "Focus state of the Koji app."
 							},
 							"sources": [
 								{
@@ -14036,7 +14036,7 @@
 								"isPublic": true
 							},
 							"comment": {
-								"shortText": "Presentation style of the Koji."
+								"shortText": "Presentation style of the Koji app."
 							},
 							"sources": [
 								{
@@ -14122,8 +14122,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Hides any Koji platform chrome, such as the Koji button or the user's profile icon.\nTo restore the platform chrome, use [[showChrome]].",
-										"text": "NOTE: Incorrectly controlling the player chrome can result in a disorienting user experience, so use this functionality judiciously.\nThe player chrome must be displayed on all root screens in a template, and can be hidden if a user navigates to a deeper screen.\nThe player chrome is hidden by default when the Koji's `presentationStyle` is `popover`.\n",
+										"shortText": "Hides any Koji player chrome, such as the user's profile icon.\nTo display the player chrome, use [[showChrome]].",
+										"text": "NOTE: Incorrectly controlling the player chrome can result in a disorienting user experience, so use this functionality judiciously.\nThe player chrome must be displayed on all root screens of an app. It can be hidden if a user navigates to a child screen, such as a modal.\nThe player chrome is hidden by default when the app's `presentationStyle` is `popover`.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -14171,7 +14171,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Listens for when a Koji leaves focus and invokes a callback function to respond to the focus state change.",
+										"shortText": "Listens for event notifications that the Koji app lost the focus and then invokes a callback function to respond to the focus state change.",
 										"returns": "Function to unsubscribe from the onBlur listener.\n",
 										"tags": [
 											{
@@ -14188,7 +14188,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Function to handle when the Koji leaves focus.\n"
+												"text": "Function to handle when the Koji app loses the focus.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14237,7 +14237,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Listens for when a Koji enters focus and invokes a callback function to respond to the focus state change.",
+										"shortText": "Listens for event notifications that the Koji app got the focus and then invokes a callback function to respond to the focus state change.",
 										"returns": "Function to unsubscribe from the onFocus listener.\n",
 										"tags": [
 											{
@@ -14254,7 +14254,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Function to handle when the Koji enters focus.\n"
+												"text": "Function to handle when the Koji app gets the focus.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14341,8 +14341,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Listens to changes in remix state and invokes a callback function to enable different experiences during remix, preview, or use.",
-										"returns": "Function to unsubscribe from the remix state listener.\n",
+										"shortText": "Listens to changes in customization mode and invokes a callback function to enable different experiences during customization, preview, or use.",
+										"returns": "Function to unsubscribe from the customization mode listener.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -14358,7 +14358,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Function to handle changes in remix state.\n"
+												"text": "Function to handle changes in customization mode.\n"
 											},
 											"type": {
 												"type": "reference",
@@ -14428,7 +14428,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Describes the remixer's editor."
+						"shortText": "Describes the editor that the creator is using."
 					},
 					"children": [
 						{
@@ -14440,7 +14440,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Distinguishes between a `new` remix and an `edit` to the user's existing Koji."
+								"shortText": "Distinguishes between creating a `new` customized version of the app and doing an `edit` of the user’s existing Koji app."
 							},
 							"sources": [
 								{
@@ -14476,7 +14476,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Type of editor, either `instant` for an instant remix or `full` for the code editor."
+								"shortText": "Type of editor the creator is using, either `instant` for the Koji player or `full` for the Koji code editor."
 							},
 							"sources": [
 								{
@@ -14681,7 +14681,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Function to handle when the Koji leaves focus. Invoked by the [[onBlur]] listener."
+								"shortText": "Function to handle when the Koji app loses focus. Invoked by the [[onBlur]] listener."
 							},
 							"sources": [
 								{
@@ -14698,7 +14698,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Function to handle when the Koji leaves focus. Invoked by the [[onBlur]] listener."
+										"shortText": "Function to handle when the Koji app loses focus. Invoked by the [[onBlur]] listener."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -14716,7 +14716,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Distinguishes between a `new` remix and an `edit` to the user’s existing Koji."
+						"shortText": "Distinguishes between creating a `new` customized version of the app and doing an `edit` of the user’s existing Koji app."
 					},
 					"sources": [
 						{
@@ -14746,7 +14746,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Type of editor, either `instant` for an instant remix or `full` for the code editor."
+						"shortText": "Type of editor the creator is using, either `instant` for the Koji player or `full` for the Koji code editor."
 					},
 					"sources": [
 						{
@@ -14791,7 +14791,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Function to handle when the Koji enters focus. Invoked by the [[onFocus]] listener."
+								"shortText": "Function to handle when the Koji app gets focus. Invoked by the [[onFocus]] listener."
 							},
 							"sources": [
 								{
@@ -14808,7 +14808,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Function to handle when the Koji enters focus. Invoked by the [[onFocus]] listener."
+										"shortText": "Function to handle when the Koji app gets focus. Invoked by the [[onFocus]] listener."
 									},
 									"type": {
 										"type": "intrinsic",
@@ -14841,7 +14841,7 @@
 							"kindString": "Type literal",
 							"flags": {},
 							"comment": {
-								"shortText": "Function to handle changes in remix state. Invoked by the [[subscribe]] listener."
+								"shortText": "Function to handle changes in the customization mode. Invoked by the [[subscribe]] listener."
 							},
 							"sources": [
 								{
@@ -14858,7 +14858,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Function to handle changes in remix state. Invoked by the [[subscribe]] listener."
+										"shortText": "Function to handle changes in the customization mode. Invoked by the [[subscribe]] listener."
 									},
 									"parameters": [
 										{
@@ -14868,7 +14868,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Indicates whether the Koji is in remixing mode."
+												"text": "Indicates whether the app is in customization mode."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -14907,7 +14907,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Presentation style of the Koji, either in a modal window (`popover`) or the standard player (`fullscreen`).\nThe popover presentation style does not display the Koji button, so the Koji can use the full view."
+						"shortText": "Presentation style of the Koji app, either in a modal window (`popover`) or the standard player (`fullscreen`).\nThe player chrome (including the user's profile icon) is hidden by default when the app's `presentationStyle` is `popover`."
 					},
 					"sources": [
 						{
@@ -14937,7 +14937,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Context in which the Koji is being viewed. A Koji can provide a distinct experience for each context."
+						"shortText": "Context in which the Koji app is being viewed. A Koji app can provide a distinct experience for each context."
 					},
 					"sources": [
 						{
@@ -15112,7 +15112,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Manages the remixing experience for your Koji."
+						"shortText": "Manages the customization experience for your Koji app."
 					},
 					"children": [
 						{
@@ -15179,7 +15179,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Cancels the remix experience and returns the user to where they were before they started remixing. If the user has made changes, they are prompted to confirm this action.",
+										"shortText": "Cancels the customization experience and returns to where the user was before they started customization. If the user has made changes, they are prompted to confirm the cancellation.",
 										"tags": [
 											{
 												"tag": "example",
@@ -15228,7 +15228,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Retrieves sensitive data that was [[encryptValue | stored as an encrypted value]].",
-										"text": "NOTE: Only the creator of the Koji can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.\n",
+										"text": "NOTE: Only the owner of the Koji app can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.\n",
 										"returns": "Decrypted value.\n",
 										"tags": [
 											{
@@ -15299,7 +15299,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji is remixed.",
+										"shortText": "Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji app is configured.",
 										"returns": "Encrypted value. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.\n",
 										"tags": [
 											{
@@ -15370,7 +15370,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Advances the Koji from remix to preview.",
+										"shortText": "Advances the Koji app's mode from customization to preview.",
 										"tags": [
 											{
 												"tag": "example",
@@ -15418,8 +15418,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Gets the remix data for the Koji.",
-										"returns": "Object containing the current remix data.\n",
+										"shortText": "Gets the customization data for the Koji app.",
+										"returns": "Object containing the current customization data.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -15513,7 +15513,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Initializes the remix data for the Koji with default values.",
+										"shortText": "Initializes the Koji app's customization data with default values.",
 										"text": "NOTE: In most cases, you do not need to call this method manually because it is automatically called when you initialize the package with `Koji.config`.\nUse this method only if you want to use the Remix class by itself, without any other classes in the package.\n",
 										"tags": [
 											{
@@ -15530,7 +15530,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Object containing the default values for your Koji.\n"
+												"text": "Object containing the default values for your Koji app.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -15578,9 +15578,9 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Replaces all remix data with the specified object.",
-										"text": "NOTE: This method overwrites all existing values in the remix data.\nTo update specific values only, use [[set]].\n",
-										"returns": "Indicates whether the remix data was successfully replaced.\n",
+										"shortText": "Replaces all customization data with the specified object.",
+										"text": "NOTE: This method overwrites all existing values in the customization data.\nTo update specific values only, use [[set]].\n",
+										"returns": "Indicates whether the customization data was successfully replaced.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -15596,7 +15596,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Object containing the new remix data for the Koji."
+												"text": "Object containing the new customization data for the Koji app."
 											},
 											"type": {
 												"type": "reference",
@@ -15650,8 +15650,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Updates the specified values in the remix data.",
-										"text": "NOTE: This method updates only the values that are specified in `newValue`. If other values exist, they are not changed. To replace all remix data, use [[overwrite]].\n",
+										"shortText": "Updates the specified values in the customization data.",
+										"text": "NOTE: This method updates only the values that are specified in `newValue`. If other values exist, they are not changed. To replace all customization data, use [[overwrite]].\n",
 										"returns": "Indicates whether the values were successfully updated.\n",
 										"tags": [
 											{
@@ -15668,7 +15668,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Key-value pairs to update in the remix data."
+												"text": "Key-value pairs to update in the customization data."
 											},
 											"type": {
 												"type": "reference",
@@ -15735,7 +15735,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Communicates changes to remix data."
+						"shortText": "Communicates changes to the customization data."
 					},
 					"children": [
 						{
@@ -15892,7 +15892,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Manages endpoints for the services running in your Koji."
+						"shortText": "Manages endpoints for the services running in your Koji app."
 					},
 					"children": [
 						{
@@ -15964,7 +15964,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Sets the environment variables for the available services in the Koji. This method automatically scopes the variables for instant remixes of the original Koji.",
+										"shortText": "Sets the environment variables for the available services in the Koji app. This method automatically scopes the variables for the customized version of the Koji app.",
 										"tags": [
 											{
 												"tag": "example",
@@ -16594,7 +16594,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Captures user input on the frontend of your Koji."
+						"shortText": "Captures user input on the frontend of your Koji app."
 					},
 					"children": [
 						{
@@ -16637,7 +16637,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 312,
+									"line": 314,
 									"character": 7
 								}
 							],
@@ -16802,7 +16802,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 369,
+									"line": 371,
 									"character": 7
 								}
 							],
@@ -16975,7 +16975,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 404,
+									"line": 406,
 									"character": 8
 								}
 							],
@@ -17138,7 +17138,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 451,
+									"line": 453,
 									"character": 6
 								}
 							],
@@ -17150,8 +17150,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Prompts the user to upload a file of any type.\nUse this method to allow the user to upload raw files in their original format.\nFor example, to capture high-resolution images for download rather than for display in a browser.",
-										"text": "To apply automatic transcoding and transformations for specific file types, use the associated method.\nSee [[image]], [[video]], [[audio]], or [[media]].\n\nTo provide a custom upload experience or to upload media created or captured during the template experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.\n",
+										"shortText": "Prompts the user to upload a file of any type.\nUse this method to allow the user to upload raw files in their original format.\nFor example, use this to capture high-resolution images for download rather than for display in a browser.",
+										"text": "To apply automatic transcoding and transformations for specific file types, use the associated method.\nSee [[image]], [[video]], [[audio]], or [[media]].\n\nTo provide a custom upload experience or to upload media created or captured during the app experience, use {@doclink core-frontend-ui-upload#uploadFile | Upload.uploadFile}.\n",
 										"returns": "URL to the file as a string or the [[VerboseCapture]] object, if `verbose` is `true`.\n",
 										"tags": [
 											{
@@ -17303,7 +17303,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 509,
+									"line": 511,
 									"character": 7
 								}
 							],
@@ -17468,7 +17468,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 567,
+									"line": 568,
 									"character": 6
 								}
 							],
@@ -17480,7 +17480,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Prompts the user to paste an external URL, create a new Koji from a template, or select an existing\nKoji from their profile.",
+										"shortText": "Prompts the user to paste an external URL, create a new app, or select an existing app from their profile.",
 										"returns": "URL as a string or the [[VerboseCapture]] object, if `verbose` is `true`.",
 										"tags": [
 											{
@@ -17632,7 +17632,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 608,
+									"line": 609,
 									"character": 7
 								}
 							],
@@ -17796,7 +17796,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 664,
+									"line": 665,
 									"character": 7
 								}
 							],
@@ -17960,7 +17960,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 707,
+									"line": 708,
 									"character": 8
 								}
 							],
@@ -18124,7 +18124,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 747,
+									"line": 748,
 									"character": 7
 								}
 							],
@@ -18309,7 +18309,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 234,
+							"line": 236,
 							"character": 20
 						}
 					],
@@ -18389,12 +18389,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium audios)."
+								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium audios)."
 							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 214,
+									"line": 216,
 									"character": 16
 								}
 							],
@@ -18425,7 +18425,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 212,
+							"line": 214,
 							"character": 36
 						}
 					]
@@ -19138,7 +19138,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium images)."
+								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium images)."
 							},
 							"sources": [
 								{
@@ -19678,12 +19678,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Whether to prevent users from pasting an external link. If `true`, users can select only one of their Kojis."
+								"shortText": "Whether to prevent users from pasting an external link. If `true`, users can select only one of their Koji apps."
 							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 149,
+									"line": 151,
 									"character": 22
 								}
 							],
@@ -19710,12 +19710,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Template store ID of a Koji template. Include this value to enable the user to create a new Koji from the link control."
+								"shortText": "App Store ID of a Koji app. Include this value to enable the user to create a new Koji from the link control."
 							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 147,
+									"line": 149,
 									"character": 16
 								}
 							],
@@ -19747,7 +19747,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 145,
+							"line": 147,
 							"character": 35
 						}
 					]
@@ -19776,7 +19776,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 222,
+									"line": 224,
 									"character": 12
 								}
 							],
@@ -19807,12 +19807,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium media files)."
+								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium media files)."
 							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 224,
+									"line": 226,
 									"character": 16
 								}
 							],
@@ -19844,7 +19844,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 228,
+									"line": 230,
 									"character": 14
 								}
 							],
@@ -19877,7 +19877,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 226,
+									"line": 228,
 									"character": 14
 								}
 							],
@@ -19912,7 +19912,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 220,
+							"line": 222,
 							"character": 36
 						}
 					]
@@ -20071,7 +20071,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 163,
+									"line": 165,
 									"character": 14
 								}
 							],
@@ -20103,7 +20103,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 159,
+									"line": 161,
 									"character": 5
 								}
 							],
@@ -20135,7 +20135,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 157,
+									"line": 159,
 									"character": 5
 								}
 							],
@@ -20167,7 +20167,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 161,
+									"line": 163,
 									"character": 6
 								}
 							],
@@ -20201,7 +20201,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 155,
+							"line": 157,
 							"character": 36
 						}
 					]
@@ -20230,7 +20230,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 185,
+									"line": 187,
 									"character": 14
 								}
 							],
@@ -20262,7 +20262,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 183,
+									"line": 185,
 									"character": 9
 								}
 							],
@@ -20298,7 +20298,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 181,
+									"line": 183,
 									"character": 13
 								}
 							],
@@ -20331,7 +20331,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 179,
+							"line": 181,
 							"character": 37
 						}
 					]
@@ -20355,12 +20355,12 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Kojis for selling premium videos)."
+								"shortText": "Whether to hide all asset packs and VCC extensions. Enable this option in cases where they do not make sense (for example, Koji apps that sell premium videos)."
 							},
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 200,
+									"line": 202,
 									"character": 16
 								}
 							],
@@ -20392,7 +20392,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 198,
+									"line": 200,
 									"character": 5
 								}
 							],
@@ -20424,7 +20424,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 202,
+									"line": 204,
 									"character": 7
 								}
 							],
@@ -20456,7 +20456,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 204,
+									"line": 206,
 									"character": 13
 								}
 							],
@@ -20489,7 +20489,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 206,
+									"line": 208,
 									"character": 11
 								}
 							],
@@ -20525,7 +20525,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 196,
+							"line": 198,
 							"character": 36
 						}
 					]
@@ -20577,7 +20577,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "If the resource is a Koji, the Koji’s name, if available."
+								"shortText": "If the resource is a Koji app, the app’s name, if available."
 							},
 							"sources": [
 								{
@@ -20607,7 +20607,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "If the resource is a Koji, the URL of the Koji’s thumbnail image, if available."
+								"shortText": "If the resource is a Koji app, the URL of the Koji app’s thumbnail image, if available."
 							},
 							"sources": [
 								{
@@ -21055,7 +21055,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 173,
+									"line": 175,
 									"character": 7
 								}
 							],
@@ -21076,7 +21076,7 @@
 							"sources": [
 								{
 									"fileName": "frontend/ui/capture/index.ts",
-									"line": 171,
+									"line": 173,
 									"character": 7
 								}
 							],
@@ -21099,7 +21099,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 169,
+							"line": 171,
 							"character": 29
 						}
 					]
@@ -21322,7 +21322,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 191,
+							"line": 193,
 							"character": 34
 						}
 					],
@@ -21398,7 +21398,7 @@
 					"sources": [
 						{
 							"fileName": "frontend/ui/capture/index.ts",
-							"line": 790,
+							"line": 791,
 							"character": 20
 						}
 					],
@@ -21488,7 +21488,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Provides methods for controlling navigation within your Koji template."
+						"shortText": "Provides methods for controlling navigation within your Koji app."
 					},
 					"children": [
 						{
@@ -21555,11 +21555,11 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Starts a new remix.",
+										"shortText": "Starts a new customization.",
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.createRemix()}>\n  Create my own remix\n</button>\n```\n"
+												"text": "\n```html\n<button type=\"button\" onClick={() => Koji.ui.navigate.createRemix()}>\n  Create my own customization\n</button>\n```\n"
 											}
 										]
 									},
@@ -21573,7 +21573,7 @@
 												"isOptional": true
 											},
 											"comment": {
-												"text": "ID of the Koji project to remix. Defaults to the current Koji, if an ID is not specified.\n"
+												"text": "ID of the Koji project to customize. Defaults to the current Koji app if an ID is not specified.\n"
 											},
 											"type": {
 												"type": "intrinsic",
@@ -21621,7 +21621,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Closes a Koji that is open in a modal window.",
+										"shortText": "Closes a Koji app that is in a modal window.",
 										"tags": [
 											{
 												"tag": "example",
@@ -21669,8 +21669,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Opens the Koji in the editing experience.",
-										"text": "NOTE: Check that the current user is an admin before calling this method.\nOtherwise, the user will not be authorized to edit the Koji.\n",
+										"shortText": "Opens the Koji app in editing mode.",
+										"text": "NOTE: Check that the current user is an admin before calling this method.\nOtherwise, the user will not be authorized to edit the Koji app.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -21718,8 +21718,8 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Opens the sharing dialog box. By default, the dialog box shares the URL of the current Koji.\nSpecify a full or a relative URL to open a dialog box for sharing a different URL or for a deep link into your Koji.",
-										"text": "NOTE: If you use this method to share a deep link in your Koji, a `koji.to` short URL is automatically created for it.\n",
+										"shortText": "Opens the sharing dialog box. By default, the dialog box shares the URL of the current Koji.\nSpecify a full or a relative URL to open a dialog box for sharing a different URL or for a deep link into your Koji app.",
+										"text": "NOTE: If you use this method to share a deep link in your Koji app, a `koji.to` short URL is automatically created for it.\n",
 										"tags": [
 											{
 												"tag": "example",
@@ -21978,7 +21978,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Presents dialog boxes and system alerts to users on the frontend of your Koji."
+						"shortText": "Presents dialog boxes and system alerts to users on the frontend of your Koji app."
 					},
 					"children": [
 						{
@@ -22593,7 +22593,7 @@
 					"kindString": "Class",
 					"flags": {},
 					"comment": {
-						"shortText": "Uploads files from the frontend of your Koji directly to your project's CDN."
+						"shortText": "Uploads files from the frontend of your Koji app directly to your project's CDN."
 					},
 					"children": [
 						{
@@ -22660,7 +22660,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Uploads a file to your project’s CDN.\nUse this method to provide a custom upload experience or to upload media created or captured during the template experience.\nFor example, recording a video or drawing on a canvas.",
+										"shortText": "Uploads a file to your project’s CDN.\nUse this method to provide a custom upload experience or to upload media created or captured during the app experience.\nFor example, recording a video or drawing on a canvas.",
 										"text": "To upload files with the standard platform control, use {@doclink core-frontend-ui-capture#file | Capture.file }.\n\nNOTE: To use this method for uploading a file collected by a file input, you must extract the blob and reconstruct the file.\nBrowser sandboxing will not allow the native file to be transferred.\n",
 										"returns": "Unique URL for accessing the file on `images.koji-cdn.com` or `objects.koji-cdn.com`, depending on the type of file.\n",
 										"tags": [

@@ -3,18 +3,18 @@
 ![npm (scoped)](https://img.shields.io/npm/v/@withkoji/core?color=green&style=flat-square)
 [![Discord](https://img.shields.io/discord/769256827007139912.svg?style=flat-square)](https://discord.gg/9egkTWf4ec)
 
-**Core library for developing remixable Koji templates.**
+**Core library for developing customizable Koji apps.**
 
 ## Overview
 
-The @withkoji/core package enables you to implement core platform features in your Koji template, including remixing, in-app purchases, UI controls, messaging, and identity services.
+The @withkoji/core package enables you to implement core platform features in your Koji app, including customization, in-app purchases, UI controls, messaging, and identity services.
 
 ## Installation
 
 Install the package in the frontend and backend services of your Koji project.
 
 ```
-npm install --save @withkoji/core
+npm install @withkoji/core
 ```
 
 ## Basic use
@@ -45,7 +45,7 @@ Indicate that the application is ready to start receiving events.
 Koji.ready();
 ```
 
-Enable the user to upload an image from the frontend of the Koji.
+Enable the user to upload an image from the frontend of the Koji app.
 
 ```js
 import Koji from '@withkoji/core';
@@ -65,7 +65,7 @@ Import the package in your backend code.
 import { KojiBackend } from '@withkoji/core';
 ```
 
-Initialize the package with your configuration data, and use `KojiBackend.middleware` to scope operations per remix.
+Initialize the package with your configuration data, and use `KojiBackend.middleware` to scope operations for each customized version of the app.
 Add routes for backend operations (for example, use a Koji database).
 
 ```js
@@ -92,7 +92,7 @@ app.use(express.json());
 // Parse application/json
 app.use(bodyParser.json());
 
-// Use Koji's middleware to handle scoping across your template's remixes
+// Use Koji's middleware to handle scoping across customized versions of the app
 app.use(KojiBackend.middleware(kojiConfig));
 
 // Disable caching
@@ -137,8 +137,8 @@ However, you can also generate the package documentation locally for offline ref
 ## Related resources
 
 * [Package documentation](https://developer.withkoji.com/reference/core/withkoji-koji-core)
-* [Tutorial: Koji quick start](https://developer.withkoji.com/tutorials/getting-started/quick-start)
-* [Migrating to the Koji core package](https://developer.withkoji.com/docs/getting-started/migrate-koji-core)
+* [Tutorial: Koji quick start](https://developer.withkoji.com/docs/getting-started/start-tutorial)
+* [Migrating to the Koji core package](https://developer.withkoji.com/docs/dev-guides/migrate-koji-core)
 * [Koji homepage](http://withkoji.com/)
 
 ## Contributions and questions
