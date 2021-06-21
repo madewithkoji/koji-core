@@ -865,7 +865,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Express response object. Used in conjunction with middleware to scope environment variables for customizations of the original Koji. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]."
+								"shortText": "Express response object. Used in conjunction with middleware to scope environment variables for customized versions of the original Koji app. For the original definition see [[https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/express/index.d.ts#L127 | @types/express]]."
 							},
 							"sources": [
 								{
@@ -7164,7 +7164,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Object that represents the Koji creator (\"seller\")."
+								"shortText": "Object that represents the seller."
 							},
 							"sources": [
 								{
@@ -7195,7 +7195,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "Koji user name of the app creator."
+								"shortText": "Koji username of the seller."
 							},
 							"sources": [
 								{
@@ -8035,7 +8035,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": " Sends a notification to the creator who posted the Koji app in their profile.",
+										"shortText": " Sends a notification to the owner of the Koji app.",
 										"tags": [
 											{
 												"tag": "example",
@@ -8280,7 +8280,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Defines a notification to send to a user account.\nUse [[pushNotificationToOwner]] to send notifications to the creator who posted the Koji app in their profile.\nUse [[pushNotificationToUser]] to send notifications to any user who interacts with the Koji app and has granted the appropriate authorization."
+						"shortText": "Defines a notification to send to a user.\nUse [[pushNotificationToOwner]] to send notifications to the owner of the Koji app.\nUse [[pushNotificationToUser]] to send notifications to any user who interacts with the Koji app and has granted the appropriate authorization."
 					},
 					"children": [
 						{
@@ -9886,7 +9886,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Placeholder values for new customizations."
+								"shortText": "Placeholder values for new customized versions."
 							},
 							"sources": [
 								{
@@ -10757,7 +10757,7 @@
 					"flags": {},
 					"comment": {
 						"shortText": "Enables you to track custom events in your Koji apps.\nFor example, track `onClick` events for the links and buttons in a Koji app.",
-						"text": "To view the analytics data for a published Koji, click the **Koji** button and click **Analytics**.\nYou will see data for the custom events along with a standard set of built-in metrics, which are calculated from the Koji’s access logs.\n\nTIP: Analytics data is processed at frequent intervals throughout the day. If you are testing the custom events in a published app and you don’t see results at first, wait 10 minutes to account for data processing latency, and then check again.\n"
+						"text": "To view the analytics data for a published Koji app, view the published app, click the **App** link, and then **Open Analytics**.\nYou will see data for the custom events along with a standard set of built-in metrics, which are calculated from the app’s access logs.\n\nTIP: Analytics data is processed at frequent intervals throughout the day. If you are testing the custom events in a published app and you don’t see results at first, wait 10 minutes to account for data processing latency, and then check again.\n"
 					},
 					"children": [
 						{
@@ -14428,7 +14428,7 @@
 					"kindString": "Interface",
 					"flags": {},
 					"comment": {
-						"shortText": "Describes the editor to use."
+						"shortText": "Describes the editor that the creator is using."
 					},
 					"children": [
 						{
@@ -14476,7 +14476,7 @@
 								"isOptional": true
 							},
 							"comment": {
-								"shortText": "Type of editor, either `instant` to customize the Koji app's configuration or `full` to edit the app's code in the Koji code editor."
+								"shortText": "Type of editor the creator is using, either `instant` for the Koji player or `full` for the Koji code editor."
 							},
 							"sources": [
 								{
@@ -14746,7 +14746,7 @@
 					"kindString": "Type alias",
 					"flags": {},
 					"comment": {
-						"shortText": "Type of editor, either `instant` to customize the Koji app's configuration or `full` to edit the app's code in the Koji code editor."
+						"shortText": "Type of editor the creator is using, either `instant` for the Koji player or `full` for the Koji code editor."
 					},
 					"sources": [
 						{
@@ -14868,7 +14868,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "Indicates whether the Koji is in customization mode."
+												"text": "Indicates whether the app is in customization mode."
 											},
 											"type": {
 												"type": "intrinsic",
@@ -15228,7 +15228,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Retrieves sensitive data that was [[encryptValue | stored as an encrypted value]].",
-										"text": "NOTE: Only the creator who posted the Koji app in their profile can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.\n",
+										"text": "NOTE: Only the owner of the Koji app can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.\n",
 										"returns": "Decrypted value.\n",
 										"tags": [
 											{
@@ -20577,7 +20577,7 @@
 							"kindString": "Property",
 							"flags": {},
 							"comment": {
-								"shortText": "If the resource is a Koji app, the Koji’s name, if available."
+								"shortText": "If the resource is a Koji app, the app’s name, if available."
 							},
 							"sources": [
 								{
