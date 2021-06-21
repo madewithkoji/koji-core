@@ -25,7 +25,7 @@ export interface KojiConfig {
   /** Default values for the configuration data. */
   remixData?: {[index: string]: any};
 
-  /** Placeholder values for new customizations. */
+  /** Placeholder values for new customized versions. */
   '@@initialTransform'?: {[index: string]: any};
 }
 

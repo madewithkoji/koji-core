@@ -76,7 +76,7 @@ export interface IapProduct {
   id: string;
   /** Name of the Koji app from which the product was purchased. */
   appId: string;
-  /** Koji user name of the app creator. */
+  /** Koji username of the seller. */
   ownerUserId: string;
 
   /** Purchase price of the product. Defined in the entitlements file. */
@@ -109,7 +109,7 @@ export interface IapProduct {
   /** Remaining number of times the product can be sold. Calculated based on the total inventory defined in the entitlements file, less the number of purchases. */
   numAvailable?: number;
 
-  /** Object that represents the Koji creator ("seller"). */
+  /** Object that represents the seller. */
   owner?: UserArtifact;
   /** Array of [[IapReceipt]] objects representing purchases of the product. */
   purchases?: IapReceipt[];

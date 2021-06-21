@@ -4,8 +4,8 @@ import { client } from '../@decorators/client';
  * Enables you to track custom events in your Koji apps.
  * For example, track `onClick` events for the links and buttons in a Koji app.
  *
- * To view the analytics data for a published Koji, click the **Koji** button and click **Analytics**.
- * You will see data for the custom events along with a standard set of built-in metrics, which are calculated from the Koji’s access logs.
+ * To view the analytics data for a published Koji app, view the published app, click the **App** link, and then **Open Analytics**.
+ * You will see data for the custom events along with a standard set of built-in metrics, which are calculated from the app’s access logs.
  *
  * TIP: Analytics data is processed at frequent intervals throughout the day. If you are testing the custom events in a published app and you don’t see results at first, wait 10 minutes to account for data processing latency, and then check again.
  */

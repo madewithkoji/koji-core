@@ -98,7 +98,7 @@ export interface ExtendedLinkResult {
   description: string | null;
   /** Sharing metadata image (`og:image`) of the content at the URL, if available. */
   thumbnailUrl: string | null;
-  /** If the resource is a Koji app, the Koji’s name, if available. */
+  /** If the resource is a Koji app, the app’s name, if available. */
   sourceName: string | null;
   /** If the resource is a Koji app, the URL of the Koji app’s thumbnail image, if available. */
   sourceThumbnailUrl: string | null;

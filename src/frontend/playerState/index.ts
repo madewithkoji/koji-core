@@ -28,7 +28,7 @@ export interface ExpectedQueryParameters {
 }
 
 /**
- * Type of editor, either `instant` to customize the Koji app's configuration or `full` to edit the app's code in the Koji code editor.
+ * Type of editor the creator is using, either `instant` for the Koji player or `full` for the Koji code editor.
  */
 export type EditorType = 'instant' | 'full';
 /**
@@ -37,10 +37,10 @@ export type EditorType = 'instant' | 'full';
 export type EditorMode = 'edit' | 'new';
 
 /**
- * Describes the editor to use.
+ * Describes the editor that the creator is using.
  */
 export interface EditorAttributes {
-  /** Type of editor, either `instant` to customize the Koji app's configuration or `full` to edit the app's code in the Koji code editor. */
+  /** Type of editor the creator is using, either `instant` for the Koji player or `full` for the Koji code editor. */
   type?: EditorType;
   /** Distinguishes between creating a `new` customized version of the app and doing an `edit` of the user’s existing Koji app. */
   mode?: EditorMode;
@@ -55,7 +55,7 @@ export type IsRemixingCallback =
   /**
    * Function to handle changes in the customization mode. Invoked by the [[subscribe]] listener.
    *
-   * @param isRemixing Indicates whether the Koji is in customization mode.
+   * @param isRemixing Indicates whether the app is in customization mode.
    * @param editorAttributes
    */
   (isRemixing: boolean, editorAttributes: EditorAttributes) => void;

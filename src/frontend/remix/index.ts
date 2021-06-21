@@ -211,7 +211,7 @@ export class Remix extends KojiBridge {
   /**
    * Retrieves sensitive data that was [[encryptValue | stored as an encrypted value]].
    *
-   * NOTE: Only the creator who posted the Koji app in their profile can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.
+   * NOTE: Only the owner of the Koji app can access the decrypted value with this method. For example, to check that the value was entered correctly. To retrieve the value for other users, use {@doclink core-backend-secret#resolveValue | Secret.resolveValue} on the backend.
    *
    * @param   encryptedValue Path where the encrypted value is stored.
    * @return                 Decrypted value.

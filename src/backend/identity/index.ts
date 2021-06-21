@@ -35,8 +35,8 @@ export interface User {
 }
 
 /**
- * Defines a notification to send to a user account.
- * Use [[pushNotificationToOwner]] to send notifications to the creator who posted the Koji app in their profile.
+ * Defines a notification to send to a user.
+ * Use [[pushNotificationToOwner]] to send notifications to the owner of the Koji app.
  * Use [[pushNotificationToUser]] to send notifications to any user who interacts with the Koji app and has granted the appropriate authorization.
  */
 export interface PushNotification {
@@ -112,7 +112,7 @@ export class Identity extends Base {
   }
 
   /**
-   *  Sends a notification to the creator who posted the Koji app in their profile.
+   *  Sends a notification to the owner of the Koji app.
    *
    * @param     notification      Notification to send to the owner.
    *

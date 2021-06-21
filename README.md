@@ -65,7 +65,7 @@ Import the package in your backend code.
 import { KojiBackend } from '@withkoji/core';
 ```
 
-Initialize the package with your configuration data, and use `KojiBackend.middleware` to scope operations per customization.
+Initialize the package with your configuration data, and use `KojiBackend.middleware` to scope operations for each customized version of the app.
 Add routes for backend operations (for example, use a Koji database).
 
 ```js
@@ -92,7 +92,7 @@ app.use(express.json());
 // Parse application/json
 app.use(bodyParser.json());
 
-// Use Koji's middleware to handle scoping across your app's customizations
+// Use Koji's middleware to handle scoping across customized versions of the app
 app.use(KojiBackend.middleware(kojiConfig));
 
 // Disable caching
@@ -138,7 +138,7 @@ However, you can also generate the package documentation locally for offline ref
 
 * [Package documentation](https://developer.withkoji.com/reference/core/withkoji-koji-core)
 * [Tutorial: Koji quick start](https://developer.withkoji.com/docs/getting-started/start-tutorial)
-* [Migrating to the Koji core package](https://developer.withkoji.com/docs/getting-started/migrate-koji-core)
+* [Migrating to the Koji core package](https://developer.withkoji.com/docs/dev-guides/migrate-koji-core)
 * [Koji homepage](http://withkoji.com/)
 
 ## Contributions and questions

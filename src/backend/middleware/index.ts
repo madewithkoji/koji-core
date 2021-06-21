@@ -41,7 +41,7 @@ export function middleware(kojiConfig: KojiConfig = {}) {
     // Use the remixData from the json configuration as the base
     const { remixData = {} } = kojiConfig;
 
-    // Apply customization-specific overrides (equivalent of window.KOJI_OVERRIDES.overrides on the client)
+    // Apply version-specific overrides (equivalent of window.KOJI_OVERRIDES.overrides on the client)
     const overrides = req.headers['x-trusted-koji-overrides'];
 
     const parsedOverrides = typeof overrides === 'string' ? JSON.parse(overrides) : {};
