@@ -3,15 +3,22 @@ import deepmerge from 'deepmerge';
 
 import { KojiConfig } from '../../frontend';
 
-// ToDo: Make this non-mutating
 const decodeObject = (obj: any): any => {
   Object.keys(obj).forEach((key) => {
     if (obj[key] && typeof obj[key] === 'object') {
       decodeObject(obj[key]);
       return;
     }
-    // eslint-disable-next-line no-param-reassign
-    obj[key] = decodeURI(obj[key]);
+
+    // Decode the value, unless it's a boolean or a number
+    if (
+      obj[key] &&
+      typeof obj[key] !== 'boolean' &&
+      typeof obj[key] !== 'number'
+    ) {
+      // eslint-disable-next-line no-param-reassign
+      obj[key] = decodeURI(obj[key]);
+    }
   });
 };
 
