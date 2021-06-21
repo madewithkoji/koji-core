@@ -28,5 +28,6 @@ module.exports = {
     'import/no-unresolved': [2, { commonjs: true, amd: true }],
     'max-len': 0,
     'no-unused-vars': 'off',
+    'operator-linebreak': 0,
   },
 };
