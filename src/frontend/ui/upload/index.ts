@@ -51,7 +51,8 @@ export class Upload extends KojiBridge {
    *  type: 'video',
    *  videoOptions: {
    *    hls: true,
-   *  });
+   *  }
+   * });
    * ```
    */
   @client
