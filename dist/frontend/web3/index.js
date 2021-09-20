@@ -174,6 +174,7 @@ var Web3Provider = (_class = /*#__PURE__*/function (_KojiBridge) {
       var scopedEventName = "KojiWeb3.Ethereum.Events.".concat(event);
       this.registerMessageListener(scopedEventName, function (_ref) {
         var eventData = _ref.eventData;
+        console.log(eventData);
         callback.apply(void 0, (0, _toConsumableArray2["default"])(eventData));
       });
     }

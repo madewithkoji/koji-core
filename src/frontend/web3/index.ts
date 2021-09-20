@@ -92,6 +92,7 @@ export class Web3Provider extends KojiBridge {
   ): void {
     const scopedEventName = `KojiWeb3.Ethereum.Events.${event}`;
     this.registerMessageListener(scopedEventName, ({ eventData }) => {
+      console.log(eventData);
       callback(...eventData);
     });
   }
