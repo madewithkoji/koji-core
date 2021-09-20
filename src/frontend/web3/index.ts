@@ -88,12 +88,11 @@ export class Web3Provider extends KojiBridge {
    */
   public on(
     event: 'accountsChanged'|'chainChanged'|'connect'|'disconnect'|'message',
-    callback: (...args: any) => void,
+    callback: (message: any) => void,
   ): void {
     const scopedEventName = `KojiWeb3.Ethereum.Events.${event}`;
     this.registerMessageListener(scopedEventName, ({ eventData }) => {
-      console.log(eventData);
-      callback(...eventData);
+      callback(eventData);
     });
   }
 }

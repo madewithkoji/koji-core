@@ -7,8 +7,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.web3Provider = exports.Web3Provider = void 0;
 
-var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
-
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
@@ -174,8 +172,7 @@ var Web3Provider = (_class = /*#__PURE__*/function (_KojiBridge) {
       var scopedEventName = "KojiWeb3.Ethereum.Events.".concat(event);
       this.registerMessageListener(scopedEventName, function (_ref) {
         var eventData = _ref.eventData;
-        console.log(eventData);
-        callback.apply(void 0, (0, _toConsumableArray2["default"])(eventData));
+        callback(eventData);
       });
     }
   }]);
