@@ -104,7 +104,8 @@ var KojiBridge = /*#__PURE__*/function () {
         var data = _ref3.data;
 
         if (data.event === eventName) {
-          callback(data);
+          var spreadableData = JSON.parse(JSON.stringify(data));
+          callback(spreadableData);
         }
       });
     }
