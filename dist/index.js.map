@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/index.ts"],"names":["Koji"],"mappings":";;;;;;;;;;;;;;;AACA;;AAEA;;AAHA;eAKeA,oB","sourcesContent":["/* eslint-disable import/no-named-as-default */\nimport Koji from './frontend';\n\nexport { KojiBackend } from './backend';\n\nexport default Koji;\n"],"file":"index.js"}
