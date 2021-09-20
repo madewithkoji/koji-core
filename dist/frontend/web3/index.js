@@ -7,6 +7,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.web3Provider = exports.Web3Provider = void 0;
 
+var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
+
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
@@ -108,7 +110,8 @@ var Web3Provider = (_class = /*#__PURE__*/function (_KojiBridge) {
     key: "request",
     value: function () {
       var _request = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(args) {
-        var result;
+        var _yield$this$sendMessa2, result, error;
+
         return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -122,10 +125,21 @@ var Web3Provider = (_class = /*#__PURE__*/function (_KojiBridge) {
                 }, 'KojiWeb3.Ethereum.RequestFinished');
 
               case 2:
-                result = _context2.sent;
+                _yield$this$sendMessa2 = _context2.sent;
+                result = _yield$this$sendMessa2.result;
+                error = _yield$this$sendMessa2.error;
+
+                if (!error) {
+                  _context2.next = 7;
+                  break;
+                }
+
+                throw new Error(error.message);
+
+              case 7:
                 return _context2.abrupt("return", result);
 
-              case 4:
+              case 8:
               case "end":
                 return _context2.stop();
             }
@@ -158,7 +172,10 @@ var Web3Provider = (_class = /*#__PURE__*/function (_KojiBridge) {
     key: "on",
     value: function on(event, callback) {
       var scopedEventName = "KojiWeb3.Ethereum.Events.".concat(event);
-      this.registerMessageListener(scopedEventName, callback);
+      this.registerMessageListener(scopedEventName, function (_ref) {
+        var eventData = _ref.eventData;
+        callback.apply(void 0, (0, _toConsumableArray2["default"])(eventData));
+      });
     }
   }]);
   return Web3Provider;

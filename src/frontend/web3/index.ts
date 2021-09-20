@@ -58,12 +58,16 @@ export class Web3Provider extends KojiBridge {
    * ```
    */
   public async request(args: Web3Request): Promise<Web3RequestResult> {
-    const result = await this.sendMessageAndAwaitResponse({
+    const { result, error } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/web3/ethereum/request',
       data: {
         args,
       },
     }, 'KojiWeb3.Ethereum.RequestFinished');
+
+    if (error) {
+      throw new Error(error.message);
+    }
 
     return result;
   }
@@ -84,10 +88,12 @@ export class Web3Provider extends KojiBridge {
    */
   public on(
     event: 'accountsChanged'|'chainChanged'|'connect'|'disconnect'|'message',
-    callback: (message: any) => void,
+    callback: (...args: any) => void,
   ): void {
     const scopedEventName = `KojiWeb3.Ethereum.Events.${event}`;
-    this.registerMessageListener(scopedEventName, callback);
+    this.registerMessageListener(scopedEventName, ({ eventData }) => {
+      callback(...eventData);
+    });
   }
 }
 
