@@ -6,6 +6,8 @@ import { identity, Identity } from './identity';
 import { playerState, PlayerState } from './playerState';
 import { remix, Remix } from './remix';
 import { ui, UI } from './ui';
+import { web3, Web3 } from './web3';
+
 import { client } from './@decorators/client';
 import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
 
@@ -89,6 +91,7 @@ export class Koji {
   public playerState: PlayerState = playerState;
   public remix: Remix = remix;
   public ui: UI = ui;
+  public web3: Web3 = web3;
 
   constructor() {
     this.isReady = false;
