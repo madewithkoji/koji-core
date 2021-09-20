@@ -86,4 +86,12 @@ export class KojiBridge {
       );
     });
   }
+
+  protected registerMessageListener(eventName: string, callback: (result: any) => void) {
+    window.addEventListener('message', ({ data }: { data: MessageListenerData }) => {
+      if (data.event === eventName) {
+        callback(data);
+      }
+    });
+  }
 }
