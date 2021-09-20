@@ -70,7 +70,7 @@ var Koji = (_class = (_temp = /*#__PURE__*/function () {
     (0, _defineProperty2["default"])(this, "playerState", _playerState.playerState);
     (0, _defineProperty2["default"])(this, "remix", _remix.remix);
     (0, _defineProperty2["default"])(this, "ui", _ui.ui);
-    (0, _defineProperty2["default"])(this, "web3Provider", _web.web3Provider);
+    (0, _defineProperty2["default"])(this, "web3", _web.web3);
     this.isReady = false;
   }
   /**
