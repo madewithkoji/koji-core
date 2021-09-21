@@ -9,7 +9,9 @@ export type AuthGrantCapability =
   /** Allows the current Koji to send push notifications to the user. */
   'push_notifications' |
   /** Creates a unique ID for the user on the current Koji app and allows the app to map the user’s token to a persistent user ID in storage, such as a backend database. */
-  'username';
+  'username' |
+  /** The user's global Koji account ID. This can be used when app needs to identity a user across multiple apps, but should not be used in cases where the anonymized ID is suffience. */
+  'global_id';
 
 /**
  * User attributes that are determined via a client-side API call.
@@ -19,6 +21,8 @@ export interface PresumedAttributes {
   username?: string;
   /** Koji avatar for the user. */
   profilePicture?: string;
+  /** The user's global Koji account ID */
+  globalId?: string;
 }
 
 /**
