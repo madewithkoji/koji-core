@@ -23392,7 +23392,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst isConnected = await Koji.web3.isConnected();\n```\n"
+												"text": "\n```javascript\nconst isConnected = await Koji.web3.providers.ethereum.isConnected();\n```\n"
 											}
 										]
 									},
@@ -23436,7 +23436,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nKoji.web3.on('accountsChanged', ({ accounts }) => {\n  console.log(accounts);\n})\n```\n"
+												"text": "\n```javascript\nKoji.web3.providers.ethereum.on('accountsChanged', ({ accounts }) => {\n  console.log(accounts);\n})\n```\n"
 											}
 										]
 									},
@@ -23558,7 +23558,7 @@
 										"tags": [
 											{
 												"tag": "example",
-												"text": "\n```javascript\nconst accounts = await Koji.web3.request({ method: 'eth_requestAccounts' });\n```\n"
+												"text": "\n```javascript\nconst accounts = await Koji.web3.providers.ethereum.request({ method: 'eth_requestAccounts' });\n```\n"
 											}
 										]
 									},
