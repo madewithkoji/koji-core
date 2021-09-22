@@ -31,7 +31,7 @@ export class EthereumProvider extends KojiBridge {
    *
    * @example
    * ```javascript
-   * const isConnected = await Koji.web3.isConnected();
+   * const isConnected = await Koji.web3.providers.ethereum.isConnected();
    * ```
    */
   @client
@@ -54,7 +54,7 @@ export class EthereumProvider extends KojiBridge {
    *
    * @example
    * ```javascript
-   * const accounts = await Koji.web3.request({ method: 'eth_requestAccounts' });
+   * const accounts = await Koji.web3.providers.ethereum.request({ method: 'eth_requestAccounts' });
    * ```
    */
   public async request(args: Web3Request): Promise<Web3RequestResult> {
@@ -81,7 +81,7 @@ export class EthereumProvider extends KojiBridge {
    *
    * @example
    * ```javascript
-   * Koji.web3.on('accountsChanged', ({ accounts }) => {
+   * Koji.web3.providers.ethereum.on('accountsChanged', ({ accounts }) => {
    *   console.log(accounts);
    * })
    * ```
