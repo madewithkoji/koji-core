@@ -8,5 +8,3 @@ export class Web3 {
     ethereum: EthereumProvider,
   };
 }
-
-export const web3 = new Web3();
