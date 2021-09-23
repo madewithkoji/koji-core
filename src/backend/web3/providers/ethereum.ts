@@ -23,7 +23,7 @@ export class EthereumProvider extends Base {
    *
    * @example
    * ```javascript
-   * const ethereum = new KojiBackend.web3.ethereum({ res });
+   * const ethereum = new KojiBackend.web3.providers.ethereum({ res });
    * ```
    */
   public constructor(config: BackendConfigurationInput) {
