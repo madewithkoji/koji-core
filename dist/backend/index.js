@@ -19,6 +19,8 @@ var _secret = require("./secret");
 
 var _utilities = require("./utilities");
 
+var _web = require("./web3");
+
 /**
  * Provides backend methods for your Koji app.
  */
@@ -29,6 +31,7 @@ var KojiBackend = {
   Identity: _identity.Identity,
   Secret: _secret.Secret,
   Utilities: _utilities.Utilities,
+  Web3: _web.Web3,
   middleware: _middleware.middleware
 };
 exports.KojiBackend = KojiBackend;

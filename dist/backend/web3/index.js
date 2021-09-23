@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.web3 = exports.Web3 = void 0;
+exports.Web3 = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
@@ -24,6 +24,4 @@ var Web3 = function Web3() {
 };
 
 exports.Web3 = Web3;
-var web3 = new Web3();
-exports.web3 = web3;
 //# sourceMappingURL=index.js.map
