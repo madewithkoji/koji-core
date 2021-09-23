@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "1.7.6",
+  "version": "1.7.7",
   "description": "Core library for developing customizable Koji apps",
   "main": "dist/index.js",
   "scripts": {
