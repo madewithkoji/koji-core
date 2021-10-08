@@ -6,7 +6,8 @@ import { Base, BackendConfigurationInput } from '../../base';
  * API routes for utilities.
  */
 enum EthereumRoutes {
-  GET_BALANCE = '/v1/apps/hooks/web3/erc721/balanceOf',
+  ERC721_GET_BALANCE = '/v1/apps/hooks/web3/erc721/balanceOf',
+  ERC1155_GET_BALANCE = '/v1/apps/hooks/web3/erc1155/balanceOf',
 }
 
 /**
@@ -39,7 +40,7 @@ export class EthereumProvider extends Base {
   }
 
   /**
-   * Get a balance for an account ID
+   * Get an account's balance for an ERC721 token.
    *
    * @param   contractId      The ID of the smart contract
    * @param   accountAddress  The address of the account to query
@@ -53,16 +54,53 @@ export class EthereumProvider extends Base {
    * ```
    */
   @server
-  public async getERC721Balance(
-    contractId: string,
-    accountAddress: string,
-  ): Promise<number> {
+  public async getERC721Balance(contractId: string, accountAddress: string): Promise<number> {
     try {
       const { data } = await axios.post(
-        `${this.rootPath}${EthereumRoutes.GET_BALANCE}`,
+        `${this.rootPath}${EthereumRoutes.ERC721_GET_BALANCE}`,
         {
           contractId,
           accountAddress,
+        },
+        {
+          headers: this.rootHeaders,
+        },
+      );
+      return data.balance;
+    } catch (err) {
+      return 0;
+    }
+  }
+
+  /**
+   * Get an account's balance for an ERC1155 token.
+   *
+   * @param   contractId      The ID of the smart contract
+   * @param   accountAddress  The address of the account to query
+   * @param   tokenId         The ID of the specific token for which to return a balance
+   *
+   * @example
+   * ```javascript
+   * const balance = await ethereum.getERC1155Balance(
+   *    '0x495f947276749ce646f68ac8c248420045cb7b5e',
+   *    '0x1e093bacf9d51c7fad20badf049b2fb926003e73',
+   *    '13585698947536714042189813736898920110951234445351156220539561948976043261953',
+   * );
+   * ```
+   */
+  @server
+  public async getERC1155Balance(
+    contractId: string,
+    accountAddress: string,
+    tokenId: string,
+  ): Promise<number> {
+    try {
+      const { data } = await axios.post(
+        `${this.rootPath}${EthereumRoutes.ERC1155_GET_BALANCE}`,
+        {
+          contractId,
+          accountAddress,
+          tokenId,
         },
         {
           headers: this.rootHeaders,
