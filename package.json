@@ -1,6 +1,6 @@
 {
   "name": "@withkoji/core",
-  "version": "1.7.10",
+  "version": "1.7.11",
   "description": "Core library for developing customizable Koji apps",
   "main": "dist/index.js",
   "scripts": {
@@ -21,9 +21,9 @@
   ],
   "homepage": "https://github.com/madewithkoji/koji-core",
   "bugs": "https://github.com/madewithkoji/koji-core/issues",
-  "author": "diddy <seanelliot@withkoji.com>",
+  "author": "seant <sean@withkoji.com>",
   "repository": "github:madewithkoji/koji-core",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",

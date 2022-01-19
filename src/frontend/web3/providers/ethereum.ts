@@ -131,7 +131,7 @@ export class EthereumProvider extends KojiBridge {
         id: payload.id,
         jsonrpc: '2.0',
         method: payload.method,
-        ...result,
+        result,
       });
     } catch (err: any) {
       callback(
