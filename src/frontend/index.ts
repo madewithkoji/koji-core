@@ -63,6 +63,9 @@ export interface KojiMetadata {
 
   /** URL reference to the creator's current profile picture. */
   creatorProfilePicture: string;
+
+  /** The canonical URL of the app wrapped in a Koji Player, e.g., https://withkoji.com/@username/slug */
+  canonicalUrl: string;
 }
 
 /**
@@ -156,10 +159,12 @@ export class Koji {
     let projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
     let creatorUsername = process.env.KOJI_CREATOR_USERNAME;
     let creatorProfilePicture = process.env.KOJI_CREATOR_PROFILE_PICTURE;
+    let canonicalUrl = process.env.KOJI_CANONICAL_URL;
 
     if (metadata) {
       creatorUsername = metadata.creatorUsername;
       creatorProfilePicture = metadata.creatorProfilePicture;
+      canonicalUrl = metadata.canonicalUrl;
     }
 
     // Even if the value is overwritten by an override, it should still
@@ -178,6 +183,7 @@ export class Koji {
         projectId = overrides.metadata.projectId;
         creatorUsername = overrides.metadata.creatorUsername;
         creatorProfilePicture = overrides.metadata.creatorProfilePicture;
+        canonicalUrl = overrides.metadata.canonicalUrl;
       }
     }
 
@@ -189,6 +195,7 @@ export class Koji {
       projectId: projectId || '',
       creatorUsername: creatorUsername || '',
       creatorProfilePicture: creatorProfilePicture || '',
+      canonicalUrl: canonicalUrl || '',
     };
 
     // Init dispatch
