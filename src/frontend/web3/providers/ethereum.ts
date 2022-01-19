@@ -21,7 +21,24 @@ export interface Web3RequestResult {
 }
 
 /**
- * Manages authentication and authorization on the frontend of your Koji app.
+ * Deprecated Web3 JSON-RPC request
+ */
+export interface DeprecatedJsonRpcRequest extends Web3Request {
+  id: string | undefined;
+  jsonrpc: '2.0';
+}
+
+/**
+ * Deprecatd Web3 JSON-RPC response
+ */
+export interface DeprecatedJsonRpcResponse extends Web3RequestResult {
+  id: string | undefined;
+  jsonrpc: '2.0';
+  method: string;
+}
+
+/**
+ * Native web3 provider that leverages Koji for multi-wallet support.
  */
 export class EthereumProvider extends KojiBridge {
   /**
@@ -73,7 +90,7 @@ export class EthereumProvider extends KojiBridge {
   }
 
   /**
-   * Register an event listener for wallet events
+   * Register an event listener for wallet events.
    *
    * @param   event             The name of the event for which to listen.
    * @param   callback          Called when the event is received
@@ -94,6 +111,34 @@ export class EthereumProvider extends KojiBridge {
     this.registerMessageListener(scopedEventName, ({ eventData }) => {
       callback(eventData);
     });
+  }
+
+  /**
+   * Support deprecated sendAsync method. This method is only implemented
+   * because some assertion libraries check its existance when attaching to a
+   * provider. It should not be used in cases where `request` is available.
+   *
+   * @param payload           JSON request payload
+   * @param callback          Callback with request result
+   */
+  public async sendAsync(
+    payload: DeprecatedJsonRpcRequest,
+    callback: (error?: Error, response?: DeprecatedJsonRpcResponse) => unknown,
+  ): Promise<void> {
+    try {
+      const result = await this.request(payload);
+      callback(undefined, {
+        id: payload.id,
+        jsonrpc: '2.0',
+        method: payload.method,
+        ...result,
+      });
+    } catch (err: any) {
+      callback(
+        err,
+        undefined,
+      );
+    }
   }
 }
 
