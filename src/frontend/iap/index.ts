@@ -31,7 +31,8 @@ export class IAP extends KojiBridge {
   /**
    * Generates an IAP token for the current user that can be used to resolve receipts on the backend.
    *
-   * @return    Short-lived IAP token for the current user.
+   * @param  promptAuth   If true, logged-out users will be prompted to sign in. This is useful for restoring purchases when a user may be logged out (e.g., purchased a product inside TikTok webview, and then later visited the same app via Safari and is no longer logged in), but should only be used when actively requested by a user (e.g., a "Restore Purchases" button). Otherwise, this should be left false to get the token passively.
+   * @return              Short-lived IAP token for the current user.
    *
    * @example
    * ``` javascript
@@ -39,11 +40,13 @@ export class IAP extends KojiBridge {
    * ```
    */
   @client
-  public async getToken(): Promise<IAPToken> {
+  public async getToken(promptAuth: boolean = false): Promise<IAPToken> {
     const { userToken } = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: '@@koji/iap/getToken',
-        data: {},
+        data: {
+          promptAuth,
+        },
       },
       'KojiIap.TokenCreated',
     );
