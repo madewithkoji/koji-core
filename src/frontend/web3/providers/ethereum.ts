@@ -38,6 +38,18 @@ export interface DeprecatedJsonRpcResponse extends Web3RequestResult {
 }
 
 /**
+ * Supported chains
+ */
+export type SupportedChain =
+  | 'ethereum'
+  | 'polygon'
+  | 'ropsten'
+  | 'rinkeby'
+  | 'goerli'
+  | 'kovan'
+  | 'matic_mumbai';
+
+/**
  * Native web3 provider that leverages Koji for multi-wallet support.
  */
 export class EthereumProvider extends KojiBridge {
@@ -64,6 +76,28 @@ export class EthereumProvider extends KojiBridge {
   }
 
   /**
+   * Set the chain preferred by this app. For consumers using the Koji native
+   * wallet, setting this automatically updates the user's connected chain. For
+   * users of other wallets, Koji will notify the user if they are connected
+   * using the non-preferred chain. If not set, defaults to ethereum mainnet.
+   *
+   * @param chain The chain preferred by this app
+   *
+   * @example
+   * ```javascript
+   * await Koji.web3.providers.ethereum.setPreferredChain('polygon');
+   * ```
+   */
+  public async setPreferredChain(chain: SupportedChain): Promise<void> {
+    await this.sendMessageAndAwaitResponse({
+      kojiEventName: '@@koji/web3/ethereum/setPreferredChain',
+      data: {
+        chain,
+      },
+    }, 'KojiWeb3.Ethereum.SetPreferredChain');
+  }
+
+  /**
    * Proxies a request to an Ethereum wallet provider.
    *
    * @param   request       The request to proxy
@@ -74,6 +108,7 @@ export class EthereumProvider extends KojiBridge {
    * const accounts = await Koji.web3.providers.ethereum.request({ method: 'eth_requestAccounts' });
    * ```
    */
+  @client
   public async request(args: Web3Request): Promise<Web3RequestResult> {
     const { result, error } = await this.sendMessageAndAwaitResponse({
       kojiEventName: '@@koji/web3/ethereum/request',
@@ -103,6 +138,7 @@ export class EthereumProvider extends KojiBridge {
    * })
    * ```
    */
+  @client
   public on(
     event: 'accountsChanged'|'chainChanged'|'connect'|'disconnect'|'message',
     callback: (message: any) => void,
@@ -121,6 +157,7 @@ export class EthereumProvider extends KojiBridge {
    * @param payload           JSON request payload
    * @param callback          Callback with request result
    */
+  @client
   public async sendAsync(
     payload: DeprecatedJsonRpcRequest,
     callback: (error?: Error, response?: DeprecatedJsonRpcResponse) => unknown,

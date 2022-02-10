@@ -11455,8 +11455,23 @@
 						},
 						{
 							"type": "reference",
-							"id": 1396,
+							"id": 1397,
 							"name": "isConnected"
+						},
+						{
+							"type": "reference",
+							"id": 1402,
+							"name": "request"
+						},
+						{
+							"type": "reference",
+							"id": 1405,
+							"name": "on"
+						},
+						{
+							"type": "reference",
+							"id": 1412,
+							"name": "sendAsync"
 						}
 					],
 					"sources": [
@@ -14746,7 +14761,7 @@
 						},
 						{
 							"type": "reference",
-							"id": 1393,
+							"id": 1394,
 							"name": "EthereumProvider"
 						}
 					]
@@ -19564,7 +19579,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1448,
+								"id": 1452,
 								"name": "FastlyOptions.auto"
 							}
 						},
@@ -19602,7 +19617,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1449,
+								"id": 1453,
 								"name": "FastlyOptions.bg-color"
 							}
 						},
@@ -19640,7 +19655,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1450,
+								"id": 1454,
 								"name": "FastlyOptions.blur"
 							}
 						},
@@ -19678,7 +19693,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1451,
+								"id": 1455,
 								"name": "FastlyOptions.brightness"
 							}
 						},
@@ -19716,7 +19731,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1452,
+								"id": 1456,
 								"name": "FastlyOptions.contrast"
 							}
 						},
@@ -19754,7 +19769,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1453,
+								"id": 1457,
 								"name": "FastlyOptions.crop"
 							}
 						},
@@ -19792,7 +19807,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1454,
+								"id": 1458,
 								"name": "FastlyOptions.dpr"
 							}
 						},
@@ -19838,7 +19853,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1455,
+								"id": 1459,
 								"name": "FastlyOptions.fit"
 							}
 						},
@@ -19912,7 +19927,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1456,
+								"id": 1460,
 								"name": "FastlyOptions.format"
 							}
 						},
@@ -19950,7 +19965,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1457,
+								"id": 1461,
 								"name": "FastlyOptions.frame"
 							}
 						},
@@ -19988,7 +20003,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1458,
+								"id": 1462,
 								"name": "FastlyOptions.height"
 							}
 						},
@@ -20066,7 +20081,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1459,
+								"id": 1463,
 								"name": "FastlyOptions.optimize"
 							}
 						},
@@ -20152,7 +20167,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1460,
+								"id": 1464,
 								"name": "FastlyOptions.orient"
 							}
 						},
@@ -20190,7 +20205,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1461,
+								"id": 1465,
 								"name": "FastlyOptions.pad"
 							}
 						},
@@ -20228,7 +20243,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1462,
+								"id": 1466,
 								"name": "FastlyOptions.precrop"
 							}
 						},
@@ -20266,7 +20281,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1463,
+								"id": 1467,
 								"name": "FastlyOptions.quality"
 							}
 						},
@@ -20320,7 +20335,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1464,
+								"id": 1468,
 								"name": "FastlyOptions.resize-filter"
 							}
 						},
@@ -20358,7 +20373,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1465,
+								"id": 1469,
 								"name": "FastlyOptions.saturation"
 							}
 						},
@@ -20396,7 +20411,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1466,
+								"id": 1470,
 								"name": "FastlyOptions.sharpen"
 							}
 						},
@@ -20434,7 +20449,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1467,
+								"id": 1471,
 								"name": "FastlyOptions.trim"
 							}
 						},
@@ -20472,7 +20487,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1468,
+								"id": 1472,
 								"name": "FastlyOptions.width"
 							}
 						}
@@ -20517,7 +20532,7 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"id": 1447,
+							"id": 1451,
 							"name": "FastlyOptions"
 						}
 					]
@@ -21332,7 +21347,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1440,
+										"id": 1444,
 										"name": "RemuxPreset"
 									}
 								]
@@ -21365,7 +21380,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1443,
+										"id": 1447,
 										"name": "Watermark"
 									}
 								]
@@ -23823,7 +23838,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1440,
+										"id": 1444,
 										"name": "RemuxPreset"
 									}
 								]
@@ -23856,7 +23871,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1443,
+										"id": 1447,
 										"name": "Watermark"
 									}
 								]
@@ -24008,7 +24023,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1393,
+												"id": 1394,
 												"name": "EthereumProvider"
 											},
 											"defaultValue": "..."
@@ -24107,7 +24122,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 1393,
+					"id": 1394,
 					"name": "EthereumProvider",
 					"kind": 128,
 					"kindString": "Class",
@@ -24117,21 +24132,21 @@
 					},
 					"children": [
 						{
-							"id": 1394,
+							"id": 1395,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1395,
+									"id": 1396,
 									"name": "new EthereumProvider",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1393,
+										"id": 1394,
 										"name": "EthereumProvider"
 									},
 									"inheritedFrom": {
@@ -24148,7 +24163,7 @@
 							}
 						},
 						{
-							"id": 1396,
+							"id": 1397,
 							"name": "isConnected",
 							"kind": 2048,
 							"kindString": "Method",
@@ -24168,13 +24183,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/web3/providers/ethereum.ts",
-									"line": 55,
+									"line": 67,
 									"character": 26
 								}
 							],
 							"signatures": [
 								{
-									"id": 1397,
+									"id": 1398,
 									"name": "isConnected",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24203,23 +24218,33 @@
 							]
 						},
 						{
-							"id": 1401,
+							"id": 1405,
 							"name": "on",
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
 								"isPublic": true
 							},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 521,
+										"name": "client"
+									}
+								}
+							],
 							"sources": [
 								{
 									"fileName": "frontend/web3/providers/ethereum.ts",
-									"line": 106,
+									"line": 142,
 									"character": 11
 								}
 							],
 							"signatures": [
 								{
-									"id": 1402,
+									"id": 1406,
 									"name": "on",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24235,7 +24260,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1403,
+											"id": 1407,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24270,7 +24295,7 @@
 											}
 										},
 										{
-											"id": 1404,
+											"id": 1408,
 											"name": "callback",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24281,21 +24306,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 1405,
+													"id": 1409,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 1406,
+															"id": 1410,
 															"name": "__type",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 1407,
+																	"id": 1411,
 																	"name": "message",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -24324,23 +24349,33 @@
 							]
 						},
 						{
-							"id": 1398,
+							"id": 1402,
 							"name": "request",
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
 								"isPublic": true
 							},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 521,
+										"name": "client"
+									}
+								}
+							],
 							"sources": [
 								{
 									"fileName": "frontend/web3/providers/ethereum.ts",
-									"line": 77,
+									"line": 112,
 									"character": 22
 								}
 							],
 							"signatures": [
 								{
-									"id": 1399,
+									"id": 1403,
 									"name": "request",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24357,7 +24392,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1400,
+											"id": 1404,
 											"name": "args",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24384,23 +24419,33 @@
 							]
 						},
 						{
-							"id": 1408,
+							"id": 1412,
 							"name": "sendAsync",
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
 								"isPublic": true
 							},
+							"decorators": [
+								{
+									"name": "client",
+									"type": {
+										"type": "reference",
+										"id": 521,
+										"name": "client"
+									}
+								}
+							],
 							"sources": [
 								{
 									"fileName": "frontend/web3/providers/ethereum.ts",
-									"line": 124,
+									"line": 161,
 									"character": 24
 								}
 							],
 							"signatures": [
 								{
-									"id": 1409,
+									"id": 1413,
 									"name": "sendAsync",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24410,7 +24455,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1410,
+											"id": 1414,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24425,7 +24470,7 @@
 											}
 										},
 										{
-											"id": 1411,
+											"id": 1415,
 											"name": "callback",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24436,21 +24481,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 1412,
+													"id": 1416,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 1413,
+															"id": 1417,
 															"name": "__type",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 1414,
+																	"id": 1418,
 																	"name": "error",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -24463,7 +24508,7 @@
 																	}
 																},
 																{
-																	"id": 1415,
+																	"id": 1419,
 																	"name": "response",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -24499,6 +24544,67 @@
 									}
 								}
 							]
+						},
+						{
+							"id": 1399,
+							"name": "setPreferredChain",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPublic": true
+							},
+							"sources": [
+								{
+									"fileName": "frontend/web3/providers/ethereum.ts",
+									"line": 91,
+									"character": 32
+								}
+							],
+							"signatures": [
+								{
+									"id": 1400,
+									"name": "setPreferredChain",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Set the chain preferred by this app. For consumers using the Koji native\nwallet, setting this automatically updates the user's connected chain. For\nusers of other wallets, Koji will notify the user if they are connected\nusing the non-preferred chain. If not set, defaults to ethereum mainnet.",
+										"tags": [
+											{
+												"tag": "example",
+												"text": "\n```javascript\nawait Koji.web3.providers.ethereum.setPreferredChain('polygon');\n```\n"
+											}
+										]
+									},
+									"parameters": [
+										{
+											"id": 1401,
+											"name": "chain",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "The chain preferred by this app\n"
+											},
+											"type": {
+												"type": "reference",
+												"id": 1393,
+												"name": "SupportedChain"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "void"
+											}
+										],
+										"name": "Promise"
+									}
+								}
+							]
 						}
 					],
 					"groups": [
@@ -24506,24 +24612,25 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1394
+								1395
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								1396,
-								1401,
-								1398,
-								1408
+								1397,
+								1405,
+								1402,
+								1412,
+								1399
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "frontend/web3/providers/ethereum.ts",
-							"line": 43,
+							"line": 55,
 							"character": 29
 						}
 					],
@@ -25115,7 +25222,57 @@
 					]
 				},
 				{
-					"id": 1437,
+					"id": 1393,
+					"name": "SupportedChain",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {},
+					"comment": {
+						"shortText": "Supported chains"
+					},
+					"sources": [
+						{
+							"fileName": "frontend/web3/providers/ethereum.ts",
+							"line": 43,
+							"character": 26
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "ethereum"
+							},
+							{
+								"type": "literal",
+								"value": "polygon"
+							},
+							{
+								"type": "literal",
+								"value": "ropsten"
+							},
+							{
+								"type": "literal",
+								"value": "rinkeby"
+							},
+							{
+								"type": "literal",
+								"value": "goerli"
+							},
+							{
+								"type": "literal",
+								"value": "kovan"
+							},
+							{
+								"type": "literal",
+								"value": "matic_mumbai"
+							}
+						]
+					}
+				},
+				{
+					"id": 1441,
 					"name": "ethereumProvider",
 					"kind": 32,
 					"kindString": "Variable",
@@ -25125,13 +25282,13 @@
 					"sources": [
 						{
 							"fileName": "frontend/web3/providers/ethereum.ts",
-							"line": 145,
+							"line": 182,
 							"character": 29
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 1393,
+						"id": 1394,
 						"name": "EthereumProvider"
 					},
 					"defaultValue": "..."
@@ -25142,7 +25299,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1393
+						1394
 					]
 				},
 				{
@@ -25156,10 +25313,17 @@
 					]
 				},
 				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						1393
+					]
+				},
+				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1437
+						1441
 					]
 				}
 			],
@@ -25172,14 +25336,14 @@
 			]
 		},
 		{
-			"id": 1438,
+			"id": 1442,
 			"name": "index",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1480,
+					"id": 1484,
 					"name": "KojiBackend",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -25187,7 +25351,7 @@
 					"target": 422
 				},
 				{
-					"id": 1481,
+					"id": 1485,
 					"name": "default",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -25200,8 +25364,8 @@
 					"title": "References",
 					"kind": 16777216,
 					"children": [
-						1480,
-						1481
+						1484,
+						1485
 					]
 				}
 			],
@@ -25214,21 +25378,21 @@
 			]
 		},
 		{
-			"id": 1439,
+			"id": 1443,
 			"name": "types",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1447,
+					"id": 1451,
 					"name": "FastlyOptions",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 1448,
+							"id": 1452,
 							"name": "auto",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25261,7 +25425,7 @@
 							}
 						},
 						{
-							"id": 1449,
+							"id": 1453,
 							"name": "bg-color",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25294,7 +25458,7 @@
 							}
 						},
 						{
-							"id": 1450,
+							"id": 1454,
 							"name": "blur",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25327,7 +25491,7 @@
 							}
 						},
 						{
-							"id": 1451,
+							"id": 1455,
 							"name": "brightness",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25360,7 +25524,7 @@
 							}
 						},
 						{
-							"id": 1452,
+							"id": 1456,
 							"name": "contrast",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25393,7 +25557,7 @@
 							}
 						},
 						{
-							"id": 1453,
+							"id": 1457,
 							"name": "crop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25426,7 +25590,7 @@
 							}
 						},
 						{
-							"id": 1454,
+							"id": 1458,
 							"name": "dpr",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25459,7 +25623,7 @@
 							}
 						},
 						{
-							"id": 1455,
+							"id": 1459,
 							"name": "fit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25500,7 +25664,7 @@
 							}
 						},
 						{
-							"id": 1456,
+							"id": 1460,
 							"name": "format",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25569,7 +25733,7 @@
 							}
 						},
 						{
-							"id": 1457,
+							"id": 1461,
 							"name": "frame",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25602,7 +25766,7 @@
 							}
 						},
 						{
-							"id": 1458,
+							"id": 1462,
 							"name": "height",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25635,7 +25799,7 @@
 							}
 						},
 						{
-							"id": 1459,
+							"id": 1463,
 							"name": "optimize",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25676,7 +25840,7 @@
 							}
 						},
 						{
-							"id": 1460,
+							"id": 1464,
 							"name": "orient",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25757,7 +25921,7 @@
 							}
 						},
 						{
-							"id": 1461,
+							"id": 1465,
 							"name": "pad",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25790,7 +25954,7 @@
 							}
 						},
 						{
-							"id": 1462,
+							"id": 1466,
 							"name": "precrop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25823,7 +25987,7 @@
 							}
 						},
 						{
-							"id": 1463,
+							"id": 1467,
 							"name": "quality",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25856,7 +26020,7 @@
 							}
 						},
 						{
-							"id": 1464,
+							"id": 1468,
 							"name": "resize-filter",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25905,7 +26069,7 @@
 							}
 						},
 						{
-							"id": 1465,
+							"id": 1469,
 							"name": "saturation",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25938,7 +26102,7 @@
 							}
 						},
 						{
-							"id": 1466,
+							"id": 1470,
 							"name": "sharpen",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25971,7 +26135,7 @@
 							}
 						},
 						{
-							"id": 1467,
+							"id": 1471,
 							"name": "trim",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26004,7 +26168,7 @@
 							}
 						},
 						{
-							"id": 1468,
+							"id": 1472,
 							"name": "width",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26042,10 +26206,6 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1448,
-								1449,
-								1450,
-								1451,
 								1452,
 								1453,
 								1454,
@@ -26062,7 +26222,11 @@
 								1465,
 								1466,
 								1467,
-								1468
+								1468,
+								1469,
+								1470,
+								1471,
+								1472
 							]
 						}
 					],
@@ -26082,7 +26246,7 @@
 					]
 				},
 				{
-					"id": 1440,
+					"id": 1444,
 					"name": "RemuxPreset",
 					"kind": 256,
 					"kindString": "Interface",
@@ -26092,7 +26256,7 @@
 					},
 					"children": [
 						{
-							"id": 1441,
+							"id": 1445,
 							"name": "aspectRatio",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26134,7 +26298,7 @@
 							}
 						},
 						{
-							"id": 1442,
+							"id": 1446,
 							"name": "sizePolicy",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26169,8 +26333,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1441,
-								1442
+								1445,
+								1446
 							]
 						}
 					],
@@ -26183,7 +26347,7 @@
 					]
 				},
 				{
-					"id": 1443,
+					"id": 1447,
 					"name": "Watermark",
 					"kind": 256,
 					"kindString": "Interface",
@@ -26193,7 +26357,7 @@
 					},
 					"children": [
 						{
-							"id": 1444,
+							"id": 1448,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26219,7 +26383,7 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1444
+								1448
 							]
 						}
 					],
@@ -26232,7 +26396,7 @@
 					]
 				},
 				{
-					"id": 1446,
+					"id": 1450,
 					"name": "IAPToken",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -26259,7 +26423,7 @@
 					}
 				},
 				{
-					"id": 1445,
+					"id": 1449,
 					"name": "UserToken",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -26291,17 +26455,17 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						1447,
-						1440,
-						1443
+						1451,
+						1444,
+						1447
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						1446,
-						1445
+						1450,
+						1449
 					]
 				}
 			],
@@ -26314,14 +26478,14 @@
 			]
 		},
 		{
-			"id": 1469,
+			"id": 1473,
 			"name": "utils/equalsIgnoreOrder",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1470,
+					"id": 1474,
 					"name": "equalsIgnoreOrder",
 					"kind": 64,
 					"kindString": "Function",
@@ -26337,14 +26501,14 @@
 					],
 					"signatures": [
 						{
-							"id": 1471,
+							"id": 1475,
 							"name": "equalsIgnoreOrder",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1472,
+									"id": 1476,
 									"name": "a",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -26358,7 +26522,7 @@
 									}
 								},
 								{
-									"id": 1473,
+									"id": 1477,
 									"name": "b",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -26385,7 +26549,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1470
+						1474
 					]
 				}
 			],
@@ -26398,14 +26562,14 @@
 			]
 		},
 		{
-			"id": 1474,
+			"id": 1478,
 			"name": "utils/get",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1475,
+					"id": 1479,
 					"name": "get",
 					"kind": 64,
 					"kindString": "Function",
@@ -26421,14 +26585,14 @@
 					],
 					"signatures": [
 						{
-							"id": 1476,
+							"id": 1480,
 							"name": "get",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1477,
+									"id": 1481,
 									"name": "obj",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -26440,7 +26604,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 1478,
+									"id": 1482,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -26454,7 +26618,7 @@
 									}
 								},
 								{
-									"id": 1479,
+									"id": 1483,
 									"name": "defaultValue",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -26479,7 +26643,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1475
+						1479
 					]
 				}
 			],
@@ -26529,10 +26693,10 @@
 				1323,
 				1361,
 				1369,
-				1438,
-				1439,
-				1469,
-				1474
+				1442,
+				1443,
+				1473,
+				1478
 			]
 		}
 	]
