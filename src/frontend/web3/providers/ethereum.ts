@@ -54,7 +54,7 @@ export type SupportedChain =
  */
 export class EthereumProvider extends KojiBridge {
   /**
-   * Gets whether or not the session is connect
+   * Gets whether or not the session is connected
    *
    * @return    Is connected
    *
