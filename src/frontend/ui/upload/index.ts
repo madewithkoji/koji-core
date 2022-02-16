@@ -24,6 +24,8 @@ export interface UploadOptions {
   type: 'image'|'video'|'audio';
   /** Options for uploaded videos. */
   videoOptions?: VideoOptions;
+  /** Set to true to handle progress in the app instead of showing the Koji overlay */
+  silent?: boolean;
 }
 
 /**
@@ -64,6 +66,7 @@ export class Upload extends KojiBridge {
           file: options.file,
           type: options.type,
           videoOptions: options.videoOptions,
+          silent: options.silent,
         },
       },
       'Koji.UploadComplete',
