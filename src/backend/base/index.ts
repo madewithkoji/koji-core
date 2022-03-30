@@ -20,6 +20,10 @@ export interface BackendConfiguration {
   projectId: string;
   /** Secret key for the Koji app. */
   projectToken: string;
+  /** Unique identifier for the base Koji app. */
+  environmentId: string;
+  /** Secret key for the base Koji app. */
+  environmentToken: string;
 }
 
 /**
@@ -52,6 +56,8 @@ export function generateConfig(config: BackendConfigurationInput): BackendConfig
   return {
     projectId,
     projectToken,
+    environmentId: process.env.KOJI_PROJECT_ID || '',
+    environmentToken: process.env.KOJI_PROJECT_TOKEN || '',
   };
 }
 
@@ -59,11 +65,21 @@ export class Base {
   protected projectId: string;
   protected projectToken: string;
 
+  protected environmentId: string;
+  protected environmentToken: string;
+
   constructor(config: BackendConfigurationInput) {
-    const { projectId, projectToken } = generateConfig(config);
+    const {
+      projectId,
+      projectToken,
+      environmentId,
+      environmentToken,
+    } = generateConfig(config);
 
     this.projectId = projectId;
     this.projectToken = projectToken;
+    this.environmentId = environmentId;
+    this.environmentToken = environmentToken;
   }
 }
 
