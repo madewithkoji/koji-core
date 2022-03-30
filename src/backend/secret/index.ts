@@ -16,6 +16,7 @@ enum SecretRoutes {
 export class Secret extends Base {
   private rootPath: string;
   private rootHeaders: Object;
+  private environmentHeaders: Object;
 
   /**
    * Instantiates the Secret class.
@@ -37,12 +38,18 @@ export class Secret extends Base {
       'X-Koji-Project-Token': this.projectToken,
       'Content-Type': 'application/json',
     };
+
+    this.environmentHeaders = {
+      'X-Koji-Project-Id': this.environmentId,
+      'X-Koji-Project-Token': this.environmentToken,
+      'Content-Type': 'application/json',
+    };
   }
 
   /**
    * Resolves sensitive data that was {@doclink core-frontend-remix#encryptValue | stored as an encrypted value}.
    *
-   * @param   keyPath  Encrypted value.
+   * @param   keyPath  Encrypted key name.
    * @return           Decrypted value.
    *
    * @example
@@ -61,6 +68,34 @@ export class Secret extends Base {
       },
       {
         headers: this.rootHeaders,
+      },
+    );
+
+    return data.decryptedValue;
+  }
+
+  /**
+   * Resolves sensitive data that was stored as an encrypted value on the base project from the Koji Developer Console. This is useful for securely storing things like API keys and other tokens.
+   *
+   * @param keyPath   Encrypted key name.
+   * @return          Decrypted value.
+   *
+   * @example
+   * ```javascript
+   * const decryptedValue = await secret.resolveEnvironmentValue('instagram_api_key');
+   * ```
+   */
+  @server
+  public async resolveEnvironmentValue<T>(keyPath: string): Promise<T> {
+    const { data } = await axios.post(
+      `${this.rootPath}${SecretRoutes.KEYSTORE_GET}`,
+      {
+        scope: this.environmentId,
+        token: this.environmentToken,
+        keyPath,
+      },
+      {
+        headers: this.environmentHeaders,
       },
     );
 
