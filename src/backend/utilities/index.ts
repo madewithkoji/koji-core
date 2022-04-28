@@ -41,6 +41,27 @@ export class Utilities extends Base {
   /**
    * Unfreezes a response that has been frozen with an `x-koji-freeze-key` header.
    *
+   * Freeze Keys enable you to cache and purge content in Koji’s CDN,
+   * dramatically improving the speed and reliability of backend data requests
+   * in your Koji apps.
+   *
+   * Make a request directly to the Koji CDN and receive a cached response,
+   * instead of waiting for the backend to warm up and serve the request.
+   *
+   * Use the `x-koji-freeze-key` header to instruct the CDN to serve a cached
+   * response and `KojiBackend.Utilities.unfreeze` to reset the cache. The
+   * platform automatically handles remix scoping, so you can maintain one set
+   * of logic in your templates.
+   *
+   * Note that Freeze Keys are useful when responses should be cached
+   * indefinitely, until some manual action triggers a purge (e.g., a
+   * leaderboard for a game should be cached until a new score is added, at
+   * which point it is unfrozen and regenerated). If you wish to implement
+   * simple time-based caching at the CDN level (i.e., clients do not cache
+   * responses, but they are cached in the CDN until expiry), use the
+   * `x-koji-cache-control` header on the response, which functions the same way
+   * as the standard `Cache-Control` HTTP header.
+   *
    * @param   key      Key used to freeze the response.
    *
    * @example

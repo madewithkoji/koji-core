@@ -9508,7 +9508,7 @@
 							"sources": [
 								{
 									"fileName": "backend/utilities/index.ts",
-									"line": 71,
+									"line": 92,
 									"character": 23
 								}
 							],
@@ -9521,6 +9521,7 @@
 									"flags": {},
 									"comment": {
 										"shortText": "Unfreezes a response that has been frozen with an `x-koji-freeze-key` header.",
+										"text": "Freeze Keys enable you to cache and purge content in Koji’s CDN,\ndramatically improving the speed and reliability of backend data requests\nin your Koji apps.\n\nMake a request directly to the Koji CDN and receive a cached response,\ninstead of waiting for the backend to warm up and serve the request.\n\nUse the `x-koji-freeze-key` header to instruct the CDN to serve a cached\nresponse and `KojiBackend.Utilities.unfreeze` to reset the cache. The\nplatform automatically handles remix scoping, so you can maintain one set\nof logic in your templates.\n\nNote that Freeze Keys are useful when responses should be cached\nindefinitely, until some manual action triggers a purge (e.g., a\nleaderboard for a game should be cached until a new score is added, at\nwhich point it is unfrozen and regenerated). If you wish to implement\nsimple time-based caching at the CDN level (i.e., clients do not cache\nresponses, but they are cached in the CDN until expiry), use the\n`x-koji-cache-control` header on the response, which functions the same way\nas the standard `Cache-Control` HTTP header.\n",
 										"tags": [
 											{
 												"tag": "example",
