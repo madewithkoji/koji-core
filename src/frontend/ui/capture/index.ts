@@ -425,6 +425,7 @@ export class Capture extends KojiBridge {
       {
         kojiEventName: 'Koji.Capture',
         data: {
+          appId,
           type: `custom<${name || url}>`,
           options: typeOptions,
         },
