@@ -27,7 +27,7 @@ export class VCC extends KojiBridge {
       '@@koji/vcc/outbound/getOptions',
     );
 
-    return data;
+    return data.options;
   }
 
   /**

@@ -412,9 +412,14 @@ export class Capture extends KojiBridge {
   custom(options: CaptureCustomOptions, verbose?: boolean): Promise<any | VerboseCapture>;
   @client
   public async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
-    const { name, url, ...typeOptions } = options;
+    const {
+      appId,
+      name,
+      url,
+      ...typeOptions
+    } = options;
 
-    if (!name && !url) throw new Error('Please supply the custom name or url for the Custom VCC you would like to load.');
+    if (!name && !url && !appId) throw new Error('Please supply the custom name or url or appId for the Custom VCC you would like to load.');
 
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
