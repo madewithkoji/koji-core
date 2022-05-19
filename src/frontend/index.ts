@@ -7,6 +7,7 @@ import { playerState, PlayerState } from './playerState';
 import { remix, Remix } from './remix';
 import { ui, UI } from './ui';
 import { web3, Web3 } from './web3';
+import { vcc, VCC } from './vcc';
 
 import { client } from './@decorators/client';
 import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
@@ -16,19 +17,19 @@ import { equalsIgnoreOrder } from '../utils/equalsIgnoreOrder';
  */
 export interface KojiConfig {
   /** Instructions for setting up the services in a development/editor environment. */
-  develop?: {[index: string]: any};
+  develop?: { [index: string]: any };
 
   /** Instructions for deploying the services to production. */
-  deploy?: {[index: string]: any};
+  deploy?: { [index: string]: any };
 
   /** Metadata about the project and creator. */
   metadata?: KojiMetadata;
 
   /** Default values for the configuration data. */
-  remixData?: {[index: string]: any};
+  remixData?: { [index: string]: any };
 
   /** Placeholder values for new customized versions. */
-  '@@initialTransform'?: {[index: string]: any};
+  '@@initialTransform'?: { [index: string]: any };
 }
 
 /**
@@ -95,6 +96,7 @@ export class Koji {
   public remix: Remix = remix;
   public ui: UI = ui;
   public web3: Web3 = web3;
+  public vcc: VCC = vcc;
 
   constructor() {
     this.isReady = false;
@@ -133,17 +135,10 @@ export class Koji {
     }
 
     // Deconstruct the user's config
-    const {
-      develop = {},
-      deploy = {},
-      remixData = {},
-    } = kojiConfig;
+    const { develop = {}, deploy = {}, remixData = {} } = kojiConfig;
 
     // Check for the project id
-    this.resolveMetadata(
-      kojiConfigOptions.projectId,
-      kojiConfigOptions.metadata,
-    );
+    this.resolveMetadata(kojiConfigOptions.projectId, kojiConfigOptions.metadata);
 
     // Set up and sanity check services
     this.resolveServices(develop, deploy, kojiConfigOptions.services);
@@ -152,10 +147,7 @@ export class Koji {
     this.remix.init(remixData);
   }
 
-  private resolveMetadata(
-    explicitProjectId?: string,
-    metadata?: KojiMetadata,
-  ) {
+  private resolveMetadata(explicitProjectId?: string, metadata?: KojiMetadata) {
     let projectId = explicitProjectId || process.env.KOJI_PROJECT_ID;
     let creatorUsername = process.env.KOJI_CREATOR_USERNAME;
     let creatorProfilePicture = process.env.KOJI_CREATOR_PROFILE_PICTURE;
@@ -175,9 +167,7 @@ export class Koji {
 
     // Handle overrides
     if (window.KOJI_OVERRIDES) {
-      const {
-        overrides = {},
-      } = window.KOJI_OVERRIDES;
+      const { overrides = {} } = window.KOJI_OVERRIDES;
 
       if (overrides && overrides.metadata) {
         projectId = overrides.metadata.projectId;
@@ -307,9 +297,7 @@ export class Koji {
       if (data._type === 'Koji.ContextPassthrough.Down') {
         try {
           const destinationOrigin = data._path[0];
-          const frame: HTMLIFrameElement | undefined = Array
-            .from(document.getElementsByTagName('iframe'))
-            .find(({ src }) => src.startsWith(destinationOrigin));
+          const frame: HTMLIFrameElement | undefined = Array.from(document.getElementsByTagName('iframe')).find(({ src }) => src.startsWith(destinationOrigin));
 
           if (frame && frame.contentWindow) {
             if (data._path.length === 0) {

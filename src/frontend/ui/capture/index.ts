@@ -108,9 +108,11 @@ export interface ExtendedLinkResult {
  * Configuration options for a [[custom]] capture.
  */
 export interface CaptureCustomOptions {
-  /** Short name for the custom control. */
+  /** App ID of the custom control. */
+  appId?: string;
+  /** Short name for the custom control. (to be depreciated) */
   name?: string;
-  /** URL where the custom control is hosted. */
+  /** URL where the custom control is hosted. (to be depreciated) */
   url?: string;
   /** Type options specific to the custom control. */
   typeOptions?: any;
