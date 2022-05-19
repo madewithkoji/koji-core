@@ -412,12 +412,8 @@ export class Capture extends KojiBridge {
   custom(options: CaptureCustomOptions, verbose?: boolean): Promise<any | VerboseCapture>;
   @client
   public async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
-    const {
-      appId,
-      name,
-      url,
-      ...typeOptions
-    } = options;
+    const { name, url, ...typeOptions } = options;
+    const { appId } = options;
 
     if (!name && !url && !appId) throw new Error('Please supply the custom name or url or appId for the Custom VCC you would like to load.');
 
@@ -425,8 +421,7 @@ export class Capture extends KojiBridge {
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          appId,
-          type: `custom<${name || url}>`,
+          type: `custom<${name || url || appId}>`,
           options: typeOptions,
         },
       },
