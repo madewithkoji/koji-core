@@ -62,6 +62,21 @@ export class VCC extends KojiBridge {
       kojiEventName: '@@koji/vcc/inbound/finish',
     });
   }
+
+  /**
+   * Dismisses a custom control without saving the value
+   *
+   * @example
+   * ```javascript
+   * Koji.vcc.cancel()
+   * ```
+   */
+  @client
+  public cancel() {
+    this.sendMessage({
+      kojiEventName: '@@koji/vcc/inbound/cancel',
+    });
+  }
 }
 
 export const vcc = new VCC();
