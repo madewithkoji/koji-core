@@ -170,7 +170,7 @@ If you would like to test or develop new features for the package, here are a fe
 
 - If you run the declarations watcher, you should also get real-time updates in your IDE for types and documentation. In some instances, you may need to refresh or reload your IDE's view to clear any cached values.
 
-- Because the `dist` folder is not bundled into the repo, you may need to run a build or include it in a commit if you are testing an installation via Github.
+- Because the `dist` folder is not bundled into the repo, you may need to run a build or include it in a commit if you are testing an installation via Github. Another approach is to install the sources with `npm install https://github.com/madewithkoji/koji-core/tarball/{your-branch-name}` and add required build steps to `koji.json`
 
 ### Roadmap
 
