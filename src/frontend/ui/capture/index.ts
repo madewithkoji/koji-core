@@ -108,9 +108,11 @@ export interface ExtendedLinkResult {
  * Configuration options for a [[custom]] capture.
  */
 export interface CaptureCustomOptions {
-  /** Short name for the custom control. */
+  /** App ID of the custom control. */
+  appId?: string;
+  /** Short name for the custom control. (to be depreciated) */
   name?: string;
-  /** URL where the custom control is hosted. */
+  /** URL where the custom control is hosted. (to be depreciated) */
   url?: string;
   /** Type options specific to the custom control. */
   typeOptions?: any;
@@ -411,14 +413,15 @@ export class Capture extends KojiBridge {
   @client
   public async custom(options: CaptureCustomOptions = {}, verbose: boolean = false): Promise<any | VerboseCapture> {
     const { name, url, ...typeOptions } = options;
+    const { appId } = options;
 
-    if (!name && !url) throw new Error('Please supply the custom name or url for the Custom VCC you would like to load.');
+    if (!name && !url && !appId) throw new Error('Please supply the custom name or url or appId for the Custom VCC you would like to load.');
 
     const data: CaptureMessage<string> = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'Koji.Capture',
         data: {
-          type: `custom<${name || url}>`,
+          type: `custom<${name || url || appId}>`,
           options: typeOptions,
         },
       },
