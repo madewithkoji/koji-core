@@ -22,6 +22,12 @@ export interface ValueChanged {
   savedValue: any;
 }
 
+/** Options when encrypting a secret value. */
+export interface EncryptValueOptions {
+  /** Set true to bypass at-rest encryption on Koji's servers, allowing you to encrypt values larger than 4kb. */
+  skipEncryptionAtRest?: boolean;
+}
+
 /**
  * Manages the customization experience for your Koji app.
  */
@@ -186,6 +192,7 @@ export class Remix extends KojiBridge {
    * Stores sensitive data as an encrypted value. The sensitive data can only be accessed programmatically and is not available when the Koji app is configured.
    *
    * @param   rawValue       Value to encrypt.
+   * @param   options        Options relating to the encryption and storage of the value. Omit for default storage and security options (appropriate in most cases).
    * @return                 Encrypted value. Use this value to [[decryptValue | decrypt the value]] on the frontend, for the creator, or to {@doclink core-backend-secret#resolveValue | resolve the value} on the backend, for other users.
    *
    * @example
@@ -194,12 +201,13 @@ export class Remix extends KojiBridge {
    * ```
    */
   @client
-  public async encryptValue(rawValue: any): Promise<string> {
+  public async encryptValue(rawValue: any, options?: EncryptValueOptions): Promise<string> {
     const data = await this.sendMessageAndAwaitResponse(
       {
         kojiEventName: 'KojiPreview.EncryptValue',
         data: {
           plaintextValue: rawValue,
+          options,
         },
       },
       'KojiPreview.ValueEncrypted',
