@@ -9782,7 +9782,7 @@
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1462,
+												"id": 1465,
 												"name": "SupportedChain"
 											},
 											"defaultValue": "'ethereum'"
@@ -10213,7 +10213,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1439,
+												"id": 1442,
 												"name": "Web3Request"
 											}
 										}
@@ -10223,7 +10223,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 1442,
+												"id": 1445,
 												"name": "Web3RequestResult"
 											}
 										],
@@ -10565,7 +10565,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 929,
+								"id": 931,
 								"name": "Remix"
 							},
 							"defaultValue": "..."
@@ -10612,7 +10612,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1240,
+								"id": 1243,
 								"name": "UI"
 							},
 							"defaultValue": "..."
@@ -10634,7 +10634,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1396,
+								"id": 1399,
 								"name": "VCC"
 							},
 							"defaultValue": "..."
@@ -10656,7 +10656,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1431,
+								"id": 1434,
 								"name": "Web3"
 							},
 							"defaultValue": "..."
@@ -11547,132 +11547,132 @@
 						},
 						{
 							"type": "reference",
-							"id": 935,
+							"id": 937,
 							"name": "init"
 						},
 						{
 							"type": "reference",
-							"id": 938,
+							"id": 940,
 							"name": "get"
 						},
 						{
 							"type": "reference",
-							"id": 943,
+							"id": 945,
 							"name": "set"
 						},
 						{
 							"type": "reference",
-							"id": 946,
+							"id": 948,
 							"name": "overwrite"
 						},
 						{
 							"type": "reference",
-							"id": 949,
-							"name": "finish"
-						},
-						{
-							"type": "reference",
 							"id": 951,
-							"name": "cancel"
+							"name": "finish"
 						},
 						{
 							"type": "reference",
 							"id": 953,
-							"name": "encryptValue"
-						},
-						{
-							"type": "reference",
-							"id": 956,
-							"name": "decryptValue"
-						},
-						{
-							"type": "reference",
-							"id": 1273,
-							"name": "to"
-						},
-						{
-							"type": "reference",
-							"id": 1276,
-							"name": "presentInModal"
-						},
-						{
-							"type": "reference",
-							"id": 1279,
-							"name": "createRemix"
-						},
-						{
-							"type": "reference",
-							"id": 1282,
-							"name": "edit"
-						},
-						{
-							"type": "reference",
-							"id": 1284,
-							"name": "dismiss"
-						},
-						{
-							"type": "reference",
-							"id": 1286,
-							"name": "openShareDialog"
-						},
-						{
-							"type": "reference",
-							"id": 1324,
-							"name": "confirmation"
-						},
-						{
-							"type": "reference",
-							"id": 1327,
-							"name": "alert"
-						},
-						{
-							"type": "reference",
-							"id": 1330,
-							"name": "systemAlert"
-						},
-						{
-							"type": "reference",
-							"id": 1369,
-							"name": "uploadFile"
-						},
-						{
-							"type": "reference",
-							"id": 1399,
-							"name": "getOptions"
-						},
-						{
-							"type": "reference",
-							"id": 1401,
-							"name": "set"
-						},
-						{
-							"type": "reference",
-							"id": 1404,
-							"name": "finish"
-						},
-						{
-							"type": "reference",
-							"id": 1406,
 							"name": "cancel"
 						},
 						{
 							"type": "reference",
-							"id": 1466,
+							"id": 955,
+							"name": "encryptValue"
+						},
+						{
+							"type": "reference",
+							"id": 959,
+							"name": "decryptValue"
+						},
+						{
+							"type": "reference",
+							"id": 1276,
+							"name": "to"
+						},
+						{
+							"type": "reference",
+							"id": 1279,
+							"name": "presentInModal"
+						},
+						{
+							"type": "reference",
+							"id": 1282,
+							"name": "createRemix"
+						},
+						{
+							"type": "reference",
+							"id": 1285,
+							"name": "edit"
+						},
+						{
+							"type": "reference",
+							"id": 1287,
+							"name": "dismiss"
+						},
+						{
+							"type": "reference",
+							"id": 1289,
+							"name": "openShareDialog"
+						},
+						{
+							"type": "reference",
+							"id": 1327,
+							"name": "confirmation"
+						},
+						{
+							"type": "reference",
+							"id": 1330,
+							"name": "alert"
+						},
+						{
+							"type": "reference",
+							"id": 1333,
+							"name": "systemAlert"
+						},
+						{
+							"type": "reference",
+							"id": 1372,
+							"name": "uploadFile"
+						},
+						{
+							"type": "reference",
+							"id": 1402,
+							"name": "getOptions"
+						},
+						{
+							"type": "reference",
+							"id": 1404,
+							"name": "set"
+						},
+						{
+							"type": "reference",
+							"id": 1407,
+							"name": "finish"
+						},
+						{
+							"type": "reference",
+							"id": 1409,
+							"name": "cancel"
+						},
+						{
+							"type": "reference",
+							"id": 1469,
 							"name": "isConnected"
 						},
 						{
 							"type": "reference",
-							"id": 1471,
+							"id": 1474,
 							"name": "request"
 						},
 						{
 							"type": "reference",
-							"id": 1474,
+							"id": 1477,
 							"name": "on"
 						},
 						{
 							"type": "reference",
-							"id": 1481,
+							"id": 1484,
 							"name": "sendAsync"
 						}
 					],
@@ -14933,42 +14933,42 @@
 						},
 						{
 							"type": "reference",
-							"id": 929,
+							"id": 931,
 							"name": "Remix"
 						},
 						{
 							"type": "reference",
-							"id": 1105,
+							"id": 1108,
 							"name": "Capture"
 						},
 						{
 							"type": "reference",
-							"id": 1240,
+							"id": 1243,
 							"name": "UI"
 						},
 						{
 							"type": "reference",
-							"id": 1270,
+							"id": 1273,
 							"name": "Navigate"
 						},
 						{
 							"type": "reference",
-							"id": 1321,
+							"id": 1324,
 							"name": "Present"
 						},
 						{
 							"type": "reference",
-							"id": 1366,
+							"id": 1369,
 							"name": "Upload"
 						},
 						{
 							"type": "reference",
-							"id": 1396,
+							"id": 1399,
 							"name": "VCC"
 						},
 						{
 							"type": "reference",
-							"id": 1463,
+							"id": 1466,
 							"name": "EthereumProvider"
 						}
 					]
@@ -16191,7 +16191,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 929,
+					"id": 931,
 					"name": "Remix",
 					"kind": 128,
 					"kindString": "Class",
@@ -16201,21 +16201,21 @@
 					},
 					"children": [
 						{
-							"id": 930,
+							"id": 932,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 931,
+									"id": 933,
 									"name": "new Remix",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 929,
+										"id": 931,
 										"name": "Remix"
 									},
 									"inheritedFrom": {
@@ -16232,7 +16232,7 @@
 							}
 						},
 						{
-							"id": 951,
+							"id": 953,
 							"name": "cancel",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16252,13 +16252,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 179,
+									"line": 185,
 									"character": 15
 								}
 							],
 							"signatures": [
 								{
-									"id": 952,
+									"id": 954,
 									"name": "cancel",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16280,7 +16280,7 @@
 							]
 						},
 						{
-							"id": 956,
+							"id": 959,
 							"name": "decryptValue",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16300,13 +16300,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 225,
+									"line": 233,
 									"character": 27
 								}
 							],
 							"signatures": [
 								{
-									"id": 957,
+									"id": 960,
 									"name": "decryptValue",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16324,7 +16324,7 @@
 									},
 									"parameters": [
 										{
-											"id": 958,
+											"id": 961,
 											"name": "encryptedValue",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -16352,7 +16352,7 @@
 							]
 						},
 						{
-							"id": 953,
+							"id": 955,
 							"name": "encryptValue",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16372,13 +16372,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 197,
+									"line": 204,
 									"character": 27
 								}
 							],
 							"signatures": [
 								{
-									"id": 954,
+									"id": 956,
 									"name": "encryptValue",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16395,7 +16395,7 @@
 									},
 									"parameters": [
 										{
-											"id": 955,
+											"id": 957,
 											"name": "rawValue",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -16406,6 +16406,23 @@
 											"type": {
 												"type": "intrinsic",
 												"name": "any"
+											}
+										},
+										{
+											"id": 958,
+											"name": "options",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"comment": {
+												"text": "Options relating to the encryption and storage of the value. Omit for default storage and security options (appropriate in most cases)."
+											},
+											"type": {
+												"type": "reference",
+												"id": 929,
+												"name": "EncryptValueOptions"
 											}
 										}
 									],
@@ -16423,7 +16440,7 @@
 							]
 						},
 						{
-							"id": 949,
+							"id": 951,
 							"name": "finish",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16443,13 +16460,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 162,
+									"line": 168,
 									"character": 15
 								}
 							],
 							"signatures": [
 								{
-									"id": 950,
+									"id": 952,
 									"name": "finish",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16471,7 +16488,7 @@
 							]
 						},
 						{
-							"id": 938,
+							"id": 940,
 							"name": "get",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16491,13 +16508,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 102,
+									"line": 108,
 									"character": 12
 								}
 							],
 							"signatures": [
 								{
-									"id": 939,
+									"id": 941,
 									"name": "get",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16514,7 +16531,7 @@
 									},
 									"typeParameter": [
 										{
-											"id": 940,
+											"id": 942,
 											"name": "T",
 											"kind": 131072,
 											"kindString": "Type parameter",
@@ -16523,7 +16540,7 @@
 									],
 									"parameters": [
 										{
-											"id": 941,
+											"id": 943,
 											"name": "path",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -16542,7 +16559,7 @@
 											}
 										},
 										{
-											"id": 942,
+											"id": 944,
 											"name": "defaultValue",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -16566,7 +16583,7 @@
 							]
 						},
 						{
-							"id": 935,
+							"id": 937,
 							"name": "init",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16586,13 +16603,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 62,
+									"line": 68,
 									"character": 13
 								}
 							],
 							"signatures": [
 								{
-									"id": 936,
+									"id": 938,
 									"name": "init",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16609,7 +16626,7 @@
 									},
 									"parameters": [
 										{
-											"id": 937,
+											"id": 939,
 											"name": "remixData",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -16631,7 +16648,7 @@
 							]
 						},
 						{
-							"id": 946,
+							"id": 948,
 							"name": "overwrite",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16651,13 +16668,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 146,
+									"line": 152,
 									"character": 18
 								}
 							],
 							"signatures": [
 								{
-									"id": 947,
+									"id": 949,
 									"name": "overwrite",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16675,7 +16692,7 @@
 									},
 									"parameters": [
 										{
-											"id": 948,
+											"id": 950,
 											"name": "newValues",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -16703,7 +16720,7 @@
 							]
 						},
 						{
-							"id": 943,
+							"id": 945,
 							"name": "set",
 							"kind": 2048,
 							"kindString": "Method",
@@ -16723,13 +16740,13 @@
 							"sources": [
 								{
 									"fileName": "frontend/remix/index.ts",
-									"line": 122,
+									"line": 128,
 									"character": 12
 								}
 							],
 							"signatures": [
 								{
-									"id": 944,
+									"id": 946,
 									"name": "set",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -16747,7 +16764,7 @@
 									},
 									"parameters": [
 										{
-											"id": 945,
+											"id": 947,
 											"name": "newValue",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -16780,28 +16797,28 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								930
+								932
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								951,
-								956,
 								953,
-								949,
-								938,
-								935,
-								946,
-								943
+								959,
+								955,
+								951,
+								940,
+								937,
+								948,
+								945
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 28,
+							"line": 34,
 							"character": 18
 						}
 					],
@@ -16810,6 +16827,66 @@
 							"type": "reference",
 							"id": 832,
 							"name": "KojiBridge"
+						}
+					]
+				},
+				{
+					"id": 929,
+					"name": "EncryptValueOptions",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"shortText": "Options when encrypting a secret value."
+					},
+					"children": [
+						{
+							"id": 930,
+							"name": "skipEncryptionAtRest",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "Set true to bypass at-rest encryption on Koji's servers, allowing you to encrypt values larger than 4kb."
+							},
+							"sources": [
+								{
+									"fileName": "frontend/remix/index.ts",
+									"line": 28,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								930
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "frontend/remix/index.ts",
+							"line": 26,
+							"character": 36
 						}
 					]
 				},
@@ -16910,7 +16987,7 @@
 					]
 				},
 				{
-					"id": 982,
+					"id": 985,
 					"name": "remix",
 					"kind": 32,
 					"kindString": "Variable",
@@ -16920,13 +16997,13 @@
 					"sources": [
 						{
 							"fileName": "frontend/remix/index.ts",
-							"line": 261,
+							"line": 269,
 							"character": 18
 						}
 					],
 					"type": {
 						"type": "reference",
-						"id": 929,
+						"id": 931,
 						"name": "Remix"
 					},
 					"defaultValue": "..."
@@ -16937,13 +17014,14 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						929
+						931
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
+						929,
 						925
 					]
 				},
@@ -16951,7 +17029,7 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						982
+						985
 					]
 				}
 			],
@@ -16964,14 +17042,14 @@
 			]
 		},
 		{
-			"id": 983,
+			"id": 986,
 			"name": "frontend/serviceMap",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 988,
+					"id": 991,
 					"name": "ServiceMap",
 					"kind": 128,
 					"kindString": "Class",
@@ -16981,28 +17059,28 @@
 					},
 					"children": [
 						{
-							"id": 989,
+							"id": 992,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 990,
+									"id": 993,
 									"name": "new ServiceMap",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 988,
+										"id": 991,
 										"name": "ServiceMap"
 									}
 								}
 							]
 						},
 						{
-							"id": 991,
+							"id": 994,
 							"name": "services",
 							"kind": 1024,
 							"kindString": "Property",
@@ -17021,13 +17099,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 984,
+								"id": 987,
 								"name": "Services"
 							},
 							"defaultValue": "..."
 						},
 						{
-							"id": 992,
+							"id": 995,
 							"name": "config",
 							"kind": 2048,
 							"kindString": "Method",
@@ -17043,7 +17121,7 @@
 							],
 							"signatures": [
 								{
-									"id": 993,
+									"id": 996,
 									"name": "config",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -17059,7 +17137,7 @@
 									},
 									"parameters": [
 										{
-											"id": 994,
+											"id": 997,
 											"name": "envMap",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17069,7 +17147,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 984,
+												"id": 987,
 												"name": "Services"
 											},
 											"defaultValue": "..."
@@ -17088,21 +17166,21 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								989
+								992
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								991
+								994
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								992
+								995
 							]
 						}
 					],
@@ -17115,7 +17193,7 @@
 					]
 				},
 				{
-					"id": 984,
+					"id": 987,
 					"name": "Services",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -17133,7 +17211,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 985,
+							"id": 988,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -17146,14 +17224,14 @@
 								}
 							],
 							"indexSignature": {
-								"id": 986,
+								"id": 989,
 								"name": "__index",
 								"kind": 8192,
 								"kindString": "Index signature",
 								"flags": {},
 								"parameters": [
 									{
-										"id": 987,
+										"id": 990,
 										"name": "key",
 										"kind": 32768,
 										"flags": {},
@@ -17172,7 +17250,7 @@
 					}
 				},
 				{
-					"id": 995,
+					"id": 998,
 					"name": "serviceMap",
 					"kind": 32,
 					"kindString": "Variable",
@@ -17188,7 +17266,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 988,
+						"id": 991,
 						"name": "ServiceMap"
 					},
 					"defaultValue": "..."
@@ -17199,21 +17277,21 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						988
+						991
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						984
+						987
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						995
+						998
 					]
 				}
 			],
@@ -17226,14 +17304,14 @@
 			]
 		},
 		{
-			"id": 1239,
+			"id": 1242,
 			"name": "frontend/ui",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1240,
+					"id": 1243,
 					"name": "UI",
 					"kind": 128,
 					"kindString": "Class",
@@ -17243,21 +17321,21 @@
 					},
 					"children": [
 						{
-							"id": 1241,
+							"id": 1244,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1242,
+									"id": 1245,
 									"name": "new UI",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1240,
+										"id": 1243,
 										"name": "UI"
 									},
 									"inheritedFrom": {
@@ -17274,7 +17352,7 @@
 							}
 						},
 						{
-							"id": 1243,
+							"id": 1246,
 							"name": "capture",
 							"kind": 1024,
 							"kindString": "Property",
@@ -17288,13 +17366,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1105,
+								"id": 1108,
 								"name": "Capture"
 							},
 							"defaultValue": "..."
 						},
 						{
-							"id": 1244,
+							"id": 1247,
 							"name": "navigate",
 							"kind": 1024,
 							"kindString": "Property",
@@ -17308,13 +17386,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1270,
+								"id": 1273,
 								"name": "Navigate"
 							},
 							"defaultValue": "..."
 						},
 						{
-							"id": 1245,
+							"id": 1248,
 							"name": "present",
 							"kind": 1024,
 							"kindString": "Property",
@@ -17328,13 +17406,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1321,
+								"id": 1324,
 								"name": "Present"
 							},
 							"defaultValue": "..."
 						},
 						{
-							"id": 1246,
+							"id": 1249,
 							"name": "upload",
 							"kind": 1024,
 							"kindString": "Property",
@@ -17348,7 +17426,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1366,
+								"id": 1369,
 								"name": "Upload"
 							},
 							"defaultValue": "..."
@@ -17359,17 +17437,17 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1241
+								1244
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1243,
-								1244,
-								1245,
-								1246
+								1246,
+								1247,
+								1248,
+								1249
 							]
 						}
 					],
@@ -17389,7 +17467,7 @@
 					]
 				},
 				{
-					"id": 1268,
+					"id": 1271,
 					"name": "ui",
 					"kind": 32,
 					"kindString": "Variable",
@@ -17405,7 +17483,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1240,
+						"id": 1243,
 						"name": "UI"
 					},
 					"defaultValue": "..."
@@ -17416,14 +17494,14 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1240
+						1243
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1268
+						1271
 					]
 				}
 			],
@@ -17436,14 +17514,14 @@
 			]
 		},
 		{
-			"id": 996,
+			"id": 999,
 			"name": "frontend/ui/capture",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1010,
+					"id": 1013,
 					"name": "CaptureStatus",
 					"kind": 4,
 					"kindString": "Enumeration",
@@ -17453,7 +17531,7 @@
 					},
 					"children": [
 						{
-							"id": 1012,
+							"id": 1015,
 							"name": "CANCELLED",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17468,7 +17546,7 @@
 							"defaultValue": "\"cancelled\""
 						},
 						{
-							"id": 1011,
+							"id": 1014,
 							"name": "SUCCEEDED",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17488,8 +17566,8 @@
 							"title": "Enumeration members",
 							"kind": 16,
 							"children": [
-								1012,
-								1011
+								1015,
+								1014
 							]
 						}
 					],
@@ -17502,7 +17580,7 @@
 					]
 				},
 				{
-					"id": 1013,
+					"id": 1016,
 					"name": "CaptureType",
 					"kind": 4,
 					"kindString": "Enumeration",
@@ -17512,7 +17590,7 @@
 					},
 					"children": [
 						{
-							"id": 1014,
+							"id": 1017,
 							"name": "COLOR",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17527,7 +17605,7 @@
 							"defaultValue": "\"color\""
 						},
 						{
-							"id": 1015,
+							"id": 1018,
 							"name": "FILE",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17542,7 +17620,7 @@
 							"defaultValue": "\"file\""
 						},
 						{
-							"id": 1016,
+							"id": 1019,
 							"name": "IMAGE",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17557,7 +17635,7 @@
 							"defaultValue": "\"image\""
 						},
 						{
-							"id": 1017,
+							"id": 1020,
 							"name": "LINK",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17572,7 +17650,7 @@
 							"defaultValue": "\"link\""
 						},
 						{
-							"id": 1018,
+							"id": 1021,
 							"name": "MEDIA",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17587,7 +17665,7 @@
 							"defaultValue": "\"media\""
 						},
 						{
-							"id": 1019,
+							"id": 1022,
 							"name": "RANGE",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17602,7 +17680,7 @@
 							"defaultValue": "\"range\""
 						},
 						{
-							"id": 1020,
+							"id": 1023,
 							"name": "SELECT",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17617,7 +17695,7 @@
 							"defaultValue": "\"select\""
 						},
 						{
-							"id": 1021,
+							"id": 1024,
 							"name": "SOUND",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17632,7 +17710,7 @@
 							"defaultValue": "\"audio\""
 						},
 						{
-							"id": 1022,
+							"id": 1025,
 							"name": "VIDEO",
 							"kind": 16,
 							"kindString": "Enumeration member",
@@ -17652,15 +17730,15 @@
 							"title": "Enumeration members",
 							"kind": 16,
 							"children": [
-								1014,
-								1015,
-								1016,
 								1017,
 								1018,
 								1019,
 								1020,
 								1021,
-								1022
+								1022,
+								1023,
+								1024,
+								1025
 							]
 						}
 					],
@@ -17673,7 +17751,7 @@
 					]
 				},
 				{
-					"id": 1105,
+					"id": 1108,
 					"name": "Capture",
 					"kind": 128,
 					"kindString": "Class",
@@ -17683,21 +17761,21 @@
 					},
 					"children": [
 						{
-							"id": 1106,
+							"id": 1109,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1107,
+									"id": 1110,
 									"name": "new Capture",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1105,
+										"id": 1108,
 										"name": "Capture"
 									},
 									"inheritedFrom": {
@@ -17714,7 +17792,7 @@
 							}
 						},
 						{
-							"id": 1117,
+							"id": 1120,
 							"name": "audio",
 							"kind": 2048,
 							"kindString": "Method",
@@ -17728,7 +17806,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1118,
+									"id": 1121,
 									"name": "audio",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -17746,7 +17824,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1119,
+											"id": 1122,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17754,12 +17832,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1098,
+												"id": 1101,
 												"name": "CaptureAudioOptions"
 											}
 										},
 										{
-											"id": 1120,
+											"id": 1123,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17778,7 +17856,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -17786,14 +17864,14 @@
 									}
 								},
 								{
-									"id": 1121,
+									"id": 1124,
 									"name": "audio",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1122,
+											"id": 1125,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17802,12 +17880,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1098,
+												"id": 1101,
 												"name": "CaptureAudioOptions"
 											}
 										},
 										{
-											"id": 1123,
+											"id": 1126,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17832,26 +17910,26 @@
 									}
 								},
 								{
-									"id": 1124,
+									"id": 1127,
 									"name": "audio",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1125,
+											"id": 1128,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1098,
+												"id": 1101,
 												"name": "CaptureAudioOptions"
 											}
 										},
 										{
-											"id": 1126,
+											"id": 1129,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17869,7 +17947,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -17879,7 +17957,7 @@
 							]
 						},
 						{
-							"id": 1127,
+							"id": 1130,
 							"name": "color",
 							"kind": 2048,
 							"kindString": "Method",
@@ -17893,7 +17971,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1128,
+									"id": 1131,
 									"name": "color",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -17910,7 +17988,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1129,
+											"id": 1132,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17918,12 +17996,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1049,
+												"id": 1052,
 												"name": "CaptureColorOptions"
 											}
 										},
 										{
-											"id": 1130,
+											"id": 1133,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17942,7 +18020,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -17950,14 +18028,14 @@
 									}
 								},
 								{
-									"id": 1131,
+									"id": 1134,
 									"name": "color",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1132,
+											"id": 1135,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -17966,12 +18044,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1049,
+												"id": 1052,
 												"name": "CaptureColorOptions"
 											}
 										},
 										{
-											"id": 1133,
+											"id": 1136,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18005,26 +18083,26 @@
 									}
 								},
 								{
-									"id": 1134,
+									"id": 1137,
 									"name": "color",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1135,
+											"id": 1138,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1049,
+												"id": 1052,
 												"name": "CaptureColorOptions"
 											}
 										},
 										{
-											"id": 1136,
+											"id": 1139,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18042,7 +18120,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -18052,7 +18130,7 @@
 							]
 						},
 						{
-							"id": 1137,
+							"id": 1140,
 							"name": "custom",
 							"kind": 2048,
 							"kindString": "Method",
@@ -18066,7 +18144,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1138,
+									"id": 1141,
 									"name": "custom",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -18083,7 +18161,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1139,
+											"id": 1142,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18091,12 +18169,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1044,
+												"id": 1047,
 												"name": "CaptureCustomOptions"
 											}
 										},
 										{
-											"id": 1140,
+											"id": 1143,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18115,7 +18193,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -18123,14 +18201,14 @@
 									}
 								},
 								{
-									"id": 1141,
+									"id": 1144,
 									"name": "custom",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1142,
+											"id": 1145,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18139,12 +18217,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1044,
+												"id": 1047,
 												"name": "CaptureCustomOptions"
 											}
 										},
 										{
-											"id": 1143,
+											"id": 1146,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18169,26 +18247,26 @@
 									}
 								},
 								{
-									"id": 1144,
+									"id": 1147,
 									"name": "custom",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1145,
+											"id": 1148,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1044,
+												"id": 1047,
 												"name": "CaptureCustomOptions"
 											}
 										},
 										{
-											"id": 1146,
+											"id": 1149,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18215,7 +18293,7 @@
 							]
 						},
 						{
-							"id": 1147,
+							"id": 1150,
 							"name": "file",
 							"kind": 2048,
 							"kindString": "Method",
@@ -18229,7 +18307,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1148,
+									"id": 1151,
 									"name": "file",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -18247,7 +18325,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1149,
+											"id": 1152,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18255,12 +18333,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1075,
+												"id": 1078,
 												"name": "CaptureFileOptions"
 											}
 										},
 										{
-											"id": 1150,
+											"id": 1153,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18279,7 +18357,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -18287,14 +18365,14 @@
 									}
 								},
 								{
-									"id": 1151,
+									"id": 1154,
 									"name": "file",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1152,
+											"id": 1155,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18303,12 +18381,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1075,
+												"id": 1078,
 												"name": "CaptureFileOptions"
 											}
 										},
 										{
-											"id": 1153,
+											"id": 1156,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18333,26 +18411,26 @@
 									}
 								},
 								{
-									"id": 1154,
+									"id": 1157,
 									"name": "file",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1155,
+											"id": 1158,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1075,
+												"id": 1078,
 												"name": "CaptureFileOptions"
 											}
 										},
 										{
-											"id": 1156,
+											"id": 1159,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18370,7 +18448,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -18380,7 +18458,7 @@
 							]
 						},
 						{
-							"id": 1157,
+							"id": 1160,
 							"name": "image",
 							"kind": 2048,
 							"kindString": "Method",
@@ -18394,7 +18472,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1158,
+									"id": 1161,
 									"name": "image",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -18412,7 +18490,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1159,
+											"id": 1162,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18420,12 +18498,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1052,
+												"id": 1055,
 												"name": "CaptureImageOptions"
 											}
 										},
 										{
-											"id": 1160,
+											"id": 1163,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18444,7 +18522,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -18452,14 +18530,14 @@
 									}
 								},
 								{
-									"id": 1161,
+									"id": 1164,
 									"name": "image",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1162,
+											"id": 1165,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18468,12 +18546,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1052,
+												"id": 1055,
 												"name": "CaptureImageOptions"
 											}
 										},
 										{
-											"id": 1163,
+											"id": 1166,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18498,26 +18576,26 @@
 									}
 								},
 								{
-									"id": 1164,
+									"id": 1167,
 									"name": "image",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1165,
+											"id": 1168,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1052,
+												"id": 1055,
 												"name": "CaptureImageOptions"
 											}
 										},
 										{
-											"id": 1166,
+											"id": 1169,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18535,7 +18613,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -18545,7 +18623,7 @@
 							]
 						},
 						{
-							"id": 1167,
+							"id": 1170,
 							"name": "link",
 							"kind": 2048,
 							"kindString": "Method",
@@ -18559,7 +18637,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1168,
+									"id": 1171,
 									"name": "link",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -18576,7 +18654,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1169,
+											"id": 1172,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18584,12 +18662,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1076,
+												"id": 1079,
 												"name": "CaptureLinkOptions"
 											}
 										},
 										{
-											"id": 1170,
+											"id": 1173,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18608,7 +18686,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -18616,14 +18694,14 @@
 									}
 								},
 								{
-									"id": 1171,
+									"id": 1174,
 									"name": "link",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1172,
+											"id": 1175,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18632,12 +18710,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1076,
+												"id": 1079,
 												"name": "CaptureLinkOptions"
 											}
 										},
 										{
-											"id": 1173,
+											"id": 1176,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18662,26 +18740,26 @@
 									}
 								},
 								{
-									"id": 1174,
+									"id": 1177,
 									"name": "link",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1175,
+											"id": 1178,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1076,
+												"id": 1079,
 												"name": "CaptureLinkOptions"
 											}
 										},
 										{
-											"id": 1176,
+											"id": 1179,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18699,7 +18777,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -18709,7 +18787,7 @@
 							]
 						},
 						{
-							"id": 1177,
+							"id": 1180,
 							"name": "media",
 							"kind": 2048,
 							"kindString": "Method",
@@ -18723,7 +18801,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1178,
+									"id": 1181,
 									"name": "media",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -18740,7 +18818,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1179,
+											"id": 1182,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18748,12 +18826,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1100,
+												"id": 1103,
 												"name": "CaptureMediaOptions"
 											}
 										},
 										{
-											"id": 1180,
+											"id": 1183,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18772,7 +18850,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -18780,14 +18858,14 @@
 									}
 								},
 								{
-									"id": 1181,
+									"id": 1184,
 									"name": "media",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1182,
+											"id": 1185,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18796,12 +18874,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1100,
+												"id": 1103,
 												"name": "CaptureMediaOptions"
 											}
 										},
 										{
-											"id": 1183,
+											"id": 1186,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18826,26 +18904,26 @@
 									}
 								},
 								{
-									"id": 1184,
+									"id": 1187,
 									"name": "media",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1185,
+											"id": 1188,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1100,
+												"id": 1103,
 												"name": "CaptureMediaOptions"
 											}
 										},
 										{
-											"id": 1186,
+											"id": 1189,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18863,7 +18941,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -18873,7 +18951,7 @@
 							]
 						},
 						{
-							"id": 1187,
+							"id": 1190,
 							"name": "range",
 							"kind": 2048,
 							"kindString": "Method",
@@ -18887,7 +18965,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1188,
+									"id": 1191,
 									"name": "range",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -18904,7 +18982,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1189,
+											"id": 1192,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18912,12 +18990,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1079,
+												"id": 1082,
 												"name": "CaptureRangeOptions"
 											}
 										},
 										{
-											"id": 1190,
+											"id": 1193,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18936,7 +19014,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -18944,14 +19022,14 @@
 									}
 								},
 								{
-									"id": 1191,
+									"id": 1194,
 									"name": "range",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1192,
+											"id": 1195,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18960,12 +19038,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1079,
+												"id": 1082,
 												"name": "CaptureRangeOptions"
 											}
 										},
 										{
-											"id": 1193,
+											"id": 1196,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -18990,26 +19068,26 @@
 									}
 								},
 								{
-									"id": 1194,
+									"id": 1197,
 									"name": "range",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1195,
+											"id": 1198,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1079,
+												"id": 1082,
 												"name": "CaptureRangeOptions"
 											}
 										},
 										{
-											"id": 1196,
+											"id": 1199,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19027,7 +19105,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -19037,7 +19115,7 @@
 							]
 						},
 						{
-							"id": 1197,
+							"id": 1200,
 							"name": "select",
 							"kind": 2048,
 							"kindString": "Method",
@@ -19051,7 +19129,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1198,
+									"id": 1201,
 									"name": "select",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -19068,7 +19146,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1199,
+											"id": 1202,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19076,12 +19154,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1087,
+												"id": 1090,
 												"name": "CaptureSelectOptions"
 											}
 										},
 										{
-											"id": 1200,
+											"id": 1203,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19100,7 +19178,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -19108,14 +19186,14 @@
 									}
 								},
 								{
-									"id": 1201,
+									"id": 1204,
 									"name": "select",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1202,
+											"id": 1205,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19124,12 +19202,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1087,
+												"id": 1090,
 												"name": "CaptureSelectOptions"
 											}
 										},
 										{
-											"id": 1203,
+											"id": 1206,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19154,26 +19232,26 @@
 									}
 								},
 								{
-									"id": 1204,
+									"id": 1207,
 									"name": "select",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1205,
+											"id": 1208,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1087,
+												"id": 1090,
 												"name": "CaptureSelectOptions"
 											}
 										},
 										{
-											"id": 1206,
+											"id": 1209,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19191,7 +19269,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -19201,7 +19279,7 @@
 							]
 						},
 						{
-							"id": 1207,
+							"id": 1210,
 							"name": "video",
 							"kind": 2048,
 							"kindString": "Method",
@@ -19215,7 +19293,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1208,
+									"id": 1211,
 									"name": "video",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -19233,7 +19311,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1209,
+											"id": 1212,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19241,12 +19319,12 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"id": 1092,
+												"id": 1095,
 												"name": "CaptureVideoOptions"
 											}
 										},
 										{
-											"id": 1210,
+											"id": 1213,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19265,7 +19343,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 998,
+												"id": 1001,
 												"name": "VerboseCapture"
 											}
 										],
@@ -19273,14 +19351,14 @@
 									}
 								},
 								{
-									"id": 1211,
+									"id": 1214,
 									"name": "video",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1212,
+											"id": 1215,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19289,12 +19367,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1092,
+												"id": 1095,
 												"name": "CaptureVideoOptions"
 											}
 										},
 										{
-											"id": 1213,
+											"id": 1216,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19319,26 +19397,26 @@
 									}
 								},
 								{
-									"id": 1214,
+									"id": 1217,
 									"name": "video",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 1215,
+											"id": 1218,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1092,
+												"id": 1095,
 												"name": "CaptureVideoOptions"
 											}
 										},
 										{
-											"id": 1216,
+											"id": 1219,
 											"name": "verbose",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -19356,7 +19434,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 997,
+												"id": 1000,
 												"name": "CaptureResult"
 											}
 										],
@@ -19371,23 +19449,23 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1106
+								1109
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								1117,
-								1127,
-								1137,
-								1147,
-								1157,
-								1167,
-								1177,
-								1187,
-								1197,
-								1207
+								1120,
+								1130,
+								1140,
+								1150,
+								1160,
+								1170,
+								1180,
+								1190,
+								1200,
+								1210
 							]
 						}
 					],
@@ -19407,7 +19485,7 @@
 					]
 				},
 				{
-					"id": 1025,
+					"id": 1028,
 					"name": "AudioMetadata",
 					"kind": 256,
 					"kindString": "Interface",
@@ -19417,7 +19495,7 @@
 					},
 					"children": [
 						{
-							"id": 1026,
+							"id": 1029,
 							"name": "durationSeconds",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19443,7 +19521,7 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1026
+								1029
 							]
 						}
 					],
@@ -19456,7 +19534,7 @@
 					]
 				},
 				{
-					"id": 1098,
+					"id": 1101,
 					"name": "CaptureAudioOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -19466,7 +19544,7 @@
 					},
 					"children": [
 						{
-							"id": 1099,
+							"id": 1102,
 							"name": "hideExtensions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19503,7 +19581,7 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1099
+								1102
 							]
 						}
 					],
@@ -19516,7 +19594,7 @@
 					]
 				},
 				{
-					"id": 1049,
+					"id": 1052,
 					"name": "CaptureColorOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -19526,7 +19604,7 @@
 					},
 					"children": [
 						{
-							"id": 1050,
+							"id": 1053,
 							"name": "allowAlpha",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19558,7 +19636,7 @@
 							}
 						},
 						{
-							"id": 1051,
+							"id": 1054,
 							"name": "initialValue",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19595,8 +19673,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1050,
-								1051
+								1053,
+								1054
 							]
 						}
 					],
@@ -19609,7 +19687,7 @@
 					]
 				},
 				{
-					"id": 1044,
+					"id": 1047,
 					"name": "CaptureCustomOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -19619,7 +19697,7 @@
 					},
 					"children": [
 						{
-							"id": 1045,
+							"id": 1048,
 							"name": "appId",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19651,7 +19729,7 @@
 							}
 						},
 						{
-							"id": 1046,
+							"id": 1049,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19683,7 +19761,7 @@
 							}
 						},
 						{
-							"id": 1048,
+							"id": 1051,
 							"name": "typeOptions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19706,7 +19784,7 @@
 							}
 						},
 						{
-							"id": 1047,
+							"id": 1050,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19743,10 +19821,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1045,
-								1046,
 								1048,
-								1047
+								1049,
+								1051,
+								1050
 							]
 						}
 					],
@@ -19759,7 +19837,7 @@
 					]
 				},
 				{
-					"id": 1075,
+					"id": 1078,
 					"name": "CaptureFileOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -19776,7 +19854,7 @@
 					]
 				},
 				{
-					"id": 1052,
+					"id": 1055,
 					"name": "CaptureImageOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -19786,7 +19864,7 @@
 					},
 					"children": [
 						{
-							"id": 1054,
+							"id": 1057,
 							"name": "auto",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19819,12 +19897,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1521,
+								"id": 1524,
 								"name": "FastlyOptions.auto"
 							}
 						},
 						{
-							"id": 1055,
+							"id": 1058,
 							"name": "bg-color",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19857,12 +19935,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1522,
+								"id": 1525,
 								"name": "FastlyOptions.bg-color"
 							}
 						},
 						{
-							"id": 1056,
+							"id": 1059,
 							"name": "blur",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19895,12 +19973,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1523,
+								"id": 1526,
 								"name": "FastlyOptions.blur"
 							}
 						},
 						{
-							"id": 1057,
+							"id": 1060,
 							"name": "brightness",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19933,12 +20011,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1524,
+								"id": 1527,
 								"name": "FastlyOptions.brightness"
 							}
 						},
 						{
-							"id": 1058,
+							"id": 1061,
 							"name": "contrast",
 							"kind": 1024,
 							"kindString": "Property",
@@ -19971,12 +20049,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1525,
+								"id": 1528,
 								"name": "FastlyOptions.contrast"
 							}
 						},
 						{
-							"id": 1059,
+							"id": 1062,
 							"name": "crop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20009,12 +20087,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1526,
+								"id": 1529,
 								"name": "FastlyOptions.crop"
 							}
 						},
 						{
-							"id": 1060,
+							"id": 1063,
 							"name": "dpr",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20047,12 +20125,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1527,
+								"id": 1530,
 								"name": "FastlyOptions.dpr"
 							}
 						},
 						{
-							"id": 1061,
+							"id": 1064,
 							"name": "fit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20093,12 +20171,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1528,
+								"id": 1531,
 								"name": "FastlyOptions.fit"
 							}
 						},
 						{
-							"id": 1062,
+							"id": 1065,
 							"name": "format",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20167,12 +20245,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1529,
+								"id": 1532,
 								"name": "FastlyOptions.format"
 							}
 						},
 						{
-							"id": 1063,
+							"id": 1066,
 							"name": "frame",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20205,12 +20283,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1530,
+								"id": 1533,
 								"name": "FastlyOptions.frame"
 							}
 						},
 						{
-							"id": 1064,
+							"id": 1067,
 							"name": "height",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20243,12 +20321,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1531,
+								"id": 1534,
 								"name": "FastlyOptions.height"
 							}
 						},
 						{
-							"id": 1053,
+							"id": 1056,
 							"name": "hideExtensions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20280,7 +20358,7 @@
 							}
 						},
 						{
-							"id": 1065,
+							"id": 1068,
 							"name": "optimize",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20321,12 +20399,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1532,
+								"id": 1535,
 								"name": "FastlyOptions.optimize"
 							}
 						},
 						{
-							"id": 1066,
+							"id": 1069,
 							"name": "orient",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20407,12 +20485,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1533,
+								"id": 1536,
 								"name": "FastlyOptions.orient"
 							}
 						},
 						{
-							"id": 1067,
+							"id": 1070,
 							"name": "pad",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20445,12 +20523,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1534,
+								"id": 1537,
 								"name": "FastlyOptions.pad"
 							}
 						},
 						{
-							"id": 1068,
+							"id": 1071,
 							"name": "precrop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20483,12 +20561,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1535,
+								"id": 1538,
 								"name": "FastlyOptions.precrop"
 							}
 						},
 						{
-							"id": 1069,
+							"id": 1072,
 							"name": "quality",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20521,12 +20599,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1536,
+								"id": 1539,
 								"name": "FastlyOptions.quality"
 							}
 						},
 						{
-							"id": 1070,
+							"id": 1073,
 							"name": "resize-filter",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20575,12 +20653,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1537,
+								"id": 1540,
 								"name": "FastlyOptions.resize-filter"
 							}
 						},
 						{
-							"id": 1071,
+							"id": 1074,
 							"name": "saturation",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20613,12 +20691,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1538,
+								"id": 1541,
 								"name": "FastlyOptions.saturation"
 							}
 						},
 						{
-							"id": 1072,
+							"id": 1075,
 							"name": "sharpen",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20651,12 +20729,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1539,
+								"id": 1542,
 								"name": "FastlyOptions.sharpen"
 							}
 						},
 						{
-							"id": 1073,
+							"id": 1076,
 							"name": "trim",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20689,12 +20767,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1540,
+								"id": 1543,
 								"name": "FastlyOptions.trim"
 							}
 						},
 						{
-							"id": 1074,
+							"id": 1077,
 							"name": "width",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20727,7 +20805,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1541,
+								"id": 1544,
 								"name": "FastlyOptions.width"
 							}
 						}
@@ -20737,9 +20815,6 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1054,
-								1055,
-								1056,
 								1057,
 								1058,
 								1059,
@@ -20748,17 +20823,20 @@
 								1062,
 								1063,
 								1064,
-								1053,
 								1065,
 								1066,
 								1067,
+								1056,
 								1068,
 								1069,
 								1070,
 								1071,
 								1072,
 								1073,
-								1074
+								1074,
+								1075,
+								1076,
+								1077
 							]
 						}
 					],
@@ -20772,13 +20850,13 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"id": 1520,
+							"id": 1523,
 							"name": "FastlyOptions"
 						}
 					]
 				},
 				{
-					"id": 1076,
+					"id": 1079,
 					"name": "CaptureLinkOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -20788,7 +20866,7 @@
 					},
 					"children": [
 						{
-							"id": 1078,
+							"id": 1081,
 							"name": "disableExternalLinks",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20820,7 +20898,7 @@
 							}
 						},
 						{
-							"id": 1077,
+							"id": 1080,
 							"name": "kojiTemplateId",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20857,8 +20935,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1078,
-								1077
+								1081,
+								1080
 							]
 						}
 					],
@@ -20871,7 +20949,7 @@
 					]
 				},
 				{
-					"id": 1100,
+					"id": 1103,
 					"name": "CaptureMediaOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -20881,7 +20959,7 @@
 					},
 					"children": [
 						{
-							"id": 1101,
+							"id": 1104,
 							"name": "acceptOnly",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20909,7 +20987,7 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"id": 1091,
+											"id": 1094,
 											"name": "CaptureMediaAcceptOnly"
 										}
 									}
@@ -20917,7 +20995,7 @@
 							}
 						},
 						{
-							"id": 1102,
+							"id": 1105,
 							"name": "hideExtensions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20949,7 +21027,7 @@
 							}
 						},
 						{
-							"id": 1104,
+							"id": 1107,
 							"name": "imageOptions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -20975,14 +21053,14 @@
 									},
 									{
 										"type": "reference",
-										"id": 1052,
+										"id": 1055,
 										"name": "CaptureImageOptions"
 									}
 								]
 							}
 						},
 						{
-							"id": 1103,
+							"id": 1106,
 							"name": "videoOptions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21008,7 +21086,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1092,
+										"id": 1095,
 										"name": "CaptureVideoOptions"
 									}
 								]
@@ -21020,10 +21098,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1101,
-								1102,
 								1104,
-								1103
+								1105,
+								1107,
+								1106
 							]
 						}
 					],
@@ -21036,14 +21114,14 @@
 					]
 				},
 				{
-					"id": 1003,
+					"id": 1006,
 					"name": "CaptureMessage",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 1004,
+							"id": 1007,
 							"name": "_idempotencyKey",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21061,7 +21139,7 @@
 							}
 						},
 						{
-							"id": 1005,
+							"id": 1008,
 							"name": "event",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21079,7 +21157,7 @@
 							}
 						},
 						{
-							"id": 1006,
+							"id": 1009,
 							"name": "result",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21097,7 +21175,7 @@
 							}
 						},
 						{
-							"id": 1007,
+							"id": 1010,
 							"name": "status",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21111,12 +21189,12 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1010,
+								"id": 1013,
 								"name": "CaptureStatus"
 							}
 						},
 						{
-							"id": 1008,
+							"id": 1011,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21130,7 +21208,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1013,
+								"id": 1016,
 								"name": "CaptureType"
 							}
 						}
@@ -21140,11 +21218,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1004,
-								1005,
-								1006,
 								1007,
-								1008
+								1008,
+								1009,
+								1010,
+								1011
 							]
 						}
 					],
@@ -21157,7 +21235,7 @@
 					],
 					"typeParameter": [
 						{
-							"id": 1009,
+							"id": 1012,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -21166,7 +21244,7 @@
 					]
 				},
 				{
-					"id": 1079,
+					"id": 1082,
 					"name": "CaptureRangeOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -21176,7 +21254,7 @@
 					},
 					"children": [
 						{
-							"id": 1083,
+							"id": 1086,
 							"name": "initialValue",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21208,7 +21286,7 @@
 							}
 						},
 						{
-							"id": 1081,
+							"id": 1084,
 							"name": "max",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21240,7 +21318,7 @@
 							}
 						},
 						{
-							"id": 1080,
+							"id": 1083,
 							"name": "min",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21272,7 +21350,7 @@
 							}
 						},
 						{
-							"id": 1082,
+							"id": 1085,
 							"name": "step",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21309,10 +21387,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
+								1086,
+								1084,
 								1083,
-								1081,
-								1080,
-								1082
+								1085
 							]
 						}
 					],
@@ -21325,7 +21403,7 @@
 					]
 				},
 				{
-					"id": 1087,
+					"id": 1090,
 					"name": "CaptureSelectOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -21335,7 +21413,7 @@
 					},
 					"children": [
 						{
-							"id": 1090,
+							"id": 1093,
 							"name": "initialValue",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21367,7 +21445,7 @@
 							}
 						},
 						{
-							"id": 1089,
+							"id": 1092,
 							"name": "options",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21395,7 +21473,7 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"id": 1084,
+											"id": 1087,
 											"name": "SelectOption"
 										}
 									}
@@ -21403,7 +21481,7 @@
 							}
 						},
 						{
-							"id": 1088,
+							"id": 1091,
 							"name": "placeholder",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21440,9 +21518,9 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1090,
-								1089,
-								1088
+								1093,
+								1092,
+								1091
 							]
 						}
 					],
@@ -21455,7 +21533,7 @@
 					]
 				},
 				{
-					"id": 1092,
+					"id": 1095,
 					"name": "CaptureVideoOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -21465,7 +21543,7 @@
 					},
 					"children": [
 						{
-							"id": 1094,
+							"id": 1097,
 							"name": "hideExtensions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21497,7 +21575,7 @@
 							}
 						},
 						{
-							"id": 1093,
+							"id": 1096,
 							"name": "hls",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21529,7 +21607,7 @@
 							}
 						},
 						{
-							"id": 1095,
+							"id": 1098,
 							"name": "remux",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21561,7 +21639,7 @@
 							}
 						},
 						{
-							"id": 1096,
+							"id": 1099,
 							"name": "remuxPreset",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21587,14 +21665,14 @@
 									},
 									{
 										"type": "reference",
-										"id": 1513,
+										"id": 1516,
 										"name": "RemuxPreset"
 									}
 								]
 							}
 						},
 						{
-							"id": 1097,
+							"id": 1100,
 							"name": "watermark",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21620,7 +21698,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1516,
+										"id": 1519,
 										"name": "Watermark"
 									}
 								]
@@ -21632,11 +21710,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1094,
-								1093,
-								1095,
+								1097,
 								1096,
-								1097
+								1098,
+								1099,
+								1100
 							]
 						}
 					],
@@ -21649,7 +21727,7 @@
 					]
 				},
 				{
-					"id": 1037,
+					"id": 1040,
 					"name": "ExtendedLinkResult",
 					"kind": 256,
 					"kindString": "Interface",
@@ -21659,7 +21737,7 @@
 					},
 					"children": [
 						{
-							"id": 1040,
+							"id": 1043,
 							"name": "description",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21689,7 +21767,7 @@
 							}
 						},
 						{
-							"id": 1042,
+							"id": 1045,
 							"name": "sourceName",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21719,7 +21797,7 @@
 							}
 						},
 						{
-							"id": 1043,
+							"id": 1046,
 							"name": "sourceThumbnailUrl",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21749,7 +21827,7 @@
 							}
 						},
 						{
-							"id": 1041,
+							"id": 1044,
 							"name": "thumbnailUrl",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21779,7 +21857,7 @@
 							}
 						},
 						{
-							"id": 1039,
+							"id": 1042,
 							"name": "title",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21809,7 +21887,7 @@
 							}
 						},
 						{
-							"id": 1038,
+							"id": 1041,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21835,12 +21913,12 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1040,
-								1042,
 								1043,
-								1041,
-								1039,
-								1038
+								1045,
+								1046,
+								1044,
+								1042,
+								1041
 							]
 						}
 					],
@@ -21853,7 +21931,7 @@
 					]
 				},
 				{
-					"id": 1030,
+					"id": 1033,
 					"name": "ExtendedMediaResult",
 					"kind": 256,
 					"kindString": "Interface",
@@ -21863,7 +21941,7 @@
 					},
 					"children": [
 						{
-							"id": 1035,
+							"id": 1038,
 							"name": "audioMetadata",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21889,14 +21967,14 @@
 									},
 									{
 										"type": "reference",
-										"id": 1025,
+										"id": 1028,
 										"name": "AudioMetadata"
 									}
 								]
 							}
 						},
 						{
-							"id": 1036,
+							"id": 1039,
 							"name": "imageMetadata",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21922,14 +22000,14 @@
 									},
 									{
 										"type": "reference",
-										"id": 1027,
+										"id": 1030,
 										"name": "ImageMetadata"
 									}
 								]
 							}
 						},
 						{
-							"id": 1033,
+							"id": 1036,
 							"name": "sizeBytes",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21961,7 +22039,7 @@
 							}
 						},
 						{
-							"id": 1032,
+							"id": 1035,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -21993,7 +22071,7 @@
 							}
 						},
 						{
-							"id": 1031,
+							"id": 1034,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22025,7 +22103,7 @@
 							}
 						},
 						{
-							"id": 1034,
+							"id": 1037,
 							"name": "videoMetadata",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22051,7 +22129,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1023,
+										"id": 1026,
 										"name": "VideoMetadata"
 									}
 								]
@@ -22063,12 +22141,12 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1035,
+								1038,
+								1039,
 								1036,
-								1033,
-								1032,
-								1031,
-								1034
+								1035,
+								1034,
+								1037
 							]
 						}
 					],
@@ -22081,7 +22159,7 @@
 					]
 				},
 				{
-					"id": 1027,
+					"id": 1030,
 					"name": "ImageMetadata",
 					"kind": 256,
 					"kindString": "Interface",
@@ -22091,7 +22169,7 @@
 					},
 					"children": [
 						{
-							"id": 1029,
+							"id": 1032,
 							"name": "naturalHeight",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22112,7 +22190,7 @@
 							}
 						},
 						{
-							"id": 1028,
+							"id": 1031,
 							"name": "naturalWidth",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22138,8 +22216,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1029,
-								1028
+								1032,
+								1031
 							]
 						}
 					],
@@ -22152,7 +22230,7 @@
 					]
 				},
 				{
-					"id": 1084,
+					"id": 1087,
 					"name": "SelectOption",
 					"kind": 256,
 					"kindString": "Interface",
@@ -22162,7 +22240,7 @@
 					},
 					"children": [
 						{
-							"id": 1086,
+							"id": 1089,
 							"name": "label",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22183,7 +22261,7 @@
 							}
 						},
 						{
-							"id": 1085,
+							"id": 1088,
 							"name": "value",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22209,8 +22287,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1086,
-								1085
+								1089,
+								1088
 							]
 						}
 					],
@@ -22223,7 +22301,7 @@
 					]
 				},
 				{
-					"id": 998,
+					"id": 1001,
 					"name": "VerboseCapture",
 					"kind": 256,
 					"kindString": "Interface",
@@ -22233,7 +22311,7 @@
 					},
 					"children": [
 						{
-							"id": 999,
+							"id": 1002,
 							"name": "captureStatus",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22250,12 +22328,12 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1010,
+								"id": 1013,
 								"name": "CaptureStatus"
 							}
 						},
 						{
-							"id": 1000,
+							"id": 1003,
 							"name": "captureType",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22272,12 +22350,12 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 1013,
+								"id": 1016,
 								"name": "CaptureType"
 							}
 						},
 						{
-							"id": 1001,
+							"id": 1004,
 							"name": "result",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22317,7 +22395,7 @@
 							}
 						},
 						{
-							"id": 1002,
+							"id": 1005,
 							"name": "resultMetadata",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22347,12 +22425,12 @@
 									},
 									{
 										"type": "reference",
-										"id": 1030,
+										"id": 1033,
 										"name": "ExtendedMediaResult"
 									},
 									{
 										"type": "reference",
-										"id": 1037,
+										"id": 1040,
 										"name": "ExtendedLinkResult"
 									}
 								]
@@ -22364,10 +22442,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								999,
-								1000,
-								1001,
-								1002
+								1002,
+								1003,
+								1004,
+								1005
 							]
 						}
 					],
@@ -22380,7 +22458,7 @@
 					]
 				},
 				{
-					"id": 1023,
+					"id": 1026,
 					"name": "VideoMetadata",
 					"kind": 256,
 					"kindString": "Interface",
@@ -22390,7 +22468,7 @@
 					},
 					"children": [
 						{
-							"id": 1024,
+							"id": 1027,
 							"name": "thumbnailUrl",
 							"kind": 1024,
 							"kindString": "Property",
@@ -22416,7 +22494,7 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1024
+								1027
 							]
 						}
 					],
@@ -22429,7 +22507,7 @@
 					]
 				},
 				{
-					"id": 1091,
+					"id": 1094,
 					"name": "CaptureMediaAcceptOnly",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -22467,7 +22545,7 @@
 					}
 				},
 				{
-					"id": 997,
+					"id": 1000,
 					"name": "CaptureResult",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -22499,14 +22577,14 @@
 							},
 							{
 								"type": "reference",
-								"id": 998,
+								"id": 1001,
 								"name": "VerboseCapture"
 							}
 						]
 					}
 				},
 				{
-					"id": 1238,
+					"id": 1241,
 					"name": "capture",
 					"kind": 32,
 					"kindString": "Variable",
@@ -22522,7 +22600,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1105,
+						"id": 1108,
 						"name": "Capture"
 					},
 					"defaultValue": "..."
@@ -22533,54 +22611,54 @@
 					"title": "Enumerations",
 					"kind": 4,
 					"children": [
-						1010,
-						1013
+						1013,
+						1016
 					]
 				},
 				{
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1105
+						1108
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						1025,
-						1098,
-						1049,
-						1044,
-						1075,
+						1028,
+						1101,
 						1052,
-						1076,
-						1100,
-						1003,
+						1047,
+						1078,
+						1055,
 						1079,
-						1087,
-						1092,
-						1037,
+						1103,
+						1006,
+						1082,
+						1090,
+						1095,
+						1040,
+						1033,
 						1030,
-						1027,
-						1084,
-						998,
-						1023
+						1087,
+						1001,
+						1026
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						1091,
-						997
+						1094,
+						1000
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1238
+						1241
 					]
 				}
 			],
@@ -22593,14 +22671,14 @@
 			]
 		},
 		{
-			"id": 1269,
+			"id": 1272,
 			"name": "frontend/ui/navigate",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1270,
+					"id": 1273,
 					"name": "Navigate",
 					"kind": 128,
 					"kindString": "Class",
@@ -22610,21 +22688,21 @@
 					},
 					"children": [
 						{
-							"id": 1271,
+							"id": 1274,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1272,
+									"id": 1275,
 									"name": "new Navigate",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1270,
+										"id": 1273,
 										"name": "Navigate"
 									},
 									"inheritedFrom": {
@@ -22641,7 +22719,7 @@
 							}
 						},
 						{
-							"id": 1279,
+							"id": 1282,
 							"name": "createRemix",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22667,7 +22745,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1280,
+									"id": 1283,
 									"name": "createRemix",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22683,7 +22761,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1281,
+											"id": 1284,
 											"name": "appId",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -22707,7 +22785,7 @@
 							]
 						},
 						{
-							"id": 1284,
+							"id": 1287,
 							"name": "dismiss",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22733,7 +22811,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1285,
+									"id": 1288,
 									"name": "dismiss",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22755,7 +22833,7 @@
 							]
 						},
 						{
-							"id": 1282,
+							"id": 1285,
 							"name": "edit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22781,7 +22859,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1283,
+									"id": 1286,
 									"name": "edit",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22804,7 +22882,7 @@
 							]
 						},
 						{
-							"id": 1286,
+							"id": 1289,
 							"name": "openShareDialog",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22830,7 +22908,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1287,
+									"id": 1290,
 									"name": "openShareDialog",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22847,7 +22925,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1288,
+											"id": 1291,
 											"name": "url",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -22871,7 +22949,7 @@
 							]
 						},
 						{
-							"id": 1276,
+							"id": 1279,
 							"name": "presentInModal",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22897,7 +22975,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1277,
+									"id": 1280,
 									"name": "presentInModal",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22913,7 +22991,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1278,
+											"id": 1281,
 											"name": "url",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -22935,7 +23013,7 @@
 							]
 						},
 						{
-							"id": 1273,
+							"id": 1276,
 							"name": "to",
 							"kind": 2048,
 							"kindString": "Method",
@@ -22961,7 +23039,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1274,
+									"id": 1277,
 									"name": "to",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -22977,7 +23055,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1275,
+											"id": 1278,
 											"name": "url",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23004,19 +23082,19 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1271
+								1274
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								1279,
-								1284,
 								1282,
-								1286,
-								1276,
-								1273
+								1287,
+								1285,
+								1289,
+								1279,
+								1276
 							]
 						}
 					],
@@ -23036,7 +23114,7 @@
 					]
 				},
 				{
-					"id": 1310,
+					"id": 1313,
 					"name": "navigate",
 					"kind": 32,
 					"kindString": "Variable",
@@ -23052,7 +23130,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1270,
+						"id": 1273,
 						"name": "Navigate"
 					},
 					"defaultValue": "..."
@@ -23063,14 +23141,14 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1270
+						1273
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1310
+						1313
 					]
 				}
 			],
@@ -23083,14 +23161,14 @@
 			]
 		},
 		{
-			"id": 1311,
+			"id": 1314,
 			"name": "frontend/ui/present",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1321,
+					"id": 1324,
 					"name": "Present",
 					"kind": 128,
 					"kindString": "Class",
@@ -23100,21 +23178,21 @@
 					},
 					"children": [
 						{
-							"id": 1322,
+							"id": 1325,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1323,
+									"id": 1326,
 									"name": "new Present",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1321,
+										"id": 1324,
 										"name": "Present"
 									},
 									"inheritedFrom": {
@@ -23131,7 +23209,7 @@
 							}
 						},
 						{
-							"id": 1327,
+							"id": 1330,
 							"name": "alert",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23157,7 +23235,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1328,
+									"id": 1331,
 									"name": "alert",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23173,7 +23251,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1329,
+											"id": 1332,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23183,7 +23261,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1317,
+												"id": 1320,
 												"name": "PresentAlertOptions"
 											}
 										}
@@ -23196,7 +23274,7 @@
 							]
 						},
 						{
-							"id": 1324,
+							"id": 1327,
 							"name": "confirmation",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23222,7 +23300,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1325,
+									"id": 1328,
 									"name": "confirmation",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23239,7 +23317,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1326,
+											"id": 1329,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23249,7 +23327,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1312,
+												"id": 1315,
 												"name": "PresentConfirmationOptions"
 											},
 											"defaultValue": "..."
@@ -23269,7 +23347,7 @@
 							]
 						},
 						{
-							"id": 1330,
+							"id": 1333,
 							"name": "systemAlert",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23295,7 +23373,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1331,
+									"id": 1334,
 									"name": "systemAlert",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23311,7 +23389,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1332,
+											"id": 1335,
 											"name": "type",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23321,7 +23399,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1320,
+												"id": 1323,
 												"name": "SystemAlertType"
 											}
 										}
@@ -23339,16 +23417,16 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1322
+								1325
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
+								1330,
 								1327,
-								1324,
-								1330
+								1333
 							]
 						}
 					],
@@ -23368,7 +23446,7 @@
 					]
 				},
 				{
-					"id": 1317,
+					"id": 1320,
 					"name": "PresentAlertOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -23378,7 +23456,7 @@
 					},
 					"children": [
 						{
-							"id": 1319,
+							"id": 1322,
 							"name": "message",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23399,7 +23477,7 @@
 							}
 						},
 						{
-							"id": 1318,
+							"id": 1321,
 							"name": "title",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23425,8 +23503,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1319,
-								1318
+								1322,
+								1321
 							]
 						}
 					],
@@ -23439,7 +23517,7 @@
 					]
 				},
 				{
-					"id": 1312,
+					"id": 1315,
 					"name": "PresentConfirmationOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -23449,7 +23527,7 @@
 					},
 					"children": [
 						{
-							"id": 1316,
+							"id": 1319,
 							"name": "cancelButtonLabel",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23481,7 +23559,7 @@
 							}
 						},
 						{
-							"id": 1315,
+							"id": 1318,
 							"name": "confirmButtonLabel",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23513,7 +23591,7 @@
 							}
 						},
 						{
-							"id": 1314,
+							"id": 1317,
 							"name": "message",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23545,7 +23623,7 @@
 							}
 						},
 						{
-							"id": 1313,
+							"id": 1316,
 							"name": "title",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23582,10 +23660,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1316,
-								1315,
-								1314,
-								1313
+								1319,
+								1318,
+								1317,
+								1316
 							]
 						}
 					],
@@ -23598,7 +23676,7 @@
 					]
 				},
 				{
-					"id": 1320,
+					"id": 1323,
 					"name": "SystemAlertType",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -23636,7 +23714,7 @@
 					}
 				},
 				{
-					"id": 1354,
+					"id": 1357,
 					"name": "present",
 					"kind": 32,
 					"kindString": "Variable",
@@ -23652,7 +23730,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1321,
+						"id": 1324,
 						"name": "Present"
 					},
 					"defaultValue": "..."
@@ -23663,29 +23741,29 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1321
+						1324
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						1317,
-						1312
+						1320,
+						1315
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						1320
+						1323
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1354
+						1357
 					]
 				}
 			],
@@ -23698,14 +23776,14 @@
 			]
 		},
 		{
-			"id": 1355,
+			"id": 1358,
 			"name": "frontend/ui/upload",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1366,
+					"id": 1369,
 					"name": "Upload",
 					"kind": 128,
 					"kindString": "Class",
@@ -23715,21 +23793,21 @@
 					},
 					"children": [
 						{
-							"id": 1367,
+							"id": 1370,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1368,
+									"id": 1371,
 									"name": "new Upload",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1366,
+										"id": 1369,
 										"name": "Upload"
 									},
 									"inheritedFrom": {
@@ -23746,7 +23824,7 @@
 							}
 						},
 						{
-							"id": 1369,
+							"id": 1372,
 							"name": "uploadFile",
 							"kind": 2048,
 							"kindString": "Method",
@@ -23772,7 +23850,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1370,
+									"id": 1373,
 									"name": "uploadFile",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -23790,7 +23868,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1371,
+											"id": 1374,
 											"name": "options",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -23800,7 +23878,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1361,
+												"id": 1364,
 												"name": "UploadOptions"
 											}
 										}
@@ -23833,14 +23911,14 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1367
+								1370
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								1369
+								1372
 							]
 						}
 					],
@@ -23860,7 +23938,7 @@
 					]
 				},
 				{
-					"id": 1361,
+					"id": 1364,
 					"name": "UploadOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -23870,7 +23948,7 @@
 					},
 					"children": [
 						{
-							"id": 1362,
+							"id": 1365,
 							"name": "file",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23891,7 +23969,7 @@
 							}
 						},
 						{
-							"id": 1365,
+							"id": 1368,
 							"name": "silent",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23923,7 +24001,7 @@
 							}
 						},
 						{
-							"id": 1363,
+							"id": 1366,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23957,7 +24035,7 @@
 							}
 						},
 						{
-							"id": 1364,
+							"id": 1367,
 							"name": "videoOptions",
 							"kind": 1024,
 							"kindString": "Property",
@@ -23983,7 +24061,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1356,
+										"id": 1359,
 										"name": "VideoOptions"
 									}
 								]
@@ -23995,10 +24073,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1362,
 								1365,
-								1363,
-								1364
+								1368,
+								1366,
+								1367
 							]
 						}
 					],
@@ -24011,7 +24089,7 @@
 					]
 				},
 				{
-					"id": 1356,
+					"id": 1359,
 					"name": "VideoOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -24021,7 +24099,7 @@
 					},
 					"children": [
 						{
-							"id": 1357,
+							"id": 1360,
 							"name": "hls",
 							"kind": 1024,
 							"kindString": "Property",
@@ -24053,7 +24131,7 @@
 							}
 						},
 						{
-							"id": 1358,
+							"id": 1361,
 							"name": "remux",
 							"kind": 1024,
 							"kindString": "Property",
@@ -24085,7 +24163,7 @@
 							}
 						},
 						{
-							"id": 1359,
+							"id": 1362,
 							"name": "remuxPreset",
 							"kind": 1024,
 							"kindString": "Property",
@@ -24111,14 +24189,14 @@
 									},
 									{
 										"type": "reference",
-										"id": 1513,
+										"id": 1516,
 										"name": "RemuxPreset"
 									}
 								]
 							}
 						},
 						{
-							"id": 1360,
+							"id": 1363,
 							"name": "watermark",
 							"kind": 1024,
 							"kindString": "Property",
@@ -24144,7 +24222,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 1516,
+										"id": 1519,
 										"name": "Watermark"
 									}
 								]
@@ -24156,10 +24234,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1357,
-								1358,
-								1359,
-								1360
+								1360,
+								1361,
+								1362,
+								1363
 							]
 						}
 					],
@@ -24172,7 +24250,7 @@
 					]
 				},
 				{
-					"id": 1393,
+					"id": 1396,
 					"name": "upload",
 					"kind": 32,
 					"kindString": "Variable",
@@ -24188,7 +24266,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1366,
+						"id": 1369,
 						"name": "Upload"
 					},
 					"defaultValue": "..."
@@ -24199,22 +24277,22 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1366
+						1369
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						1361,
-						1356
+						1364,
+						1359
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1393
+						1396
 					]
 				}
 			],
@@ -24227,14 +24305,14 @@
 			]
 		},
 		{
-			"id": 1394,
+			"id": 1397,
 			"name": "frontend/vcc",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1396,
+					"id": 1399,
 					"name": "VCC",
 					"kind": 128,
 					"kindString": "Class",
@@ -24244,21 +24322,21 @@
 					},
 					"children": [
 						{
-							"id": 1397,
+							"id": 1400,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1398,
+									"id": 1401,
 									"name": "new VCC",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1396,
+										"id": 1399,
 										"name": "VCC"
 									},
 									"inheritedFrom": {
@@ -24275,7 +24353,7 @@
 							}
 						},
 						{
-							"id": 1406,
+							"id": 1409,
 							"name": "cancel",
 							"kind": 2048,
 							"kindString": "Method",
@@ -24301,7 +24379,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1407,
+									"id": 1410,
 									"name": "cancel",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24323,7 +24401,7 @@
 							]
 						},
 						{
-							"id": 1404,
+							"id": 1407,
 							"name": "finish",
 							"kind": 2048,
 							"kindString": "Method",
@@ -24349,7 +24427,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1405,
+									"id": 1408,
 									"name": "finish",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24371,7 +24449,7 @@
 							]
 						},
 						{
-							"id": 1399,
+							"id": 1402,
 							"name": "getOptions",
 							"kind": 2048,
 							"kindString": "Method",
@@ -24397,7 +24475,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1400,
+									"id": 1403,
 									"name": "getOptions",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24417,7 +24495,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 1044,
+												"id": 1047,
 												"name": "CaptureCustomOptions"
 											}
 										],
@@ -24427,7 +24505,7 @@
 							]
 						},
 						{
-							"id": 1401,
+							"id": 1404,
 							"name": "set",
 							"kind": 2048,
 							"kindString": "Method",
@@ -24453,7 +24531,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1402,
+									"id": 1405,
 									"name": "set",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24469,7 +24547,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1403,
+											"id": 1406,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24493,17 +24571,17 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1397
+								1400
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								1406,
-								1404,
-								1399,
-								1401
+								1409,
+								1407,
+								1402,
+								1404
 							]
 						}
 					],
@@ -24523,7 +24601,7 @@
 					]
 				},
 				{
-					"id": 1395,
+					"id": 1398,
 					"name": "SetPayload",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -24541,7 +24619,7 @@
 					}
 				},
 				{
-					"id": 1429,
+					"id": 1432,
 					"name": "vcc",
 					"kind": 32,
 					"kindString": "Variable",
@@ -24557,7 +24635,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1396,
+						"id": 1399,
 						"name": "VCC"
 					},
 					"defaultValue": "..."
@@ -24568,21 +24646,21 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1396
+						1399
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						1395
+						1398
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1429
+						1432
 					]
 				}
 			],
@@ -24595,14 +24673,14 @@
 			]
 		},
 		{
-			"id": 1430,
+			"id": 1433,
 			"name": "frontend/web3",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1431,
+					"id": 1434,
 					"name": "Web3",
 					"kind": 128,
 					"kindString": "Class",
@@ -24612,28 +24690,28 @@
 					},
 					"children": [
 						{
-							"id": 1432,
+							"id": 1435,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1433,
+									"id": 1436,
 									"name": "new Web3",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1431,
+										"id": 1434,
 										"name": "Web3"
 									}
 								}
 							]
 						},
 						{
-							"id": 1434,
+							"id": 1437,
 							"name": "providers",
 							"kind": 1024,
 							"kindString": "Property",
@@ -24650,21 +24728,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 1435,
+									"id": 1438,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 1436,
+											"id": 1439,
 											"name": "ethereum",
 											"kind": 1024,
 											"kindString": "Property",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1463,
+												"id": 1466,
 												"name": "EthereumProvider"
 											},
 											"defaultValue": "..."
@@ -24675,7 +24753,7 @@
 											"title": "Properties",
 											"kind": 1024,
 											"children": [
-												1436
+												1439
 											]
 										}
 									]
@@ -24689,14 +24767,14 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1432
+								1435
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1434
+								1437
 							]
 						}
 					],
@@ -24709,7 +24787,7 @@
 					]
 				},
 				{
-					"id": 1437,
+					"id": 1440,
 					"name": "web3",
 					"kind": 32,
 					"kindString": "Variable",
@@ -24725,7 +24803,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1431,
+						"id": 1434,
 						"name": "Web3"
 					},
 					"defaultValue": "..."
@@ -24736,14 +24814,14 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1431
+						1434
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1437
+						1440
 					]
 				}
 			],
@@ -24756,14 +24834,14 @@
 			]
 		},
 		{
-			"id": 1438,
+			"id": 1441,
 			"name": "frontend/web3/providers/ethereum",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1463,
+					"id": 1466,
 					"name": "EthereumProvider",
 					"kind": 128,
 					"kindString": "Class",
@@ -24773,21 +24851,21 @@
 					},
 					"children": [
 						{
-							"id": 1464,
+							"id": 1467,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 1465,
+									"id": 1468,
 									"name": "new EthereumProvider",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 1463,
+										"id": 1466,
 										"name": "EthereumProvider"
 									},
 									"inheritedFrom": {
@@ -24804,7 +24882,7 @@
 							}
 						},
 						{
-							"id": 1466,
+							"id": 1469,
 							"name": "isConnected",
 							"kind": 2048,
 							"kindString": "Method",
@@ -24830,7 +24908,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1467,
+									"id": 1470,
 									"name": "isConnected",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24859,7 +24937,7 @@
 							]
 						},
 						{
-							"id": 1474,
+							"id": 1477,
 							"name": "on",
 							"kind": 2048,
 							"kindString": "Method",
@@ -24885,7 +24963,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1475,
+									"id": 1478,
 									"name": "on",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -24901,7 +24979,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1476,
+											"id": 1479,
 											"name": "event",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24936,7 +25014,7 @@
 											}
 										},
 										{
-											"id": 1477,
+											"id": 1480,
 											"name": "callback",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -24947,21 +25025,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 1478,
+													"id": 1481,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 1479,
+															"id": 1482,
 															"name": "__type",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 1480,
+																	"id": 1483,
 																	"name": "message",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -24990,7 +25068,7 @@
 							]
 						},
 						{
-							"id": 1471,
+							"id": 1474,
 							"name": "request",
 							"kind": 2048,
 							"kindString": "Method",
@@ -25016,7 +25094,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1472,
+									"id": 1475,
 									"name": "request",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -25033,14 +25111,14 @@
 									},
 									"parameters": [
 										{
-											"id": 1473,
+											"id": 1476,
 											"name": "args",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"id": 1439,
+												"id": 1442,
 												"name": "Web3Request"
 											}
 										}
@@ -25050,7 +25128,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 1442,
+												"id": 1445,
 												"name": "Web3RequestResult"
 											}
 										],
@@ -25060,7 +25138,7 @@
 							]
 						},
 						{
-							"id": 1481,
+							"id": 1484,
 							"name": "sendAsync",
 							"kind": 2048,
 							"kindString": "Method",
@@ -25086,7 +25164,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1482,
+									"id": 1485,
 									"name": "sendAsync",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -25096,7 +25174,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1483,
+											"id": 1486,
 											"name": "payload",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -25106,12 +25184,12 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1448,
+												"id": 1451,
 												"name": "DeprecatedJsonRpcRequest"
 											}
 										},
 										{
-											"id": 1484,
+											"id": 1487,
 											"name": "callback",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -25122,21 +25200,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 1485,
+													"id": 1488,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 1486,
+															"id": 1489,
 															"name": "__type",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 1487,
+																	"id": 1490,
 																	"name": "error",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -25149,7 +25227,7 @@
 																	}
 																},
 																{
-																	"id": 1488,
+																	"id": 1491,
 																	"name": "response",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -25158,7 +25236,7 @@
 																	},
 																	"type": {
 																		"type": "reference",
-																		"id": 1453,
+																		"id": 1456,
 																		"name": "DeprecatedJsonRpcResponse"
 																	}
 																}
@@ -25187,7 +25265,7 @@
 							]
 						},
 						{
-							"id": 1468,
+							"id": 1471,
 							"name": "setPreferredChain",
 							"kind": 2048,
 							"kindString": "Method",
@@ -25203,7 +25281,7 @@
 							],
 							"signatures": [
 								{
-									"id": 1469,
+									"id": 1472,
 									"name": "setPreferredChain",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -25219,7 +25297,7 @@
 									},
 									"parameters": [
 										{
-											"id": 1470,
+											"id": 1473,
 											"name": "chain",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -25229,7 +25307,7 @@
 											},
 											"type": {
 												"type": "reference",
-												"id": 1462,
+												"id": 1465,
 												"name": "SupportedChain"
 											}
 										}
@@ -25253,18 +25331,18 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								1464
+								1467
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								1466,
+								1469,
+								1477,
 								1474,
-								1471,
-								1481,
-								1468
+								1484,
+								1471
 							]
 						}
 					],
@@ -25284,7 +25362,7 @@
 					]
 				},
 				{
-					"id": 1448,
+					"id": 1451,
 					"name": "DeprecatedJsonRpcRequest",
 					"kind": 256,
 					"kindString": "Interface",
@@ -25294,7 +25372,7 @@
 					},
 					"children": [
 						{
-							"id": 1449,
+							"id": 1452,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25321,7 +25399,7 @@
 							}
 						},
 						{
-							"id": 1450,
+							"id": 1453,
 							"name": "jsonrpc",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25339,7 +25417,7 @@
 							}
 						},
 						{
-							"id": 1451,
+							"id": 1454,
 							"name": "method",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25357,12 +25435,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1440,
+								"id": 1443,
 								"name": "Web3Request.method"
 							}
 						},
 						{
-							"id": 1452,
+							"id": 1455,
 							"name": "params",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25394,7 +25472,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1441,
+								"id": 1444,
 								"name": "Web3Request.params"
 							}
 						}
@@ -25404,10 +25482,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1449,
-								1450,
-								1451,
-								1452
+								1452,
+								1453,
+								1454,
+								1455
 							]
 						}
 					],
@@ -25421,13 +25499,13 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"id": 1439,
+							"id": 1442,
 							"name": "Web3Request"
 						}
 					]
 				},
 				{
-					"id": 1453,
+					"id": 1456,
 					"name": "DeprecatedJsonRpcResponse",
 					"kind": 256,
 					"kindString": "Interface",
@@ -25437,7 +25515,7 @@
 					},
 					"children": [
 						{
-							"id": 1458,
+							"id": 1461,
 							"name": "error",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25461,14 +25539,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 1459,
+											"id": 1462,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 1460,
+													"id": 1463,
 													"name": "code",
 													"kind": 1024,
 													"kindString": "Property",
@@ -25486,7 +25564,7 @@
 													}
 												},
 												{
-													"id": 1461,
+													"id": 1464,
 													"name": "message",
 													"kind": 1024,
 													"kindString": "Property",
@@ -25509,8 +25587,8 @@
 													"title": "Properties",
 													"kind": 1024,
 													"children": [
-														1460,
-														1461
+														1463,
+														1464
 													]
 												}
 											]
@@ -25520,12 +25598,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1444,
+								"id": 1447,
 								"name": "Web3RequestResult.error"
 							}
 						},
 						{
-							"id": 1454,
+							"id": 1457,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25552,7 +25630,7 @@
 							}
 						},
 						{
-							"id": 1455,
+							"id": 1458,
 							"name": "jsonrpc",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25570,7 +25648,7 @@
 							}
 						},
 						{
-							"id": 1456,
+							"id": 1459,
 							"name": "method",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25588,7 +25666,7 @@
 							}
 						},
 						{
-							"id": 1457,
+							"id": 1460,
 							"name": "result",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25606,7 +25684,7 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"id": 1443,
+								"id": 1446,
 								"name": "Web3RequestResult.result"
 							}
 						}
@@ -25616,11 +25694,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
+								1461,
+								1457,
 								1458,
-								1454,
-								1455,
-								1456,
-								1457
+								1459,
+								1460
 							]
 						}
 					],
@@ -25634,13 +25712,13 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"id": 1442,
+							"id": 1445,
 							"name": "Web3RequestResult"
 						}
 					]
 				},
 				{
-					"id": 1439,
+					"id": 1442,
 					"name": "Web3Request",
 					"kind": 256,
 					"kindString": "Interface",
@@ -25650,7 +25728,7 @@
 					},
 					"children": [
 						{
-							"id": 1440,
+							"id": 1443,
 							"name": "method",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25668,7 +25746,7 @@
 							}
 						},
 						{
-							"id": 1441,
+							"id": 1444,
 							"name": "params",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25705,8 +25783,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1440,
-								1441
+								1443,
+								1444
 							]
 						}
 					],
@@ -25720,13 +25798,13 @@
 					"extendedBy": [
 						{
 							"type": "reference",
-							"id": 1448,
+							"id": 1451,
 							"name": "DeprecatedJsonRpcRequest"
 						}
 					]
 				},
 				{
-					"id": 1442,
+					"id": 1445,
 					"name": "Web3RequestResult",
 					"kind": 256,
 					"kindString": "Interface",
@@ -25736,7 +25814,7 @@
 					},
 					"children": [
 						{
-							"id": 1444,
+							"id": 1447,
 							"name": "error",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25760,14 +25838,14 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 1445,
+											"id": 1448,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 1446,
+													"id": 1449,
 													"name": "code",
 													"kind": 1024,
 													"kindString": "Property",
@@ -25785,7 +25863,7 @@
 													}
 												},
 												{
-													"id": 1447,
+													"id": 1450,
 													"name": "message",
 													"kind": 1024,
 													"kindString": "Property",
@@ -25808,8 +25886,8 @@
 													"title": "Properties",
 													"kind": 1024,
 													"children": [
-														1446,
-														1447
+														1449,
+														1450
 													]
 												}
 											]
@@ -25819,7 +25897,7 @@
 							}
 						},
 						{
-							"id": 1443,
+							"id": 1446,
 							"name": "result",
 							"kind": 1024,
 							"kindString": "Property",
@@ -25842,8 +25920,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1444,
-								1443
+								1447,
+								1446
 							]
 						}
 					],
@@ -25857,13 +25935,13 @@
 					"extendedBy": [
 						{
 							"type": "reference",
-							"id": 1453,
+							"id": 1456,
 							"name": "DeprecatedJsonRpcResponse"
 						}
 					]
 				},
 				{
-					"id": 1462,
+					"id": 1465,
 					"name": "SupportedChain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -25913,7 +25991,7 @@
 					}
 				},
 				{
-					"id": 1510,
+					"id": 1513,
 					"name": "ethereumProvider",
 					"kind": 32,
 					"kindString": "Variable",
@@ -25929,7 +26007,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"id": 1463,
+						"id": 1466,
 						"name": "EthereumProvider"
 					},
 					"defaultValue": "..."
@@ -25940,31 +26018,31 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						1463
+						1466
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						1448,
-						1453,
-						1439,
-						1442
+						1451,
+						1456,
+						1442,
+						1445
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						1462
+						1465
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1510
+						1513
 					]
 				}
 			],
@@ -25977,14 +26055,14 @@
 			]
 		},
 		{
-			"id": 1511,
+			"id": 1514,
 			"name": "index",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1553,
+					"id": 1556,
 					"name": "KojiBackend",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -25992,7 +26070,7 @@
 					"target": 440
 				},
 				{
-					"id": 1554,
+					"id": 1557,
 					"name": "default",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -26005,8 +26083,8 @@
 					"title": "References",
 					"kind": 16777216,
 					"children": [
-						1553,
-						1554
+						1556,
+						1557
 					]
 				}
 			],
@@ -26019,21 +26097,21 @@
 			]
 		},
 		{
-			"id": 1512,
+			"id": 1515,
 			"name": "types",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1520,
+					"id": 1523,
 					"name": "FastlyOptions",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 1521,
+							"id": 1524,
 							"name": "auto",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26066,7 +26144,7 @@
 							}
 						},
 						{
-							"id": 1522,
+							"id": 1525,
 							"name": "bg-color",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26099,7 +26177,7 @@
 							}
 						},
 						{
-							"id": 1523,
+							"id": 1526,
 							"name": "blur",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26132,7 +26210,7 @@
 							}
 						},
 						{
-							"id": 1524,
+							"id": 1527,
 							"name": "brightness",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26165,7 +26243,7 @@
 							}
 						},
 						{
-							"id": 1525,
+							"id": 1528,
 							"name": "contrast",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26198,7 +26276,7 @@
 							}
 						},
 						{
-							"id": 1526,
+							"id": 1529,
 							"name": "crop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26231,7 +26309,7 @@
 							}
 						},
 						{
-							"id": 1527,
+							"id": 1530,
 							"name": "dpr",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26264,7 +26342,7 @@
 							}
 						},
 						{
-							"id": 1528,
+							"id": 1531,
 							"name": "fit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26305,7 +26383,7 @@
 							}
 						},
 						{
-							"id": 1529,
+							"id": 1532,
 							"name": "format",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26374,7 +26452,7 @@
 							}
 						},
 						{
-							"id": 1530,
+							"id": 1533,
 							"name": "frame",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26407,7 +26485,7 @@
 							}
 						},
 						{
-							"id": 1531,
+							"id": 1534,
 							"name": "height",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26440,7 +26518,7 @@
 							}
 						},
 						{
-							"id": 1532,
+							"id": 1535,
 							"name": "optimize",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26481,7 +26559,7 @@
 							}
 						},
 						{
-							"id": 1533,
+							"id": 1536,
 							"name": "orient",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26562,7 +26640,7 @@
 							}
 						},
 						{
-							"id": 1534,
+							"id": 1537,
 							"name": "pad",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26595,7 +26673,7 @@
 							}
 						},
 						{
-							"id": 1535,
+							"id": 1538,
 							"name": "precrop",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26628,7 +26706,7 @@
 							}
 						},
 						{
-							"id": 1536,
+							"id": 1539,
 							"name": "quality",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26661,7 +26739,7 @@
 							}
 						},
 						{
-							"id": 1537,
+							"id": 1540,
 							"name": "resize-filter",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26710,7 +26788,7 @@
 							}
 						},
 						{
-							"id": 1538,
+							"id": 1541,
 							"name": "saturation",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26743,7 +26821,7 @@
 							}
 						},
 						{
-							"id": 1539,
+							"id": 1542,
 							"name": "sharpen",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26776,7 +26854,7 @@
 							}
 						},
 						{
-							"id": 1540,
+							"id": 1543,
 							"name": "trim",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26809,7 +26887,7 @@
 							}
 						},
 						{
-							"id": 1541,
+							"id": 1544,
 							"name": "width",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26847,9 +26925,6 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1521,
-								1522,
-								1523,
 								1524,
 								1525,
 								1526,
@@ -26867,7 +26942,10 @@
 								1538,
 								1539,
 								1540,
-								1541
+								1541,
+								1542,
+								1543,
+								1544
 							]
 						}
 					],
@@ -26881,13 +26959,13 @@
 					"extendedBy": [
 						{
 							"type": "reference",
-							"id": 1052,
+							"id": 1055,
 							"name": "CaptureImageOptions"
 						}
 					]
 				},
 				{
-					"id": 1513,
+					"id": 1516,
 					"name": "RemuxPreset",
 					"kind": 256,
 					"kindString": "Interface",
@@ -26897,7 +26975,7 @@
 					},
 					"children": [
 						{
-							"id": 1514,
+							"id": 1517,
 							"name": "aspectRatio",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26939,7 +27017,7 @@
 							}
 						},
 						{
-							"id": 1515,
+							"id": 1518,
 							"name": "sizePolicy",
 							"kind": 1024,
 							"kindString": "Property",
@@ -26974,8 +27052,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1514,
-								1515
+								1517,
+								1518
 							]
 						}
 					],
@@ -26988,7 +27066,7 @@
 					]
 				},
 				{
-					"id": 1516,
+					"id": 1519,
 					"name": "Watermark",
 					"kind": 256,
 					"kindString": "Interface",
@@ -26998,7 +27076,7 @@
 					},
 					"children": [
 						{
-							"id": 1517,
+							"id": 1520,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -27024,7 +27102,7 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1517
+								1520
 							]
 						}
 					],
@@ -27037,7 +27115,7 @@
 					]
 				},
 				{
-					"id": 1519,
+					"id": 1522,
 					"name": "IAPToken",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -27064,7 +27142,7 @@
 					}
 				},
 				{
-					"id": 1518,
+					"id": 1521,
 					"name": "UserToken",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -27096,17 +27174,17 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						1520,
-						1513,
-						1516
+						1523,
+						1516,
+						1519
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						1519,
-						1518
+						1522,
+						1521
 					]
 				}
 			],
@@ -27119,14 +27197,14 @@
 			]
 		},
 		{
-			"id": 1542,
+			"id": 1545,
 			"name": "utils/equalsIgnoreOrder",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1543,
+					"id": 1546,
 					"name": "equalsIgnoreOrder",
 					"kind": 64,
 					"kindString": "Function",
@@ -27142,14 +27220,14 @@
 					],
 					"signatures": [
 						{
-							"id": 1544,
+							"id": 1547,
 							"name": "equalsIgnoreOrder",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1545,
+									"id": 1548,
 									"name": "a",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -27163,7 +27241,7 @@
 									}
 								},
 								{
-									"id": 1546,
+									"id": 1549,
 									"name": "b",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -27190,7 +27268,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1543
+						1546
 					]
 				}
 			],
@@ -27203,14 +27281,14 @@
 			]
 		},
 		{
-			"id": 1547,
+			"id": 1550,
 			"name": "utils/get",
 			"kind": 1,
 			"kindString": "Module",
 			"flags": {},
 			"children": [
 				{
-					"id": 1548,
+					"id": 1551,
 					"name": "get",
 					"kind": 64,
 					"kindString": "Function",
@@ -27226,14 +27304,14 @@
 					],
 					"signatures": [
 						{
-							"id": 1549,
+							"id": 1552,
 							"name": "get",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1550,
+									"id": 1553,
 									"name": "obj",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -27245,7 +27323,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 1551,
+									"id": 1554,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -27259,7 +27337,7 @@
 									}
 								},
 								{
-									"id": 1552,
+									"id": 1555,
 									"name": "defaultValue",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -27284,7 +27362,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1548
+						1551
 					]
 				}
 			],
@@ -27326,19 +27404,19 @@
 				831,
 				856,
 				924,
-				983,
-				1239,
-				996,
-				1269,
-				1311,
-				1355,
-				1394,
-				1430,
-				1438,
-				1511,
-				1512,
-				1542,
-				1547
+				986,
+				1242,
+				999,
+				1272,
+				1314,
+				1358,
+				1397,
+				1433,
+				1441,
+				1514,
+				1515,
+				1545,
+				1550
 			]
 		}
 	]
