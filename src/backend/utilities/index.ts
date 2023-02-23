@@ -7,6 +7,7 @@ import { Base, BackendConfigurationInput } from '../base';
  */
 enum UtilitiesRoutes {
   UNFREEZE_KEY = '/v1/apps/hooks/cache/unfreeze',
+  REGENERATE_THUMBNAILS = '/v1/apps/hooks/utilities/regenerateThumbnails',
 }
 
 /**
@@ -95,6 +96,25 @@ export class Utilities extends Base {
       {
         key,
       },
+      {
+        headers: this.rootHeaders,
+      },
+    );
+  }
+
+  /**
+   * Regenerates thumbnails for the Koji app.
+   *
+   * @example
+   * ```javascript
+   * await utilities.regenerateThumbnails();
+   * ```
+   */
+  @server
+  public async regenerateThumbnails(): Promise<void> {
+    await axios.post(
+      `${this.rootPath}${UtilitiesRoutes.REGENERATE_THUMBNAILS}`,
+      {},
       {
         headers: this.rootHeaders,
       },
