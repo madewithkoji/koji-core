@@ -70,7 +70,7 @@ export class Identity extends Base {
   public constructor(config: BackendConfigurationInput) {
     super(config);
 
-    this.rootPath = 'https://rest.api.gokoji.com';
+    this.rootPath = 'https://rest.koji-api.com';
 
     this.rootHeaders = {
       'X-Koji-Project-Id': this.projectId,
