@@ -3,6 +3,16 @@ import { client } from '../@decorators/client';
 import { IAPToken } from '../../types';
 
 /**
+ * Represents a file related to a purchase.
+ */
+export interface PurchaseFile {
+  /** Name of the file. */
+  name?: string
+  /** URL of the file. */
+  url: string
+}
+
+/**
  * Optional information to add to a {@doclink core-backend-iap#IapReceipt | transaction receipt} for a given in-app purchase.
  */
 export interface PurchaseOptions {
@@ -10,6 +20,8 @@ export interface PurchaseOptions {
   amount?: number;
   /** Custom message associated with the purchase. This value is stored as a custom attribute on the transaction receipt. */
   customMessage?: string;
+  /** Files to be included on the transaction receipts page, making it easy for the customers to access important files related to their purchase. */
+  files?: PurchaseFile[];
 }
 
 /**
